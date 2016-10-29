@@ -63,7 +63,6 @@ public class Comentario
 	
 	
 	
-	
 	public String getRut() {
 		return rut;
 	}

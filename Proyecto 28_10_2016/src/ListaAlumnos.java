@@ -144,7 +144,6 @@ public class ListaAlumnos implements Arreglo
 		if(arrayAlumnos!=null){
 			for(int i = 0; i < arrayAlumnos.size(); i++)
 			{
-				System.out.println(buscado+" y "+arrayAlumnos.get(i).getRut());
 				if(buscado.equals(arrayAlumnos.get(i).getRut())){
 					return true;			
 				}

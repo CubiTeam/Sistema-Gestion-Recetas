@@ -54,12 +54,6 @@ public class Receta
 
 
 
-	public ListaComentarios getComentarios() {
-		return ListaComentarios;
-	}
-
-
-
 
 
 
@@ -103,6 +97,270 @@ public class Receta
 
 
 
+
+
+
+
+
+
+
+
+
+	public String getNombreReceta() {
+		return nombreReceta;
+	}
+
+
+
+
+
+
+
+
+
+	public void setNombreReceta(String nombreReceta) {
+		this.nombreReceta = nombreReceta;
+	}
+
+
+
+
+
+
+
+
+
+	public String[] getIngredientes() {
+		return ingredientes;
+	}
+
+
+
+
+
+
+
+
+
+	public void setIngredientes(String[] ingredientes) {
+		this.ingredientes = ingredientes;
+	}
+
+
+
+
+
+
+
+
+
+	public String[] getUtensilios() {
+		return utensilios;
+	}
+
+
+
+
+
+
+
+
+
+	public void setUtensilios(String[] utensilios) {
+		this.utensilios = utensilios;
+	}
+
+
+
+
+
+
+
+
+
+	public Alumno getAutor() {
+		return autor;
+	}
+
+
+
+
+
+
+
+
+
+	public void setAutor(Alumno autor) {
+		this.autor = autor;
+	}
+
+
+
+
+
+
+
+
+
+	public int getCaloriasTotales() {
+		return caloriasTotales;
+	}
+
+
+
+
+
+
+
+
+
+	public void setCaloriasTotales(int caloriasTotales) {
+		this.caloriasTotales = caloriasTotales;
+	}
+
+
+
+
+
+
+
+
+
+	public String getInstrucciones() {
+		return Instrucciones;
+	}
+
+
+
+
+
+
+
+
+
+	public void setInstrucciones(String instrucciones) {
+		Instrucciones = instrucciones;
+	}
+
+
+
+
+
+
+
+
+
+	public int getTiempoEstimadoPreparacion() {
+		return tiempoEstimadoPreparacion;
+	}
+
+
+
+
+
+
+
+
+
+	public void setTiempoEstimadoPreparacion(int tiempoEstimadoPreparacion) {
+		this.tiempoEstimadoPreparacion = tiempoEstimadoPreparacion;
+	}
+
+
+
+
+
+
+
+
+
+	public String[] getCategorias() {
+		return categorias;
+	}
+
+
+
+
+
+
+
+
+
+	public void setCategorias(String[] categorias) {
+		this.categorias = categorias;
+	}
+
+
+
+
+
+
+
+
+
+	public int getCalificacionReceta() {
+		return calificacionReceta;
+	}
+
+
+
+
+
+
+
+
+
+	public void setCalificacionReceta(int calificacionReceta) {
+		this.calificacionReceta = calificacionReceta;
+	}
+
+
+
+
+
+
+
+
+
+	public String[] getDenuncias() {
+		return denuncias;
+	}
+
+
+
+
+
+
+
+
+
+	public void setDenuncias(String[] denuncias) {
+		this.denuncias = denuncias;
+	}
+
+
+
+
+
+
+
+
+
+	public VentanaReceta getVentanaPrincipal() {
+		return ventanaPrincipal;
+	}
+
+
+
+
+
+
+
+
+
+	public void setVentanaPrincipal(VentanaReceta ventanaPrincipal) {
+		this.ventanaPrincipal = ventanaPrincipal;
+	}
 
 
 
@@ -201,84 +459,16 @@ public class Receta
 
 	
 	
-	public Alumno getAutor() {
-		return autor;
-	}
 	
-	public void setAutor(Alumno autor) 
-	{
-		this.autor = autor;
-	}
+
 	
-	public VentanaReceta getVentanaPrincipal() {
-		return ventanaPrincipal;
-	}
-
-
-	public void setVentanaPrincipal(VentanaReceta ventanaPrincipal) 
-	{
-		this.ventanaPrincipal = ventanaPrincipal;
-	}
-
 	public void mostrarReceta()
 	{
 		ventanaPrincipal.setVisible(true);
 	}
 
-	public String getNombreReceta() {
-		return nombreReceta;
-	}
-	public void setNombreReceta(String nombreReceta) {
-		this.nombreReceta = nombreReceta;
-	}
-	public String[] getIngredientes() {
-		return ingredientes;
-	}
-	public void setIngredientes(String[] ingredientes) {
-		this.ingredientes = ingredientes;
-	}
-	public String[] getUtensilios() {
-		return utensilios;
-	}
-	public void setUtensilios(String[] arrayList) {
-		this.utensilios = arrayList;
-	}
-	public int getCaloriasTotales() {
-		return caloriasTotales;
-	}
-	public void setCaloriasTotales(int caloriasTotales) {
-		this.caloriasTotales = caloriasTotales;
-	}
-	public String getInstrucciones() {
-		return Instrucciones;
-	}
-	public void setInstrucciones(String intrucciones) {
-		Instrucciones = intrucciones;
-	}
-	public int getTiempoEstimadoPreparacion() {
-		return tiempoEstimadoPreparacion;
-	}
-	public void setTiempoEstimadoPreparacion(int tiempoEstimadoPreparacion) {
-		this.tiempoEstimadoPreparacion = tiempoEstimadoPreparacion;
-	}
-	public String[] getCategorias() {
-		return categorias;
-	}
-	public void setCategorias(String[] arrayList) {
-		this.categorias = arrayList;
-	}
-	public int getCalificacionReceta() {
-		return calificacionReceta;
-	}
-	public void setCalificacionReceta(int calificacionReceta) {
-		this.calificacionReceta = calificacionReceta;
-	}
-	public String[] getDenuncias() {
-		return denuncias;
-	}
-	public void setDenuncias(String[] denuncias) {
-		this.denuncias = denuncias;
-	}
+	
+	
 	@Override
 	public String toString()
 	{

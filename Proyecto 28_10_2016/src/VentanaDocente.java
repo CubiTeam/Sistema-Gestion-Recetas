@@ -77,7 +77,8 @@ public class VentanaDocente extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 String rutAlumno = JOptionPane.showInputDialog(null,"Ingrese rut del alumno","Buscar alumno",JOptionPane.QUESTION_MESSAGE);
                 if(rutAlumno != null){
-                    if(universidad.getListaAlumnos().existe(rutAlumno)){               
+                    if(universidad.getListaAlumnos().existe(rutAlumno))
+                    {               
                         setVisible(false);
                         VentanaModificarAlumno ventanaModificarAlumno = new VentanaModificarAlumno(
                         		universidad.getListaAlumnos().busqueda(rutAlumno),universidad,VentanaDocente.this);

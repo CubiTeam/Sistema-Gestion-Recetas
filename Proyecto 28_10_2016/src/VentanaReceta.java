@@ -150,8 +150,8 @@ public class VentanaReceta extends JFrame {
 		final JTextArea textComentarios = new JTextArea();
 		panelComentarios.add(textComentarios);
 		textComentarios.setEditable(false);
-		if(receta.getComentarios()!=null)
-			textComentarios.setText(actualizarLista(receta.getComentarios().getArrayComentarios()));
+		if(receta.getListaComentarios()!=null)
+			textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 		
 		JScrollPane scrollComentarios = new JScrollPane(textComentarios);
 		panelComentarios.add(scrollComentarios);
@@ -177,8 +177,9 @@ public class VentanaReceta extends JFrame {
 		btnComentar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				Comentario comentarioNuevo= receta.getComentarios().agregarComentario(txtComentarioNuevo.getText(), alumno);
-				textComentarios.setText(actualizarLista(receta.getComentarios().getArrayComentarios()));
+				Comentario comentarioNuevo = new Comentario(alumno,txtComentarioNuevo.getText(),receta.getListaComentarios().identificadorComentario());
+				
+				textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 				txtComentarioNuevo.setText("");
 			}
 		});
@@ -201,9 +202,9 @@ public class VentanaReceta extends JFrame {
 						if(code.matches("[0-9]"))
 						{
 							int codeNumerico= Integer.parseInt(code);
-							if(receta.getComentarios().eliminarComentario(codeNumerico))
+							if(receta.getListaComentarios().eliminarComentario(codeNumerico))
 							{
-								textComentarios.setText(actualizarLista(receta.getComentarios().getArrayComentarios()));
+								textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 								JOptionPane.showMessageDialog(VentanaReceta.this, "Se elimino con exito");
 							}
 							else
@@ -224,14 +225,14 @@ public class VentanaReceta extends JFrame {
 					if(code!=null && !code.equals(""))
 					{
 						int codeNumerico= Integer.parseInt(code);
-						Comentario comentarioEliminar= receta.getComentarios().pedirComentario(codeNumerico);
+						Comentario comentarioEliminar= receta.getListaComentarios().pedirComentario(codeNumerico);
 						if(comentarioEliminar!=null)
 						{
 							if(comentarioEliminar.getAutor()==alumno)
 							{
-								if(receta.getComentarios().eliminarComentario(codeNumerico))
+								if(receta.getListaComentarios().eliminarComentario(codeNumerico))
 								{
-									textComentarios.setText(actualizarLista(receta.getComentarios().getArrayComentarios()));
+									textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 									JOptionPane.showMessageDialog(VentanaReceta.this, "Se elimino con exito");
 								}
 								else
@@ -267,15 +268,15 @@ public class VentanaReceta extends JFrame {
 				if(code!=null && !code.equals(""))
 				{
 					int codeNumerico= Integer.parseInt(code);
-					Comentario comentarioModificar= receta.getComentarios().pedirComentario(codeNumerico);
+					Comentario comentarioModificar= receta.getListaComentarios().pedirComentario(codeNumerico);
 					if(comentarioModificar!=null)
 					{
 						if(comentarioModificar.getAutor()==alumno)
 						{
 							String nuevoComent = JOptionPane.showInputDialog(comentarioModificar.getTexto());
-							if(receta.getComentarios().modificarComentario(codeNumerico,nuevoComent))
+							if(receta.getListaComentarios().modificarComentario(codeNumerico,nuevoComent))
 							{
-								textComentarios.setText(actualizarLista(receta.getComentarios().getArrayComentarios()));
+								textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 								JOptionPane.showMessageDialog(VentanaReceta.this, "Se modificó con exito");
 							}
 							else

@@ -80,17 +80,30 @@ public class ListaComentarios
 	
 	
 	//agrega un comentario nuevo a la receta
-	public Comentario agregarComentario(String comentario, Alumno comentador)
-	{												
-		Comentario comentarioNuevo = new Comentario(comentador,comentario,identificadorComentario());
-		arrayComentarios.add(comentarioNuevo);
-		return comentarioNuevo;
+	public boolean agregar(Object comentario)
+	{	
+		if(!existe(comentario))
+		{
+			arrayComentarios.add((Comentario)comentario);
+			return true;
+		}
+		return false;
 	}
 	
 	
 	
 	
-	
+	public boolean existe(Object comentario)
+	{
+		
+		for(int i=0;i<arrayComentarios.size();i++)
+		{
+			if((Comentario)comentario==arrayComentarios.get(i))
+				return true;
+		}
+		
+		return false;
+	}
 	
 	
 	
