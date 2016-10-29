@@ -33,7 +33,7 @@ public class ClasePrincipal
 	{
 		Universidad universidad = new Universidad();
 		VentanaPrincipal ventanaInicial = new VentanaPrincipal(universidad);
-		//holanda que talca que no funca
+		//holanda que talca que no funcaaaaa
 		ventanaInicial.setVisible(true);
 	}
 }
