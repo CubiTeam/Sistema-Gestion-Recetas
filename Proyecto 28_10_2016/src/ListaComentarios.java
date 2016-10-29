@@ -23,6 +23,10 @@ public class ListaComentarios
 	
 	
 	
+	
+	
+	
+	
 	public ListaComentarios()
 	{
 		this.arrayComentarios= new ArrayList<Comentario>();

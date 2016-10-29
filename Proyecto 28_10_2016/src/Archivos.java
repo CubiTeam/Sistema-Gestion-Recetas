@@ -166,9 +166,9 @@ public class Archivos
 	 * 								METODOS DE ESCRITURAS EN LOS ARCHIVOS TXT RESPECTIVOS
 	 * ****************************************************************************************************************/
 	
-	
+	//este metodo escribe las lista de los utensilios,ingredientes y categorias en el txt de la receta
 	public void escribirListaTxt(String [] lista,PrintWriter pEscrit)
-	{						//este metodo escribe las lista de los utensilios,ingredientes y categorias en el txt de la receta
+	{						
 		if(lista!=null)
 		{
 			if(lista.length==0)
@@ -194,9 +194,9 @@ public class Archivos
 	
 	
 	
-	
+	//metodo que escribe las instrucciones de la receta en el txt de la receta
 	public void escribirInstrucciones(String instruccion,PrintWriter pEscrit)
-	{												//metodo que escribe las instrucciones de la receta en el txt de la receta
+	{												
 		if(instruccion!=null)
 		{
 			if(!instruccion.isEmpty())
@@ -224,9 +224,9 @@ public class Archivos
 	
 	
 	
-	
+	//metodo que escribe los comentarios de la receta en el txt
 	public void escribirComentariosTxt(ArrayList<Comentario> listaComentarios,PrintWriter pEscrit)
-	{														//metodo que escribe los comentarios de la receta en el txt
+	{														
 		if(listaComentarios!=null)
 		{
 			pEscrit.println(listaComentarios.size());	//lee primero la cantidad de elementos de la lista de comentarios
@@ -257,9 +257,9 @@ public class Archivos
 	 * ****************************************************************************************************************/
 	
 	
-	
+	//lee cada elemento de una lista(ingredientes,utensilios y categorias)
 	public String [] leerListaTxt(BufferedReader buffer) throws NumberFormatException, IOException
-	{													//lee cada elemento de una lista(ingredientes,utensilios y categorias)
+	{													
 		int cantidad = Integer.parseInt(buffer.readLine());		//primero lee la cantidad de elementos de la lista
 		String[] lista = new String[cantidad];
 
@@ -280,9 +280,9 @@ public class Archivos
 	
 	
 	
-	
+	//lee las instrucciones de la receta
 	public String leerInstruccionesTxt(BufferedReader buffer) throws NumberFormatException, IOException
-	{											//lee las instrucciones de la receta
+	{											
 		String instruccion = new String();
 		String cadena = new String();
 		while(buffer.ready())	
@@ -309,9 +309,9 @@ public class Archivos
 	
 	
 	
-	
+	//metodo que lee todos los comentarios del txt de la receta
 	public ArrayList<Comentario> leerComentariosTxt(BufferedReader buffer) throws NumberFormatException, IOException
-	{												//metodo que lee todos los comentarios del txt de la receta
+	{												
 		ArrayList<Comentario> comentarios= new ArrayList<Comentario>();
 		String cadena = buffer.readLine();
 		if(cadena!=null)
@@ -518,9 +518,9 @@ public class Archivos
 	/******************************************************************************************************************
 	 * 											METODOS DE CREACION DE CARPETAS
 	 * ****************************************************************************************************************/
-	
+	// se crea una carpeta nueva con el rut del autor de la receta
 	public void crearCarpetaRecetas(Alumno alumno,Receta receta)
-	{									// se crea una carpeta nueva con el rut del autor de la receta			
+	{												
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Alumnos\\"+alumno.getRut()+"\\Recetas");
 		File archivo = new File(carpeta,receta.getNombreReceta()+".txt");
 		if(!carpeta.exists()){
@@ -541,9 +541,9 @@ public class Archivos
 	
 	
 	
-	
+	//este metodo crea una carpeta para el usuario
 	public void crearCarpetaUsuario(Alumno alumno)
-	{							//este metodo crea una carpeta para el usuario
+	{							
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Alumnos\\"+alumno.getRut());
 		File archivo = new File(carpeta,"DatosUsuario"+alumno.getRut()+".txt");
 		
@@ -565,9 +565,9 @@ public class Archivos
 	
 	
 	
-	
+	//este metodo crea una carpeta para el usuario
 	public void crearCarpetaUsuario(Docente docente)
-	{							//este metodo crea una carpeta para el usuario
+	{							
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Docentes\\"+docente.getRut());
 		File archivo = new File(carpeta,"DatosDocente"+docente.getRut()+".txt");
 		
@@ -644,10 +644,10 @@ public class Archivos
 	 * 										METODOS DE ELIMINACION DE CARPETAS
 	 * ****************************************************************************************************************/
 	
-	
+	//elimina la carpeta del usuario recibido
 	public boolean eliminarCarpetaUsuario(Alumno usuario){
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Alumnos\\"+usuario.getRut());
-		if(carpeta.exists()){							//elimina la carpeta del usuario recibido
+		if(carpeta.exists()){							
 			File[] archivos = carpeta.listFiles();
 			if(eliminarArchivos(archivos))
 				if(carpeta.delete())	
