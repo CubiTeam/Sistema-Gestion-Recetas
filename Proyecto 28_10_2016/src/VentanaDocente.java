@@ -53,10 +53,12 @@ public class VentanaDocente extends JFrame {
                 String rutAlumno = JOptionPane.showInputDialog(null,"Ingrese rut del alumno","Buscar alumno",JOptionPane.QUESTION_MESSAGE);
                 if(rutAlumno != null){
                 	if(!rutAlumno.equals("")){
-                		if(universidad.getListaAlumnos().existeAlumnoRut(rutAlumno))
+                		if(universidad.getListaAlumnos().existe(rutAlumno))
                         {
                             setVisible(false);
-                            VentanaEliminarAlumno ventanaEliminarAlumno = new VentanaEliminarAlumno(universidad,universidad.getListaAlumnos().getAlumno(rutAlumno),VentanaDocente.this);
+                            VentanaEliminarAlumno ventanaEliminarAlumno = new VentanaEliminarAlumno(
+                            		universidad,universidad.getListaAlumnos().busqueda(rutAlumno),
+															VentanaDocente.this);
                             ventanaEliminarAlumno.setVisible(true);
                         }
                         else{
@@ -75,9 +77,11 @@ public class VentanaDocente extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
                 String rutAlumno = JOptionPane.showInputDialog(null,"Ingrese rut del alumno","Buscar alumno",JOptionPane.QUESTION_MESSAGE);
                 if(rutAlumno != null){
-                    if(universidad.getListaAlumnos().existeAlumnoRut(rutAlumno)){               
+                    if(universidad.getListaAlumnos().existe(rutAlumno))
+                    {               
                         setVisible(false);
-                        VentanaModificarAlumno ventanaModificarAlumno = new VentanaModificarAlumno(universidad.getListaAlumnos().getAlumno(rutAlumno),universidad,VentanaDocente.this);
+                        VentanaModificarAlumno ventanaModificarAlumno = new VentanaModificarAlumno(
+                        		universidad.getListaAlumnos().busqueda(rutAlumno),universidad,VentanaDocente.this);
                         ventanaModificarAlumno.setVisible(true);
                     }else
                         JOptionPane.showMessageDialog(VentanaDocente.this,"No se encontró usuario","Error de busqueda",0);

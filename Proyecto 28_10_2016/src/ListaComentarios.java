@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class ListaComentarios 
+public class ListaComentarios implements Arreglo
 {
 	private ArrayList<Comentario> arrayComentarios;
 	
@@ -15,6 +15,10 @@ public class ListaComentarios
 	{
 		this.arrayComentarios= arrayComentarios;
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -50,7 +54,7 @@ public class ListaComentarios
 		for(int i=0;i<arrayComentarios.size();i++)
 		{
 			Alumno usuarioEncontrado = 
-				universidad.getListaAlumnos().getAlumno(arrayComentarios.get(i).getRut());
+				universidad.getListaAlumnos().busqueda(arrayComentarios.get(i).getRut());
 			if(usuarioEncontrado!=null)
 				arrayComentarios.get(i).setAutor(usuarioEncontrado);
 		}
@@ -76,17 +80,39 @@ public class ListaComentarios
 	
 	
 	//agrega un comentario nuevo a la receta
-	public Comentario agregarComentario(String comentario, Alumno comentador)
-	{												
-		Comentario comentarioNuevo = new Comentario(comentador,comentario,identificadorComentario());
-		arrayComentarios.add(comentarioNuevo);
-		return comentarioNuevo;
+	public boolean agregar(Object comentario)
+	{	
+		
+		if(!existe(String.valueOf(((Comentario)comentario).getNumero())))
+		{
+			arrayComentarios.add((Comentario)comentario);
+			return true;
+		}
+		return false;
 	}
 	
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	public boolean existe(String buscado)
+	{
+		
+		for(int i=0;i<arrayComentarios.size();i++)
+		{
+			if(arrayComentarios.get(i).getNumero()==Integer.parseInt(buscado))
+				return true;
+		}
+		
+		return false;
+	}
 	
 	
 	
@@ -169,11 +195,11 @@ public class ListaComentarios
 	
 	
 	//retorna un comentario segun el numero identificador que tenga
-	public Comentario pedirComentario(int code)
+	public Comentario busqueda(String code)
 	{					
 		for(int i=0;i<arrayComentarios.size();i++)
 		{
-			if(arrayComentarios.get(i).getNumero()==code)
+			if(arrayComentarios.get(i).getNumero()==Integer.parseInt(code))
 				return arrayComentarios.get(i);
 		}
 		return null;
@@ -202,11 +228,11 @@ public class ListaComentarios
 	
 	
 	//elimina un comentario de la receta
-	public boolean eliminarComentario(int codeNumerico)
+	public boolean eliminar(Object comentarioEliminar)
 	{												
 		for(int i=0;i<arrayComentarios.size();i++)
 		{
-			if(arrayComentarios.get(i).getNumero()==codeNumerico)
+			if(arrayComentarios.get(i)==(Comentario)comentarioEliminar)
 			{
 				arrayComentarios.remove(i);
 				return true;
@@ -235,7 +261,7 @@ public class ListaComentarios
 	
 
 	//modifica un comentario de la receta
-	public boolean modificarComentario(int codeNumerico,String nuevoComentario)
+	public boolean modificar(int codeNumerico,String nuevoComentario)
 	{												
 		for(int i=0;i<arrayComentarios.size();i++)
 		{
@@ -247,7 +273,39 @@ public class ListaComentarios
 		}
 		return false;
 	}
+
+
+
+
+
+
+
+
 	
+
+
+
+	//recibe un comentario con el nuevo texto y lo cambia
+	public boolean modificar(Object comentario,String cambiar) 
+	{
+		if(existe(String.valueOf(((Comentario)comentario).getNumero())));
+		{
+			((Comentario)comentario).setTexto(cambiar);
+		}
+		return false;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	

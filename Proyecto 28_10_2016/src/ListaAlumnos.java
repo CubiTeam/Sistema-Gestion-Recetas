@@ -1,11 +1,23 @@
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JPasswordField;
 
-public class ListaAlumnos {
+public class ListaAlumnos implements Arreglo 
+{
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
 	private ArrayList <Alumno> arrayAlumnos;
 	
 	public ListaAlumnos(Archivos archivo)
@@ -15,13 +27,41 @@ public class ListaAlumnos {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//Este metodo agrega a un nuevo alumno
-	public boolean agregarAlumno (Alumno alumno)
+	public boolean agregar (Object a)
 	{
-		if(arrayAlumnos.add(alumno))
+		if(arrayAlumnos.add((Alumno)a))
 			return true;
 		return false;
 	}
+	
+	
+	
+	
+	
+	public boolean modificar(Object alumno,String cambiar)
+	{
+		
+		
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	//Recibe el usuario y contraseña y si existe devuelve true ()
 	public boolean existeAlumno(String usuario, JPasswordField contrasena)
@@ -37,14 +77,26 @@ public class ListaAlumnos {
 		return false;
 	}
 
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//busqueda del alumno por el correo en el array de alumnos 
 	public boolean existeAlumnoCorreo(String correoBuscado)
-	{													//recibe un correo
+	{													
 		if(arrayAlumnos!=null){
 			for(int i = 0; i < arrayAlumnos.size(); i++)
 			{
 				if(correoBuscado.equals(arrayAlumnos.get(i).getCorreo())){
-					return true;				//si existe usuario que tenga el correo retorna true
+					return true;				
 				}
 			}
 		}
@@ -63,38 +115,54 @@ public class ListaAlumnos {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	public boolean eliminarAlumno(Alumno usuario)
+	//elimina un alumno del arreglo de alumnos
+	public boolean eliminar(Object alumno)
 	{    	
-		if(existeAlumnoRut(usuario.getRut()))
+		if(existe(((Alumno)alumno).getRut()))
 		{
 			Archivos archivos= new Archivos();
-			archivos.eliminarTxtAlumno(usuario);
+			archivos.eliminarTxtAlumno((Alumno)alumno);
 			return true;
 		}
 		return false;	
 	}
 	
-	public boolean existeAlumnoRut(String rutBuscado)
-	{											//recibe un rut
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//busqueda del alumno por el rut en el array de alumnos
+	public boolean existe(String buscado)
+	{										
 		if(arrayAlumnos!=null){
 			for(int i = 0; i < arrayAlumnos.size(); i++)
 			{
-				System.out.println(rutBuscado+" y "+arrayAlumnos.get(i).getRut());
-				if(rutBuscado.equals(arrayAlumnos.get(i).getRut())){
-					return true;			//si existe usuario con el rut recibido retorna true
+				if(buscado.equals(arrayAlumnos.get(i).getRut())){
+					return true;			
 				}
 			}
 		}
 		return false;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public int posicionUsuario(String nombreUsuario)
 	{										//recibe el nombre de un usuario
@@ -111,33 +179,58 @@ public class ListaAlumnos {
 	
 	
 	
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//busqueda del alumno segun el rut y contraseña en el array de alumnos
 	public Alumno getAlumno(String usuario, JPasswordField contrasena)
-	{										//recibe un usuario y contraseña															    	
+	{																									    	
 		String valor = new String(contrasena.getPassword()); 
 		if(arrayAlumnos!=null){	
 			for(int i = 0; i < arrayAlumnos.size(); i++){
 				if(usuario.equals(arrayAlumnos.get(i).getRut()) && valor.equals(arrayAlumnos.get(i).getContrasena())){
-					return arrayAlumnos.get(i);		//devuelve usuario si se encuentra en el ArrayList de usuarios
+					return arrayAlumnos.get(i);		
 				}
 			}
 		}
-		return null;	//retorna null si no se encontró
+		return null;
 	}
 	
-	//recibe un rut de una persona 
-	public Alumno getAlumno(String rut)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//busca un alumno por el rut en el array de alumnos
+	public Alumno busqueda(String buscado)
 	{									   	
 		if(arrayAlumnos!=null){
 			for(int i = 0; i < arrayAlumnos.size(); i++){
-				if(rut.equals(arrayAlumnos.get(i).getRut()))
-				{//retorna el usuario si coincide con el rut recibido
+				if(buscado.equals(arrayAlumnos.get(i).getRut()))
+				{
 					return arrayAlumnos.get(i);
 					
 				}
 			}
 		}
-		return null;	//retorna null si no se encontro coincidencia
+		return null;	
 	}
 
 
