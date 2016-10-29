@@ -201,9 +201,10 @@ public class VentanaReceta extends JFrame {
 					{
 						if(code.matches("[0-9]"))
 						{
-							int codeNumerico= Integer.parseInt(code);
-							if(receta.getListaComentarios().eliminarComentario(codeNumerico))
+							Comentario comentarioEliminar = receta.getListaComentarios().busqueda(code);
+							if(comentarioEliminar!=null)
 							{
+								receta.getListaComentarios().eliminar(comentarioEliminar);
 								textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 								JOptionPane.showMessageDialog(VentanaReceta.this, "Se elimino con exito");
 							}
@@ -224,13 +225,12 @@ public class VentanaReceta extends JFrame {
 					String code= JOptionPane.showInputDialog(null, "Ingrese numero de comentario: ", "Eliminar comentario: ", JOptionPane.QUESTION_MESSAGE);
 					if(code!=null && !code.equals(""))
 					{
-						int codeNumerico= Integer.parseInt(code);
-						Comentario comentarioEliminar= receta.getListaComentarios().pedirComentario(codeNumerico);
+						Comentario comentarioEliminar= receta.getListaComentarios().busqueda(code);
 						if(comentarioEliminar!=null)
 						{
 							if(comentarioEliminar.getAutor()==alumno)
 							{
-								if(receta.getListaComentarios().eliminarComentario(codeNumerico))
+								if(receta.getListaComentarios().eliminar(comentarioEliminar))
 								{
 									textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 									JOptionPane.showMessageDialog(VentanaReceta.this, "Se elimino con exito");
@@ -267,14 +267,14 @@ public class VentanaReceta extends JFrame {
 				String code= JOptionPane.showInputDialog(null, "Ingrese numero de comentario: ", "Modificar comentario: ", JOptionPane.QUESTION_MESSAGE);
 				if(code!=null && !code.equals(""))
 				{
-					int codeNumerico= Integer.parseInt(code);
-					Comentario comentarioModificar= receta.getListaComentarios().pedirComentario(codeNumerico);
+					Comentario comentarioModificar= receta.getListaComentarios().busqueda(code);
 					if(comentarioModificar!=null)
 					{
 						if(comentarioModificar.getAutor()==alumno)
 						{
 							String nuevoComent = JOptionPane.showInputDialog(comentarioModificar.getTexto());
-							if(receta.getListaComentarios().modificarComentario(codeNumerico,nuevoComent))
+							
+							if(receta.getListaComentarios().modificar(comentarioModificar,nuevoComent))
 							{
 								textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 								JOptionPane.showMessageDialog(VentanaReceta.this, "Se modificó con exito");

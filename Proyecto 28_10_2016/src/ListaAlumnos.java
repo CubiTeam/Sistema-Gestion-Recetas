@@ -49,7 +49,7 @@ public class ListaAlumnos implements Arreglo
 	
 	
 	
-	public boolean modificar(Object cambio)
+	public boolean modificar(Object alumno,String cambiar)
 	{
 		
 		
