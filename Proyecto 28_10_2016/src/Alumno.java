@@ -10,7 +10,6 @@ import java.util.StringTokenizer;
 
 public class Alumno extends Persona{
 	private String contrasena;
-	private ArrayList<Receta> recetas;
 	private ListaReceta listaRecetas;
 	
 	
@@ -42,7 +41,6 @@ public class Alumno extends Persona{
 			String correo, String sexo, int edad, int telefono, String contrasena)
 	{
 		super(nombrePersona, rut, direccion, correo, sexo, edad, telefono);
-		recetas=new ArrayList<Receta>();
 		this.setContrasena(contrasena);
 		listaRecetas= new ListaReceta();
 	}
@@ -61,7 +59,6 @@ public class Alumno extends Persona{
 			String correo, String sexo, int edad, int telefono)
 	{
 		super(nombrePersona, rut, direccion, correo, sexo, edad, telefono);
-		recetas=new ArrayList<Receta>();
 		listaRecetas= new ListaReceta();
 	}
 
@@ -120,22 +117,10 @@ public class Alumno extends Persona{
 
 
 
-	public ArrayList<Receta> getRecetas() {
-		return recetas;
-	}
 
 
 
 
-
-
-
-
-
-
-	public void setRecetas(ArrayList<Receta> recetas) {
-		this.recetas = recetas;
-	}
 
 
 
