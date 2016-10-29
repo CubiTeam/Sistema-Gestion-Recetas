@@ -50,7 +50,7 @@ public class ListaComentarios
 		for(int i=0;i<arrayComentarios.size();i++)
 		{
 			Alumno usuarioEncontrado = 
-				universidad.getListaAlumnos().getAlumno(arrayComentarios.get(i).getRut());
+				universidad.getListaAlumnos().busqueda(arrayComentarios.get(i).getRut());
 			if(usuarioEncontrado!=null)
 				arrayComentarios.get(i).setAutor(usuarioEncontrado);
 		}

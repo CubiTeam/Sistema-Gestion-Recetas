@@ -86,7 +86,7 @@ public class VentanaEliminarAlumno extends JFrame {
 			panelDatosAlumno.add(btnEliminarAlumno);
 			btnEliminarAlumno.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e)  {
-					if(universidad.getListaAlumnos().eliminarAlumno(alumno))
+					if(universidad.getListaAlumnos().eliminar(alumno))
 						JOptionPane.showMessageDialog(null,"Datos eliminados exitosamente","Eliminar UsuarioEstandar",JOptionPane.INFORMATION_MESSAGE);
 					else
 						JOptionPane.showMessageDialog(null,"Ha ocurrido un error al eliminar","Eliminar UsuarioEstandar",JOptionPane.ERROR_MESSAGE);
