@@ -26,7 +26,6 @@
  * 		
  * 
  *********************************************************/
-//probando x2
 // Crear clase archivo y ver todo lo de archivos (Clase Universidad)
 public class ClasePrincipal 
 {
@@ -34,7 +33,7 @@ public class ClasePrincipal
 	{
 		Universidad universidad = new Universidad();
 		VentanaPrincipal ventanaInicial = new VentanaPrincipal(universidad);
-		
+		//holanda que talca que no funca
 		ventanaInicial.setVisible(true);
 	}
 }
