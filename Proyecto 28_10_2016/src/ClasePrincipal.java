@@ -26,7 +26,7 @@
  * 		
  * 
  *********************************************************/
-//probando x2
+//probando
 // Crear clase archivo y ver todo lo de archivos (Clase Universidad)
 public class ClasePrincipal 
 {
