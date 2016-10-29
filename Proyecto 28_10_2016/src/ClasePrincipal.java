@@ -36,4 +36,5 @@ public class ClasePrincipal
 		//holanda que talca que no funcaaaaa
 		ventanaInicial.setVisible(true);
 	}
+	//todavia no funciona
 }
