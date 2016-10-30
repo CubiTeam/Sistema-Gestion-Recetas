@@ -133,16 +133,280 @@ public class ListaDocentes implements Arreglo
 
 
 	
-	public boolean modificar(Object objeto, String cambiar) 
+	
+
+	
+	
+	//modifica el nombre de un docente
+	public boolean modificar(Object docente,String cambiar)
 	{
-		// TODO Auto-generated method stub
+		if(existe(((Docente)docente).getRut()))
+		{
+			((Docente)docente).setNombrePersona(cambiar);
+			return true;
+		}
 		return false;
 	}
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//modifica la direccion de un docente
+	public boolean modificarDireccion(Object docente,String cambiar)
+	{
+		if(existe(((Docente)docente).getRut()))
+		{
+			((Docente)docente).setDireccion(cambiar);;
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//modifica el rut de un docente
+	public boolean modificarRut(Object docente,String cambiar)
+	{
+		if(existe(((Docente)docente).getRut()))
+		{
+			((Docente)docente).setRut(cambiar);;
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//modifica la edad de un docente
+	public boolean modificarEdad(Object docente,String cambiar)
+	{
+		if(existe(((Docente)docente).getRut()))
+		{
+			if(esNumerico(cambiar))
+			{
+				if(Integer.parseInt(cambiar)>0)
+				{
+					((Docente)docente).setEdad(Integer.parseInt(cambiar));
+					return true;
+				}
+			}
+			else
+				return false;
+			
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//verifica que el string se pueda cambiara numerico
+	public boolean esNumerico(String string)
+	{
+	    boolean numerico = true;
+	    try{
+	        Integer.parseInt(string);
+	    }catch(NumberFormatException e){
+	    	numerico = false;
+	    }
+	    return numerico;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//modifica el telefono de un docente
+	public boolean modificarTelefono(Object docente,String cambiar)
+	{
+		if(existe(((Docente)docente).getRut()))
+		{
+			if(esNumerico(cambiar))
+			{
+				if(verificarTelefono(Integer.parseInt(cambiar)))
+				{
+					((Docente)docente).setTelefono(Integer.parseInt(cambiar));
+					return true;
+				}
+			}
+			else
+				return false;
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//verifica que el telefono tenga 8 digitos
+	public boolean verificarTelefono(int nuevoTelefono)	
+	{
+		int cont = 0;
+		while(nuevoTelefono>0){
+			nuevoTelefono = nuevoTelefono/10;
+			cont++;
+		}
+		if(cont>=8)
+			return true;
+		else
+			return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//modifica el correo de un docente
+	public boolean modificarCorreo(Object docente,String cambiar)
+	{
+		if(existe(((Docente)docente).getRut()))
+		{
+			if(verificarEmail(cambiar))
+			{
+				((Docente)docente).setCorreo(cambiar);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//verifica que el correo tenga el @ y el .
+	public boolean verificarEmail(String email){
+		int verificarArroba = 0;
+		int verificarPuntos = 0;
+		
+		for(int i = 0;i < email.length(); i++){
+			if(email.charAt(i) == '@')//ExtraerCaracter
+			verificarArroba++;
+	
+		if(email.charAt(i) == '.')
+				verificarPuntos++;
+		}
+		
+		if(verificarArroba != 1 && verificarPuntos < 1)
+			return true;
+		
+		return false;
+	}
+	
+	
+	
+	
+	
+	
 
 
 
@@ -176,7 +440,7 @@ public class ListaDocentes implements Arreglo
 
 
 
-	@Override
+	//busca un docente por su rut y retorna true si es que existe 
 	public boolean existe(String buscado) 
 	{
 		for(int i=0;i<arrayDocentes.size();i++)
@@ -189,7 +453,7 @@ public class ListaDocentes implements Arreglo
 
 
 
-
+	//busca un docente por su rut y lo retorna 
 	public Object busqueda(String rutDocente)
 	{															
 		if(arrayDocentes!=null){
