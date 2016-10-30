@@ -197,7 +197,7 @@ public class VentanaPrincipal extends JFrame {
 						String ingreseNombre = JOptionPane.showInputDialog(null, "Ingrese su nombre: ", "Para recuperar contraseña", JOptionPane.QUESTION_MESSAGE);
 						posUsuarioRecuperado = universidad.getListaAlumnos().posicionUsuario(ingreseNombre);
 						if(posUsuarioRecuperado != -1){
-							EnviarContrasenaCorreo enviarCorreo = new EnviarContrasenaCorreo();
+							EnviarMensajeACorreo enviarCorreo = new EnviarMensajeACorreo();
 							enviarCorreo.crearMensajeConLaContrasena(universidad,correoUsuarioBuscado, posUsuarioRecuperado);
 						}
 					}else{

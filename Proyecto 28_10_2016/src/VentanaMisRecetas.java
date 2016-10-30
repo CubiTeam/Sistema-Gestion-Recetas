@@ -126,6 +126,8 @@ public class VentanaMisRecetas extends JFrame
 		btnAtras.setBounds(351, 205, 122, 39);
 		contentPane.add(btnAtras);
 		
+//------------------------------------------------------------------------------------------------------------------------
+																			//BOTON GUARDAR RECETAS
 		JButton btnDescargarReceta = new JButton("Guardar Recetas");
 		btnDescargarReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -136,6 +138,8 @@ public class VentanaMisRecetas extends JFrame
 		btnDescargarReceta.setBounds(280, 150, 133, 44);
 		contentPane.add(btnDescargarReceta);
 		
+//------------------------------------------------------------------------------------------------------------------------
+																			//BOTON ENVIAR A CORREO		
 		JButton btnEnviarACorreo = new JButton("Enviar a correo");
 		btnEnviarACorreo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

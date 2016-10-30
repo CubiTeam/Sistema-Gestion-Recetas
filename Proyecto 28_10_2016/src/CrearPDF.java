@@ -207,7 +207,7 @@ public class CrearPDF {
 	
 	private void enviarPDF(String correoUsuario)
 	{
-		EnviarContrasenaCorreo enviarCorreo = new EnviarContrasenaCorreo();
+		EnviarMensajeACorreo enviarCorreo = new EnviarMensajeACorreo();
 		enviarCorreo.crearMensajeConArchivoAdjunto(correoUsuario);
 	}
 	

@@ -15,7 +15,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
 
-public class EnviarContrasenaCorreo{
+public class EnviarMensajeACorreo{
 
     public static String correo = "projectGRDC@gmail.com";
     public static String contrasena = "GRDCproject1234";
@@ -109,7 +109,8 @@ public class EnviarContrasenaCorreo{
 	        contenido = multiParte;
 	        
 		} catch (MessagingException e) {
-			e.printStackTrace();
+        	JOptionPane.showMessageDialog(null, "No se ha enviado el mensaje, revise si escribio bien el correo");
+            System.out.println(e.getCause());
 		}
         EnviarCorreo();	
     }
