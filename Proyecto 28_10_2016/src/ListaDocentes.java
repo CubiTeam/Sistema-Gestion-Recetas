@@ -417,7 +417,7 @@ public class ListaDocentes implements Arreglo
 
 
 
-
+	//elimina un docente del array de docentes
 	public boolean eliminar(Object docenteEliminar) 
 	{
 		if(existe(((Docente)docenteEliminar).getRut()))
