@@ -144,10 +144,10 @@ public class VentanaPrincipal extends JFrame {
 					}
 				}
 				if(tipoUsuario.equals("Docente"))
-				{
-					Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldUsuario.getText());
-					if(docente!=null)
+				{	
+					if(universidad.getListaDocentes().existe(textFieldUsuario.getText()))
 					{
+						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldUsuario.getText());
 						if(universidad.getListaDocentes().verificacion(docente,psswField))
 						{
 							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		

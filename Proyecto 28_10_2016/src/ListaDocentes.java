@@ -6,6 +6,11 @@ public class ListaDocentes implements Arreglo
 {
 	
 	private ArrayList <Docente> arrayDocentes;
+	
+	
+	
+	
+	
 	public ListaDocentes(Archivos archivo)
 	{
 		archivo.cargarArchivoTextoDocente(ListaDocentes.this);
@@ -20,25 +25,7 @@ public class ListaDocentes implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//busca el docente por su rut y contraseña en el array de docentes y lo retorna
-	
 
-	
 	
 	
 	
@@ -95,6 +82,10 @@ public class ListaDocentes implements Arreglo
 	
 	
 	
+	
+	
+	
+	
 	public void setArrayDocentes(ArrayList<Docente> arrayDocentes) 
 	{
 		this.arrayDocentes = arrayDocentes;
@@ -112,6 +103,8 @@ public class ListaDocentes implements Arreglo
 
 
 
+	
+	
 
 
 	//agrega un docente al arreglo de docentes
@@ -139,8 +132,9 @@ public class ListaDocentes implements Arreglo
 
 
 
-	@Override
-	public boolean modificar(Object objeto, String cambiar) {
+	
+	public boolean modificar(Object objeto, String cambiar) 
+	{
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -161,7 +155,8 @@ public class ListaDocentes implements Arreglo
 
 
 	@Override
-	public boolean eliminar(Object e) {
+	public boolean eliminar(Object e) 
+	{
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -182,8 +177,13 @@ public class ListaDocentes implements Arreglo
 
 
 	@Override
-	public boolean existe(String buscado) {
-		// TODO Auto-generated method stub
+	public boolean existe(String buscado) 
+	{
+		for(int i=0;i<arrayDocentes.size();i++)
+		{
+			if(arrayDocentes.get(i).getRut().equals(buscado))
+				return true;
+		}
 		return false;
 	}
 
