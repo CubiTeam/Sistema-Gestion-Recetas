@@ -122,46 +122,31 @@ public class VentanaAlumno extends JFrame {
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String telefonoAntiguo = JOptionPane.showInputDialog(null, "Ingrese su antiguo teléfono: ", "Cambiar teléfono : ", JOptionPane.QUESTION_MESSAGE);
-				int telefonoAntiguoInt = 0, nuevoTelefono = 0;
 				if(telefonoAntiguo != null)
-				{
-					if(!telefonoAntiguo.equals(""))
+				{				
+					if(String.valueOf(alumno.getTelefono()).equals(telefonoAntiguo))
 					{
-						if(telefonoAntiguo.matches("[0-9]*"))
-						{
-							telefonoAntiguoInt = Integer.parseInt(telefonoAntiguo);
-							if(alumno.getTelefono() == telefonoAntiguoInt)
+						String telefonoNuevo = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Edite teléfono : ", JOptionPane.QUESTION_MESSAGE);
+						if(telefonoNuevo != null)
+						{	
+							if(universidad.getListaAlumnos().modificarTelefono(alumno, telefonoNuevo))
 							{
-								String editarTelefono = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Edite teléfono : ", JOptionPane.QUESTION_MESSAGE);
-								if(editarTelefono != null && !editarTelefono.equals(""))
-								{
-									if(editarTelefono.matches("[0-9]*"))
-									{
-										if(editarTelefono.length() == 8)
-										{
-											nuevoTelefono = Integer.parseInt(editarTelefono);
-											alumno.setTelefono(nuevoTelefono);
-											lblTelefono.setText("Telefono: "+alumno.getTelefono());
-											
-											JOptionPane.showMessageDialog(VentanaAlumno.this, "Teléfono cambiado Exitosamente!");
-										}else{
-											JOptionPane.showMessageDialog(VentanaAlumno.this, "Numero debe ser de 8 digitos");
-										}
-									}else{
-										JOptionPane.showMessageDialog(VentanaAlumno.this, "Ingresar sólo numeros");
-									}
-								}else{
-									JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
-								}	
-							}else{
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "El teléfono ingresado no coincide con el antiguo");
+								lblTelefono.setText("Telefono: "+alumno.getTelefono());
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "Teléfono cambiado Exitosamente!");
 							}
-						}else{
-							JOptionPane.showMessageDialog(VentanaAlumno.this, "Ingresar sólo numeros");
+							else
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "El nuevo numero no es valido");
 						}
-					}else{
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						else
+						{
+							JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						}	
 					}
+					else
+					{
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "El teléfono ingresado no coincide con el antiguo");
+					}
+				
 				}
 			}
 				
@@ -176,7 +161,7 @@ public class VentanaAlumno extends JFrame {
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
 		});
-						
+//----------------------------------------------------------------------------------------------------------------------------		
 		//Modifica la direccion al presionar en el label [Modificar]
 		lblmodificarDireccion.addMouseListener(new MouseListener() 
 		{
@@ -219,7 +204,7 @@ public class VentanaAlumno extends JFrame {
 			public void mouseReleased(MouseEvent arg0) {}
 		});
 				
-		
+//----------------------------------------------------------------------------------------------------------------------------			
 		//Modifica el correo al presionar en el label [Modificar]
 		lblmodificarCorreo.addMouseListener(new MouseListener() 
 		{

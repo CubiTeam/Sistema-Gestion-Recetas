@@ -153,16 +153,47 @@ public class ListaAlumnos implements Arreglo
 	{
 		if(existe(((Alumno)alumno).getRut()))
 		{
-			if(Integer.parseInt(cambiar)>0)
+			if(esNumerico(cambiar))
 			{
-				((Alumno)alumno).setEdad(Integer.parseInt(cambiar));
-				return true;
+				if(Integer.parseInt(cambiar)>0)
+				{
+					((Alumno)alumno).setEdad(Integer.parseInt(cambiar));
+					return true;
+				}
 			}
+			else
+				return false;
+			
 		}
 		return false;
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//verifica que el string se pueda cambiara numerico
+	public boolean esNumerico(String string)
+	{
+	    boolean numerico = true;
+	    try{
+	        Integer.parseInt(string);
+	    }catch(NumberFormatException e){
+	    	numerico = false;
+	    }
+	    return numerico;
+	}
 	
 	
 	
@@ -186,11 +217,16 @@ public class ListaAlumnos implements Arreglo
 	{
 		if(existe(((Alumno)alumno).getRut()))
 		{
-			if(verificarTelefono(Integer.parseInt(cambiar)))
+			if(esNumerico(cambiar))
 			{
-				((Alumno)alumno).setTelefono(Integer.parseInt(cambiar));
-				return true;
+				if(verificarTelefono(Integer.parseInt(cambiar)))
+				{
+					((Alumno)alumno).setTelefono(Integer.parseInt(cambiar));
+					return true;
+				}
 			}
+			else
+				return false;
 		}
 		return false;
 	}
@@ -482,10 +518,30 @@ public class ListaAlumnos implements Arreglo
 		return null;	
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public ArrayList<Alumno> getArrayAlumnos() {
 		return arrayAlumnos;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
