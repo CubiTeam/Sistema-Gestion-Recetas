@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 public class Archivos 
 {
 	
-	
+	//Constructor
 	public Archivos()
 	{
 		
@@ -23,9 +23,9 @@ public class Archivos
 	
 	/**
 	 *	Metodo donde se cargan los datos de todos los alumnos desde los txt y se genera el arrayList de alumnos.
-	 * 	@param arrayUsuarios			Es un arrayList de Alumnos llenado a partir de txt's.
-	 *  @return							Un ArrayList de Alumnos.
-	 *  @see 							#cargarDatosRecetas(Alumno)
+	 *	@param arrayUsuarios			Es un arrayList de Alumnos llenado a partir de txt's.
+	 *	@return							Un ArrayList de Alumnos.
+	 *	@see 							#cargarDatosRecetas(Alumno)
 	 */	
 	public ArrayList <Alumno> cargarArchivoTextoUsuario(ArrayList <Alumno> arrayUsuarios)
 	{
@@ -122,12 +122,12 @@ public class Archivos
 	
 	
 	/**
-	 * 	En este metodo se cargan los datos de las recetas de todos los txt del usuario.
-	 *  @param 	alumno				Contiene a un alumno en especifico. 											
-	 *  @see						#leerListaTxt(BufferedReader)
-	 *  @see						#leerInstruccionesTxt(BufferedReader)
-	 *  @see 						#leerComentariosTxt(BufferedReader)
-	 *  @see 						Alumno#getListaRecetas()
+	 *	En este metodo se cargan los datos de las recetas de todos los txt del usuario.
+	 *	@param 	alumno				Contiene a un alumno en especifico. 											
+	 *	@see						#leerListaTxt(BufferedReader)
+	 *	@see						#leerInstruccionesTxt(BufferedReader)
+	 *	@see 						#leerComentariosTxt(BufferedReader)
+	 *	@see 						Alumno#getListaRecetas()
 	 * */
 	public void cargarDatosRecetas(Alumno alumno)
 	{				
@@ -185,10 +185,10 @@ public class Archivos
 	 * ****************************************************************************************************************/
 	
 	/**
-	 * 	Metodo que escribe las lista de los utensilios, ingredientes y categorias en el txt de la receta.
-	 *  @param lista			Es un arreglo de String que contiene los utensilios, ingredientes y categorias 
-	 *  						de la receta recibida. 
-	 *  @param pEscrit			Se usa para escribir en el txt el arreglo de String recibido.
+	 *	Metodo que escribe las lista de los utensilios, ingredientes y categorias en el txt de la receta.
+	 *	@param lista			Es un arreglo de String que contiene los utensilios, ingredientes y categorias 
+	 *							de la receta recibida. 
+	 *	@param pEscrit			Se usa para escribir en el txt el arreglo de String recibido.
 	 * */
 	public void escribirListaTxt(String [] lista,PrintWriter pEscrit)
 	{						
@@ -255,9 +255,9 @@ public class Archivos
 	
 	
 	/**
-	 * 	Metodo que escribe los comentarios de la receta en el txt
-	 *  @param listaComentarios		Contiene los comentarios de la receta recibida.
-	 * 	@param pEscrit				Se usa para escribir en el txt los comentarios de la receta. 
+	 *	Metodo que escribe los comentarios de la receta en el txt
+	 *	@param listaComentarios		Contiene los comentarios de la receta recibida.
+	 *	@param pEscrit				Se usa para escribir en el txt los comentarios de la receta. 
 	 * */	
 	public void escribirComentariosTxt(ArrayList<Comentario> listaComentarios,PrintWriter pEscrit)
 	{														
@@ -296,11 +296,11 @@ public class Archivos
 	/**
 	 *	Este método lee cada elemento de una lista (ingredientes, utensilios y categorias)
 	 *	@param 	buffer					Es una cadena de instrucciones de la receta extraida del txt
-	 * 	@return							Una arreglo de Strings que contiene los elementros de Ingredientes, 
+	 *	@return							Una arreglo de Strings que contiene los elementros de Ingredientes, 
 	 * 									Utensilios y Categorias.
-	 * 	@throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
+	 *	@throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
 	 * 									tipos numéricos.
-	 *  @throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
+	 *	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
 	 * */
 	public String [] leerListaTxt(BufferedReader buffer) throws NumberFormatException, IOException
 	{													
@@ -324,11 +324,11 @@ public class Archivos
 
 	/**
 	 *	Metodo que lee las instrucciones de la recetas desde el txt datosUsuarioRUT_ALUMNO.txt
-	 * 	@param 	buffer					Es una cadena de instrucciones de la receta extraida del txt. 			
-	 * 	@return							Un String que contiene las instrucciones de una receta.
-	 * 	@throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
+	 *	@param 	buffer					Es una cadena de instrucciones de la receta extraida del txt. 			
+	 *	@return							Un String que contiene las instrucciones de una receta.
+	 *	@throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
 	 * 									tipos numéricos.
-	 *  @throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
+	 *	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
 	 * */
 	public String leerInstruccionesTxt(BufferedReader buffer) throws NumberFormatException, IOException
 	{											
@@ -360,12 +360,12 @@ public class Archivos
 	
 	
 	/**
-	 * 	Metodo que lee los comentarios de la recetas desde el txt datosUsuarioRUT_ALUMNO.txt
-	 *  @param 	buffer					Es una cadena de los comentarios de la receta extraida del txt. 
-	 *  @return 						Un ArrayList de Comentarios.
-	 *  @throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
+	 *	Metodo que lee los comentarios de la recetas desde el txt datosUsuarioRUT_ALUMNO.txt
+	 *	@param 	buffer					Es una cadena de los comentarios de la receta extraida del txt. 
+	 *	@return 						Un ArrayList de Comentarios.
+	 *	@throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
 	 * 									tipos numéricos
-	 *  @throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
+	 *	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
 	 * */
 	public ArrayList<Comentario> leerComentariosTxt(BufferedReader buffer) throws NumberFormatException, IOException
 	{												
@@ -413,11 +413,11 @@ public class Archivos
 	
 	
 	/**
-	 * 	Este metodo guarda la informacion del usuario en su respectivo txt
-	 * 	@param 	arrayUsuarios			Es un ArrayList de alumnos.
-	 * 	@return							Un booleano indicando si se pudo guardar guardar el Alumno.
-	 * 	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
-	 * 	@see 							#actualizarTxtAlumno(Alumno)
+	 *	Este metodo guarda la informacion del usuario en su respectivo txt
+	 *	@param 	arrayUsuarios			Es un ArrayList de alumnos.
+	 *	@return							Un booleano indicando si se pudo guardar guardar el Alumno.
+	 *	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
+	 *	@see 							#actualizarTxtAlumno(Alumno)
 	 * */
 	public boolean guardarTxtUsuarios(ArrayList<Alumno> arrayUsuarios) throws IOException 
 	{									
