@@ -167,29 +167,18 @@ public class VentanaAlumno extends JFrame {
 		{
 			public void mouseClicked(MouseEvent arg0) 
 			{
-				String direccionAntigua = JOptionPane.showInputDialog(null, "Ingrese su antigua dirección: ", "Cambiar dirección : ", JOptionPane.QUESTION_MESSAGE);
-				if(direccionAntigua != null)
+				String nuevaModificar = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
+				if(nuevaModificar != null && !nuevaModificar.equals(""))
 				{
-					if(!direccionAntigua.equals(""))
+					if(universidad.getListaAlumnos().modificarDireccion(alumno, nuevaModificar))
 					{
-						if(alumno.getDireccion().equals(direccionAntigua))
-						{
-							String editarDireccion = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
-							if(editarDireccion != null && !editarDireccion.equals(""))
-							{
-								alumno.setDireccion(editarDireccion);
-								lblDireccion.setText("Direccion: "+alumno.getDireccion());
-								
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
-							}else{
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
-							}
-						}else{
-							JOptionPane.showMessageDialog(VentanaAlumno.this, "La dirección ingresada no coincide con la antigua");
-						}
-					}else{
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						lblDireccion.setText("Direccion: "+alumno.getDireccion());
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
 					}
+					else
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "Direccion incorrecta");
+				}else{
+					JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
 				}
 			}
 			public void mouseEntered(MouseEvent arg0) 
@@ -211,33 +200,24 @@ public class VentanaAlumno extends JFrame {
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String correoAntiguo = JOptionPane.showInputDialog(null, "Ingrese su antiguo correo: ", "Cambiar correo : ", JOptionPane.QUESTION_MESSAGE);
-				
 				if(correoAntiguo != null)
 				{
-					if(!correoAntiguo.equals(""))
-					{
-						if(alumno.getCorreo().equals(correoAntiguo)){
-							String editarCorreo = JOptionPane.showInputDialog(null, "Ingrese su nuevo correo: ", "Edite correo : ", JOptionPane.QUESTION_MESSAGE);
-							if(editarCorreo != null && !editarCorreo.equals(""))
+						if(alumno.getCorreo().equals(correoAntiguo))
+						{
+							String correoNuevo = JOptionPane.showInputDialog(null, "Ingrese su nuevo correo: ", "Edite correo : ", JOptionPane.QUESTION_MESSAGE);
+							
+							if(universidad.getListaAlumnos().modificarCorreo(alumno, correoNuevo))
 							{
-								if(editarCorreo.matches("[-\\w\\.]+@\\w+\\.\\w+"))//debe aparecer si o si el @ y el punto.
-								{
-									alumno.setCorreo(editarCorreo);
-									lblCorreo.setText("Correo: "+alumno.getCorreo());
-								
-									JOptionPane.showMessageDialog(VentanaAlumno.this, "Correo cambiada Exitosamente!");
-								}else{
-									JOptionPane.showMessageDialog(VentanaAlumno.this, "El correo debe contener al menos un '@' y un '.'");
-								}	
-							}else{
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+								lblCorreo.setText("Correo: "+alumno.getCorreo());
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "Correo cambiada Exitosamente!");
 							}
-						}else{
+							else
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "El correo ingresado no es valido");
+						}
+						else
+						{
 							JOptionPane.showMessageDialog(VentanaAlumno.this, "El correo ingresado no coincide con el antiguo");
 						}
-					}else{
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
-					}
 				}
 			}
 			//Al pasar por encima el mouse
