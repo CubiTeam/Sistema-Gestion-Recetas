@@ -418,10 +418,13 @@ public class ListaDocentes implements Arreglo
 
 
 
-	@Override
-	public boolean eliminar(Object e) 
+	public boolean eliminar(Object docenteEliminar) 
 	{
-		// TODO Auto-generated method stub
+		if(existe(((Docente)docenteEliminar).getRut()))
+		{
+			arrayDocentes.remove(docenteEliminar);
+			return true;
+		}
 		return false;
 	}
 
