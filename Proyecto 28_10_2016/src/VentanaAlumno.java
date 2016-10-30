@@ -16,7 +16,8 @@ import javax.swing.border.TitledBorder;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 
-public class VentanaAlumno extends JFrame {
+public class VentanaAlumno extends JFrame 
+{
 
 	private JPanel contentPane;
 	private VentanaMisRecetas misRecetas;

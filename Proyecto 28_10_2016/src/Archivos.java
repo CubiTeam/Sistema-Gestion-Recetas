@@ -69,14 +69,14 @@ public class Archivos
 	
 	
 	
-	public ArrayList <Docente> cargarArchivoTextoDocente(ArrayList <Docente> arrayDocentes)
+	public void cargarArchivoTextoDocente(ListaDocentes listaDocentes)
 	{										//se cargan los datos de todos los docentes de los txt
 		//Generar Array De Docente
 
 		File raiz = new File("Universidad Catolica De Gastronomia\\Docentes");
-		if(raiz.exists() && raiz.list()!=null){
+		if(raiz.exists() && raiz.list()!=null)
+		{
 			String [] carpeta = raiz.list();
-			arrayDocentes = new ArrayList <Docente>();
 			for(int i=0;i<carpeta.length;i++){	
 				try(FileReader archivoLectura = new FileReader("Universidad Catolica De Gastronomia\\Docentes\\"+carpeta[i]+"\\DatosDocente"+carpeta[i]+".txt")){
 					BufferedReader buffer = new BufferedReader(archivoLectura);
@@ -91,9 +91,11 @@ public class Archivos
 					    	String sexo = st.nextToken();
 					    	String direccion = st.nextToken();
 					    	int telefono = Integer.parseInt(st.nextToken());
-					    	String contrasena = st.nextToken();		
-					    	arrayDocentes.add(new Docente(nombre,rut,direccion,correo,sexo,edad,telefono,contrasena));
-						};										//se agrega al ArrayList de docentes
+					    	String contrasena = st.nextToken();	
+					    	Docente docenteNuevo = new Docente(nombre,rut,direccion,correo,sexo,edad,telefono,contrasena);
+
+					    	listaDocentes.agregar(docenteNuevo);
+						};										
 				    buffer.close();
 					archivoLectura.close();
 					}
@@ -101,9 +103,7 @@ public class Archivos
 					System.out.println("Error E/S: "+x);
 				}
 			}
-			return arrayDocentes;
 		}
-		return arrayDocentes;
 	}
 
 	
