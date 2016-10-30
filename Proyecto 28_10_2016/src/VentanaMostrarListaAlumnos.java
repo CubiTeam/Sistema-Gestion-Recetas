@@ -66,7 +66,7 @@ public class VentanaMostrarListaAlumnos extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//implementar despues un JFileChooser para elegir ruta y nombre archivo
 				try {
-					CrearArchivoXLS archivoXLS = new CrearArchivoXLS(arrayUsuarioEstandar);
+					CrearReporteEnExcel archivoXLS = new CrearReporteEnExcel(arrayUsuarioEstandar);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

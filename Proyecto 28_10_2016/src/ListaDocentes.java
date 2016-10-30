@@ -113,6 +113,7 @@ public class ListaDocentes implements Arreglo
 		if(docenteAgregar!=null)
 		{
 			arrayDocentes.add((Docente)docenteAgregar);
+			return true;
 		}
 		return false;
 	}

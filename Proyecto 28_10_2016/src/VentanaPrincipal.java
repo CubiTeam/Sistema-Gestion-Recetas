@@ -198,7 +198,7 @@ public class VentanaPrincipal extends JFrame {
 						posUsuarioRecuperado = universidad.getListaAlumnos().posicionUsuario(ingreseNombre);
 						if(posUsuarioRecuperado != -1){
 							EnviarContrasenaCorreo enviarCorreo = new EnviarContrasenaCorreo();
-							enviarCorreo.crearMensaje(universidad,correoUsuarioBuscado, posUsuarioRecuperado);
+							enviarCorreo.crearMensajeConLaContrasena(universidad,correoUsuarioBuscado, posUsuarioRecuperado);
 						}
 					}else{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this, "No se encontró usuario");
