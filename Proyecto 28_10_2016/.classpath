@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="libraries/mail.jar"/>
 	<classpathentry kind="lib" path="libraries/miglayout15-swing.jar"/>
 	<classpathentry kind="lib" path="libraries/poi-3.15.jar"/>
+	<classpathentry kind="lib" path="libraries/iText-5.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
