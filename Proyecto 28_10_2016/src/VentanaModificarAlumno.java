@@ -87,8 +87,14 @@ public class VentanaModificarAlumno extends JFrame {
 		{
 			public void mouseClicked(MouseEvent arg0) 	{
 				String editarNombre = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre : ", "Edite nombre : ", JOptionPane.QUESTION_MESSAGE);
-				usuario.setNombrePersona(editarNombre);
-				lblNombre.setText("Nombre : "+usuario.getNombrePersona());
+				if(universidad.getListaAlumnos().modificar(usuario, editarNombre))
+					{
+						JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Exito","Se modifico sin problemas",0);
+						lblNombre.setText("Nombre : "+usuario.getNombrePersona());
+					}
+				else
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
+				
 			}
 			public void mouseEntered(MouseEvent arg0) 
 			{
@@ -116,8 +122,14 @@ public class VentanaModificarAlumno extends JFrame {
 		{
 			public void mouseClicked(MouseEvent arg0) 	{
 				String editarDireccion = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
-				usuario.setDireccion(editarDireccion);
-				lblDireccion.setText("Direccion : "+usuario.getDireccion());
+				if(universidad.getListaAlumnos().modificarDireccion(usuario, editarDireccion))
+					{
+						lblDireccion.setText("Direccion : "+usuario.getDireccion());
+						JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Exito","Se modifico sin problemas",0);
+					}
+				else
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
+				
 			}
 			public void mouseEntered(MouseEvent arg0) 
 			{
@@ -144,8 +156,14 @@ public class VentanaModificarAlumno extends JFrame {
 		{
 			public void mouseClicked(MouseEvent arg0) 	{
 				String editarRut = JOptionPane.showInputDialog(null, "Ingrese el nuevo rut : ", "Edite rut : ", JOptionPane.QUESTION_MESSAGE);
-				usuario.setRut(editarRut);
-				lblRut.setText("Rut : "+usuario.getRut());
+				if(universidad.getListaAlumnos().modificarRut(usuario, editarRut))
+				{
+					lblRut.setText("Rut : "+usuario.getRut());
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Exito","Se modifico sin problemas",0);
+				}
+			else
+				JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
+				
 			}
 			public void mouseEntered(MouseEvent arg0) 
 			{
@@ -172,13 +190,16 @@ public class VentanaModificarAlumno extends JFrame {
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String editarEdad = JOptionPane.showInputDialog(null, "Ingrese la nueva edad: ", "Edite edad : ", JOptionPane.QUESTION_MESSAGE);
-				int nuevaEdad = Integer.parseInt(editarEdad);
-				if(!verificarEdad(nuevaEdad)){ 
-					JOptionPane.showMessageDialog(VentanaModificarAlumno.this, "La edad es incorrecta o faltó rellenar campo");
-				}else{
-					usuario.setEdad(nuevaEdad);
+							
+				if(universidad.getListaAlumnos().modificarEdad(usuario, editarEdad))
+				{
 					lblEdad.setText("Edad : "+usuario.getEdad());
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Exito","Se modifico sin problemas",0);
 				}
+				else
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
+				
+					
 			}
 				
 			public void mouseEntered(MouseEvent arg0) 
@@ -206,13 +227,14 @@ public class VentanaModificarAlumno extends JFrame {
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String editarTelefono = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Edite teléfono : ", JOptionPane.QUESTION_MESSAGE);
-				int nuevoTelefono = Integer.parseInt(editarTelefono);
-				if(!verificarTelefono(nuevoTelefono)){ 
-					JOptionPane.showMessageDialog(VentanaModificarAlumno.this, "El teléfono es incorrecto o faltó rellenar campo");
-				}else{
-					usuario.setTelefono(nuevoTelefono);
+				if(universidad.getListaAlumnos().modificarTelefono(usuario, editarTelefono))
+				{
 					lblTelefono.setText("Telefono : "+usuario.getTelefono());
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Exito","Se modifico sin problemas",0);
 				}
+				else
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
+				
 			}
 				
 			public void mouseEntered(MouseEvent arg0) 
@@ -242,12 +264,13 @@ public class VentanaModificarAlumno extends JFrame {
 			public void mouseClicked(MouseEvent arg0) 
 			{				
 				String editarCorreo = JOptionPane.showInputDialog(null, "Ingrese su nuevo correo: ", "Edite correo : ", JOptionPane.QUESTION_MESSAGE);
-				if(!verificarEmail(editarCorreo)){
-					JOptionPane.showMessageDialog(VentanaModificarAlumno.this, "El correo es incorrecto o faltó rellenar campo");
-				}else{
-					usuario.setCorreo(editarCorreo);
+				if(universidad.getListaAlumnos().modificarCorreo(usuario, editarCorreo))
+				{
 					lblCorreo.setText("Correo : "+usuario.getCorreo());
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Exito","Se modifico sin problemas",0);
 				}
+				else
+					JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
 			
 			}
 			public void mouseEntered(MouseEvent arg0) 
@@ -263,41 +286,6 @@ public class VentanaModificarAlumno extends JFrame {
 		});
 	}
 
-	public boolean verificarEdad(int nuevaEdad)  //verifica que la edad sea mayor que 0
-	{
-		if(nuevaEdad>0){
-			return true;
-		}else
-			return false;
-	}
-	public boolean verificarTelefono(int nuevoTelefono)	//verifica que el telefono tenga 8 digitos
-	{
-		int cont = 0;
-		while(nuevoTelefono>0){
-			nuevoTelefono = nuevoTelefono/10;
-			cont++;
-		}
-		if(cont>=8)
-			return true;
-		else
-			return false;
-	}
 	
-	public boolean verificarEmail(String email){
-		int verificarArroba = 0;
-		int verificarPuntos = 0;
-		
-		for(int i = 0;i < email.length(); i++){
-			if(email.charAt(i) == '@')//ExtraerCaracter
-			verificarArroba++;
 	
-		if(email.charAt(i) == '.')
-				verificarPuntos++;
-		}
-		
-		if(verificarArroba != 1 && verificarPuntos < 1)
-			return true;
-		
-		return false;
-	}
 }
