@@ -27,7 +27,7 @@ public class VentanaCrearReceta extends JFrame
 	private JTextField tiempoEstimado;
 	private int tamMinNombre= 2;
 	private int tamMaxNombre = 100;
-	private DefaultListModel ingredientes,categorias,utensilios;
+	private DefaultListModel<String> ingredientes,categorias,utensilios;
 	private JTextField txtIngrediente;
 	private JTextField txtUtensilio;
 	private JTextField txtCategoria;
@@ -170,7 +170,7 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(lblInstrucciones);
 		
 //-------------------------------------------------------------------------------------------------------------------------------------	
-		ingredientes = new DefaultListModel();
+		ingredientes = new DefaultListModel<String>();
 		JPanel panel_ingredientes = new JPanel();				//INGREDIENTES
 		panel_ingredientes.setBounds(730, 45, 113, 161);
 		contentPane.add(panel_ingredientes);
@@ -190,7 +190,7 @@ public class VentanaCrearReceta extends JFrame
 			}
 		});
 		
-		final JList lista_ing = new JList();
+		final JList<String> lista_ing = new JList<String>();
 		lista_ing.setModel(ingredientes);
 		panel_ingredientes.add(lista_ing);
 		
@@ -232,7 +232,7 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(lblIngredientes);
 		
 //-------------------------------------------------------------------------------------------------------------------------------------		
-		utensilios = new DefaultListModel();
+		utensilios = new DefaultListModel<String>();
 		JPanel panel_utensilios = new JPanel();					//UTENSILIOS
 		panel_utensilios.setBounds(730, 235, 113, 161);
 		contentPane.add(panel_utensilios);
@@ -252,7 +252,7 @@ public class VentanaCrearReceta extends JFrame
 			}
 		});
 		
-		final JList lista_uten = new JList();
+		final JList<String> lista_uten = new JList<String>();
 		lista_uten.setModel(utensilios);
 		panel_utensilios.add(lista_uten);
 		
@@ -295,7 +295,7 @@ public class VentanaCrearReceta extends JFrame
 		lblUtensilios.setBounds(753, 217, 86, 14);
 		contentPane.add(lblUtensilios);
 //-------------------------------------------------------------------------------------------------------------------------------------		
-		categorias = new DefaultListModel();
+		categorias = new DefaultListModel<String>();
 		JPanel panel_categorias = new JPanel();						//CATEGORIAS
 		panel_categorias.setBounds(730, 424, 113, 161);
 		contentPane.add(panel_categorias);
@@ -315,7 +315,7 @@ public class VentanaCrearReceta extends JFrame
 			}
 		});
 		
-		final JList lista_categ = new JList();
+		final JList<String> lista_categ = new JList<String>();
 		lista_categ.setModel(categorias);
 		panel_categorias.add(lista_categ);
 		
@@ -557,7 +557,7 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(txtIngrediente);
 		txtIngrediente.setColumns(10);
 		
-		final JList lista_ing = new JList();
+		final JList<String> lista_ing = new JList<String>();
 		lista_ing.setModel(ingredientes);
 		panel_ingredientes.add(lista_ing);
 		
@@ -608,7 +608,7 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(txtUtensilio);
 		txtUtensilio.setColumns(10);
 		
-		final JList lista_uten = new JList();
+		final JList<String> lista_uten = new JList<String>();
 		lista_uten.setModel(utensilios);
 		panel_utensilios.add(lista_uten);
 		
@@ -658,7 +658,7 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(txtCategoria);
 		txtCategoria.setColumns(10);
 		
-		final JList lista_categ = new JList();
+		final JList<String> lista_categ = new JList<String>();
 		lista_categ.setModel(categorias);
 		panel_categorias.add(lista_categ);
 		
@@ -779,7 +779,7 @@ public class VentanaCrearReceta extends JFrame
 	 
 	}
 	
-	public String[] casteo(DefaultListModel listaEntrada) //convierte de DefaultListModel a String[]
+	public String[] casteo(DefaultListModel<String> listaEntrada) //convierte de DefaultListModel a String[]
 	{
 		String[] listaFinal= new String[listaEntrada.getSize()];
 		int i;
@@ -789,9 +789,9 @@ public class VentanaCrearReceta extends JFrame
 		}
 		return listaFinal;
 	}
-	public DefaultListModel casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
+	public DefaultListModel<String> casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
 	{
-		DefaultListModel listaFinal= new DefaultListModel();
+		DefaultListModel<String> listaFinal= new DefaultListModel<String>();
 		int i;
 		for(i=0;i<listaEntrada.length;i++)
 		{

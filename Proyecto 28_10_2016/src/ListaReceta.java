@@ -12,6 +12,7 @@ public class ListaReceta
 	public ListaReceta()
 	{
 		arrayRecetas= new ArrayList<Receta>();
+		
 	}
 	
 	
