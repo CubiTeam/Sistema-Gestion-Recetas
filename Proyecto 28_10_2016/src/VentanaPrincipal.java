@@ -34,7 +34,7 @@ public class VentanaPrincipal extends JFrame {
 		
 	
 		
-		setTitle("Prototipo");	
+		setTitle("Sistema de Gestion de Recetas");	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 390, 500);
 		setResizable(false);
