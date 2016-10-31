@@ -138,7 +138,12 @@ public class VentanaPrincipal extends JFrame {
 						//creo la ventanaUsuarioEstandar
 						VentanaAlumno ventanaUsuario = new VentanaAlumno(universidad,usuario,VentanaPrincipal.this);
 						ventanaUsuario.setVisible(true);
-						setVisible(false);
+						dispose();
+						
+						//Dejar en blanco los campos de rut y contraseña
+						textFieldUsuario.setText("");
+						psswField.setText("");
+						
 					}else{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró usuario","Error",0);
 					}
