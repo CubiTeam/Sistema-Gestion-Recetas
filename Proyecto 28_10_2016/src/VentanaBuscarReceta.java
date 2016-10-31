@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,17 +14,25 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JCheckBox;
 
-public class VentanaBuscarReceta extends JFrame {
+public class VentanaBuscarReceta extends JFrame 
+{
 
 	private JPanel contentPane;
 	private JTextField txtNombreReceta;
-	private DefaultListModel recetas;
-													
+	private DefaultListModel<Receta> recetas;
+	
+	
+	
+	
+	
+	
+	
+	
+
+	//ventana para la busqueda de recetas de todos los alumnos
 	public VentanaBuscarReceta(final ArrayList<Receta> arrayReceta, final VentanaAlumno ventanaUsuario,final Alumno usuario) 
-	{											//ventana para la busqueda de recetas de todos los alumnos
-		recetas = new DefaultListModel();
-		final DefaultListModel recetasEncontradas = new DefaultListModel();
-		AbstractListModel modelFiltro;
+	{											
+		recetas = new DefaultListModel<Receta>();
 		setResizable(false);
 		setTitle("Ventana Buscar Receta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,13 +45,23 @@ public class VentanaBuscarReceta extends JFrame {
 		JLabel lblReceta = new JLabel("Receta: ");
 		lblReceta.setBounds(67, 29, 46, 14);
 		contentPane.add(lblReceta);
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------------
-		JPanel panelMostrarRecetas = new JPanel();		//LISTA DE RECETAS ENCONTRADAS
+		//LISTA DE RECETAS ENCONTRADAS
+		
+		JPanel panelMostrarRecetas = new JPanel();		
 		panelMostrarRecetas.setBounds(15, 60, 500, 290);
 		contentPane.add(panelMostrarRecetas);
 		panelMostrarRecetas.setLayout(new GridLayout());
 		
-		final JList listaRecetas = new JList();
+		final JList<Receta> listaRecetas = new JList<Receta>();
 		listaRecetas.setModel(recetas);
 		panelMostrarRecetas.add(listaRecetas);
 		
@@ -55,8 +72,17 @@ public class VentanaBuscarReceta extends JFrame {
 		txtNombreReceta.setBounds(123, 26, 326, 20);
 		contentPane.add(txtNombreReceta);
 		txtNombreReceta.setColumns(10);
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
-		final JCheckBox checkFiltro = new JCheckBox("");	//FILTRO
+		//FILTRO
+		
+		final JCheckBox checkFiltro = new JCheckBox("");	
 		checkFiltro.setBounds(554, 25, 97, 23);
 		contentPane.add(checkFiltro);
 		checkFiltro.setSelected(false);
@@ -74,8 +100,21 @@ public class VentanaBuscarReceta extends JFrame {
 		});
 		btnFiltro.setBounds(459, 25, 89, 23);
 		contentPane.add(btnFiltro);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //--------------------------------------------------------------------------------------------------------------------------
-		JButton btnBuscar = new JButton("Buscar");			//BOTON BUSCAR RECETAS
+		//BOTON BUSCAR RECETAS
+		
+		JButton btnBuscar = new JButton("Buscar");			
 		
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
@@ -134,8 +173,18 @@ public class VentanaBuscarReceta extends JFrame {
 		});
 		btnBuscar.setBounds(525, 59, 84, 33);
 		contentPane.add(btnBuscar);
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------------
-		JButton btnMostrar = new JButton("Mostrar");			//BOTON MOSTRAR
+		//BOTON MOSTRAR
+		
+		JButton btnMostrar = new JButton("Mostrar");			
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -148,8 +197,21 @@ public class VentanaBuscarReceta extends JFrame {
 		});
 		btnMostrar.setBounds(525, 103, 84, 33);
 		contentPane.add(btnMostrar);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------------
-		JButton btnAtras = new JButton("Atras");					//BOTON ATRAS
+		//BOTON ATRAS
+		
+		JButton btnAtras = new JButton("Atras");					
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ventanaUsuario.setVisible(true);				//se devuelve a la ventana anterior
@@ -159,38 +221,35 @@ public class VentanaBuscarReceta extends JFrame {
 		btnAtras.setBounds(525, 317, 84, 33);
 		contentPane.add(btnAtras);
 		
+	
+		
 		
 	}//FIN CONTRUCTOR
 	
-	public void convertir(DefaultListModel recetasList,ArrayList<Receta> arrayList) // cambia de arrayList a DefaultListModel
-	{
-		int cont;
-		for(int i=0;i<arrayList.size();i++)
-		{
-			cont=0;
-			for(int j=0;j<recetasList.size();j++)
-			{
-				if(arrayList.get(i)==((Receta)recetasList.getElementAt(j)))
-					cont++;
-			}
-			if(cont==0)
-				recetasList.addElement(arrayList.get(i));
-		}
-	}
-	public DefaultListModel casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
-	{
-		DefaultListModel listaFinal= new DefaultListModel();
-		int i;
-		for(i=0;i<listaEntrada.length;i++)
-		{
-			listaFinal.addElement(listaEntrada[i]);
-		}
-		return listaFinal;
-	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//recibe una lista y verifica que si se repite un valor de una lista en la otra lista
 	public boolean existenString(String[] listaAgregar,String[] listaIngredientes)
-	{													//recibe una lista y verifica que si se repite un valor de una lista
-		int cont=0,contTotal=0;							//en la otra
+	{													
+		int cont=0,contTotal=0;							
 		for(int i=0;i<listaIngredientes.length;i++)
 		{
 			cont=0;
@@ -208,7 +267,7 @@ public class VentanaBuscarReceta extends JFrame {
 			return true;
 		return false;
 	}
+
 	
 }
-
 

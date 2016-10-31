@@ -8,11 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
@@ -37,7 +34,7 @@ public class VentanaPrincipal extends JFrame {
 		
 	
 		
-		setTitle("Prototipo");	
+		setTitle("Sistema de Gestion de Recetas");	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 390, 500);
 		setResizable(false);
@@ -146,15 +143,23 @@ public class VentanaPrincipal extends JFrame {
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró usuario","Error",0);
 					}
 				}
-				if(tipoUsuario.equals("Docente")){
-					Docente docente=universidad.getListaDocentes().getDocente(textFieldUsuario.getText(),psswField);
-					if(docente!=null){
-						JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
-						VentanaDocente ventanadocente = new VentanaDocente(docente,universidad);
-						ventanadocente.setVisible(true);
-						dispose();
+				if(tipoUsuario.equals("Docente"))
+				{	
+					if(universidad.getListaDocentes().existe(textFieldUsuario.getText()))
+					{
+						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldUsuario.getText());
+						if(universidad.getListaDocentes().verificacion(docente,psswField))
+						{
+							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
+							VentanaDocente ventanadocente = new VentanaDocente(docente,universidad);
+							ventanadocente.setVisible(true);
+							dispose();
+						}
+						else
+							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
 						
-					}else{
+					}else
+					{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró docente registrado","Error",0);
 					}	
 				}
@@ -192,8 +197,8 @@ public class VentanaPrincipal extends JFrame {
 						String ingreseNombre = JOptionPane.showInputDialog(null, "Ingrese su nombre: ", "Para recuperar contraseña", JOptionPane.QUESTION_MESSAGE);
 						posUsuarioRecuperado = universidad.getListaAlumnos().posicionUsuario(ingreseNombre);
 						if(posUsuarioRecuperado != -1){
-							EnviarContrasenaCorreo enviarCorreo = new EnviarContrasenaCorreo();
-							enviarCorreo.crearMensaje(universidad,correoUsuarioBuscado, posUsuarioRecuperado);
+							EnviarMensajeACorreo enviarCorreo = new EnviarMensajeACorreo();
+							enviarCorreo.crearMensajeConLaContrasena(universidad,correoUsuarioBuscado, posUsuarioRecuperado);
 						}
 					}else{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this, "No se encontró usuario");

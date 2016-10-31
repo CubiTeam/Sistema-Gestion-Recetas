@@ -16,7 +16,8 @@ import javax.swing.border.TitledBorder;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 
-public class VentanaAlumno extends JFrame {
+public class VentanaAlumno extends JFrame 
+{
 
 	private JPanel contentPane;
 	private VentanaMisRecetas misRecetas;
@@ -69,19 +70,26 @@ public class VentanaAlumno extends JFrame {
 		lblEdad.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		lblEdad.setText("Edad: "+alumno.getEdad());
 		
-		final JLabel lblCorreo = new JLabel("Correo: ");
-		lblCorreo.setForeground(Color.WHITE);
-		lblCorreo.setBounds(15, 20, 248, 14);
-		panelDatosUsuario.add(lblCorreo);
-		lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 11));
-		lblCorreo.setText("Correo: "+alumno.getCorreo());
+																	
 		
-		final JLabel lblDireccion = new JLabel("Direcci\u00F3n: ");
-		lblDireccion.setForeground(Color.WHITE);
-		lblDireccion.setBounds(15, 43, 248, 14);
-		panelDatosUsuario.add(lblDireccion);
-		lblDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 11));
-		lblDireccion.setText("Dirección: "+alumno.getDireccion());
+
+	
+						
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//----------------------------------------------------------------------------------------------------------------------------
+	
+		//TELEFONO
 		
 		final JLabel lblTelefono = new JLabel("Tel\u00E9fono: ");
 		lblTelefono.setForeground(Color.WHITE);
@@ -90,31 +98,14 @@ public class VentanaAlumno extends JFrame {
 		lblTelefono.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		lblTelefono.setText("Teléfono: "+alumno.getTelefono());
 		
-//----------------------------------------------------------------------------------------------------------------------		
-																	
-		final JLabel lblmodificarCorreo = new JLabel("[Modificar]");
-		lblmodificarCorreo.setBounds(246, 22, 57, 14);
-		panelDatosUsuario.add(lblmodificarCorreo);
-		lblmodificarCorreo.setForeground(Color.BLACK);
-		lblmodificarCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 10));
 		
-//------------------------------------------------------------------------------------------------------------------------		
-						
-		final JLabel lblmodificarDireccion = new JLabel("[Modificar]");
-		lblmodificarDireccion.setBounds(246, 42, 57, 14);
-		panelDatosUsuario.add(lblmodificarDireccion);
-		lblmodificarDireccion.setForeground(Color.BLACK);
-		lblmodificarDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 10));
-		
-//------------------------------------------------------------------------------------------------------------------------		
-							
 		final JLabel lblmodificarTelefono = new JLabel("[Modificar]");
 		lblmodificarTelefono.setBounds(246, 88, 57, 14);
 		panelDatosUsuario.add(lblmodificarTelefono);
 		lblmodificarTelefono.setFont(new Font("Century Gothic", Font.PLAIN, 10));
 		lblmodificarTelefono.setForeground(Color.BLACK);
 				
-//------------------------------------------------------------------------------------------------------------------------		
+	
 		
 		//Modifica el telefono al presionar en el label [Modificar]
 		lblmodificarTelefono.addMouseListener(new MouseListener() 
@@ -122,46 +113,31 @@ public class VentanaAlumno extends JFrame {
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String telefonoAntiguo = JOptionPane.showInputDialog(null, "Ingrese su antiguo teléfono: ", "Cambiar teléfono : ", JOptionPane.QUESTION_MESSAGE);
-				int telefonoAntiguoInt = 0, nuevoTelefono = 0;
 				if(telefonoAntiguo != null)
-				{
-					if(!telefonoAntiguo.equals(""))
+				{				
+					if(String.valueOf(alumno.getTelefono()).equals(telefonoAntiguo))
 					{
-						if(telefonoAntiguo.matches("[0-9]*"))
-						{
-							telefonoAntiguoInt = Integer.parseInt(telefonoAntiguo);
-							if(alumno.getTelefono() == telefonoAntiguoInt)
+						String telefonoNuevo = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Edite teléfono : ", JOptionPane.QUESTION_MESSAGE);
+						if(telefonoNuevo != null)
+						{	
+							if(universidad.getListaAlumnos().modificarTelefono(alumno, telefonoNuevo))
 							{
-								String editarTelefono = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Edite teléfono : ", JOptionPane.QUESTION_MESSAGE);
-								if(editarTelefono != null && !editarTelefono.equals(""))
-								{
-									if(editarTelefono.matches("[0-9]*"))
-									{
-										if(editarTelefono.length() == 8)
-										{
-											nuevoTelefono = Integer.parseInt(editarTelefono);
-											alumno.setTelefono(nuevoTelefono);
-											lblTelefono.setText("Telefono: "+alumno.getTelefono());
-											
-											JOptionPane.showMessageDialog(VentanaAlumno.this, "Teléfono cambiado Exitosamente!");
-										}else{
-											JOptionPane.showMessageDialog(VentanaAlumno.this, "Numero debe ser de 8 digitos");
-										}
-									}else{
-										JOptionPane.showMessageDialog(VentanaAlumno.this, "Ingresar sólo numeros");
-									}
-								}else{
-									JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
-								}	
-							}else{
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "El teléfono ingresado no coincide con el antiguo");
+								lblTelefono.setText("Telefono: "+alumno.getTelefono());
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "Teléfono cambiado Exitosamente!");
 							}
-						}else{
-							JOptionPane.showMessageDialog(VentanaAlumno.this, "Ingresar sólo numeros");
+							else
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "El nuevo numero no es valido");
 						}
-					}else{
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						else
+						{
+							JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						}	
 					}
+					else
+					{
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "El teléfono ingresado no coincide con el antiguo");
+					}
+				
 				}
 			}
 				
@@ -176,35 +152,53 @@ public class VentanaAlumno extends JFrame {
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
 		});
-						
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//----------------------------------------------------------------------------------------------------------------------------		
+		
+		//DIRECCION
+		
+		final JLabel lblmodificarDireccion = new JLabel("[Modificar]");
+		lblmodificarDireccion.setBounds(246, 42, 57, 14);
+		panelDatosUsuario.add(lblmodificarDireccion);
+		lblmodificarDireccion.setForeground(Color.BLACK);
+		lblmodificarDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 10));
+		
+		
+		final JLabel lblDireccion = new JLabel("Direcci\u00F3n: ");
+		lblDireccion.setForeground(Color.WHITE);
+		lblDireccion.setBounds(15, 43, 248, 14);
+		panelDatosUsuario.add(lblDireccion);
+		lblDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		lblDireccion.setText("Dirección: "+alumno.getDireccion());
+		
+		
 		//Modifica la direccion al presionar en el label [Modificar]
 		lblmodificarDireccion.addMouseListener(new MouseListener() 
 		{
 			public void mouseClicked(MouseEvent arg0) 
 			{
-				String direccionAntigua = JOptionPane.showInputDialog(null, "Ingrese su antigua dirección: ", "Cambiar dirección : ", JOptionPane.QUESTION_MESSAGE);
-				if(direccionAntigua != null)
+				String nuevaModificar = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
+				if(nuevaModificar != null && !nuevaModificar.equals(""))
 				{
-					if(!direccionAntigua.equals(""))
+					if(universidad.getListaAlumnos().modificarDireccion(alumno, nuevaModificar))
 					{
-						if(alumno.getDireccion().equals(direccionAntigua))
-						{
-							String editarDireccion = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
-							if(editarDireccion != null && !editarDireccion.equals(""))
-							{
-								alumno.setDireccion(editarDireccion);
-								lblDireccion.setText("Direccion: "+alumno.getDireccion());
-								
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
-							}else{
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
-							}
-						}else{
-							JOptionPane.showMessageDialog(VentanaAlumno.this, "La dirección ingresada no coincide con la antigua");
-						}
-					}else{
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						lblDireccion.setText("Direccion: "+alumno.getDireccion());
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
 					}
+					else
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "Direccion incorrecta");
+				}else{
+					JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
 				}
 			}
 			public void mouseEntered(MouseEvent arg0) 
@@ -220,39 +214,60 @@ public class VentanaAlumno extends JFrame {
 		});
 				
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+//----------------------------------------------------------------------------------------------------------------------------			
+	
+		//CORREO
+		
+		final JLabel lblmodificarCorreo = new JLabel("[Modificar]");
+		lblmodificarCorreo.setBounds(246, 22, 57, 14);
+		panelDatosUsuario.add(lblmodificarCorreo);
+		lblmodificarCorreo.setForeground(Color.BLACK);
+		lblmodificarCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 10));
+		
+		final JLabel lblCorreo = new JLabel("Correo: ");
+		lblCorreo.setForeground(Color.WHITE);
+		lblCorreo.setBounds(15, 20, 248, 14);
+		panelDatosUsuario.add(lblCorreo);
+		lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		lblCorreo.setText("Correo: "+alumno.getCorreo());
+			
+	
+		
+		
 		//Modifica el correo al presionar en el label [Modificar]
 		lblmodificarCorreo.addMouseListener(new MouseListener() 
 		{
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String correoAntiguo = JOptionPane.showInputDialog(null, "Ingrese su antiguo correo: ", "Cambiar correo : ", JOptionPane.QUESTION_MESSAGE);
-				
 				if(correoAntiguo != null)
 				{
-					if(!correoAntiguo.equals(""))
-					{
-						if(alumno.getCorreo().equals(correoAntiguo)){
-							String editarCorreo = JOptionPane.showInputDialog(null, "Ingrese su nuevo correo: ", "Edite correo : ", JOptionPane.QUESTION_MESSAGE);
-							if(editarCorreo != null && !editarCorreo.equals(""))
+						if(alumno.getCorreo().equals(correoAntiguo))
+						{
+							String correoNuevo = JOptionPane.showInputDialog(null, "Ingrese su nuevo correo: ", "Edite correo : ", JOptionPane.QUESTION_MESSAGE);
+							
+							if(universidad.getListaAlumnos().modificarCorreo(alumno, correoNuevo))
 							{
-								if(editarCorreo.matches("[-\\w\\.]+@\\w+\\.\\w+"))//debe aparecer si o si el @ y el punto.
-								{
-									alumno.setCorreo(editarCorreo);
-									lblCorreo.setText("Correo: "+alumno.getCorreo());
-								
-									JOptionPane.showMessageDialog(VentanaAlumno.this, "Correo cambiada Exitosamente!");
-								}else{
-									JOptionPane.showMessageDialog(VentanaAlumno.this, "El correo debe contener al menos un '@' y un '.'");
-								}	
-							}else{
-								JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+								lblCorreo.setText("Correo: "+alumno.getCorreo());
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "Correo cambiada Exitosamente!");
 							}
-						}else{
+							else
+								JOptionPane.showMessageDialog(VentanaAlumno.this, "El correo ingresado no es valido");
+						}
+						else
+						{
 							JOptionPane.showMessageDialog(VentanaAlumno.this, "El correo ingresado no coincide con el antiguo");
 						}
-					}else{
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
-					}
 				}
 			}
 			//Al pasar por encima el mouse
@@ -268,6 +283,14 @@ public class VentanaAlumno extends JFrame {
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
 		});
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 //------------------------------------------------------------------------------------------------------------------------		
@@ -287,6 +310,15 @@ public class VentanaAlumno extends JFrame {
 		});
 		contentPane.add(btnCrearReceta);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------
 		
 		//BOTON BUSCAR RECETA
@@ -305,6 +337,15 @@ public class VentanaAlumno extends JFrame {
 			}
 		});
 		contentPane.add(btnBuscarReceta);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //------------------------------------------------------------------------------------------------------------------------
 		
@@ -329,9 +370,20 @@ public class VentanaAlumno extends JFrame {
 		});
 		contentPane.add(btnAtras);
 		
-//------------------------------------------------------------------------------------------------------------------------
 		
-		JButton btnCambiarContrasea = new JButton("Cambiar Contrase\u00F1a");	//BOTON CAMBIAR CONTRASEÑA
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//------------------------------------------------------------------------------------------------------------------------
+		//BOTON CAMBIAR CONTRASEÑA
+		JButton btnCambiarContrasea = new JButton("Cambiar Contrase\u00F1a");	
 		btnCambiarContrasea.setBackground(UIManager.getColor("Button.background"));
 		btnCambiarContrasea.setBounds(10, 228, 145, 45);
 		btnCambiarContrasea.setFont(new Font("Century Gothic", Font.PLAIN, 9));
@@ -356,5 +408,7 @@ public class VentanaAlumno extends JFrame {
 		});
 		contentPane.add(btnCambiarContrasea);
 	}
+	
+	
 }
 

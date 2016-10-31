@@ -10,7 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
 
 public class VentanaMisRecetas extends JFrame 
 {
@@ -20,23 +23,21 @@ public class VentanaMisRecetas extends JFrame
 	private DefaultListModel recetas;
 	public VentanaMisRecetas(final Alumno alumno,final VentanaAlumno ventanaUsuario) 
 	{
+		setTitle("VentanaMisRecetas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 577, 288);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		setResizable(false);
-		
-		JLabel lblRecetas = new JLabel("Recetas");
-		lblRecetas.setBounds(10, 23, 85, 14);
-		contentPane.add(lblRecetas);
 		
 		recetas=new DefaultListModel();
 		
 		convertir(recetas,alumno.getListaRecetas().getArrayRecetas());
 //------------------------------------------------------------------------------------------------------------------------		
 		JPanel panel_recetas = new JPanel();										//LISTA RECETAS
-		panel_recetas.setBounds(10, 38, 250, 212);
+		panel_recetas.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "MIS RECETAS", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, null, new Color(0, 0, 0)));
+		panel_recetas.setBounds(10, 20, 260, 230);
 		contentPane.add(panel_recetas);
 		panel_recetas.setLayout(new GridLayout());
 		
@@ -57,7 +58,7 @@ public class VentanaMisRecetas extends JFrame
 				}
 			}
 		});
-		btnMostrarReceta.setBounds(291, 143, 133, 30);
+		btnMostrarReceta.setBounds(280, 95, 133, 44);
 				contentPane.add(btnMostrarReceta);
 //------------------------------------------------------------------------------------------------------------------------		
 		JButton btnCrearReceta = new JButton("Crear Receta");						//BOTON CREAR RECETA
@@ -71,7 +72,7 @@ public class VentanaMisRecetas extends JFrame
 			}
 		});
 		contentPane.setLayout(null);
-		btnCrearReceta.setBounds(291, 38, 133, 30);
+		btnCrearReceta.setBounds(280, 40, 133, 44);
 		contentPane.add(btnCrearReceta);
 		
 //------------------------------------------------------------------------------------------------------------------------		
@@ -88,7 +89,7 @@ public class VentanaMisRecetas extends JFrame
 				
 			}
 		});
-		btnModificarReceta.setBounds(291, 72, 133, 30);
+		btnModificarReceta.setBounds(423, 40, 133, 44);
 		contentPane.add(btnModificarReceta);
 		
 //------------------------------------------------------------------------------------------------------------------------		
@@ -109,7 +110,7 @@ public class VentanaMisRecetas extends JFrame
 				}
 			}
 		});
-		btnEliminarReceta.setBounds(291, 107, 133, 30);
+		btnEliminarReceta.setBounds(423, 95, 133, 44);
 		contentPane.add(btnEliminarReceta);
 
 //------------------------------------------------------------------------------------------------------------------------
@@ -121,8 +122,31 @@ public class VentanaMisRecetas extends JFrame
 				dispose();
 			}
 		});
-		btnAtras.setBounds(291, 220, 133, 30);
+		btnAtras.setBounds(351, 205, 122, 39);
 		contentPane.add(btnAtras);
+		
+//------------------------------------------------------------------------------------------------------------------------
+																			//BOTON GUARDAR RECETAS
+		JButton btnDescargarReceta = new JButton("Guardar Recetas");
+		btnDescargarReceta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CrearPDF crearPDF = new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),1);
+			}
+		});
+		btnDescargarReceta.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnDescargarReceta.setBounds(280, 150, 133, 44);
+		contentPane.add(btnDescargarReceta);
+		
+//------------------------------------------------------------------------------------------------------------------------
+																			//BOTON ENVIAR A CORREO		
+		JButton btnEnviarACorreo = new JButton("Enviar a correo");
+		btnEnviarACorreo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CrearPDF crearPDF = new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),2);
+			}
+		});
+		btnEnviarACorreo.setBounds(423, 150, 133, 44);
+		contentPane.add(btnEnviarACorreo);
 		
 	}//FIN CONTRUCTOR
 	
@@ -142,9 +166,10 @@ public class VentanaMisRecetas extends JFrame
 				recetasList.addElement(recetasArray.get(i));
 		}
 	}
+	
+	
 	public void actualizar(ArrayList<Receta> recetas)
 	{
 		convertir(this.recetas,recetas);
 	}
-	
 }
