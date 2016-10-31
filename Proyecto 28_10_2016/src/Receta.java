@@ -377,7 +377,7 @@ public class Receta
 		this.calificacionReceta = 0;
 		this.denuncias = null;
 		this.ventanaPrincipal=null;
-		this.ListaComentarios= null;
+		this.ListaComentarios= new ListaComentarios();
 	}
 	
 	

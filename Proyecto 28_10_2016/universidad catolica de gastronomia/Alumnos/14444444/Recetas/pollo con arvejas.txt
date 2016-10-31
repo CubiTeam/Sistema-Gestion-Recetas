@@ -1,0 +1,14 @@
+pollo con arvejas
+0|21|0
+2
+pollo
+arvejas
+3
+cuchillo
+olla a presion
+cocina
+1
+casero
+0
+1
+14444444|espero que lo disfruten|0

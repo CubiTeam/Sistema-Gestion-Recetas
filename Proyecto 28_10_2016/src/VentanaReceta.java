@@ -178,7 +178,7 @@ public class VentanaReceta extends JFrame {
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				Comentario comentarioNuevo = new Comentario(alumno,txtComentarioNuevo.getText(),receta.getListaComentarios().identificadorComentario());
-				
+				receta.getListaComentarios().agregar(comentarioNuevo);
 				textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
 				txtComentarioNuevo.setText("");
 			}
