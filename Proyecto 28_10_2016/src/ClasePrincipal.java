@@ -21,7 +21,7 @@
  *	PASS : GRDCproject1234
  * 
  * ********************************************************
- * 
+ *  
  * 		VERIFICAR existeUsuario( //VERIFICAR PARAMETROS  )
  * 		
  * 

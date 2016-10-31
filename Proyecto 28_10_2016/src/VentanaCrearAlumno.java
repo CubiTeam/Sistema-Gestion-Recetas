@@ -10,7 +10,8 @@ import java.awt.event.ActionEvent;
 import java.lang.System;
 import java.io.IOException;
 
-public class VentanaCrearAlumno extends JFrame {
+public class VentanaCrearAlumno extends JFrame 
+{
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtRUT;
@@ -39,9 +40,18 @@ public class VentanaCrearAlumno extends JFrame {
 		setSize(315, 452); //Dar tamano
 		setLocation(anchoPantalla/3, alturaPantalla/4); //Centrarlo
 		
-//-------------------------------------------------------------------------------------------------------------------------
 		
+		
+		
+		
+		
+		
+		
+		
+		
+//-------------------------------------------------------------------------------------------------------------------------
 		//JLabel
+		
 		JLabel lblIngreseLosSiguientes = new JLabel("Ingrese los siguientes datos :");
 		lblIngreseLosSiguientes.setBounds(10, 21, 255, 14);
 		contentPane.add(lblIngreseLosSiguientes);
@@ -103,8 +113,18 @@ public class VentanaCrearAlumno extends JFrame {
 		contentPane.add(lblVerifNombre);
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-----------------------------------------------------------------------------------------------------------------------------
-												//JTextField
+		//JTextField
+
 		txtNombre = new JTextField();
 		txtNombre.setToolTipText("Ej: Luis Perez");
 		txtNombre.setBounds(89, 72, 186, 20);
@@ -146,9 +166,41 @@ public class VentanaCrearAlumno extends JFrame {
 		txtTelefono.setBounds(89, 224, 186, 20);
 		contentPane.add(txtTelefono);
 		txtTelefono.setColumns(10);
-//--------------------------------------------------------------------------------------------------------------------------
-										//VALIDACIONES
-		txtNombre.addKeyListener(new KeyListener(){
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//---------------------------------------------------------------------------------------------------------------------------
+		//VALIDACIONES
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion del nombre
+		
+		
+		
+		//valida que el nombre sea ingresado
+		txtNombre.addKeyListener(new KeyListener()
+		{
 			//Se ejecuta cuando el usuario presiona una tecla (especial)
 			public void keyTyped(KeyEvent e){
 
@@ -174,11 +226,33 @@ public class VentanaCrearAlumno extends JFrame {
 			}
 		});
 		
-		//Funcion que limita la cantidad de numeros a ingresar en el TxtFieldRUT a 8
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		//validacion del rut
+		
+		
+		
+		//limita la cantidad de numeros a 8
 		txtRUT.addKeyListener(new KeyListener()
-		{
+		{	
 			int tamanoRUT = 8;
-			
+		
 			public void keyTyped(KeyEvent e){
 				if (txtRUT.getText().length() == tamanoRUT)
 					e.consume();
@@ -202,6 +276,9 @@ public class VentanaCrearAlumno extends JFrame {
 			}
 		});
 		
+		
+		
+		//limita la cantidad de numeros del digito verificador a 1
 		txtDigVer.addKeyListener(new KeyListener()
 		{
 			int tamanoDigVerf = 1;
@@ -222,6 +299,36 @@ public class VentanaCrearAlumno extends JFrame {
 				}
 			}
 		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		//validacion de la edad
 		
 		txtEdad.addKeyListener(new KeyListener()
 		{
@@ -251,7 +358,33 @@ public class VentanaCrearAlumno extends JFrame {
 			}
 		});
 		
-		txtDireccion.addKeyListener(new KeyListener(){
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion de dirección
+		
+		
+		
+		
+		
+		//valida que la dirección exista
+		txtDireccion.addKeyListener(new KeyListener()
+		{
 			//Se ejecuta cuando el usuario presiona una tecla (especial)
 			public void keyTyped(KeyEvent e){
 
@@ -277,7 +410,31 @@ public class VentanaCrearAlumno extends JFrame {
 			}
 		});
 
-		//Limitar a escribir 8 numeros en el Campo TELEFONO
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion del telefono
+		
+		
+		
+		
+		
+		//Limitar a escribir 8 numeros 
 		txtTelefono.addKeyListener(new KeyListener(){
 			int tamanoTelefono = 8;
 			//Se ejecuta cuando el usuario presiona una tecla (especial)
@@ -308,8 +465,36 @@ public class VentanaCrearAlumno extends JFrame {
 		final JComboBox comboBoxSexo = new JComboBox(sexoStrings);
 		comboBoxSexo.setBounds(89, 174, 85, 20);
 		contentPane.add(comboBoxSexo);
-//-----------------------------------------------------------------------------------------------------------------------------
-												//BOTONES
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//---------------------------------------------------------------------------------------------------------------------------
+		
+		//BOTONES
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton generar contraseña
+		
 		final JButton btnGenerarContrasena = new JButton("Generar Contrase\u00F1a");
 		btnGenerarContrasena.setEnabled(false);
 		btnGenerarContrasena.addActionListener(new ActionListener() {
@@ -318,7 +503,8 @@ public class VentanaCrearAlumno extends JFrame {
 				try {
 					archivo = new Archivos();
 					archivo.guardarTxtUsuarios(universidad.getListaAlumnos().getArrayAlumnos());
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,universidad.getListaAlumnos().getArrayAlumnos().get(posicion).getContrasena(),"Su contraseña es",1);
+					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,universidad.getListaAlumnos().
+											getArrayAlumnos().get(posicion).getContrasena(),"Su contraseña es",1);
 				} catch (HeadlessException | IOException e1) {
 					e1.printStackTrace();
 				}
@@ -329,32 +515,86 @@ public class VentanaCrearAlumno extends JFrame {
 		btnGenerarContrasena.setBounds(60, 338, 173, 31);
 		contentPane.add(btnGenerarContrasena);
 		
-		JButton btnRegistrarse = new JButton("Registrar UsuarioEstandar"); //boton de registrar
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton de registrar
+		JButton btnRegistrarse = new JButton("Registrar Alumno"); 
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String sexoUsuario = (String) comboBoxSexo.getSelectedItem();
 				
-				if(verificarEmail(txtCorreo.getText()))
+				Alumno usuarioNuevo= new Alumno(txtNombre.getText(),
+						txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(),
+						sexoUsuario,Integer.parseInt(txtEdad.getText()),
+						Integer.parseInt(txtTelefono.getText()));
+				usuarioNuevo.setContrasena(usuarioNuevo.generarContraseña(txtRUT.getText()));
+				
+				if(universidad.getListaAlumnos().agregar(usuarioNuevo))
 				{
-					lblVerifCorreo.setText("\u2717");
-					txtCorreo.setBackground(Color.red);
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Ingresó mal o faltó llenar algun campo","Error",0);
-				}else{
 					lblVerifCorreo.setText("\u2713");
 					txtCorreo.setBackground(Color.GREEN);
-					Alumno usuarioNuevo= new Alumno(txtNombre.getText(),txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(), sexoUsuario,Integer.parseInt(txtEdad.getText()),Integer.parseInt(txtTelefono.getText()));
-					usuarioNuevo.setContrasena(usuarioNuevo.generarContraseña(txtRUT.getText()));
-					universidad.getListaAlumnos().getArrayAlumnos().add(usuarioNuevo);
 					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Datos ingresados correctamente","Usuario creado",1);	
 					
 					btnGenerarContrasena.setEnabled(true);
+					
+					txtNombre.setEditable(false);
+					txtEdad.setEditable(false);
+					txtCorreo.setEditable(false);
+					txtTelefono.setEditable(false);
+					txtDireccion.setEditable(false);
+					txtDigVer.setEditable(false);
+					txtRUT.setEditable(false);
 
+				}else
+				{
+					
+					lblVerifCorreo.setText("\u2717");
+					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Ingresó mal o faltó llenar algun campo","Error",0);
 				}
 			}
 		});
 		btnRegistrarse.setBounds(10, 277, 179, 37);
 		contentPane.add(btnRegistrarse);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton atras
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -365,6 +605,24 @@ public class VentanaCrearAlumno extends JFrame {
 		btnAtras.setBounds(199, 277, 100, 37);
 		contentPane.add(btnAtras);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		JButton btnSalir = new JButton("Cerrar Sesión");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -373,25 +631,13 @@ public class VentanaCrearAlumno extends JFrame {
 		});
 		btnSalir.setBounds(174, 11, 125, 29);
 		contentPane.add(btnSalir);
+	
+		
+		
+		
+		
+		
+		
 	}//FIN DEL CONTRUCTOR
 
-	//verifica que en mail se escribio correctamente
-	public boolean verificarEmail(String email)
-	{
-		int verificarArroba = 0;
-		int verificarPuntos = 0;
-		
-		for(int i = 0;i < email.length(); i++){
-			if(email.charAt(i) == '@')//ExtraerCaracter
-				verificarArroba++;
-
-			if(email.charAt(i) == '.')
-				verificarPuntos++;
-		}
-		
-		if(verificarArroba != 1 && verificarPuntos < 1)
-			return true;
-		
-		return false;
-	}
 }

@@ -22,11 +22,6 @@ public class ListaComentarios implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
 	public ListaComentarios()
 	{
 		this.arrayComentarios= new ArrayList<Comentario>();

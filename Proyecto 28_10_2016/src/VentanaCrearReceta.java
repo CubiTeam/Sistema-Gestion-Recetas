@@ -27,7 +27,7 @@ public class VentanaCrearReceta extends JFrame
 	private JTextField tiempoEstimado;
 	private int tamMinNombre= 2;
 	private int tamMaxNombre = 100;
-	private DefaultListModel ingredientes,categorias,utensilios;
+	private DefaultListModel<String> ingredientes,categorias,utensilios;
 	private JTextField txtIngrediente;
 	private JTextField txtUtensilio;
 	private JTextField txtCategoria;
@@ -72,8 +72,20 @@ public class VentanaCrearReceta extends JFrame
 		final JLabel lblVernombre = new JLabel("");
 		lblVernombre.setBounds(682, 13, 46, 14);
 		contentPane.add(lblVernombre);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JLabel lblNombreReceta = new JLabel("Nombre Receta"); 			//NOMBRE RECETA
+		//NOMBRE RECETA
+		
+		JLabel lblNombreReceta = new JLabel("Nombre Receta"); 			
 		lblNombreReceta.setBounds(256, 13, 113, 14);
 		contentPane.add(lblNombreReceta);
 		
@@ -82,6 +94,11 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(nombreReceta);
 		nombreReceta.setColumns(10);
 		
+		
+		
+		
+		
+		//validacion de que el nombre de la receta no se pase del tamaño maximo
 		nombreReceta.addKeyListener(new KeyListener()
 		{
 			public void keyTyped(KeyEvent e)
@@ -105,8 +122,22 @@ public class VentanaCrearReceta extends JFrame
 				}
 			}
 		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JLabel lblNewLabel_2 = new JLabel("Tiempo estimado");	//TIEMPO ESTIMADO PREPARACIÓN
+		//TIEMPO ESTIMADO PREPARACIÓN
+		
+		JLabel lblNewLabel_2 = new JLabel("Tiempo estimado");	
 		lblNewLabel_2.setBounds(10, 150, 113, 14);
 		contentPane.add(lblNewLabel_2);
 		
@@ -118,8 +149,14 @@ public class VentanaCrearReceta extends JFrame
 		tiempoEstimado.setBounds(111, 147, 56, 20);
 		contentPane.add(tiempoEstimado);
 		tiempoEstimado.setColumns(10);
+		
+		
+		
+		
+		
+		//validacion del tiempo estimado 
 		tiempoEstimado.addKeyListener(new KeyListener()
-		{
+		{	//no puede tener mas de 3 digitos
 			int tamanoTiempoEst = 3;
 			public void keyTyped(KeyEvent e)
 			{
@@ -142,14 +179,37 @@ public class VentanaCrearReceta extends JFrame
 			}
 		});
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JPanel panel_instrucciones = new JPanel();				//INSTRUCCIONES
+		//INSTRUCCIONES
+		
+		JPanel panel_instrucciones = new JPanel();				
 		panel_instrucciones.setBounds(10, 235, 666, 353);
 		contentPane.add(panel_instrucciones);
 		panel_instrucciones.setLayout(new GridLayout());
 		
 		final JTextArea instrucciones = new JTextArea();
 		panel_instrucciones.add(instrucciones);
+		
+		
+		
+		
+		
+		
+		//validacion de que las instrucciones no tengan mas de 800 caracteres
 		instrucciones.addKeyListener(new KeyAdapter() 
 		{
 			@Override
@@ -169,9 +229,24 @@ public class VentanaCrearReceta extends JFrame
 		lblInstrucciones.setBounds(302, 204, 235, 20);
 		contentPane.add(lblInstrucciones);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------	
-		ingredientes = new DefaultListModel();
-		JPanel panel_ingredientes = new JPanel();				//INGREDIENTES
+		//INGREDIENTES
+		
+		ingredientes = new DefaultListModel<String>();
+		JPanel panel_ingredientes = new JPanel();				
 		panel_ingredientes.setBounds(730, 45, 113, 161);
 		contentPane.add(panel_ingredientes);
 		panel_ingredientes.setLayout(new GridLayout());
@@ -180,6 +255,33 @@ public class VentanaCrearReceta extends JFrame
 		txtIngrediente.setBounds(853, 48, 131, 20);
 		contentPane.add(txtIngrediente);
 		txtIngrediente.setColumns(10);
+		
+		final JList<String> lista_ing = new JList<String>();
+		lista_ing.setModel(ingredientes);
+		panel_ingredientes.add(lista_ing);
+		
+		JScrollPane scroll_ingredientes = new JScrollPane(lista_ing);
+		panel_ingredientes.add(scroll_ingredientes);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion de que el largo del ingrediente no sea mas de 50 caracteres
 		txtIngrediente.addKeyListener(new KeyAdapter() 
 		{
 			@Override
@@ -190,13 +292,24 @@ public class VentanaCrearReceta extends JFrame
 			}
 		});
 		
-		final JList lista_ing = new JList();
-		lista_ing.setModel(ingredientes);
-		panel_ingredientes.add(lista_ing);
 		
-		JScrollPane scroll_ingredientes = new JScrollPane(lista_ing);
-		panel_ingredientes.add(scroll_ingredientes);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton agregar ingrediente
 		JButton btnAgregarIng = new JButton("Agregar");
 		btnAgregarIng.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
@@ -212,6 +325,18 @@ public class VentanaCrearReceta extends JFrame
 		btnAgregarIng.setBounds(853, 79, 131, 23);
 		contentPane.add(btnAgregarIng);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton eliminar ingrediente
 		final JButton btnEliminarIng = new JButton("Eliminar");
 		btnEliminarIng.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -231,9 +356,22 @@ public class VentanaCrearReceta extends JFrame
 		lblIngredientes.setBounds(753, 24, 129, 14);
 		contentPane.add(lblIngredientes);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------		
-		utensilios = new DefaultListModel();
-		JPanel panel_utensilios = new JPanel();					//UTENSILIOS
+		//UTENSILIOS
+		
+		utensilios = new DefaultListModel<String>();
+		JPanel panel_utensilios = new JPanel();					
 		panel_utensilios.setBounds(730, 235, 113, 161);
 		contentPane.add(panel_utensilios);
 		panel_utensilios.setLayout(new GridLayout());
@@ -242,23 +380,51 @@ public class VentanaCrearReceta extends JFrame
 		txtUtensilio.setBounds(853, 235, 131, 20);
 		contentPane.add(txtUtensilio);
 		txtUtensilio.setColumns(10);
-		txtUtensilio.addKeyListener(new KeyAdapter() 
-		{
-			@Override
-			public void keyTyped(KeyEvent x) 
-			{	validar(x);
-				if(instrucciones.getText().length() == 50)
-					x.consume();
-			}
-		});
 		
-		final JList lista_uten = new JList();
+		final JList<String> lista_uten = new JList<String>();
 		lista_uten.setModel(utensilios);
 		panel_utensilios.add(lista_uten);
 		
 		JScrollPane scroll_utensilios = new JScrollPane(lista_uten);
 		panel_utensilios.add(scroll_utensilios);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion de que el largo del utensilio no sea mas de 50 caracteres
+		txtUtensilio.addKeyListener(new KeyAdapter() 
+		{
+			@Override
+			public void keyTyped(KeyEvent x) 
+			{	validar(x);
+				if(txtUtensilio.getText().length() == 50)
+					x.consume();
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton agregar utensilio
 		JButton btnAgregarUten = new JButton("Agregar");
 		btnAgregarUten.addActionListener(new ActionListener() 
 		{
@@ -274,6 +440,16 @@ public class VentanaCrearReceta extends JFrame
 		btnAgregarUten.setBounds(853, 266, 131, 23);
 		contentPane.add(btnAgregarUten);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton eliminar utensilio
 		final JButton btnEliminarUten = new JButton("Eliminar");
 		btnEliminarUten.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -294,9 +470,25 @@ public class VentanaCrearReceta extends JFrame
 		JLabel lblUtensilios = new JLabel("Utensilios");
 		lblUtensilios.setBounds(753, 217, 86, 14);
 		contentPane.add(lblUtensilios);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------		
-		categorias = new DefaultListModel();
-		JPanel panel_categorias = new JPanel();						//CATEGORIAS
+		//CATEGORIAS
+		
+		categorias = new DefaultListModel<String>();
+		JPanel panel_categorias = new JPanel();						
 		panel_categorias.setBounds(730, 424, 113, 161);
 		contentPane.add(panel_categorias);
 		panel_categorias.setLayout(new GridLayout());
@@ -305,6 +497,32 @@ public class VentanaCrearReceta extends JFrame
 		txtCategoria.setBounds(853, 424, 131, 20);
 		contentPane.add(txtCategoria);
 		txtCategoria.setColumns(10);
+		
+		final JList<String> lista_categ = new JList<String>();
+		lista_categ.setModel(categorias);
+		panel_categorias.add(lista_categ);
+		
+		JScrollPane scroll_categorias = new JScrollPane(lista_categ);
+		panel_categorias.add(scroll_categorias);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion de que la categoria no tenga mas de 50 caracteres
 		txtCategoria.addKeyListener(new KeyAdapter() 
 		{
 			@Override
@@ -315,13 +533,18 @@ public class VentanaCrearReceta extends JFrame
 			}
 		});
 		
-		final JList lista_categ = new JList();
-		lista_categ.setModel(categorias);
-		panel_categorias.add(lista_categ);
 		
-		JScrollPane scroll_categorias = new JScrollPane(lista_categ);
-		panel_categorias.add(scroll_categorias);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton de agregar categoria
 		JButton btnAgregarCateg = new JButton("Agregar");
 		btnAgregarCateg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -336,6 +559,19 @@ public class VentanaCrearReceta extends JFrame
 		btnAgregarCateg.setBounds(853, 455, 131, 23);
 		contentPane.add(btnAgregarCateg);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton de eliminar categoria
 		final JButton btnEliminarCateg = new JButton("Eliminar");
 		btnEliminarCateg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -356,11 +592,30 @@ public class VentanaCrearReceta extends JFrame
 		lblCategorias.setBounds(753, 407, 99, 14);
 		contentPane.add(lblCategorias);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JButton btnCancelar = new JButton("Cancelar");				//BOTON CANCELAR
+		//BOTON CANCELAR
+		
+		//vuelve a la ventana anterior sin ningun cambio
+		JButton btnCancelar = new JButton("Cancelar");				
 		btnCancelar.addActionListener(new ActionListener() 
 		{
-			public void actionPerformed(ActionEvent e) //vuelve a la ventana anterior sin ningun cambio 
+			public void actionPerformed(ActionEvent e)  
 			{
 				dispose();
 				ventanaAnterior.setVisible(true);	
@@ -370,11 +625,30 @@ public class VentanaCrearReceta extends JFrame
 		btnCancelar.setBounds(47, 627, 120, 33);
 		contentPane.add(btnCancelar);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JButton btnFinalizar = new JButton("Finalizar"); 		//BOTON FINALIZAR
+		//BOTON FINALIZAR
+		
+		
+		
+		//al presionar finalizar se agregan todos los datos llenados a la receta
+		JButton btnFinalizar = new JButton("Finalizar"); 		
 		btnFinalizar.addActionListener(new ActionListener() 
 		{
-			public void actionPerformed(ActionEvent e) 	//al presionar finalizar se agregan todos los datos llenados a la receta
+			public void actionPerformed(ActionEvent e) 	
 			{
 				if(nombreReceta.getText().length() < tamMinNombre)
 					JOptionPane.showMessageDialog(VentanaCrearReceta.this,"Ingresó mal o faltó llenar algun campo","Error",0);
@@ -390,15 +664,20 @@ public class VentanaCrearReceta extends JFrame
 					VentanaReceta ventanaReceta=new VentanaReceta(receta);
 					int reply = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmacion", JOptionPane.YES_NO_OPTION);
 				    
-					if (reply == JOptionPane.YES_OPTION)	//si presiona que si se agrega la receta al ArrayList de recetas
+					
+					//si presiona que si se agrega la receta al ArrayList de recetas
+					if (reply == JOptionPane.YES_OPTION)	
 				    {	
+						//se muestra la ventanaPrincipal de la receta
 						Archivos archivo = new Archivos();
-				    	receta.setVentanaPrincipal(ventanaReceta);	//se muestra la ventanaPrincipal de la receta
+				    	receta.setVentanaPrincipal(ventanaReceta);	
 				    	setVisible(false);
 				    	receta.getVentanaPrincipal().mostrarVentana(ventanaAnterior,alumno);
 				    	alumno.getListaRecetas().agregarReceta(receta);					
 				    	ventanaAnterior.actualizar(alumno.getListaRecetas().getArrayRecetas());				    	
-				    	try {						//se guarda la receta en el txt
+				    	
+				    	//se guarda la receta en el txt
+				    	try {						
 				    		archivo.actualizarDatosReceta(alumno,receta);
 						} catch (IOException e1) {
 							e1.printStackTrace();
@@ -410,9 +689,30 @@ public class VentanaCrearReceta extends JFrame
 		});
 		btnFinalizar.setBounds(837, 627, 120, 33);
 		contentPane.add(btnFinalizar);
+		
 	} //FIN DEL CONTRUCTOR
 
-/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*
+  ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -448,8 +748,26 @@ public class VentanaCrearReceta extends JFrame
 		final JLabel lblVernombre = new JLabel("");
 		lblVernombre.setBounds(682, 13, 46, 14);
 		contentPane.add(lblVernombre);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JLabel lblNombreReceta = new JLabel("Nombre Receta"); 							//NOMBRE RECETA
+		//NOMBRE RECETA
+		
+		JLabel lblNombreReceta = new JLabel("Nombre Receta"); 							
 		lblNombreReceta.setBounds(256, 13, 113, 14);
 		contentPane.add(lblNombreReceta);
 		
@@ -458,6 +776,11 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(nombreReceta);
 		nombreReceta.setColumns(10);
 		
+		
+		
+		
+		
+		//validacion de que el nombre de la receta no se pase del tamaño maximo
 		nombreReceta.addKeyListener(new KeyListener()
 		{
 			public void keyTyped(KeyEvent e)
@@ -480,8 +803,24 @@ public class VentanaCrearReceta extends JFrame
 				}
 			}
 		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JLabel lblNewLabel_2 = new JLabel("Tiempo estimado");			//TIEMPO ESTIMADO PREPARACIÓN
+		//TIEMPO ESTIMADO PREPARACIÓN
+		
+		JLabel lblNewLabel_2 = new JLabel("Tiempo estimado");			
 		lblNewLabel_2.setBounds(10, 150, 113, 14);
 		contentPane.add(lblNewLabel_2);
 		
@@ -493,8 +832,18 @@ public class VentanaCrearReceta extends JFrame
 		tiempoEstimado.setBounds(111, 147, 56, 20);
 		contentPane.add(tiempoEstimado);
 		tiempoEstimado.setColumns(10);
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion del tiempo estimado
 		tiempoEstimado.addKeyListener(new KeyListener()
-		{
+		{	
+			//tamaño maximo 3 digitos
 			int tamanoTiempoEst = 3;
 			public void keyTyped(KeyEvent e)
 			{
@@ -518,13 +867,24 @@ public class VentanaCrearReceta extends JFrame
 		});
 		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JPanel panel_instrucciones = new JPanel();								//INSTRUCCIONES
+		//INSTRUCCIONES
+		
+		JPanel panel_instrucciones = new JPanel();								
 		panel_instrucciones.setBounds(10, 235, 666, 353);
 		contentPane.add(panel_instrucciones);
 		panel_instrucciones.setLayout(new GridLayout());
 		
 		final JTextArea instrucciones = new JTextArea(receta.getInstrucciones());							
 		panel_instrucciones.add(instrucciones);
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion de que las instrucciones no tengan mas de 800 caracteres
 		instrucciones.addKeyListener(new KeyAdapter() 
 		{
 			@Override
@@ -545,9 +905,25 @@ public class VentanaCrearReceta extends JFrame
 		lblInstrucciones.setBounds(302, 204, 235, 20);
 		contentPane.add(lblInstrucciones);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------	
+		//INGREDIENTES
+		
 		ingredientes = casteoAlReves(receta.getIngredientes());
-		JPanel panel_ingredientes = new JPanel();							//INGREDIENTES
+		JPanel panel_ingredientes = new JPanel();							
 		panel_ingredientes.setBounds(730, 45, 113, 161);
 		contentPane.add(panel_ingredientes);
 		panel_ingredientes.setLayout(new GridLayout());
@@ -557,10 +933,41 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(txtIngrediente);
 		txtIngrediente.setColumns(10);
 		
-		final JList lista_ing = new JList();
+		final JList<String> lista_ing = new JList<String>();
 		lista_ing.setModel(ingredientes);
 		panel_ingredientes.add(lista_ing);
 		
+		
+		
+		
+		
+		//validacion de que el largo del ingrediente no sea mas de 50 caracteres
+				txtIngrediente.addKeyListener(new KeyAdapter() 
+				{
+					@Override
+					public void keyTyped(KeyEvent x) 
+					{	validar(x);
+						if(txtIngrediente.getText().length() == 50)
+							x.consume();
+					}
+				});
+					
+		
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+				
+				
+		
+		//boton agregar ingrediente
 		JButton btnAgregarIng = new JButton("Agregar");
 		btnAgregarIng.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
@@ -579,6 +986,19 @@ public class VentanaCrearReceta extends JFrame
 		JScrollPane scroll_ingredientes = new JScrollPane(lista_ing);
 		panel_ingredientes.add(scroll_ingredientes);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton eliminar ingrediente
 		final JButton btnEliminarIng = new JButton("Eliminar");
 		btnEliminarIng.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -597,8 +1017,10 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(lblIngredientes);
 		
 //-------------------------------------------------------------------------------------------------------------------------------------		
+		//UTENSILIOS
+		
 		utensilios = casteoAlReves(receta.getUtensilios());
-		JPanel panel_utensilios = new JPanel();									//UTENSILIOS
+		JPanel panel_utensilios = new JPanel();									
 		panel_utensilios.setBounds(730, 235, 113, 161);
 		contentPane.add(panel_utensilios);
 		panel_utensilios.setLayout(new GridLayout());
@@ -608,13 +1030,54 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(txtUtensilio);
 		txtUtensilio.setColumns(10);
 		
-		final JList lista_uten = new JList();
+		final JList<String> lista_uten = new JList<String>();
 		lista_uten.setModel(utensilios);
 		panel_utensilios.add(lista_uten);
 		
 		JScrollPane scroll_utensilios = new JScrollPane(lista_uten);
 		panel_utensilios.add(scroll_utensilios);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion de que el largo del utensilio no sea mas de 50 caracteres
+		txtUtensilio.addKeyListener(new KeyAdapter() 
+		{
+			@Override
+			public void keyTyped(KeyEvent x) 
+			{	validar(x);
+				if(txtUtensilio.getText().length() == 50)
+					x.consume();
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton agregar utensilio
 		JButton btnAgregarUten = new JButton("Agregar");
 		btnAgregarUten.addActionListener(new ActionListener() 
 		{
@@ -630,6 +1093,21 @@ public class VentanaCrearReceta extends JFrame
 		btnAgregarUten.setBounds(853, 266, 131, 23);
 		contentPane.add(btnAgregarUten);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton eliminar utensilio
 		final JButton btnEliminarUten = new JButton("Eliminar");
 		btnEliminarUten.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -646,9 +1124,26 @@ public class VentanaCrearReceta extends JFrame
 		JLabel lblUtensilios = new JLabel("Utensilios");
 		lblUtensilios.setBounds(753, 217, 86, 14);
 		contentPane.add(lblUtensilios);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------		
+		//CATEGORIAS
+		
 		categorias = casteoAlReves(receta.getCategorias());
-		JPanel panel_categorias = new JPanel();									//CATEGORIAS
+		JPanel panel_categorias = new JPanel();									
 		panel_categorias.setBounds(730, 424, 113, 161);
 		contentPane.add(panel_categorias);
 		panel_categorias.setLayout(new GridLayout());
@@ -658,14 +1153,52 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(txtCategoria);
 		txtCategoria.setColumns(10);
 		
-		final JList lista_categ = new JList();
+		final JList<String> lista_categ = new JList<String>();
 		lista_categ.setModel(categorias);
 		panel_categorias.add(lista_categ);
 		
 		JScrollPane scroll_categorias = new JScrollPane(lista_categ);
 		panel_categorias.add(scroll_categorias);
 		
-		JButton btnAgregarCateg = new JButton("Agregar");				//BOTON AGREGAR
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//validacion de que la categoria no tenga mas de 50 caracteres
+		txtCategoria.addKeyListener(new KeyAdapter() 
+		{
+			@Override
+			public void keyTyped(KeyEvent x) 
+			{	validar(x);
+				if(txtCategoria.getText().length() == 50)
+					x.consume();
+			}
+		});
+				
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton agregar categoria
+		JButton btnAgregarCateg = new JButton("Agregar");				
 		btnAgregarCateg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -679,6 +1212,19 @@ public class VentanaCrearReceta extends JFrame
 		btnAgregarCateg.setBounds(853, 455, 131, 23);
 		contentPane.add(btnAgregarCateg);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton eliminar categoria
 		final JButton btnEliminarCateg = new JButton("Eliminar");
 		btnEliminarCateg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -697,8 +1243,27 @@ public class VentanaCrearReceta extends JFrame
 		lblCategorias.setBounds(753, 407, 99, 14);
 		contentPane.add(lblCategorias);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JButton btnCancelar = new JButton("Cancelar");						//BOTON CANCELAR
+		//BOTON CANCELAR
+		
+		//devuelve a la ventana anterior
+		JButton btnCancelar = new JButton("Cancelar");						
 		btnCancelar.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -711,11 +1276,28 @@ public class VentanaCrearReceta extends JFrame
 		btnCancelar.setBounds(47, 627, 120, 33);
 		contentPane.add(btnCancelar);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JButton btnFinalizar = new JButton("Finalizar"); 					//BOTON FINALIZAR
+		//BOTON FINALIZAR
+		
+		//al presionar finalizar se agregan todos los datos llenados a la receta
+		JButton btnFinalizar = new JButton("Finalizar"); 					
 		btnFinalizar.addActionListener(new ActionListener() 
 		{
-			public void actionPerformed(ActionEvent e) //al presionar finalizar se agregan todos los datos llenados a la receta
+			public void actionPerformed(ActionEvent e) 
 			{
 				if(nombreReceta.getText().length() < tamMinNombre)
 					JOptionPane.showMessageDialog(VentanaCrearReceta.this,"Ingresó mal o faltó llenar algun campo","Error",0);
@@ -731,8 +1313,9 @@ public class VentanaCrearReceta extends JFrame
 					VentanaReceta ventanaReceta=new VentanaReceta(receta);
 					receta.setVentanaPrincipal(ventanaReceta);
 					int reply = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-				    if (reply == JOptionPane.YES_OPTION)	//si presiona que si, se modifican los datos en el txt
+				    if (reply == JOptionPane.YES_OPTION)	
 				    {
+				    	//si presiona que si, se modifican los datos en el txt
 				    	if(alumno.getListaRecetas().modificarReceta(receta))
 				    	{
 				    		dispose();
@@ -747,7 +1330,28 @@ public class VentanaCrearReceta extends JFrame
 		});
 		btnFinalizar.setBounds(837, 627, 120, 33);
 		contentPane.add(btnFinalizar);
-	}
+		
+	}//FIN DEL CONTRUCTOR
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void soloLetras(KeyEvent letra){		//solo deja escribir letras
 		char c=letra.getKeyChar(); 
@@ -757,6 +1361,26 @@ public class VentanaCrearReceta extends JFrame
 	        letra.consume(); 
 	    }
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void validar(KeyEvent letra)			//no deja escribir el caracter |
 	{
@@ -779,7 +1403,7 @@ public class VentanaCrearReceta extends JFrame
 	 
 	}
 	
-	public String[] casteo(DefaultListModel listaEntrada) //convierte de DefaultListModel a String[]
+	public String[] casteo(DefaultListModel<String> listaEntrada) //convierte de DefaultListModel a String[]
 	{
 		String[] listaFinal= new String[listaEntrada.getSize()];
 		int i;
@@ -789,9 +1413,9 @@ public class VentanaCrearReceta extends JFrame
 		}
 		return listaFinal;
 	}
-	public DefaultListModel casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
+	public DefaultListModel<String> casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
 	{
-		DefaultListModel listaFinal= new DefaultListModel();
+		DefaultListModel<String> listaFinal= new DefaultListModel<String>();
 		int i;
 		for(i=0;i<listaEntrada.length;i++)
 		{
