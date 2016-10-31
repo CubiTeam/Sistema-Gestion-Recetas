@@ -13,6 +13,7 @@ public class ListaDocentes implements Arreglo
 	
 	public ListaDocentes(Archivos archivo)
 	{
+		arrayDocentes = new ArrayList<Docente>();
 		archivo.cargarArchivoTextoDocente(ListaDocentes.this);
 	}
 	
