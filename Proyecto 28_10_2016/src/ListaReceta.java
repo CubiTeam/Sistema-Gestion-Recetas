@@ -73,6 +73,15 @@ public class ListaReceta
 
 
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 
 
@@ -84,12 +93,32 @@ public class ListaReceta
 
 
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 		//agrega una receta al ArrayList de recetas
 		public void agregarReceta(Receta receta)
-		{										
+		{		
+			
 			if(!existe(receta))
+			{
 				arrayRecetas.add(receta);
+			}
+			
 		}
 		
 		
