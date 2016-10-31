@@ -46,7 +46,7 @@ public class ListaDocentes implements Arreglo
 	//verifica que el docente tenga la misma contraseña que se ingresó
 	public boolean verificacion(Docente docente,JPasswordField contrasena)
 	{														
-		if(contrasena.equals(docente.getContrasena())){
+		if(contrasena.getText().equals(docente.getContrasena())){
 				return true;		
 		}else{
 			return false;
