@@ -503,7 +503,8 @@ public class VentanaCrearAlumno extends JFrame
 				try {
 					archivo = new Archivos();
 					archivo.guardarTxtUsuarios(universidad.getListaAlumnos().getArrayAlumnos());
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,universidad.getListaAlumnos().getArrayAlumnos().get(posicion).getContrasena(),"Su contraseña es",1);
+					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,universidad.getListaAlumnos().
+											getArrayAlumnos().get(posicion).getContrasena(),"Su contraseña es",1);
 				} catch (HeadlessException | IOException e1) {
 					e1.printStackTrace();
 				}
