@@ -39,14 +39,40 @@ public class ListaAlumnos implements Arreglo
 	
 	
 	//agrega a un nuevo alumno
-	public boolean agregar (Object a)
+	public boolean agregar (Object alumnoNuevo)
 	{
-		if(arrayAlumnos.add((Alumno)a))
+		if(validar((Alumno)alumnoNuevo))
+		{
+			arrayAlumnos.add((Alumno)alumnoNuevo);
 			return true;
+		}
+		
 		return false;
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//valida que los datos del alumno son correctos
+	public boolean validar(Alumno alumno)
+	{
+		if(!esNumerico(alumno.getRut()))
+			return false;
+		if(!esNumerico(String.valueOf(alumno.getTelefono())))
+			return false;
+		if(!verificarEmail(alumno.getCorreo()))
+			return false;
+		return true;
+	}
 	
 	
 	

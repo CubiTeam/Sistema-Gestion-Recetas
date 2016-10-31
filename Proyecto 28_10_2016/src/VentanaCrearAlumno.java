@@ -531,27 +531,37 @@ public class VentanaCrearAlumno extends JFrame
 		
 		
 		//boton de registrar
-		JButton btnRegistrarse = new JButton("Registrar UsuarioEstandar"); 
+		JButton btnRegistrarse = new JButton("Registrar Alumno"); 
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String sexoUsuario = (String) comboBoxSexo.getSelectedItem();
 				
-				if(verificarEmail(txtCorreo.getText()))
+				Alumno usuarioNuevo= new Alumno(txtNombre.getText(),
+						txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(),
+						sexoUsuario,Integer.parseInt(txtEdad.getText()),
+						Integer.parseInt(txtTelefono.getText()));
+				usuarioNuevo.setContrasena(usuarioNuevo.generarContraseña(txtRUT.getText()));
+				
+				if(universidad.getListaAlumnos().agregar(usuarioNuevo))
 				{
 					lblVerifCorreo.setText("\u2713");
 					txtCorreo.setBackground(Color.GREEN);
-					Alumno usuarioNuevo= new Alumno(txtNombre.getText(),txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(), sexoUsuario,Integer.parseInt(txtEdad.getText()),Integer.parseInt(txtTelefono.getText()));
-					usuarioNuevo.setContrasena(usuarioNuevo.generarContraseña(txtRUT.getText()));
-					universidad.getListaAlumnos().agregar(usuarioNuevo);
 					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Datos ingresados correctamente","Usuario creado",1);	
 					
 					btnGenerarContrasena.setEnabled(true);
+					
+					txtNombre.setEditable(false);
+					txtEdad.setEditable(false);
+					txtCorreo.setEditable(false);
+					txtTelefono.setEditable(false);
+					txtDireccion.setEditable(false);
+					txtDigVer.setEditable(false);
+					txtRUT.setEditable(false);
 
 				}else
 				{
 					
 					lblVerifCorreo.setText("\u2717");
-					txtCorreo.setBackground(Color.red);
 					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Ingresó mal o faltó llenar algun campo","Error",0);
 				}
 			}
@@ -629,39 +639,4 @@ public class VentanaCrearAlumno extends JFrame
 		
 	}//FIN DEL CONTRUCTOR
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//verifica que en mail se escribio correctamente
-	public boolean verificarEmail(String email)
-	{
-		int verificarArroba = 0;
-		int verificarPuntos = 0;
-		
-		for(int i = 0;i < email.length(); i++){
-			if(email.charAt(i) == '@')//ExtraerCaracter
-				verificarArroba++;
-
-			if(email.charAt(i) == '.')
-				verificarPuntos++;
-		}
-		
-		if(verificarArroba != 1 && verificarPuntos < 1)
-			return false;
-		
-		return true;
-	}
 }
