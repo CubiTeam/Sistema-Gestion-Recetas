@@ -92,8 +92,21 @@ public class VentanaBuscarReceta extends JFrame {
 		});
 		btnFiltro.setBounds(459, 25, 89, 23);
 		contentPane.add(btnFiltro);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //--------------------------------------------------------------------------------------------------------------------------
-		JButton btnBuscar = new JButton("Buscar");			//BOTON BUSCAR RECETAS
+		//BOTON BUSCAR RECETAS
+		
+		JButton btnBuscar = new JButton("Buscar");			
 		
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
@@ -152,8 +165,18 @@ public class VentanaBuscarReceta extends JFrame {
 		});
 		btnBuscar.setBounds(525, 59, 84, 33);
 		contentPane.add(btnBuscar);
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------------
-		JButton btnMostrar = new JButton("Mostrar");			//BOTON MOSTRAR
+		//BOTON MOSTRAR
+		
+		JButton btnMostrar = new JButton("Mostrar");			
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -166,8 +189,21 @@ public class VentanaBuscarReceta extends JFrame {
 		});
 		btnMostrar.setBounds(525, 103, 84, 33);
 		contentPane.add(btnMostrar);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------------
-		JButton btnAtras = new JButton("Atras");					//BOTON ATRAS
+		//BOTON ATRAS
+		
+		JButton btnAtras = new JButton("Atras");					
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ventanaUsuario.setVisible(true);				//se devuelve a la ventana anterior
@@ -177,10 +213,37 @@ public class VentanaBuscarReceta extends JFrame {
 		btnAtras.setBounds(525, 317, 84, 33);
 		contentPane.add(btnAtras);
 		
+	
+		
 		
 	}//FIN CONTRUCTOR
 	
-	public void convertir(DefaultListModel<Receta> recetasList,ArrayList<Receta> arrayList) // cambia de arrayList a DefaultListModel
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// cambia de arrayList a DefaultListModel
+	public void convertir(DefaultListModel<Receta> recetasList,ArrayList<Receta> arrayList) 
 	{
 		int cont;
 		for(int i=0;i<arrayList.size();i++)
@@ -195,7 +258,21 @@ public class VentanaBuscarReceta extends JFrame {
 				recetasList.addElement(arrayList.get(i));
 		}
 	}
-	public DefaultListModel<String> casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//convierte de String[] a DefaultListModel
+	public DefaultListModel<String> casteoAlReves(String[] listaEntrada) 
 	{
 		DefaultListModel<String> listaFinal= new DefaultListModel<String>();
 		int i;
@@ -206,9 +283,31 @@ public class VentanaBuscarReceta extends JFrame {
 		return listaFinal;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	//recibe una lista y verifica que si se repite un valor de una lista en la otra lista
 	public boolean existenString(String[] listaAgregar,String[] listaIngredientes)
-	{													//recibe una lista y verifica que si se repite un valor de una lista
-		int cont=0,contTotal=0;							//en la otra
+	{													
+		int cont=0,contTotal=0;							
 		for(int i=0;i<listaIngredientes.length;i++)
 		{
 			cont=0;
