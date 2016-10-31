@@ -14,13 +14,21 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JCheckBox;
 
-public class VentanaBuscarReceta extends JFrame {
+public class VentanaBuscarReceta extends JFrame 
+{
 
 	private JPanel contentPane;
 	private JTextField txtNombreReceta;
 	private DefaultListModel<Receta> recetas;
 	
 	
+	
+	
+	
+	
+	
+	
+
 	//ventana para la busqueda de recetas de todos los alumnos
 	public VentanaBuscarReceta(final ArrayList<Receta> arrayReceta, final VentanaAlumno ventanaUsuario,final Alumno usuario) 
 	{											
@@ -238,72 +246,6 @@ public class VentanaBuscarReceta extends JFrame {
 	
 	
 	
-	
-	
-	
-	
-	// cambia de arrayList a DefaultListModel
-	public void convertir(DefaultListModel<Receta> recetasList,ArrayList<Receta> arrayList) 
-	{
-		int cont;
-		for(int i=0;i<arrayList.size();i++)
-		{
-			cont=0;
-			for(int j=0;j<recetasList.size();j++)
-			{
-				if(arrayList.get(i)==((Receta)recetasList.getElementAt(j)))
-					cont++;
-			}
-			if(cont==0)
-				recetasList.addElement(arrayList.get(i));
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//convierte de String[] a DefaultListModel
-	public DefaultListModel<String> casteoAlReves(String[] listaEntrada) 
-	{
-		DefaultListModel<String> listaFinal= new DefaultListModel<String>();
-		int i;
-		for(i=0;i<listaEntrada.length;i++)
-		{
-			listaFinal.addElement(listaEntrada[i]);
-		}
-		return listaFinal;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
 	//recibe una lista y verifica que si se repite un valor de una lista en la otra lista
 	public boolean existenString(String[] listaAgregar,String[] listaIngredientes)
 	{													
@@ -325,7 +267,7 @@ public class VentanaBuscarReceta extends JFrame {
 			return true;
 		return false;
 	}
+
 	
 }
-
 
