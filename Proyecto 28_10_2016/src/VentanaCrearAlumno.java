@@ -538,19 +538,21 @@ public class VentanaCrearAlumno extends JFrame
 				
 				if(verificarEmail(txtCorreo.getText()))
 				{
-					lblVerifCorreo.setText("\u2717");
-					txtCorreo.setBackground(Color.red);
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Ingresó mal o faltó llenar algun campo","Error",0);
-				}else{
 					lblVerifCorreo.setText("\u2713");
 					txtCorreo.setBackground(Color.GREEN);
 					Alumno usuarioNuevo= new Alumno(txtNombre.getText(),txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(), sexoUsuario,Integer.parseInt(txtEdad.getText()),Integer.parseInt(txtTelefono.getText()));
 					usuarioNuevo.setContrasena(usuarioNuevo.generarContraseña(txtRUT.getText()));
-					universidad.getListaAlumnos().getArrayAlumnos().add(usuarioNuevo);
+					universidad.getListaAlumnos().agregar(usuarioNuevo);
 					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Datos ingresados correctamente","Usuario creado",1);	
 					
 					btnGenerarContrasena.setEnabled(true);
 
+				}else
+				{
+					
+					lblVerifCorreo.setText("\u2717");
+					txtCorreo.setBackground(Color.red);
+					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Ingresó mal o faltó llenar algun campo","Error",0);
 				}
 			}
 		});
@@ -658,8 +660,8 @@ public class VentanaCrearAlumno extends JFrame
 		}
 		
 		if(verificarArroba != 1 && verificarPuntos < 1)
-			return true;
+			return false;
 		
-		return false;
+		return true;
 	}
 }

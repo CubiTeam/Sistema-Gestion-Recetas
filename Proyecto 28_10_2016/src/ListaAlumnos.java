@@ -323,9 +323,9 @@ public class ListaAlumnos implements Arreglo
 		}
 		
 		if(verificarArroba != 1 && verificarPuntos < 1)
-			return true;
+			return false;
 		
-		return false;
+		return true;
 	}
 	
 	
