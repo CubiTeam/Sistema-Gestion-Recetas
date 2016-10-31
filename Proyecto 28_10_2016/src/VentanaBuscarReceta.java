@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,13 +18,13 @@ public class VentanaBuscarReceta extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNombreReceta;
-	private DefaultListModel recetas;
-													
+	private DefaultListModel<Receta> recetas;
+	
+	
+	//ventana para la busqueda de recetas de todos los alumnos
 	public VentanaBuscarReceta(final ArrayList<Receta> arrayReceta, final VentanaAlumno ventanaUsuario,final Alumno usuario) 
-	{											//ventana para la busqueda de recetas de todos los alumnos
-		recetas = new DefaultListModel();
-		final DefaultListModel recetasEncontradas = new DefaultListModel();
-		AbstractListModel modelFiltro;
+	{											
+		recetas = new DefaultListModel<Receta>();
 		setResizable(false);
 		setTitle("Ventana Buscar Receta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,13 +37,23 @@ public class VentanaBuscarReceta extends JFrame {
 		JLabel lblReceta = new JLabel("Receta: ");
 		lblReceta.setBounds(67, 29, 46, 14);
 		contentPane.add(lblReceta);
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------------
-		JPanel panelMostrarRecetas = new JPanel();		//LISTA DE RECETAS ENCONTRADAS
+		//LISTA DE RECETAS ENCONTRADAS
+		
+		JPanel panelMostrarRecetas = new JPanel();		
 		panelMostrarRecetas.setBounds(15, 60, 500, 290);
 		contentPane.add(panelMostrarRecetas);
 		panelMostrarRecetas.setLayout(new GridLayout());
 		
-		final JList listaRecetas = new JList();
+		final JList<Receta> listaRecetas = new JList<Receta>();
 		listaRecetas.setModel(recetas);
 		panelMostrarRecetas.add(listaRecetas);
 		
@@ -55,8 +64,17 @@ public class VentanaBuscarReceta extends JFrame {
 		txtNombreReceta.setBounds(123, 26, 326, 20);
 		contentPane.add(txtNombreReceta);
 		txtNombreReceta.setColumns(10);
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
-		final JCheckBox checkFiltro = new JCheckBox("");	//FILTRO
+		//FILTRO
+		
+		final JCheckBox checkFiltro = new JCheckBox("");	
 		checkFiltro.setBounds(554, 25, 97, 23);
 		contentPane.add(checkFiltro);
 		checkFiltro.setSelected(false);
@@ -162,7 +180,7 @@ public class VentanaBuscarReceta extends JFrame {
 		
 	}//FIN CONTRUCTOR
 	
-	public void convertir(DefaultListModel recetasList,ArrayList<Receta> arrayList) // cambia de arrayList a DefaultListModel
+	public void convertir(DefaultListModel<Receta> recetasList,ArrayList<Receta> arrayList) // cambia de arrayList a DefaultListModel
 	{
 		int cont;
 		for(int i=0;i<arrayList.size();i++)
@@ -177,9 +195,9 @@ public class VentanaBuscarReceta extends JFrame {
 				recetasList.addElement(arrayList.get(i));
 		}
 	}
-	public DefaultListModel casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
+	public DefaultListModel<String> casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
 	{
-		DefaultListModel listaFinal= new DefaultListModel();
+		DefaultListModel<String> listaFinal= new DefaultListModel<String>();
 		int i;
 		for(i=0;i<listaEntrada.length;i++)
 		{

@@ -70,19 +70,26 @@ public class VentanaAlumno extends JFrame
 		lblEdad.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		lblEdad.setText("Edad: "+alumno.getEdad());
 		
-		final JLabel lblCorreo = new JLabel("Correo: ");
-		lblCorreo.setForeground(Color.WHITE);
-		lblCorreo.setBounds(15, 20, 248, 14);
-		panelDatosUsuario.add(lblCorreo);
-		lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 11));
-		lblCorreo.setText("Correo: "+alumno.getCorreo());
+																	
 		
-		final JLabel lblDireccion = new JLabel("Direcci\u00F3n: ");
-		lblDireccion.setForeground(Color.WHITE);
-		lblDireccion.setBounds(15, 43, 248, 14);
-		panelDatosUsuario.add(lblDireccion);
-		lblDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 11));
-		lblDireccion.setText("Dirección: "+alumno.getDireccion());
+
+	
+						
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//----------------------------------------------------------------------------------------------------------------------------
+	
+		//TELEFONO
 		
 		final JLabel lblTelefono = new JLabel("Tel\u00E9fono: ");
 		lblTelefono.setForeground(Color.WHITE);
@@ -91,31 +98,14 @@ public class VentanaAlumno extends JFrame
 		lblTelefono.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		lblTelefono.setText("Teléfono: "+alumno.getTelefono());
 		
-//----------------------------------------------------------------------------------------------------------------------		
-																	
-		final JLabel lblmodificarCorreo = new JLabel("[Modificar]");
-		lblmodificarCorreo.setBounds(246, 22, 57, 14);
-		panelDatosUsuario.add(lblmodificarCorreo);
-		lblmodificarCorreo.setForeground(Color.BLACK);
-		lblmodificarCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 10));
 		
-//------------------------------------------------------------------------------------------------------------------------		
-						
-		final JLabel lblmodificarDireccion = new JLabel("[Modificar]");
-		lblmodificarDireccion.setBounds(246, 42, 57, 14);
-		panelDatosUsuario.add(lblmodificarDireccion);
-		lblmodificarDireccion.setForeground(Color.BLACK);
-		lblmodificarDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 10));
-		
-//------------------------------------------------------------------------------------------------------------------------		
-							
 		final JLabel lblmodificarTelefono = new JLabel("[Modificar]");
 		lblmodificarTelefono.setBounds(246, 88, 57, 14);
 		panelDatosUsuario.add(lblmodificarTelefono);
 		lblmodificarTelefono.setFont(new Font("Century Gothic", Font.PLAIN, 10));
 		lblmodificarTelefono.setForeground(Color.BLACK);
 				
-//------------------------------------------------------------------------------------------------------------------------		
+	
 		
 		//Modifica el telefono al presionar en el label [Modificar]
 		lblmodificarTelefono.addMouseListener(new MouseListener() 
@@ -162,7 +152,36 @@ public class VentanaAlumno extends JFrame
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
 		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------------		
+		
+		//DIRECCION
+		
+		final JLabel lblmodificarDireccion = new JLabel("[Modificar]");
+		lblmodificarDireccion.setBounds(246, 42, 57, 14);
+		panelDatosUsuario.add(lblmodificarDireccion);
+		lblmodificarDireccion.setForeground(Color.BLACK);
+		lblmodificarDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 10));
+		
+		
+		final JLabel lblDireccion = new JLabel("Direcci\u00F3n: ");
+		lblDireccion.setForeground(Color.WHITE);
+		lblDireccion.setBounds(15, 43, 248, 14);
+		panelDatosUsuario.add(lblDireccion);
+		lblDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		lblDireccion.setText("Dirección: "+alumno.getDireccion());
+		
+		
 		//Modifica la direccion al presionar en el label [Modificar]
 		lblmodificarDireccion.addMouseListener(new MouseListener() 
 		{
@@ -194,7 +213,37 @@ public class VentanaAlumno extends JFrame
 			public void mouseReleased(MouseEvent arg0) {}
 		});
 				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
 //----------------------------------------------------------------------------------------------------------------------------			
+	
+		//CORREO
+		
+		final JLabel lblmodificarCorreo = new JLabel("[Modificar]");
+		lblmodificarCorreo.setBounds(246, 22, 57, 14);
+		panelDatosUsuario.add(lblmodificarCorreo);
+		lblmodificarCorreo.setForeground(Color.BLACK);
+		lblmodificarCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 10));
+		
+		final JLabel lblCorreo = new JLabel("Correo: ");
+		lblCorreo.setForeground(Color.WHITE);
+		lblCorreo.setBounds(15, 20, 248, 14);
+		panelDatosUsuario.add(lblCorreo);
+		lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		lblCorreo.setText("Correo: "+alumno.getCorreo());
+			
+	
+		
+		
 		//Modifica el correo al presionar en el label [Modificar]
 		lblmodificarCorreo.addMouseListener(new MouseListener() 
 		{
@@ -236,6 +285,14 @@ public class VentanaAlumno extends JFrame
 		});
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------		
 		
 		//BOTON RECETAS PROPIAS
@@ -252,6 +309,15 @@ public class VentanaAlumno extends JFrame
 			}
 		});
 		contentPane.add(btnCrearReceta);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //------------------------------------------------------------------------------------------------------------------------
 		
@@ -271,6 +337,15 @@ public class VentanaAlumno extends JFrame
 			}
 		});
 		contentPane.add(btnBuscarReceta);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //------------------------------------------------------------------------------------------------------------------------
 		
@@ -295,9 +370,20 @@ public class VentanaAlumno extends JFrame
 		});
 		contentPane.add(btnAtras);
 		
-//------------------------------------------------------------------------------------------------------------------------
 		
-		JButton btnCambiarContrasea = new JButton("Cambiar Contrase\u00F1a");	//BOTON CAMBIAR CONTRASEÑA
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//------------------------------------------------------------------------------------------------------------------------
+		//BOTON CAMBIAR CONTRASEÑA
+		JButton btnCambiarContrasea = new JButton("Cambiar Contrase\u00F1a");	
 		btnCambiarContrasea.setBackground(UIManager.getColor("Button.background"));
 		btnCambiarContrasea.setBounds(10, 228, 145, 45);
 		btnCambiarContrasea.setFont(new Font("Century Gothic", Font.PLAIN, 9));
@@ -322,5 +408,7 @@ public class VentanaAlumno extends JFrame
 		});
 		contentPane.add(btnCambiarContrasea);
 	}
+	
+	
 }
 
