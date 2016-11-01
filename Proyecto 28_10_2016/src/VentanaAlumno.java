@@ -15,6 +15,7 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
+import javax.swing.border.MatteBorder;
 
 public class VentanaAlumno extends JFrame 
 {
@@ -28,7 +29,7 @@ public class VentanaAlumno extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 330, 312);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.textHighlight);
+		contentPane.setBackground(new Color(0, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		setResizable(false);
@@ -37,8 +38,8 @@ public class VentanaAlumno extends JFrame
 		
 		JPanel panelBienvenida = new JPanel();
 		panelBienvenida.setForeground(Color.WHITE);
-		panelBienvenida.setBackground(SystemColor.textHighlight);
-		panelBienvenida.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Bienvenido/a", TitledBorder.LEADING, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 12), Color.WHITE));
+		panelBienvenida.setBackground(new Color(0, 153, 255));
+		panelBienvenida.setBorder(new TitledBorder(new MatteBorder(1, 5, 1, 1, (Color) new Color(255, 255, 255)), "Bienvenido/a", TitledBorder.LEADING, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 12), new Color(255, 255, 255)));
 		panelBienvenida.setBounds(6, 5, 313, 45);
 		contentPane.add(panelBienvenida);
 		panelBienvenida.setLayout(null);
@@ -57,8 +58,8 @@ public class VentanaAlumno extends JFrame
 		lblRut.setText("RUT: "+alumno.getRut());
 		
 		JPanel panelDatosUsuario = new JPanel();
-		panelDatosUsuario.setBackground(SystemColor.textHighlight);
-		panelDatosUsuario.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Datos Alumno", TitledBorder.LEADING, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 12), Color.WHITE));
+		panelDatosUsuario.setBackground(new Color(0, 153, 255));
+		panelDatosUsuario.setBorder(new TitledBorder(new MatteBorder(1, 5, 1, 1, (Color) new Color(255, 255, 255)), "Datos Alumno", TitledBorder.LEADING, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 12), new Color(255, 255, 255)));
 		panelDatosUsuario.setBounds(6, 55, 313, 113);
 		contentPane.add(panelDatosUsuario);
 		panelDatosUsuario.setLayout(null);
@@ -188,17 +189,19 @@ public class VentanaAlumno extends JFrame
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String nuevaModificar = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
-				if(nuevaModificar != null && !nuevaModificar.equals(""))
+				if(nuevaModificar != null)
 				{
-					if(universidad.getListaAlumnos().modificarDireccion(alumno, nuevaModificar))
+					if(!nuevaModificar.equals(""))
 					{
-						lblDireccion.setText("Direccion: "+alumno.getDireccion());
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
-					}
-					else
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Direccion incorrecta");
-				}else{
-					JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						if(universidad.getListaAlumnos().modificarDireccion(alumno, nuevaModificar))
+						{
+							lblDireccion.setText("Direccion: "+alumno.getDireccion());
+							JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
+						}
+						else
+							JOptionPane.showMessageDialog(VentanaAlumno.this, "Direccion incorrecta");
+					}else
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "La direccion ingresada no coincide con la antigua");
 				}
 			}
 			public void mouseEntered(MouseEvent arg0) 

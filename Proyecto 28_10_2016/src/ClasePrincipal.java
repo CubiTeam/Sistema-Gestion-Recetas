@@ -15,17 +15,13 @@
  * 	RUT : 80186894
  *  PASS : 49868
  * 
- * *******************************************************
+ * ********************************************************
  * 
  * 	CORREO : projectGRDC@gmail.com
  *	PASS : GRDCproject1234
  * 
- * ********************************************************
- *  
- * 		VERIFICAR existeUsuario( //VERIFICAR PARAMETROS  )
- * 		
- * 
- *********************************************************/
+ * ********************************************************/
+
 // Crear clase archivo y ver todo lo de archivos (Clase Universidad)
 public class ClasePrincipal 
 {

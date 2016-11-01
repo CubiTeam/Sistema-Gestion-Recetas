@@ -10,23 +10,31 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.LineBorder;
 
 public class VentanaMostrarListaAlumnos extends JFrame {
 
 	private JPanel contentPane;
 
 	public VentanaMostrarListaAlumnos(final ArrayList<Alumno> alumno, final VentanaDocente ventanaAnterior) {
+		setTitle("VentanaDeReporte");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 370, 439);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
 		
 		JPanel panelAlumnos = new JPanel();
-		panelAlumnos.setBounds(8, 25, 350, 340);
+		panelAlumnos.setBackground(new Color(0, 153, 255));
+		panelAlumnos.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255)), "Información alumnos registrados :", TitledBorder.LEADING, TitledBorder.ABOVE_TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
+		panelAlumnos.setBounds(8, 10, 350, 360);
 		contentPane.add(panelAlumnos);
 		panelAlumnos.setLayout(new GridLayout());
 		
@@ -37,10 +45,6 @@ public class VentanaMostrarListaAlumnos extends JFrame {
 		
 		JScrollPane scrollLateral = new JScrollPane(datosAlumnos);
 		panelAlumnos.add(scrollLateral);
-		
-		JLabel lblInformacionUsuarioRegistrados = new JLabel("Informacion usuario registrados :");
-		lblInformacionUsuarioRegistrados.setBounds(10, 11, 199, 14);
-		contentPane.add(lblInformacionUsuarioRegistrados);
 		
 		
 		
@@ -59,6 +63,7 @@ public class VentanaMostrarListaAlumnos extends JFrame {
 		
 		//Regresa a la ventana anterior
 		JButton btnAtras = new JButton("Atras");
+		btnAtras.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -83,6 +88,7 @@ public class VentanaMostrarListaAlumnos extends JFrame {
 
 		//Se crea un .xls con los datos de los alumnos
 		JButton btnCrearArchivoXls = new JButton("Crear archivo XLS");
+		btnCrearArchivoXls.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnCrearArchivoXls.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//implementar despues un JFileChooser para elegir ruta y nombre archivo

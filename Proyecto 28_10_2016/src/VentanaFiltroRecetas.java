@@ -10,6 +10,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.border.LineBorder;
 
 public class VentanaFiltroRecetas extends JFrame {
 
@@ -32,18 +36,21 @@ public class VentanaFiltroRecetas extends JFrame {
 		
 		setTitle("Ventana Filtro Receta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 670, 399);
+		setBounds(100, 100, 670, 378);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 //-----------------------------------------------------------------------------------------------------------------------------
-		JLabel lblTiempoEstimado = new JLabel("Tiempo Estimado Max");				//TIEMPO ESTIMADO
-		lblTiempoEstimado.setBounds(10, 24, 167, 14);
+		JLabel lblTiempoEstimado = new JLabel("TIEMPO ESTIMADO MAX");				//TIEMPO ESTIMADO
+		lblTiempoEstimado.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblTiempoEstimado.setForeground(new Color(255, 255, 255));
+		lblTiempoEstimado.setBounds(88, 39, 167, 14);
 		contentPane.add(lblTiempoEstimado);
 		
 		txtTiempoEstimado = new JTextField();
-		txtTiempoEstimado.setBounds(132, 21, 45, 20);
+		txtTiempoEstimado.setBounds(230, 33, 45, 25);
 		contentPane.add(txtTiempoEstimado);
 		txtTiempoEstimado.setColumns(10);
 		
@@ -61,17 +68,21 @@ public class VentanaFiltroRecetas extends JFrame {
 		radioButtonCalificacion.setBounds(445, 21, 21, 23);
 		contentPane.add(radioButtonCalificacion); */
 //-----------------------------------------------------------------------------------------------------------------------------
-		JLabel lblCreador = new JLabel("Creador");								//CREADOR
-		lblCreador.setBounds(189, 52, 46, 14);
+		JLabel lblCreador = new JLabel("CREADOR");								//CREADOR
+		lblCreador.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblCreador.setForeground(new Color(255, 255, 255));
+		lblCreador.setBounds(311, 39, 69, 14);
 		contentPane.add(lblCreador);
 		
 		txtCreador = new JTextField();
-		txtCreador.setBounds(239, 49, 103, 20);
+		txtCreador.setBounds(376, 33, 103, 25);
 		contentPane.add(txtCreador);
 		txtCreador.setColumns(10);
 		
 //-----------------------------------------------------------------------------------------------------------------------------
 		JPanel panelIngredientes = new JPanel();							//INGREDIENTES
+		panelIngredientes.setBorder(new LineBorder(new Color(255, 255, 255)));
+		panelIngredientes.setBackground(new Color(0, 153, 255));
 		panelIngredientes.setBounds(10, 173, 110, 152);
 		panelIngredientes.setLayout(new GridLayout());
 		contentPane.add(panelIngredientes);
@@ -81,6 +92,7 @@ public class VentanaFiltroRecetas extends JFrame {
 		panelIngredientes.add(listIngredientes);
 		
 		JButton btnAgregarI = new JButton("Agregar");						
+		btnAgregarI.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnAgregarI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!txtAgregarI.getText().isEmpty())
@@ -92,23 +104,29 @@ public class VentanaFiltroRecetas extends JFrame {
 			}
 		});
 		
-		JLabel lblIngredientes = new JLabel("Ingredientes");
-		lblIngredientes.setBounds(31, 155, 61, 14);
+		JLabel lblIngredientes = new JLabel("INGREDIENTES");
+		lblIngredientes.setForeground(new Color(255, 255, 255));
+		lblIngredientes.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblIngredientes.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIngredientes.setBounds(10, 144, 110, 25);
 		contentPane.add(lblIngredientes);
 		
 		txtAgregarI = new JTextField();
-		txtAgregarI.setBounds(130, 187, 86, 20);
+		txtAgregarI.setBounds(132, 187, 86, 25);
 		contentPane.add(txtAgregarI);
 		txtAgregarI.setColumns(10);
 		btnAgregarI.setBounds(130, 218, 89, 23);
 		contentPane.add(btnAgregarI);
 		
 		JButton btnBorrarI = new JButton("Borrar");
-		btnBorrarI.setBounds(130, 252, 89, 23);
+		btnBorrarI.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		btnBorrarI.setBounds(130, 241, 89, 23);
 		contentPane.add(btnBorrarI);
 		
 //-----------------------------------------------------------------------------------------------------------------------------		
 		JPanel panelCategorias = new JPanel();								//CATEGORIAS
+		panelCategorias.setBorder(new LineBorder(new Color(255, 255, 255)));
+		panelCategorias.setBackground(new Color(0, 153, 255));
 		panelCategorias.setBounds(232, 173, 106, 152);
 		panelCategorias.setLayout(new GridLayout());
 		contentPane.add(panelCategorias);
@@ -118,6 +136,7 @@ public class VentanaFiltroRecetas extends JFrame {
 		listCategorias.setModel(categorias);
 		
 		JButton btnAgregarC = new JButton("Agregar");
+		btnAgregarC.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnAgregarC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!textAgregarC.getText().isEmpty())
@@ -131,21 +150,27 @@ public class VentanaFiltroRecetas extends JFrame {
 		btnAgregarC.setBounds(348, 218, 89, 23);
 		contentPane.add(btnAgregarC);
 		
-		JLabel lblCategorias = new JLabel("Categorias");
-		lblCategorias.setBounds(255, 155, 61, 14);
+		JLabel lblCategorias = new JLabel("CATEGORIAS");
+		lblCategorias.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblCategorias.setForeground(new Color(255, 255, 255));
+		lblCategorias.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCategorias.setBounds(232, 144, 106, 25);
 		contentPane.add(lblCategorias);
 		
 		textAgregarC = new JTextField();
 		textAgregarC.setColumns(10);
-		textAgregarC.setBounds(348, 187, 86, 20);
+		textAgregarC.setBounds(350, 187, 86, 25);
 		contentPane.add(textAgregarC);
 		
 		JButton btnBorrarC = new JButton("Borrar");
-		btnBorrarC.setBounds(348, 252, 89, 23);
+		btnBorrarC.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		btnBorrarC.setBounds(348, 241, 89, 23);
 		contentPane.add(btnBorrarC);
 		
 //-----------------------------------------------------------------------------------------------------------------------------		
 		JPanel panelUtensilios = new JPanel();								//UTENSILIOS
+		panelUtensilios.setBackground(new Color(0, 153, 255));
+		panelUtensilios.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panelUtensilios.setBounds(447, 173, 103, 152);
 		panelUtensilios.setLayout(new GridLayout());
 		contentPane.add(panelUtensilios);
@@ -155,11 +180,12 @@ public class VentanaFiltroRecetas extends JFrame {
 		listUtensilios.setModel(utensilios);
 		
 		txtAgregarU = new JTextField();
-		txtAgregarU.setBounds(560, 187, 86, 20);
+		txtAgregarU.setBounds(562, 187, 86, 25);
 		contentPane.add(txtAgregarU);
 		txtAgregarU.setColumns(10);
 		
 		JButton btnAgregarU = new JButton("Agregar");
+		btnAgregarU.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnAgregarU.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!txtAgregarU.getText().isEmpty())
@@ -172,16 +198,21 @@ public class VentanaFiltroRecetas extends JFrame {
 		btnAgregarU.setBounds(560, 218, 89, 23);
 		contentPane.add(btnAgregarU);
 		
-		JLabel lblUtensilios = new JLabel("Utensilios");
-		lblUtensilios.setBounds(475, 155, 46, 14);
+		JLabel lblUtensilios = new JLabel("UTENSILIOS");
+		lblUtensilios.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblUtensilios.setForeground(new Color(255, 255, 255));
+		lblUtensilios.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUtensilios.setBounds(447, 144, 103, 25);
 		contentPane.add(lblUtensilios);
 		
 		JButton btnBorrarU = new JButton("Borrar");
-		btnBorrarU.setBounds(560, 252, 89, 23);
+		btnBorrarU.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		btnBorrarU.setBounds(560, 241, 89, 23);
 		contentPane.add(btnBorrarU);
 		
 //-----------------------------------------------------------------------------------------------------------------------------		
 		JButton btnAtras = new JButton("Ok");								//BOTON OK
+		btnAtras.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				if(!txtTiempoEstimado.getText().isEmpty() && !txtTiempoEstimado.getText().equals(""))
@@ -201,7 +232,7 @@ public class VentanaFiltroRecetas extends JFrame {
 				dispose();
 			}
 		});
-		btnAtras.setBounds(555, 20, 91, 23);
+		btnAtras.setBounds(557, 16, 91, 37);
 		contentPane.add(btnAtras);
 	}
 	public String[] casteo(DefaultListModel listaEntrada) //convierte de DefaultListModel a String[]
