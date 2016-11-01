@@ -189,17 +189,19 @@ public class VentanaAlumno extends JFrame
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String nuevaModificar = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
-				if(nuevaModificar != null && !nuevaModificar.equals(""))
+				if(nuevaModificar != null)
 				{
-					if(universidad.getListaAlumnos().modificarDireccion(alumno, nuevaModificar))
+					if(!nuevaModificar.equals(""))
 					{
-						lblDireccion.setText("Direccion: "+alumno.getDireccion());
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
-					}
-					else
-						JOptionPane.showMessageDialog(VentanaAlumno.this, "Direccion incorrecta");
-				}else{
-					JOptionPane.showMessageDialog(VentanaAlumno.this, "Faltó rellenar campo");
+						if(universidad.getListaAlumnos().modificarDireccion(alumno, nuevaModificar))
+						{
+							lblDireccion.setText("Direccion: "+alumno.getDireccion());
+							JOptionPane.showMessageDialog(VentanaAlumno.this, "Dirección cambiada Exitosamente!");
+						}
+						else
+							JOptionPane.showMessageDialog(VentanaAlumno.this, "Direccion incorrecta");
+					}else
+						JOptionPane.showMessageDialog(VentanaAlumno.this, "La direccion ingresada no coincide con la antigua");
 				}
 			}
 			public void mouseEntered(MouseEvent arg0) 

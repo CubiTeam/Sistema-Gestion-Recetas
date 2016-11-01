@@ -46,12 +46,6 @@ public class VentanaBuscarReceta extends JFrame
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblReceta = new JLabel("RECETA :");
-		lblReceta.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblReceta.setForeground(new Color(255, 255, 255));
-		lblReceta.setBounds(64, 23, 63, 14);
-		contentPane.add(lblReceta);
-		
 		
 		
 		
@@ -77,12 +71,6 @@ public class VentanaBuscarReceta extends JFrame
 		JScrollPane scrollRecetas = new JScrollPane(listaRecetas);
 		panelMostrarRecetas.add(scrollRecetas);
 		
-		txtNombreReceta = new JTextField();
-		txtNombreReceta.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		txtNombreReceta.setBounds(121, 17, 326, 25);
-		contentPane.add(txtNombreReceta);
-		txtNombreReceta.setColumns(10);
-		
 		
 		
 		
@@ -94,24 +82,11 @@ public class VentanaBuscarReceta extends JFrame
 		
 		final JCheckBox checkFiltro = new JCheckBox("");	
 		checkFiltro.setBackground(new Color(0, 153, 255));
-		checkFiltro.setBounds(535, 20, 40, 23);
+		checkFiltro.setBounds(535, 18, 26, 23);
 		contentPane.add(checkFiltro);
 		checkFiltro.setSelected(false);
 		
 		final Receta recetaBuscada = new Receta();
-		JButton btnFiltro = new JButton("Filtro");											
-		btnFiltro.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		btnFiltro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) //boton de filtro
-			{
-				VentanaFiltroRecetas ventanaFiltroRecetas = new VentanaFiltroRecetas(VentanaBuscarReceta.this,recetaBuscada);
-				ventanaFiltroRecetas.setVisible(true);					//se envia una receta vacia
-				setVisible(false);										//para que se llene con valores que el usuario desea
-			}															//y posteriormente utilizar esos valores para filtrar
-																		//la busqueda
-		});
-		btnFiltro.setBounds(449, 19, 83, 23);
-		contentPane.add(btnFiltro);
 		
 		
 		
@@ -236,6 +211,38 @@ public class VentanaBuscarReceta extends JFrame
 		btnAtras.setBounds(525, 317, 84, 33);
 		contentPane.add(btnAtras);
 		
+		JPanel panelBusqueda = new JPanel();
+		panelBusqueda.setBorder(new LineBorder(new Color(255, 255, 255)));
+		panelBusqueda.setBackground(new Color(0, 153, 255));
+		panelBusqueda.setBounds(46, 11, 527, 41);
+		contentPane.add(panelBusqueda);
+		panelBusqueda.setLayout(null);
+		
+		JLabel lblReceta = new JLabel("RECETA :");
+		lblReceta.setBounds(20, 11, 63, 14);
+		panelBusqueda.add(lblReceta);
+		lblReceta.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblReceta.setForeground(new Color(255, 255, 255));
+		
+		txtNombreReceta = new JTextField();
+		txtNombreReceta.setBounds(70, 6, 326, 28);
+		panelBusqueda.add(txtNombreReceta);
+		txtNombreReceta.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		txtNombreReceta.setColumns(10);
+		JButton btnFiltro = new JButton("Filtro");											
+		btnFiltro.setBounds(405, 7, 83, 23);
+		panelBusqueda.add(btnFiltro);
+		btnFiltro.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		btnFiltro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) //boton de filtro
+			{
+				VentanaFiltroRecetas ventanaFiltroRecetas = new VentanaFiltroRecetas(VentanaBuscarReceta.this,recetaBuscada);
+				ventanaFiltroRecetas.setVisible(true);					//se envia una receta vacia
+				setVisible(false);										//para que se llene con valores que el usuario desea
+			}															//y posteriormente utilizar esos valores para filtrar
+																		//la busqueda
+		});
+		
 	
 		
 		
@@ -282,7 +289,5 @@ public class VentanaBuscarReceta extends JFrame
 			return true;
 		return false;
 	}
-
-	
 }
 

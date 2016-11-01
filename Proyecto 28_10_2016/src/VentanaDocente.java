@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
  
 public class VentanaDocente extends JFrame {
  
@@ -23,9 +24,9 @@ public class VentanaDocente extends JFrame {
     public VentanaDocente(final Docente docente,final Universidad universidad) {
     	setTitle("VentanaDocente");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 361, 335);
+        setBounds(100, 100, 361, 328);
         contentPane = new JPanel();
-        contentPane.setBackground(SystemColor.menu);
+        contentPane.setBackground(new Color(0, 153, 255));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         setResizable(false);
@@ -35,7 +36,7 @@ public class VentanaDocente extends JFrame {
  //--------------------------------------------------------------------------------------------------------------------------
     												//BOTONES
         JButton btnCrearAlumno = new JButton("Crear Alumno");
-        btnCrearAlumno.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        btnCrearAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 11));
         btnCrearAlumno.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 setVisible(false);
@@ -43,11 +44,11 @@ public class VentanaDocente extends JFrame {
                 ventanaCrearAlumno.setVisible(true);
             }
         });
-        btnCrearAlumno.setBounds(10, 169, 151, 36);
+        btnCrearAlumno.setBounds(12, 169, 151, 36);
         contentPane.add(btnCrearAlumno);
          
         JButton btnEliminarAlumno = new JButton("Eliminar Alumno");
-        btnEliminarAlumno.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        btnEliminarAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 11));
         btnEliminarAlumno.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 String rutAlumno = JOptionPane.showInputDialog(null,"Ingrese rut del alumno","Buscar alumno",JOptionPane.QUESTION_MESSAGE);
@@ -72,7 +73,7 @@ public class VentanaDocente extends JFrame {
         contentPane.add(btnEliminarAlumno);
          
         JButton btnModifAlumno = new JButton("Modificar datos alumno");
-        btnModifAlumno.setFont(new Font("Tahoma", Font.PLAIN, 9));
+        btnModifAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 9));
         btnModifAlumno.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 String rutAlumno = JOptionPane.showInputDialog(null,"Ingrese rut del alumno","Buscar alumno",JOptionPane.QUESTION_MESSAGE);
@@ -88,11 +89,11 @@ public class VentanaDocente extends JFrame {
                 }
             }
         });
-        btnModifAlumno.setBounds(10, 208, 151, 36);
+        btnModifAlumno.setBounds(12, 207, 151, 36);
         contentPane.add(btnModifAlumno);
          
         JButton btnCerrarSesión = new JButton("Cerrar Sesi\u00F3n");
-        btnCerrarSesión.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        btnCerrarSesión.setFont(new Font("Century Gothic", Font.PLAIN, 11));
         btnCerrarSesión.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) 
             {
@@ -107,11 +108,11 @@ public class VentanaDocente extends JFrame {
             	ventanaInicial.setVisible(true);
             }
         });
-        btnCerrarSesión.setBounds(99, 256, 151, 29);
+        btnCerrarSesión.setBounds(99, 256, 151, 32);
         contentPane.add(btnCerrarSesión);
          
         JButton btnMostrarDatosAlumno = new JButton("Mostrar datos alumno");
-        btnMostrarDatosAlumno.setFont(new Font("Tahoma", Font.PLAIN, 9));
+        btnMostrarDatosAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 9));
         btnMostrarDatosAlumno.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(universidad.getListaAlumnos().getArrayAlumnos()!=null || !(universidad.getListaAlumnos().getArrayAlumnos().isEmpty())){
@@ -126,22 +127,23 @@ public class VentanaDocente extends JFrame {
         contentPane.add(btnMostrarDatosAlumno);
         
         JPanel panelDatosDocente = new JPanel();
-        panelDatosDocente.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Bienvenido/a", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-        panelDatosDocente.setBounds(10, 11, 325, 145);
+        panelDatosDocente.setBackground(new Color(51, 153, 255));
+        panelDatosDocente.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255)), "Bienvenido/a", TitledBorder.LEADING, TitledBorder.TOP,  new java.awt.Font("Century Gothic", Font.PLAIN, 12), new Color(255, 255, 255)));
+        panelDatosDocente.setBounds(10, 11, 327, 145);
         contentPane.add(panelDatosDocente);
         panelDatosDocente.setLayout(null);
         
         final JLabel lblNombre = new JLabel("Nombre : "+docente.getNombrePersona());
         lblNombre.setBounds(21, 20, 264, 14);
         panelDatosDocente.add(lblNombre);
-        lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 11));
-        lblNombre.setForeground(Color.BLACK);
+        lblNombre.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        lblNombre.setForeground(new Color(255, 255, 255));
         
         final JLabel lblRut = new JLabel("RUT : "+docente.getRut());
         lblRut.setBounds(21, 40, 223, 14);
         panelDatosDocente.add(lblRut);
-        lblRut.setForeground(Color.BLACK);
-        lblRut.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        lblRut.setForeground(new Color(255, 255, 255));
+        lblRut.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 
         final JLabel lblmodificarRut = new JLabel("[Modificar]");
         lblmodificarRut.setBounds(266, 40, 49, 14);
@@ -158,27 +160,27 @@ public class VentanaDocente extends JFrame {
         final JLabel lblDireccion = new JLabel("Direccion : "+docente.getDireccion());
         lblDireccion.setBounds(21, 60, 242, 14);
         panelDatosDocente.add(lblDireccion);
-        lblDireccion.setForeground(Color.BLACK);
-        lblDireccion.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        lblDireccion.setForeground(new Color(255, 255, 255));
+        lblDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         
         final JLabel lblEdad = new JLabel("Edad : "+docente.getEdad());
         lblEdad.setBounds(21, 80, 87, 14);
         panelDatosDocente.add(lblEdad);
-        lblEdad.setForeground(Color.BLACK);
-        lblEdad.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        lblEdad.setForeground(new Color(255, 255, 255));
+        lblEdad.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         
         final JLabel lblTelefono = new JLabel("Telefono : "+docente.getTelefono());
         lblTelefono.setBounds(21, 100, 242, 14);
         panelDatosDocente.add(lblTelefono);
-        lblTelefono.setFont(new Font("Tahoma", Font.PLAIN, 11));
-        lblTelefono.setForeground(Color.BLACK);
+        lblTelefono.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        lblTelefono.setForeground(new Color(255, 255, 255));
         
         final JLabel lblCorreo = new JLabel("Correo : "+docente.getCorreo());
         lblCorreo.setBounds(21, 120, 242, 14);
         panelDatosDocente.add(lblCorreo);
         lblCorreo.setBackground(Color.WHITE);
-        lblCorreo.setForeground(Color.BLACK);
-        lblCorreo.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        lblCorreo.setForeground(new Color(255, 255, 255));
+        lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 12));
         
 
        final JLabel lblmodificarDireccion = new JLabel("[Modificar]");

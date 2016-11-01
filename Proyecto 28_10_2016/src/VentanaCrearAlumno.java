@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import java.lang.System;
 import java.io.IOException;
+import java.awt.Font;
 
 public class VentanaCrearAlumno extends JFrame 
 {
@@ -26,6 +27,7 @@ public class VentanaCrearAlumno extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 412);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 153, 255));
 		contentPane.setToolTipText("");
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -37,7 +39,7 @@ public class VentanaCrearAlumno extends JFrame
 		int alturaPantalla = sizeScreen.height;
 		int anchoPantalla = sizeScreen.width;
 		
-		setSize(315, 452); //Dar tamano
+		setSize(315, 405); //Dar tamano
 		setLocation(anchoPantalla/3, alturaPantalla/4); //Centrarlo
 		
 		
@@ -53,35 +55,51 @@ public class VentanaCrearAlumno extends JFrame
 		//JLabel
 		
 		JLabel lblIngreseLosSiguientes = new JLabel("Ingrese los siguientes datos :");
+		lblIngreseLosSiguientes.setForeground(new Color(255, 255, 255));
+		lblIngreseLosSiguientes.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblIngreseLosSiguientes.setBounds(10, 21, 255, 14);
 		contentPane.add(lblIngreseLosSiguientes);
 		
 		JLabel lblNombre = new JLabel("Nombre :");
-		lblNombre.setBounds(10, 75, 70, 14);
+		lblNombre.setForeground(new Color(255, 255, 255));
+		lblNombre.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblNombre.setBounds(25, 78, 70, 14);
 		contentPane.add(lblNombre);
 		
 		JLabel lblRut = new JLabel("RUT :");
-		lblRut.setBounds(10, 100, 46, 14);
+		lblRut.setForeground(new Color(255, 255, 255));
+		lblRut.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblRut.setBounds(25, 100, 46, 14);
 		contentPane.add(lblRut);
 		
 		JLabel lblCorreo = new JLabel("Correo :");
-		lblCorreo.setBounds(10, 125, 46, 14);
+		lblCorreo.setForeground(new Color(255, 255, 255));
+		lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblCorreo.setBounds(25, 125, 70, 14);
 		contentPane.add(lblCorreo);
 		
 		JLabel lblEdad = new JLabel("Edad :");
-		lblEdad.setBounds(10, 150, 46, 14);
+		lblEdad.setForeground(new Color(255, 255, 255));
+		lblEdad.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblEdad.setBounds(25, 150, 46, 14);
 		contentPane.add(lblEdad);
 		
 		JLabel lblSexo = new JLabel("Sexo :");
-		lblSexo.setBounds(10, 177, 46, 14);
+		lblSexo.setForeground(new Color(255, 255, 255));
+		lblSexo.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblSexo.setBounds(25, 177, 46, 14);
 		contentPane.add(lblSexo);
 		
 		JLabel lblTelfono = new JLabel("Tel\u00E9fono :");
-		lblTelfono.setBounds(10, 227, 70, 14);
+		lblTelfono.setForeground(new Color(255, 255, 255));
+		lblTelfono.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblTelfono.setBounds(25, 230, 70, 14);
 		contentPane.add(lblTelfono);
 		
 		JLabel lblDirección = new JLabel("Direcci\u00F3n :");
-		lblDirección.setBounds(10, 202, 70, 14);
+		lblDirección.setForeground(new Color(255, 255, 255));
+		lblDirección.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblDirección.setBounds(25, 205, 70, 14);
 		contentPane.add(lblDirección);
 		
 		JLabel label = new JLabel("-");
@@ -127,43 +145,43 @@ public class VentanaCrearAlumno extends JFrame
 
 		txtNombre = new JTextField();
 		txtNombre.setToolTipText("Ej: Luis Perez");
-		txtNombre.setBounds(89, 72, 186, 20);
+		txtNombre.setBounds(89, 72, 186, 26);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtRUT = new JTextField();
 		txtRUT.setToolTipText("Ej: 12345678");
-		txtRUT.setBounds(89, 97, 144, 20);
+		txtRUT.setBounds(89, 97, 144, 26);
 		contentPane.add(txtRUT);
 		txtRUT.setColumns(10);
 		
 		txtDigVer = new JTextField();
 		txtDigVer.setToolTipText("0-9 o K");
-		txtDigVer.setBounds(251, 97, 24, 20);
+		txtDigVer.setBounds(251, 97, 24, 26);
 		contentPane.add(txtDigVer);
 		txtDigVer.setColumns(10);
 		
 		txtCorreo = new JTextField();
 		txtCorreo.setToolTipText("example@domain.com");
-		txtCorreo.setBounds(89, 122, 186, 20);
+		txtCorreo.setBounds(89, 122, 186, 26);
 		contentPane.add(txtCorreo);
 		txtCorreo.setColumns(10);
 			
 		txtEdad = new JTextField();
-		txtEdad.setBounds(89, 147, 46, 20);
+		txtEdad.setBounds(89, 147, 46, 26);
 		contentPane.add(txtEdad);
 		txtEdad.setColumns(10);	
 		
 		String[] sexoStrings = {"Masculino", "Femenino"};
 		
 		txtDireccion = new JTextField();
-		txtDireccion.setBounds(89, 199, 186, 20);
+		txtDireccion.setBounds(89, 199, 186, 26);
 		contentPane.add(txtDireccion);
 		txtDireccion.setColumns(10);
 		
 		txtTelefono = new JTextField();
 		txtTelefono.setToolTipText("Ej: 12345678");
-		txtTelefono.setBounds(89, 224, 186, 20);
+		txtTelefono.setBounds(89, 224, 186, 26);
 		contentPane.add(txtTelefono);
 		txtTelefono.setColumns(10);
 		
@@ -463,7 +481,8 @@ public class VentanaCrearAlumno extends JFrame
 			}
 		});
 		final JComboBox comboBoxSexo = new JComboBox(sexoStrings);
-		comboBoxSexo.setBounds(89, 174, 85, 20);
+		comboBoxSexo.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		comboBoxSexo.setBounds(89, 172, 100, 25);
 		contentPane.add(comboBoxSexo);
 		
 		
@@ -496,6 +515,7 @@ public class VentanaCrearAlumno extends JFrame
 		//boton generar contraseña
 		
 		final JButton btnGenerarContrasena = new JButton("Generar Contrase\u00F1a");
+		btnGenerarContrasena.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnGenerarContrasena.setEnabled(false);
 		btnGenerarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -512,7 +532,7 @@ public class VentanaCrearAlumno extends JFrame
 				
 			}
 		});
-		btnGenerarContrasena.setBounds(60, 338, 173, 31);
+		btnGenerarContrasena.setBounds(70, 326, 173, 31);
 		contentPane.add(btnGenerarContrasena);
 		
 		
@@ -533,6 +553,7 @@ public class VentanaCrearAlumno extends JFrame
 		
 		//boton de registrar
 		JButton btnRegistrarse = new JButton("Registrar Alumno"); 
+		btnRegistrarse.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String sexoUsuario = (String) comboBoxSexo.getSelectedItem();
@@ -596,6 +617,7 @@ public class VentanaCrearAlumno extends JFrame
 		
 		//boton atras
 		JButton btnAtras = new JButton("Atras");
+		btnAtras.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -624,12 +646,13 @@ public class VentanaCrearAlumno extends JFrame
 		
 		
 		JButton btnSalir = new JButton("Cerrar Sesión");
+		btnSalir.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		btnSalir.setBounds(174, 11, 125, 29);
+		btnSalir.setBounds(178, 14, 125, 29);
 		contentPane.add(btnSalir);
 	
 		

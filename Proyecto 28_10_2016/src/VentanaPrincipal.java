@@ -191,8 +191,8 @@ public class VentanaPrincipal extends JFrame {
 		
 		//BOTON SALIR
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.setBorder(null);
 		btnSalir.setFont(new Font("Century Gothic", Font.PLAIN, 11));
-		btnSalir.setBorder(new LineBorder(SystemColor.activeCaption, 2, true));
 		btnSalir.setBounds(309, 466, 75, 39);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
