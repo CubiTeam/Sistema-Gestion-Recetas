@@ -19,6 +19,9 @@ import javax.swing.JScrollPane;
 
 import java.awt.event.KeyAdapter;
 import javax.swing.JList;
+import java.awt.Font;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.LineBorder;
 
 public class VentanaCrearReceta extends JFrame  
 {
@@ -45,28 +48,37 @@ public class VentanaCrearReceta extends JFrame
 	{																					
 		final Receta receta = new Receta();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 15, 1000, 700);
+		setBounds(100, 15, 1000, 675);
 		setResizable(false);
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Bienvenido a la creacion de tu receta");
-		lblNewLabel.setBounds(10, 35, 260, 14);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblNewLabel.setBounds(10, 38, 394, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("No olvides ser ordenado, escribir correctamente y coherente");
-		lblNewLabel_1.setBounds(10, 60, 359, 14);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(10, 60, 468, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblAsiLosDemas = new JLabel("asi los demas puedan ocupar tu receta sin problemas");
-		lblAsiLosDemas.setBounds(10, 83, 394, 14);
+		lblAsiLosDemas.setForeground(new Color(255, 255, 255));
+		lblAsiLosDemas.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblAsiLosDemas.setBounds(10, 82, 394, 14);
 		contentPane.add(lblAsiLosDemas);
 		
 		JLabel lblSeCreativo = new JLabel("SE CREATIVO!!");
-		lblSeCreativo.setBounds(10, 108, 86, 14);
+		lblSeCreativo.setForeground(new Color(255, 255, 255));
+		lblSeCreativo.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblSeCreativo.setBounds(10, 107, 152, 14);
 		contentPane.add(lblSeCreativo);
 		
 		final JLabel lblVernombre = new JLabel("");
@@ -85,12 +97,14 @@ public class VentanaCrearReceta extends JFrame
 //-------------------------------------------------------------------------------------------------------------------------------------
 		//NOMBRE RECETA
 		
-		JLabel lblNombreReceta = new JLabel("Nombre Receta"); 			
+		JLabel lblNombreReceta = new JLabel("NOMBRE RECETA"); 			
+		lblNombreReceta.setForeground(new Color(255, 255, 255));
+		lblNombreReceta.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		lblNombreReceta.setBounds(256, 13, 113, 14);
 		contentPane.add(lblNombreReceta);
 		
 		nombreReceta = new JTextField();
-		nombreReceta.setBounds(356, 10, 320, 20);
+		nombreReceta.setBounds(356, 8, 320, 25);
 		contentPane.add(nombreReceta);
 		nombreReceta.setColumns(10);
 		
@@ -137,7 +151,9 @@ public class VentanaCrearReceta extends JFrame
 //-------------------------------------------------------------------------------------------------------------------------------------
 		//TIEMPO ESTIMADO PREPARACIÓN
 		
-		JLabel lblNewLabel_2 = new JLabel("Tiempo estimado");	
+		JLabel lblNewLabel_2 = new JLabel("TIEMPO ESTIMADO");	
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		lblNewLabel_2.setBounds(10, 150, 113, 14);
 		contentPane.add(lblNewLabel_2);
 		
@@ -146,7 +162,7 @@ public class VentanaCrearReceta extends JFrame
 		contentPane.add(lblVerifTiempoEst);
 		
 		tiempoEstimado = new JTextField();
-		tiempoEstimado.setBounds(111, 147, 56, 20);
+		tiempoEstimado.setBounds(118, 145, 56, 25);
 		contentPane.add(tiempoEstimado);
 		tiempoEstimado.setColumns(10);
 		
@@ -197,6 +213,8 @@ public class VentanaCrearReceta extends JFrame
 		//INSTRUCCIONES
 		
 		JPanel panel_instrucciones = new JPanel();				
+		panel_instrucciones.setBackground(new Color(0, 153, 255));
+		panel_instrucciones.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255)), "INSTRUCCIONES", TitledBorder.CENTER, TitledBorder.ABOVE_TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
 		panel_instrucciones.setBounds(10, 235, 666, 353);
 		contentPane.add(panel_instrucciones);
 		panel_instrucciones.setLayout(new GridLayout());
@@ -225,10 +243,6 @@ public class VentanaCrearReceta extends JFrame
 		JScrollPane scroll_instrucciones = new JScrollPane(instrucciones);
 		panel_instrucciones.add(scroll_instrucciones);
 		
-		JLabel lblInstrucciones = new JLabel("Instrucciones");
-		lblInstrucciones.setBounds(302, 204, 235, 20);
-		contentPane.add(lblInstrucciones);
-		
 		
 		
 		
@@ -247,12 +261,15 @@ public class VentanaCrearReceta extends JFrame
 		
 		ingredientes = new DefaultListModel<String>();
 		JPanel panel_ingredientes = new JPanel();				
+		panel_ingredientes.setBorder(new LineBorder(new Color(255, 255, 255)));
+		panel_ingredientes.setBackground(new Color(0, 153, 255));
 		panel_ingredientes.setBounds(730, 45, 113, 161);
 		contentPane.add(panel_ingredientes);
 		panel_ingredientes.setLayout(new GridLayout());
 		
 		txtIngrediente = new JTextField();
-		txtIngrediente.setBounds(853, 48, 131, 20);
+		txtIngrediente.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		txtIngrediente.setBounds(853, 48, 131, 25);
 		contentPane.add(txtIngrediente);
 		txtIngrediente.setColumns(10);
 		
@@ -311,6 +328,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//boton agregar ingrediente
 		JButton btnAgregarIng = new JButton("Agregar");
+		btnAgregarIng.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnAgregarIng.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
@@ -338,6 +356,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//boton eliminar ingrediente
 		final JButton btnEliminarIng = new JButton("Eliminar");
+		btnEliminarIng.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnEliminarIng.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -349,11 +368,13 @@ public class VentanaCrearReceta extends JFrame
 					btnEliminarIng.setEnabled(false);
 			}
 		});
-		btnEliminarIng.setBounds(853, 114, 131, 23);
+		btnEliminarIng.setBounds(853, 104, 131, 23);
 		contentPane.add(btnEliminarIng);
 			
-		JLabel lblIngredientes = new JLabel("Ingredientes");
-		lblIngredientes.setBounds(753, 24, 129, 14);
+		JLabel lblIngredientes = new JLabel("INGREDIENTES");
+		lblIngredientes.setForeground(new Color(255, 255, 255));
+		lblIngredientes.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblIngredientes.setBounds(748, 27, 129, 14);
 		contentPane.add(lblIngredientes);
 		
 		
@@ -372,12 +393,15 @@ public class VentanaCrearReceta extends JFrame
 		
 		utensilios = new DefaultListModel<String>();
 		JPanel panel_utensilios = new JPanel();					
+		panel_utensilios.setBorder(new LineBorder(new Color(255, 255, 255)));
+		panel_utensilios.setBackground(new Color(0, 153, 255));
 		panel_utensilios.setBounds(730, 235, 113, 161);
 		contentPane.add(panel_utensilios);
 		panel_utensilios.setLayout(new GridLayout());
 		
 		txtUtensilio = new JTextField();
-		txtUtensilio.setBounds(853, 235, 131, 20);
+		txtUtensilio.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		txtUtensilio.setBounds(853, 235, 131, 25);
 		contentPane.add(txtUtensilio);
 		txtUtensilio.setColumns(10);
 		
@@ -426,6 +450,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//boton agregar utensilio
 		JButton btnAgregarUten = new JButton("Agregar");
+		btnAgregarUten.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnAgregarUten.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -451,6 +476,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//boton eliminar utensilio
 		final JButton btnEliminarUten = new JButton("Eliminar");
+		btnEliminarUten.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnEliminarUten.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -464,11 +490,13 @@ public class VentanaCrearReceta extends JFrame
 				}
 			}
 		});
-		btnEliminarUten.setBounds(853, 300, 131, 23);
+		btnEliminarUten.setBounds(853, 290, 131, 23);
 		contentPane.add(btnEliminarUten);	
 		
-		JLabel lblUtensilios = new JLabel("Utensilios");
-		lblUtensilios.setBounds(753, 217, 86, 14);
+		JLabel lblUtensilios = new JLabel("UTENSILIOS");
+		lblUtensilios.setForeground(new Color(255, 255, 255));
+		lblUtensilios.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblUtensilios.setBounds(757, 217, 86, 14);
 		contentPane.add(lblUtensilios);
 		
 		
@@ -489,12 +517,15 @@ public class VentanaCrearReceta extends JFrame
 		
 		categorias = new DefaultListModel<String>();
 		JPanel panel_categorias = new JPanel();						
+		panel_categorias.setBorder(new LineBorder(new Color(255, 255, 255)));
+		panel_categorias.setBackground(new Color(0, 153, 255));
 		panel_categorias.setBounds(730, 424, 113, 161);
 		contentPane.add(panel_categorias);
 		panel_categorias.setLayout(new GridLayout());
 		
 		txtCategoria = new JTextField();
-		txtCategoria.setBounds(853, 424, 131, 20);
+		txtCategoria.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		txtCategoria.setBounds(853, 424, 131, 25);
 		contentPane.add(txtCategoria);
 		txtCategoria.setColumns(10);
 		
@@ -546,6 +577,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//boton de agregar categoria
 		JButton btnAgregarCateg = new JButton("Agregar");
+		btnAgregarCateg.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnAgregarCateg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -573,6 +605,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//boton de eliminar categoria
 		final JButton btnEliminarCateg = new JButton("Eliminar");
+		btnEliminarCateg.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnEliminarCateg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -585,11 +618,13 @@ public class VentanaCrearReceta extends JFrame
 					btnEliminarCateg.setEnabled(false);
 			}
 		});
-		btnEliminarCateg.setBounds(853, 489, 131, 23);
+		btnEliminarCateg.setBounds(853, 480, 131, 23);
 		contentPane.add(btnEliminarCateg);
 		
-		JLabel lblCategorias = new JLabel("Categorias");
-		lblCategorias.setBounds(753, 407, 99, 14);
+		JLabel lblCategorias = new JLabel("CATEGORIAS");
+		lblCategorias.setForeground(new Color(255, 255, 255));
+		lblCategorias.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblCategorias.setBounds(748, 407, 99, 14);
 		contentPane.add(lblCategorias);
 		
 		
@@ -613,6 +648,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//vuelve a la ventana anterior sin ningun cambio
 		JButton btnCancelar = new JButton("Cancelar");				
+		btnCancelar.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnCancelar.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e)  
@@ -622,7 +658,7 @@ public class VentanaCrearReceta extends JFrame
 			}
 			
 		});
-		btnCancelar.setBounds(47, 627, 120, 33);
+		btnCancelar.setBounds(20, 602, 120, 33);
 		contentPane.add(btnCancelar);
 		
 		
@@ -646,6 +682,7 @@ public class VentanaCrearReceta extends JFrame
 		
 		//al presionar finalizar se agregan todos los datos llenados a la receta
 		JButton btnFinalizar = new JButton("Finalizar"); 		
+		btnFinalizar.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnFinalizar.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 	
@@ -687,7 +724,7 @@ public class VentanaCrearReceta extends JFrame
 				}	
 			}
 		});
-		btnFinalizar.setBounds(837, 627, 120, 33);
+		btnFinalizar.setBounds(853, 602, 120, 33);
 		contentPane.add(btnFinalizar);
 		
 	} //FIN DEL CONTRUCTOR
