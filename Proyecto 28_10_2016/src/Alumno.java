@@ -161,7 +161,7 @@ public class Alumno extends Persona{
 	
 	
 	
-	//se genera una contraseña estadar para el usuario
+	//se genera una contraseña estadar para el alumno
 		public String generarContraseña(String rut) 
 		{
 			int pass, i, digito = 0, aux = 0;

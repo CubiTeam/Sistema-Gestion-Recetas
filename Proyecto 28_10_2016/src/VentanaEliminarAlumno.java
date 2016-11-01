@@ -103,13 +103,13 @@ public class VentanaEliminarAlumno extends JFrame {
 			public void actionPerformed(ActionEvent e)  {
 				if(universidad.getListaAlumnos().eliminar(alumno))
 				{
-					JOptionPane.showMessageDialog(null,"Datos eliminados exitosamente","Eliminar UsuarioEstandar",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Datos eliminados exitosamente","Eliminar Alumno",JOptionPane.INFORMATION_MESSAGE);
 					ventanaAnterior.setVisible(true);
 					setVisible(false);
 					dispose();
 				}
 				else
-					JOptionPane.showMessageDialog(null,"Ha ocurrido un error al eliminar","Eliminar UsuarioEstandar",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Ha ocurrido un error al eliminar","Eliminar Alumno",JOptionPane.ERROR_MESSAGE);
 				}
 		});
 			
@@ -161,12 +161,12 @@ public class VentanaEliminarAlumno extends JFrame {
 		
 		//JLabel
 	
-		JLabel lblInformacionUsuario = new JLabel("Nombre :");
-		lblInformacionUsuario.setForeground(new Color(255, 255, 255));
-		lblInformacionUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblInformacionUsuario.setBounds(21, 21, 232, 14);
-		panelDatosAlumno.add(lblInformacionUsuario);
-		lblInformacionUsuario.setText("Nombre: "+alumno.getNombrePersona());
+		JLabel lblInformacionAlumno = new JLabel("Nombre :");
+		lblInformacionAlumno.setForeground(new Color(255, 255, 255));
+		lblInformacionAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblInformacionAlumno.setBounds(21, 21, 232, 14);
+		panelDatosAlumno.add(lblInformacionAlumno);
+		lblInformacionAlumno.setText("Nombre: "+alumno.getNombrePersona());
 		
 		JLabel lblRut = new JLabel("RUT: ");
 		lblRut.setForeground(new Color(255, 255, 255));

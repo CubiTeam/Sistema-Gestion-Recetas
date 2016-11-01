@@ -19,7 +19,7 @@ public class VentanaModificarAlumno extends JFrame
 
 	private JPanel contentPane;
 	
-	public VentanaModificarAlumno(final Alumno usuario,final Universidad universidad, final VentanaDocente ventanaAnterior){
+	public VentanaModificarAlumno(final Alumno alumno,final Universidad universidad, final VentanaDocente ventanaAnterior){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 370, 278);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -119,37 +119,37 @@ public class VentanaModificarAlumno extends JFrame
 //----------------------------------------------------------------------------------------------------------------------------
 		
 		//JLabel
-		final JLabel lblNombre = new JLabel("Nombre : "+usuario.getNombrePersona());
+		final JLabel lblNombre = new JLabel("Nombre : "+alumno.getNombrePersona());
 		lblNombre.setBounds(20, 22, 280, 14);
 		panelDatos.add(lblNombre);
 		lblNombre.setForeground(new Color(255, 255, 255));
 		lblNombre.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
-		final JLabel lblDireccion = new JLabel("Direccion : "+usuario.getDireccion());
+		final JLabel lblDireccion = new JLabel("Direccion : "+alumno.getDireccion());
 		lblDireccion.setBounds(20, 47, 280, 14);
 		panelDatos.add(lblDireccion);
 		lblDireccion.setForeground(new Color(255, 255, 255));
 		lblDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
-		final JLabel lblRut = new JLabel("Rut : "+usuario.getRut());
+		final JLabel lblRut = new JLabel("Rut : "+alumno.getRut());
 		lblRut.setBounds(20, 72, 280, 14);
 		panelDatos.add(lblRut);
 		lblRut.setForeground(new Color(255, 255, 255));
 		lblRut.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
-		final JLabel lblEdad = new JLabel("Edad : "+usuario.getEdad());
+		final JLabel lblEdad = new JLabel("Edad : "+alumno.getEdad());
 		lblEdad.setBounds(20, 97, 201, 14);
 		panelDatos.add(lblEdad);
 		lblEdad.setForeground(new Color(255, 255, 255));
 		lblEdad.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
-		final JLabel lblTelefono = new JLabel("Telefono : "+usuario.getTelefono());
+		final JLabel lblTelefono = new JLabel("Telefono : "+alumno.getTelefono());
 		lblTelefono.setBounds(20, 122, 280, 14);
 		panelDatos.add(lblTelefono);
 		lblTelefono.setForeground(new Color(255, 255, 255));
 		lblTelefono.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
-		final JLabel lblCorreo = new JLabel("Correo : "+usuario.getCorreo());
+		final JLabel lblCorreo = new JLabel("Correo : "+alumno.getCorreo());
 		lblCorreo.setBounds(20, 147, 280, 14);
 		panelDatos.add(lblCorreo);
 		lblCorreo.setForeground(new Color(255, 255, 255));
@@ -210,9 +210,9 @@ public class VentanaModificarAlumno extends JFrame
 				{
 					if(!editarDireccion.equals(""))
 					{
-						if(universidad.getListaAlumnos().modificarDireccion(usuario, editarDireccion))
+						if(universidad.getListaAlumnos().modificarDireccion(alumno, editarDireccion))
 						{
-							lblDireccion.setText("Direccion : "+usuario.getDireccion());
+							lblDireccion.setText("Direccion : "+alumno.getDireccion());
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Se modifico sin problemas","Exito",0);
 						}else
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
@@ -274,9 +274,9 @@ public class VentanaModificarAlumno extends JFrame
 				{
 					if(!editarEdad.equals(""))
 					{
-						if(universidad.getListaAlumnos().modificarEdad(usuario, editarEdad))
+						if(universidad.getListaAlumnos().modificarEdad(alumno, editarEdad))
 						{
-							lblEdad.setText("Edad : "+usuario.getEdad());
+							lblEdad.setText("Edad : "+alumno.getEdad());
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Se modifico sin problemas","Exito",0);
 						}else
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
@@ -344,9 +344,9 @@ public class VentanaModificarAlumno extends JFrame
 				{
 					if(!editarTelefono.equals(""))
 					{
-						if(universidad.getListaAlumnos().modificarTelefono(usuario, editarTelefono))
+						if(universidad.getListaAlumnos().modificarTelefono(alumno, editarTelefono))
 						{
-							lblTelefono.setText("Telefono : "+usuario.getTelefono());
+							lblTelefono.setText("Telefono : "+alumno.getTelefono());
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Se modifico sin problemas","Exito",0);
 						}else
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
@@ -407,9 +407,9 @@ public class VentanaModificarAlumno extends JFrame
 				{
 					if(!editarCorreo.equals(""))
 					{
-						if(universidad.getListaAlumnos().modificarCorreo(usuario, editarCorreo))
+						if(universidad.getListaAlumnos().modificarCorreo(alumno, editarCorreo))
 						{
-							lblCorreo.setText("Correo : "+usuario.getCorreo());
+							lblCorreo.setText("Correo : "+alumno.getCorreo());
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Se modifico sin problemas","Exito",0);
 						}else
 							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);

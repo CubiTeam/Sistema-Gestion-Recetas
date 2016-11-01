@@ -136,7 +136,7 @@ public class ListaReceta
 	
 	
 	
-		//llama al metodo actualizarDatosRecetas de cada receta del usuario
+		//llama al metodo actualizarDatosRecetas de cada receta del alumno
 		public void guardarDatosReceta(Alumno alumno) throws IOException
 		{			
 			Archivos archivo = new Archivos();

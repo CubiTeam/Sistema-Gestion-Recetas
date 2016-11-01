@@ -24,7 +24,7 @@ public class EnviarMensajeACorreo{
     private String asunto;
 	private Multipart contenido;
     
-    // Autentifica los datos de smtp y luego envia un mensaje con la contraseña al correo del usuario
+    // Autentifica los datos de smtp y luego envia un mensaje con la contraseña al correo del alumno
     public void EnviarCorreo() 
     {
         Properties props = new Properties();
@@ -63,13 +63,13 @@ public class EnviarMensajeACorreo{
     
    
     //Crea el mensaje y llama a la funcion que lo envia
-    public void crearMensajeConLaContrasena(Universidad universidad,String correoUsuarioBuscado, int posUsuarioRecuperado) 
+    public void crearMensajeConLaContrasena(Universidad universidad,String correoAlumnoBuscado, int posAlumnoRecuperado) 
 	{	
-		mensaje = "Hola, "+universidad.getListaAlumnos().getArrayAlumnos().get(posUsuarioRecuperado).getNombrePersona()+":\n"
+		mensaje = "Hola, "+universidad.getListaAlumnos().getArrayAlumnos().get(posAlumnoRecuperado).getNombrePersona()+":\n"
 				+ "Su contraseña para ingresar a la Pontificia Universidad Católica de Gastronomia es "
-				+universidad.getListaAlumnos().getArrayAlumnos().get(posUsuarioRecuperado).getContrasena()
+				+universidad.getListaAlumnos().getArrayAlumnos().get(posAlumnoRecuperado).getContrasena()
 				+".\n\nAtentamente,\nEl Equipo de GRDC";
-		destinatario = correoUsuarioBuscado;
+		destinatario = correoAlumnoBuscado;
 		asunto = "Ud. ha solicitado recuperar contraseña";
 		
 		BodyPart mensajeB = new MimeBodyPart();
@@ -86,12 +86,12 @@ public class EnviarMensajeACorreo{
 	}
     
     
-    public void crearMensajeConArchivoAdjunto(String correoUsuario)
+    public void crearMensajeConArchivoAdjunto(String correoAlumno)
     {
     	mensaje = "Hola,\nLe enviamos como adjunto en este mensaje un documento pdf con sus recetas."
     				+ "\nGracias por usar nuestro Software.\nAtentamente,\nEl equipo de GRDC.";
     	asunto = "Ud. ha solicitado un documento con sus recetas";
-    	destinatario = correoUsuario;
+    	destinatario = correoAlumno;
     	
     	BodyPart mensajeB = new MimeBodyPart();
     	BodyPart adjunto = new MimeBodyPart();      

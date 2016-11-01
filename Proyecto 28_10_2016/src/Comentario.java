@@ -6,9 +6,9 @@ public class Comentario
 	private int numero;
 	private String rut;
 	/* se ocupa el rut
-	 * porque, cuando se cargan los comentarios de una receta, no se han ingresado todos los usuarios,
+	 * porque, cuando se cargan los comentarios de una receta, no se han ingresado todos los alumnos,
 	 * por ende solo se carga el rut del creador de la receta,
-	 * para que, cuando se carguen todos los usuarios poder direccionarlos con su respectico usuario
+	 * para que, cuando se carguen todos los alumnos poder direccionarlos con su respectico alumno
 	*/
 	
 	

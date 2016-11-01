@@ -161,7 +161,7 @@ public class VentanaDocente extends JFrame {
                         		universidad.getListaAlumnos().busqueda(rutAlumno),universidad,VentanaDocente.this);
                         ventanaModificarAlumno.setVisible(true);
                     }else
-                        JOptionPane.showMessageDialog(VentanaDocente.this,"No se encontró usuario","Error de busqueda",0);
+                        JOptionPane.showMessageDialog(VentanaDocente.this,"No se encontró alumno","Error de busqueda",0);
                 }
             }
         });
@@ -231,8 +231,8 @@ public class VentanaDocente extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(universidad.getListaAlumnos().getArrayAlumnos()!=null || !(universidad.getListaAlumnos().getArrayAlumnos().isEmpty())){
                     setVisible(false);
-                    VentanaMostrarListaAlumnos ventanaMostrarUsuarios = new VentanaMostrarListaAlumnos(universidad.getListaAlumnos().getArrayAlumnos(),VentanaDocente.this);
-                    ventanaMostrarUsuarios.setVisible(true);
+                    VentanaMostrarListaAlumnos ventanaMostrarAlumnos = new VentanaMostrarListaAlumnos(universidad.getListaAlumnos().getArrayAlumnos(),VentanaDocente.this);
+                    ventanaMostrarAlumnos.setVisible(true);
                 }else
                     JOptionPane.showMessageDialog(VentanaDocente.this,"No existen alumnos ingresados","Error al mostrar",0);
             }

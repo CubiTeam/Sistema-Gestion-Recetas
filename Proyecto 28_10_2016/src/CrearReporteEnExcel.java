@@ -76,7 +76,7 @@ public class CrearReporteEnExcel {
     
     
     /**
-     *	Metodo que guarda el archivo .xls el cualquier parte que el usuario indique.
+     *	Metodo que guarda el archivo .xls el cualquier parte que el alumno indique.
      *	@param libro	Es el archivo .xls que contiene los datos de todos los alumnos.
      * */
     public void guardarArchivoXLS(HSSFWorkbook libro)

@@ -24,7 +24,7 @@ import javax.swing.border.MatteBorder;
 public class VentanaPrincipal extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldUsuario;
+	private JTextField textFieldAlumno;
 	private JPasswordField psswField;
 	
 	
@@ -102,12 +102,12 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(panelInicioSesion);
 		panelInicioSesion.setLayout(null);
 		
-		JLabel lblUsuario = new JLabel("USUARIO");
-		lblUsuario.setForeground(Color.WHITE);
-		lblUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblUsuario.setBounds(38, 37, 73, 14);
-		panelInicioSesion.add(lblUsuario);
+		JLabel lblAlumno = new JLabel("ALUMNO");
+		lblAlumno.setForeground(Color.WHITE);
+		lblAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblAlumno.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblAlumno.setBounds(38, 37, 73, 14);
+		panelInicioSesion.add(lblAlumno);
 		
 		JLabel lblContrasena = new JLabel("CONTRASE\u00D1A");
 		lblContrasena.setForeground(Color.WHITE);
@@ -116,11 +116,11 @@ public class VentanaPrincipal extends JFrame {
 		lblContrasena.setBounds(23, 68, 88, 14);
 		panelInicioSesion.add(lblContrasena);
 		
-		textFieldUsuario = new JTextField();
-		textFieldUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 11));
-		textFieldUsuario.setBounds(123, 32, 214, 25);
-		panelInicioSesion.add(textFieldUsuario);
-		textFieldUsuario.setColumns(10);
+		textFieldAlumno = new JTextField();
+		textFieldAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		textFieldAlumno.setBounds(123, 32, 214, 25);
+		panelInicioSesion.add(textFieldAlumno);
+		textFieldAlumno.setColumns(10);
 		
 		psswField = new JPasswordField();
 		psswField.setFont(new Font("SansSerif", Font.PLAIN, 12));
@@ -150,28 +150,28 @@ public class VentanaPrincipal extends JFrame {
 		
 //-------------------------------------------------------------------------------------------------------------------------	
 		
-		//PANEL TIPO USUARIO
-		JPanel panelTipoUsuario = new JPanel();
-		panelTipoUsuario.setBackground(new Color(0, 153, 255));
-		panelTipoUsuario.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255), 2, true), "Tipo Usuario", 
+		//PANEL TIPO Alumno
+		JPanel panelTipoAlumno = new JPanel();
+		panelTipoAlumno.setBackground(new Color(0, 153, 255));
+		panelTipoAlumno.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255), 2, true), "Tipo Alumno", 
 				TitledBorder.CENTER, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
 		
-		panelTipoUsuario.setBounds(41, 335, 202, 63);
-		contentPane.add(panelTipoUsuario);
-		panelTipoUsuario.setLayout(null);
+		panelTipoAlumno.setBounds(41, 335, 202, 63);
+		contentPane.add(panelTipoAlumno);
+		panelTipoAlumno.setLayout(null);
 		
-		JLabel lblTipoUsuario = new JLabel("USUARIO");
-		lblTipoUsuario.setBounds(18, 27, 64, 14);
-		panelTipoUsuario.add(lblTipoUsuario);
-		lblTipoUsuario.setForeground(Color.WHITE);
-		lblTipoUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		JLabel lblTipoAlumno = new JLabel("Alumno");
+		lblTipoAlumno.setBounds(18, 27, 64, 14);
+		panelTipoAlumno.add(lblTipoAlumno);
+		lblTipoAlumno.setForeground(Color.WHITE);
+		lblTipoAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
-		String[] tipoUsuario = {"Alumno","Docente"};
+		String[] tipoAlumno = {"Alumno","Docente"};
 		
-		final JComboBox comboBoxTipoUsuario = new JComboBox(tipoUsuario);
-		comboBoxTipoUsuario.setBounds(79, 22, 105, 25);
-		panelTipoUsuario.add(comboBoxTipoUsuario);
-		comboBoxTipoUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		final JComboBox comboBoxTipoAlumno = new JComboBox(tipoAlumno);
+		comboBoxTipoAlumno.setBounds(79, 22, 105, 25);
+		panelTipoAlumno.add(comboBoxTipoAlumno);
+		comboBoxTipoAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		
 		
 		
@@ -201,32 +201,32 @@ public class VentanaPrincipal extends JFrame {
 		btnIniciarSesion.setBounds(255, 348, 107, 39);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tipoUsuario = (String) comboBoxTipoUsuario.getSelectedItem();
+				String tipoAlumno = (String) comboBoxTipoAlumno.getSelectedItem();
 				
-				if(tipoUsuario.equals("Alumno"))
+				if(tipoAlumno.equals("Alumno"))
 				{
-					Alumno usuario = universidad.getListaAlumnos().getAlumno(textFieldUsuario.getText(),psswField); 
-					if(usuario!=null)
+					Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
+					if(Alumno!=null)
 					{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);
-						//creo la ventanaUsuarioEstandar
-						VentanaAlumno ventanaUsuario = new VentanaAlumno(universidad,usuario,VentanaPrincipal.this);
-						ventanaUsuario.setVisible(true);
+						//creo la ventanaAlumnoEstandar
+						VentanaAlumno ventanaAlumno = new VentanaAlumno(universidad,Alumno,VentanaPrincipal.this);
+						ventanaAlumno.setVisible(true);
 						dispose();
 						
 						//Dejar en blanco los campos de rut y contraseña
-						textFieldUsuario.setText("");
+						textFieldAlumno.setText("");
 						psswField.setText("");
 						
 					}else{
-						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró usuario","Error",0);
+						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró Alumno","Error",0);
 					}
 				}
-				if(tipoUsuario.equals("Docente"))
+				if(tipoAlumno.equals("Docente"))
 				{	
-					if(universidad.getListaDocentes().existe(textFieldUsuario.getText()))
+					if(universidad.getListaDocentes().existe(textFieldAlumno.getText()))
 					{
-						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldUsuario.getText());
+						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldAlumno.getText());
 						if(universidad.getListaDocentes().verificacion(docente,psswField))
 						{
 							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
@@ -301,18 +301,18 @@ public class VentanaPrincipal extends JFrame {
 		btnRecuperarContrasena.setBounds(103, 417, 185, 43);
 		btnRecuperarContrasena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int posUsuarioRecuperado;
-				String correoUsuarioBuscado = JOptionPane.showInputDialog(null, "Ingrese su correo: ", "Para recuperar contraseña", JOptionPane.QUESTION_MESSAGE);	
-				if(correoUsuarioBuscado != null)
-					if(universidad.getListaAlumnos().existeAlumnoCorreo(correoUsuarioBuscado)){			
+				int posAlumnoRecuperado;
+				String correoAlumnoBuscado = JOptionPane.showInputDialog(null, "Ingrese su correo: ", "Para recuperar contraseña", JOptionPane.QUESTION_MESSAGE);	
+				if(correoAlumnoBuscado != null)
+					if(universidad.getListaAlumnos().existeAlumnoCorreo(correoAlumnoBuscado)){			
 						String ingreseNombre = JOptionPane.showInputDialog(null, "Ingrese su nombre: ", "Para recuperar contraseña", JOptionPane.QUESTION_MESSAGE);
-						posUsuarioRecuperado = universidad.getListaAlumnos().posicionUsuario(ingreseNombre);
-						if(posUsuarioRecuperado != -1){
+						posAlumnoRecuperado = universidad.getListaAlumnos().posicionAlumno(ingreseNombre);
+						if(posAlumnoRecuperado != -1){
 							EnviarMensajeACorreo enviarCorreo = new EnviarMensajeACorreo();
-							enviarCorreo.crearMensajeConLaContrasena(universidad,correoUsuarioBuscado, posUsuarioRecuperado);
+							enviarCorreo.crearMensajeConLaContrasena(universidad,correoAlumnoBuscado, posAlumnoRecuperado);
 						}
 					}else{
-						JOptionPane.showMessageDialog(VentanaPrincipal.this, "No se encontró usuario");
+						JOptionPane.showMessageDialog(VentanaPrincipal.this, "No se encontró Alumno");
 					}
 			}
 		});

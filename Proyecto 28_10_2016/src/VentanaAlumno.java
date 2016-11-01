@@ -13,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
-import java.awt.SystemColor;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 
@@ -25,7 +24,7 @@ public class VentanaAlumno extends JFrame
 	
 	public VentanaAlumno(final Universidad universidad,final Alumno alumno, final VentanaPrincipal ventanaAnterior) 
 	{
-		setTitle("VentanaUsuarioEstandar");
+		setTitle("Ventana Alumno");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 330, 312);
 		contentPane = new JPanel();

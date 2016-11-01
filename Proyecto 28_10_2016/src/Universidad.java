@@ -29,7 +29,7 @@ public class Universidad
 	
 	
 	
-	//retorna todas las recetas de todos los usuarios
+	//retorna todas las recetas de todos los alumnos
 	public ArrayList<Receta> TodasLasRecetas()
 	{
 		ArrayList<Receta> todasRecetas= new ArrayList<Receta>();

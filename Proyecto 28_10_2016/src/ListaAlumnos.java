@@ -23,7 +23,7 @@ public class ListaAlumnos implements Arreglo
 	
 	public ListaAlumnos(Archivos archivo)
 	{
-		arrayAlumnos = archivo.cargarArchivoTextoUsuario(arrayAlumnos);
+		arrayAlumnos = archivo.cargarArchivoTextoAlumno(arrayAlumnos);
 
 	}
 	
@@ -370,13 +370,13 @@ public class ListaAlumnos implements Arreglo
 	
 	
 	
-	//Recibe el usuario y contraseña y si existe devuelve true ()
-	public boolean existeAlumno(String usuario, JPasswordField contrasena)
+	//Recibe el alumno y contraseña y si existe devuelve true ()
+	public boolean existeAlumno(String alumno, JPasswordField contrasena)
 	{
 		String valor = new String(contrasena.getPassword()); 	
 	    if(arrayAlumnos!=null){
 	    	for(int i = 0; i < arrayAlumnos.size(); i++){
-				if(usuario.equals(arrayAlumnos.get(i).getRut()) && valor.equals(arrayAlumnos.get(i).getContrasena())){
+				if(alumno.equals(arrayAlumnos.get(i).getRut()) && valor.equals(arrayAlumnos.get(i).getContrasena())){
 					return true;
 				}
 			}
@@ -475,11 +475,11 @@ public class ListaAlumnos implements Arreglo
 	
 	
 	//retorna la posicion del alumno en el arreglo de alumnos
-	public int posicionUsuario(String nombreUsuario)
-	{										//recibe el nombre de un usuario
+	public int posicionAlumno(String nombreAlumno)
+	{										//recibe el nombre de un alumno
 		if(arrayAlumnos!=null){
 			for(int i = 0; i < arrayAlumnos.size(); i++){
-				if(nombreUsuario.equals(arrayAlumnos.get(i).getNombrePersona())){	
+				if(nombreAlumno.equals(arrayAlumnos.get(i).getNombrePersona())){	
 					return i;			
 				}
 			}
@@ -502,12 +502,12 @@ public class ListaAlumnos implements Arreglo
 	
 	
 	//busqueda del alumno segun el rut y contraseña en el array de alumnos
-	public Alumno getAlumno(String usuario, JPasswordField contrasena)
+	public Alumno getAlumno(String alumno, JPasswordField contrasena)
 	{																									    	
 		String valor = new String(contrasena.getPassword()); 
 		if(arrayAlumnos!=null){	
 			for(int i = 0; i < arrayAlumnos.size(); i++){
-				if(usuario.equals(arrayAlumnos.get(i).getRut()) && valor.equals(arrayAlumnos.get(i).getContrasena())){
+				if(alumno.equals(arrayAlumnos.get(i).getRut()) && valor.equals(arrayAlumnos.get(i).getContrasena())){
 					return arrayAlumnos.get(i);		
 				}
 			}

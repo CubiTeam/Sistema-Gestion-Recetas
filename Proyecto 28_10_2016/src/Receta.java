@@ -404,7 +404,7 @@ public class Receta
 	public Receta(String nombreReceta, String[] ingredientes,
 			String[] utensilios, int caloriasTotales, String intrucciones,
 			int tiempoEstimadoPreparacion, String[] categorias,
-			int calificacionReceta, ArrayList<Comentario> comentarios,Alumno usuario) 
+			int calificacionReceta, ArrayList<Comentario> comentarios,Alumno alumno) 
 	{
 		this.nombreReceta = nombreReceta;
 		this.ingredientes = ingredientes;
@@ -415,7 +415,7 @@ public class Receta
 		this.categorias = categorias;
 		this.calificacionReceta = calificacionReceta;
 		this.ListaComentarios = new ListaComentarios(comentarios);
-		this.autor= usuario;
+		this.autor= alumno;
 	}
 	
 

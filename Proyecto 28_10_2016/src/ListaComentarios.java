@@ -48,10 +48,10 @@ public class ListaComentarios implements Arreglo
 	{						
 		for(int i=0;i<arrayComentarios.size();i++)
 		{
-			Alumno usuarioEncontrado = 
+			Alumno alumnoEncontrado = 
 				universidad.getListaAlumnos().busqueda(arrayComentarios.get(i).getRut());
-			if(usuarioEncontrado!=null)
-				arrayComentarios.get(i).setAutor(usuarioEncontrado);
+			if(alumnoEncontrado!=null)
+				arrayComentarios.get(i).setAutor(alumnoEncontrado);
 		}
 	}
 

@@ -21,7 +21,7 @@ public class VentanaMisRecetas extends JFrame
 	private JPanel contentPane;
 	private VentanaCrearReceta recetaVentanaNueva;
 	private DefaultListModel<Receta> recetas;
-	public VentanaMisRecetas(final Alumno alumno,final VentanaAlumno ventanaUsuario) 
+	public VentanaMisRecetas(final Alumno alumno,final VentanaAlumno ventanaAlumno) 
 	{
 		setTitle("VentanaMisRecetas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -229,7 +229,7 @@ public class VentanaMisRecetas extends JFrame
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				ventanaUsuario.setVisible(true);
+				ventanaAlumno.setVisible(true);
 				dispose();
 			}
 		});

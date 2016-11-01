@@ -11,11 +11,34 @@ import java.util.StringTokenizer;
 public class Archivos 
 {
 	
+	
+	
+	
+	
+	
+	
+	
 	//Constructor
 	public Archivos()
 	{
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/******************************************************************************************************************
 	 * 						METODOS PARA CARGAR ARCHIVOS AL MOMENTO DE EJECUCION DEL SOFTWARE
@@ -23,18 +46,21 @@ public class Archivos
 	
 	/**
 	 *	Metodo donde se cargan los datos de todos los alumnos desde los txt y se genera el arrayList de alumnos.
-	 *	@param arrayUsuarios			Es un arrayList de Alumnos llenado a partir de txt's.
+	 *	@param arrayAlumnos			Es un arrayList de Alumnos llenado a partir de txt's.
 	 *	@return							Un ArrayList de Alumnos.
 	 *	@see 							#cargarDatosRecetas(Alumno)
 	 */	
-	public ArrayList <Alumno> cargarArchivoTextoUsuario(ArrayList <Alumno> arrayUsuarios)
+	
+	
+	//metodo que carga todos los alumnos de los txt
+	public ArrayList <Alumno> cargarArchivoTextoAlumno(ArrayList <Alumno> arrayAlumnos)
 	{
 		File raiz = new File("Universidad Catolica De Gastronomia\\Alumnos");
 		if(raiz.exists() && raiz.list()!=null){
 			String [] carpeta = raiz.list();
-		    arrayUsuarios = new ArrayList <Alumno>();
+		    arrayAlumnos = new ArrayList <Alumno>();
 			for(int i=0;i<carpeta.length;i++){
-				try(FileReader archivoLectura = new FileReader("Universidad Catolica De Gastronomia\\Alumnos\\"+carpeta[i]+"\\DatosUsuario"+carpeta[i]+".txt")){
+				try(FileReader archivoLectura = new FileReader("Universidad Catolica De Gastronomia\\Alumnos\\"+carpeta[i]+"\\DatosAlumno"+carpeta[i]+".txt")){
 					BufferedReader buffer = new BufferedReader(archivoLectura);
 					if(buffer.ready()){
 						String cadena = buffer.readLine();
@@ -49,11 +75,11 @@ public class Archivos
 					    	int telefono = Integer.parseInt(st.nextToken());
 					    	String contrasena = st.nextToken();
 					    	
-					    	//se agrega al ArrayList de usuarios
-					    	arrayUsuarios.add(new Alumno(nombre,rut,direccion,correo,sexo,edad,telefono,contrasena));
+					    	//se agrega al ArrayList de Alumnos
+					    	arrayAlumnos.add(new Alumno(nombre,rut,direccion,correo,sexo,edad,telefono,contrasena));
 					    	
 					    	//se llama a la funcion que carga las recetas de los txt
-					    	cargarDatosRecetas(arrayUsuarios.get(i));
+					    	cargarDatosRecetas(arrayAlumnos.get(i));
 				    	}
 				    buffer.close();
 				   	archivoLectura.close();
@@ -63,7 +89,7 @@ public class Archivos
 				}
 			}
 		}
-		return arrayUsuarios;
+		return arrayAlumnos;
 	}
 	
 	
@@ -75,8 +101,17 @@ public class Archivos
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	//se cargan los datos de todos los docentes de los txt
 	public void cargarArchivoTextoDocente(ListaDocentes listaDocentes)
-	{										//se cargan los datos de todos los docentes de los txt
+	{										
 		//Generar Array De Docente
 
 		File raiz = new File("Universidad Catolica De Gastronomia\\Docentes");
@@ -121,8 +156,17 @@ public class Archivos
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
-	 *	En este metodo se cargan los datos de las recetas de todos los txt del usuario.
+	 *	En este metodo se cargan los datos de las recetas de todos los txt del Alumno.
 	 *	@param 	alumno				Contiene a un alumno en especifico. 											
 	 *	@see						#leerListaTxt(BufferedReader)
 	 *	@see						#leerInstruccionesTxt(BufferedReader)
@@ -180,6 +224,13 @@ public class Archivos
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	/******************************************************************************************************************
 	 * 								METODOS DE ESCRITURAS EN LOS ARCHIVOS TXT RESPECTIVOS
 	 * ****************************************************************************************************************/
@@ -220,6 +271,12 @@ public class Archivos
 	
 	
 	
+	
+	
+	
+	
+	
+	
 	/**
 	 *	Metodo que escribe las instrucciones de la receta en el txt de la receta.
 	 *	@param instruccion		Contiene las instrucciones de la receta recibida.
@@ -244,6 +301,7 @@ public class Archivos
 		else
 			pEscrit.println("0");
 	}
+	
 	
 	
 	
@@ -323,7 +381,7 @@ public class Archivos
 	
 
 	/**
-	 *	Metodo que lee las instrucciones de la recetas desde el txt datosUsuarioRUT_ALUMNO.txt
+	 *	Metodo que lee las instrucciones de la recetas desde el txt datosAlumnoRUT_ALUMNO.txt
 	 *	@param 	buffer					Es una cadena de instrucciones de la receta extraida del txt. 			
 	 *	@return							Un String que contiene las instrucciones de una receta.
 	 *	@throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
@@ -360,7 +418,7 @@ public class Archivos
 	
 	
 	/**
-	 *	Metodo que lee los comentarios de la recetas desde el txt datosUsuarioRUT_ALUMNO.txt
+	 *	Metodo que lee los comentarios de la recetas desde el txt datosAlumnoRUT_ALUMNO.txt
 	 *	@param 	buffer					Es una cadena de los comentarios de la receta extraida del txt. 
 	 *	@return 						Un ArrayList de Comentarios.
 	 *	@throws NumberFormatException	Lanzada cuando se ha intentado convertir una cadena a uno de los 
@@ -413,19 +471,19 @@ public class Archivos
 	
 	
 	/**
-	 *	Este metodo guarda la informacion del usuario en su respectivo txt
-	 *	@param 	arrayUsuarios			Es un ArrayList de alumnos.
+	 *	Este metodo guarda la informacion del Alumno en su respectivo txt
+	 *	@param 	arrayAlumnos			Es un ArrayList de alumnos.
 	 *	@return							Un booleano indicando si se pudo guardar guardar el Alumno.
 	 *	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
 	 *	@see 							#actualizarTxtAlumno(Alumno)
 	 * */
-	public boolean guardarTxtUsuarios(ArrayList<Alumno> arrayUsuarios) throws IOException 
+	public boolean guardarTxtAlumnos(ArrayList<Alumno> arrayAlumnos) throws IOException 
 	{									
-		if(!arrayUsuarios.isEmpty()){	
-			for(int i = 0;i<arrayUsuarios.size();i++)
+		if(!arrayAlumnos.isEmpty()){	
+			for(int i = 0;i<arrayAlumnos.size();i++)
 			{
-				//este metodo guarda la informacion del usuario en su respectivo txt
-				actualizarTxtAlumno(arrayUsuarios.get(i));
+				//este metodo guarda la informacion del Alumno en su respectivo txt
+				actualizarTxtAlumno(arrayAlumnos.get(i));
 			}
 			return true;
 		}
@@ -478,23 +536,23 @@ public class Archivos
 	 *	Este metodo actualiza todos los datos del alumno en su respectivo txt
 	 *	@param	alumno				Contiene a un alumno en especifico.
 	 *	@throws IOException			Lanzada cuando hay operaciones erroneas de Entrada/Salida.
-	 *	@see 						#crearCarpetaUsuario(Alumno)
+	 *	@see 						#crearCarpetaAlumno(Alumno)
 	 * */
 	public void actualizarTxtAlumno(Alumno alumno) throws IOException 
 	{							
-		File archivoUsuarios;
+		File archivoAlumnos;
 		FileWriter fEscrit;
 		BufferedWriter bEscrit;
 		PrintWriter pEscrit;
 		
-		archivoUsuarios = new File("Universidad Catolica De Gastronomia\\Alumnos\\"
-									+alumno.getRut()+"\\DatosUsuario"+alumno.getRut()+".txt");
+		archivoAlumnos = new File("Universidad Catolica De Gastronomia\\Alumnos\\"
+									+alumno.getRut()+"\\DatosAlumno"+alumno.getRut()+".txt");
 		
-		if(!archivoUsuarios.exists()){
-			crearCarpetaUsuario(alumno);
+		if(!archivoAlumnos.exists()){
+			crearCarpetaAlumno(alumno);
 		}
 
-		fEscrit = new FileWriter(archivoUsuarios);
+		fEscrit = new FileWriter(archivoAlumnos);
 		bEscrit = new BufferedWriter(fEscrit);
 		pEscrit = new PrintWriter(bEscrit);
 
@@ -522,23 +580,23 @@ public class Archivos
 	 *	Este metodo actualiza todos los datos del docente en su respectivo txt
 	 *	@param	docente				Contiene a un docente en especifico.
 	 *	@throws IOException			Lanzada cuando hay operaciones erroneas de Entrada/Salida.
-	 *	@see 						#crearCarpetaUsuario(Docente)
+	 *	@see 						#crearCarpetaAlumno(Docente)
 	 * */
 	public void actualizarTxtDocente(Docente docente) throws IOException 
 	{							
-		File archivoUsuarios;
+		File archivoAlumnos;
 		FileWriter fEscrit;
 		BufferedWriter bEscrit;
 		PrintWriter pEscrit;
 		
-		archivoUsuarios = new File("Universidad Catolica De Gastronomia\\Docentes\\"
+		archivoAlumnos = new File("Universidad Catolica De Gastronomia\\Docentes\\"
 									+docente.getRut()+"\\DatosDocente"+docente.getRut()+".txt");
 		
-		if(!archivoUsuarios.exists()){
-			crearCarpetaUsuario(docente);
+		if(!archivoAlumnos.exists()){
+			crearCarpetaAlumno(docente);
 		}
 
-		fEscrit = new FileWriter(archivoUsuarios);
+		fEscrit = new FileWriter(archivoAlumnos);
 		bEscrit = new BufferedWriter(fEscrit);
 		pEscrit = new PrintWriter(bEscrit);
 
@@ -567,7 +625,7 @@ public class Archivos
 	 *	@param	alumno				Contiene a un alumno en especifico.
 	 *	@param	receta				Contiene todos los datos de la receta del alumno.
 	 *	@throws IOException			Lanzada cuando hay operaciones erroneas de Entrada/Salida.
-	 *	@see 						#crearCarpetaUsuario(Docente)
+	 *	@see 						#crearCarpetaAlumno(Docente)
 	 * */
 	public void actualizarDatosReceta(Alumno alumno,Receta receta) throws IOException
 	{
@@ -638,10 +696,10 @@ public class Archivos
 	 * 	Este metodo crea una carpeta nueva con el rut del alumno
 	 * 	@param	alumno				Contiene a un alumno en especifico.
 	 * */
-	public void crearCarpetaUsuario(Alumno alumno)
+	public void crearCarpetaAlumno(Alumno alumno)
 	{							
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Alumnos\\"+alumno.getRut());
-		File archivo = new File(carpeta,"DatosUsuario"+alumno.getRut()+".txt");
+		File archivo = new File(carpeta,"DatosAlumno"+alumno.getRut()+".txt");
 		
 		if(!carpeta.exists()){
 			carpeta.mkdirs();
@@ -665,7 +723,7 @@ public class Archivos
 	 * 	Este metodo crea una carpeta nueva con el rut del docente
 	 * 	@param	docente				Contiene a un docente en especifico.
 	 * */
-	public void crearCarpetaUsuario(Docente docente)
+	public void crearCarpetaAlumno(Docente docente)
 	{							
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Docentes\\"+docente.getRut());
 		File archivo = new File(carpeta,"DatosDocente"+docente.getRut()+".txt");
@@ -723,15 +781,15 @@ public class Archivos
 	
 	
 	/** 
-	 * 	Este metodo elimina el usuario recibido del ArrayList de usuarios
+	 * 	Este metodo elimina el Alumno recibido del ArrayList de Alumnos
 	 * 	@param	alumno				Contiene un alumno en especifico.
 	 * 	@return						Un booleano que indica si se pudo eliminar el txt contenido
 	 * 								dentro de la carpeta del alumno.
-	 * 	@see						#eliminarCarpetaUsuario(Alumno)
+	 * 	@see						#eliminarCarpetaAlumno(Alumno)
 	 * */
-	public boolean eliminarTxtAlumno(Alumno usuario)
+	public boolean eliminarTxtAlumno(Alumno alumno)
 	{    	
-		if(eliminarCarpetaUsuario(usuario))
+		if(eliminarCarpetaAlumno(alumno))
 		{
 			return true;
 		}
@@ -759,8 +817,8 @@ public class Archivos
 	 * 	@return						Un booleano que indica si se pudo eliminar la carpeta del alumno.
 	 * 	@see						#eliminarArchivos(File[])
 	 * */
-	public boolean eliminarCarpetaUsuario(Alumno usuario){
-		File carpeta = new File("Universidad Catolica De Gastronomia\\Alumnos\\"+usuario.getRut());
+	public boolean eliminarCarpetaAlumno(Alumno alumno){
+		File carpeta = new File("Universidad Catolica De Gastronomia\\Alumnos\\"+alumno.getRut());
 		if(carpeta.exists()){							
 			File[] archivos = carpeta.listFiles();
 			if(eliminarArchivos(archivos))

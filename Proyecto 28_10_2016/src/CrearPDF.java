@@ -184,10 +184,10 @@ public class CrearPDF {
             if(opcion == 1){
             	JOptionPane.showMessageDialog(null,"Se guardó correctamente el archivo", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
             }else if (opcion == 2){
-            	String correoUsuario = JOptionPane.showInputDialog(null, "Ingrese su correo: ", "Para enviar sus recetas", JOptionPane.QUESTION_MESSAGE);
-            	if(correoUsuario != null){
-            		if(!correoUsuario.equals("")){
-                    	enviarPDF(correoUsuario);
+            	String correoAlumno = JOptionPane.showInputDialog(null, "Ingrese su correo: ", "Para enviar sus recetas", JOptionPane.QUESTION_MESSAGE);
+            	if(correoAlumno != null){
+            		if(!correoAlumno.equals("")){
+                    	enviarPDF(correoAlumno);
             		}else{
             			JOptionPane.showMessageDialog(null,"Faltó llenar campo");
             		}
@@ -204,10 +204,10 @@ public class CrearPDF {
 		}	 
     }
 	
-	private void enviarPDF(String correoUsuario)
+	private void enviarPDF(String correoAlumno)
 	{
 		EnviarMensajeACorreo enviarCorreo = new EnviarMensajeACorreo();
-		enviarCorreo.crearMensajeConArchivoAdjunto(correoUsuario);
+		enviarCorreo.crearMensajeConArchivoAdjunto(correoAlumno);
 	}
 	
 	private void eliminarPDF() throws IOException{
