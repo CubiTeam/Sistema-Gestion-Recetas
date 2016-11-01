@@ -94,7 +94,8 @@ public class CrearReporteEnExcel {
         	if (seleccion == JFileChooser.APPROVE_OPTION){
                 File archivoJFileChooser = fileChooserAlumnos.getSelectedFile();
                 FileOutputStream archivo = new FileOutputStream(archivoJFileChooser+".xls");
-                libro.write(archivo);          
+                libro.write(archivo);      
+                archivo.close();
                 JOptionPane.showMessageDialog(null,"Se guardó correctamente el archivo", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
             }
         }catch (Exception e){
