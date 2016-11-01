@@ -3,7 +3,7 @@
  *  @author Pedro Morales
  *  @author Sebastian Sandoval
  *  @author Israel Ogas
- *  @version 1
+ *  @version 2
  * 
  * ********************************************************
  * 							USUARIOS
