@@ -16,8 +16,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.border.TitledBorder;
-import java.awt.Component;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Font;
@@ -25,7 +23,6 @@ import java.awt.Font;
 public class VentanaReceta extends JFrame {
 
 	private JPanel contentPane;
-	private DefaultListModel comentarios;
 	private boolean ventanaAnteriorBuscarReceta;
 	private VentanaBuscarReceta ventanaBuscarReceta;
 	private VentanaMisRecetas ventanaMisRecetas;
@@ -63,15 +60,31 @@ public class VentanaReceta extends JFrame {
 		separator.setBounds(424, 0, 2, 571);		
 		contentPane.add(separator);
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------
-		JPanel panel_ingredientes = new JPanel();							//INGREDIENTES
+		
+		//INGREDIENTES
+		JPanel panel_ingredientes = new JPanel();							
 		panel_ingredientes.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panel_ingredientes.setBackground(new Color(0, 153, 255));
 		panel_ingredientes.setBounds(10, 60, 100, 150);
 		panel_ingredientes.setLayout(new GridLayout());
 		contentPane.add(panel_ingredientes);
 		
-		JList lista_ingredientes = new JList(receta.getIngredientes());
+		JList<?> lista_ingredientes = new JList<Object>(receta.getIngredientes());
 		lista_ingredientes.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		panel_ingredientes.add(lista_ingredientes);
 		
@@ -85,15 +98,33 @@ public class VentanaReceta extends JFrame {
 		lblIngredientes.setBounds(10, 45, 100, 14);
 		contentPane.add(lblIngredientes);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
-		JPanel panel_utensilios = new JPanel();								//UTENSILIOS
+		
+		//UTENSILIOS
+		JPanel panel_utensilios = new JPanel();								
 		panel_utensilios.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panel_utensilios.setBackground(new Color(0, 153, 255));
 		panel_utensilios.setBounds(160, 60, 100, 150);
 		panel_utensilios.setLayout(new GridLayout());
 		contentPane.add(panel_utensilios);
 		
-		JList lista_utensilios = new JList(receta.getUtensilios());
+		JList<?> lista_utensilios = new JList<Object>(receta.getUtensilios());
 		lista_utensilios.setBorder(new LineBorder(new Color(255, 255, 255)));
 		lista_utensilios.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		panel_utensilios.add(lista_utensilios);
@@ -108,15 +139,34 @@ public class VentanaReceta extends JFrame {
 		lblUtensilios.setBounds(160, 45, 100, 14);
 		contentPane.add(lblUtensilios);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
-		JPanel panel_categorias = new JPanel();								//CATEGORIAS
+		
+		//CATEGORIAS
+		JPanel panel_categorias = new JPanel();								
 		panel_categorias.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panel_categorias.setBackground(new Color(0, 153, 255));
 		panel_categorias.setBounds(310, 60, 100, 150);
 		panel_categorias.setLayout(new GridLayout());
 		contentPane.add(panel_categorias);
 		
-		JList lista_categorias = new JList(receta.getCategorias());
+		JList<?> lista_categorias = new JList<Object>(receta.getCategorias());
 		lista_categorias.setBorder(new LineBorder(new Color(0, 153, 255)));
 		lista_categorias.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		panel_categorias.add(lista_categorias);
@@ -131,8 +181,29 @@ public class VentanaReceta extends JFrame {
 		lblCategorias.setBounds(310, 45, 100, 14);
 		contentPane.add(lblCategorias);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
-		JPanel panel_instrucciones = new JPanel();						//INSTRUCCIONES
+	
+		//INSTRUCCIONES
+		JPanel panel_instrucciones = new JPanel();						
 		panel_instrucciones.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panel_instrucciones.setBackground(new Color(0, 153, 255));
 		panel_instrucciones.setBounds(10, 279, 400, 220);
@@ -148,8 +219,34 @@ public class VentanaReceta extends JFrame {
 
 		JScrollPane scroll_instrucciones = new JScrollPane(txtInstrucciones);
 		panel_instrucciones.add(scroll_instrucciones);
+		
+		JLabel lblInstrucciones = new JLabel("INSTRUCCIONES");
+		lblInstrucciones.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInstrucciones.setForeground(new Color(255, 255, 255));
+		lblInstrucciones.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		lblInstrucciones.setBounds(10, 264, 400, 14);
+		contentPane.add(lblInstrucciones);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //--------------------------------------------------------------------------------------------------------------------------
-		JButton btnAtras = new JButton("Atras");						//BOTON ATRAS
+		
+		//BOTON ATRAS
+		JButton btnAtras = new JButton("Atras");						
 		btnAtras.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -169,22 +266,41 @@ public class VentanaReceta extends JFrame {
 		});
 		btnAtras.setBounds(321, 527, 89, 23);
 		contentPane.add(btnAtras);
+
+
 		
-		JLabel lblInstrucciones = new JLabel("INSTRUCCIONES");
-		lblInstrucciones.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInstrucciones.setForeground(new Color(255, 255, 255));
-		lblInstrucciones.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-		lblInstrucciones.setBounds(10, 264, 400, 14);
-		contentPane.add(lblInstrucciones);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
-		JPanel panelComentarios = new JPanel();							//LISTA COMENTARIOS
+
+		//LISTA COMENTARIOS
+		JPanel panelComentarios = new JPanel();							
 		panelComentarios.setBackground(new Color(0, 153, 255));
 		panelComentarios.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panelComentarios.setBounds(444, 27, 330, 310);
 		panelComentarios.setLayout(new GridLayout());
 		contentPane.add(panelComentarios);
 		
-		//final ArrayList<Comentario> listaComentarios = receta.getComentarios().getComentarios(); 
+
 		final JTextArea textComentarios = new JTextArea();
 		textComentarios.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		panelComentarios.add(textComentarios);
@@ -194,8 +310,29 @@ public class VentanaReceta extends JFrame {
 		
 		JScrollPane scrollComentarios = new JScrollPane(textComentarios);
 		panelComentarios.add(scrollComentarios);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
-		JPanel panelAgregarComent = new JPanel();					//AGREGAR COMENTARIO
+		
+		//AGREGAR COMENTARIO
+		JPanel panelAgregarComent = new JPanel();					
 		panelAgregarComent.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panelAgregarComent.setBackground(new Color(0, 153, 255));
 		panelAgregarComent.setBounds(444, 368, 330, 150);
@@ -236,8 +373,30 @@ public class VentanaReceta extends JFrame {
 		lblAgregarComentario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblAgregarComentario.setBounds(445, 533, 140, 14);
 		contentPane.add(lblAgregarComentario);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------------------
-		JButton btnEliminarComentario = new JButton("Eliminar Comentario");	//ELIMINAR COMENTARIO
+		
+		//ELIMINAR COMENTARIO
+		JButton btnEliminarComentario = new JButton("Eliminar Comentario");	
 		btnEliminarComentario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnEliminarComentario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
@@ -307,8 +466,33 @@ public class VentanaReceta extends JFrame {
 		});
 		btnEliminarComentario.setBounds(609, 342, 165, 23);
 		contentPane.add(btnEliminarComentario);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //--------------------------------------------------------------------------------------------------------------------------
-		JButton btnModificarComentario = new JButton("Modificar Comentario");	//MODIFICAR COMENTARIO
+		
+		//MODIFICAR COMENTARIO
+		JButton btnModificarComentario = new JButton("Modificar Comentario");	
 		btnModificarComentario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		btnModificarComentario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
@@ -361,6 +545,32 @@ public class VentanaReceta extends JFrame {
 
 	}//FIN CONTRUCTOR
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public String actualizarLista(ArrayList<Comentario> listaComentarios)	//retorna un JtextArea con todos los comentarios en la lista
 	{
 		JTextArea textNuevo= new JTextArea();
@@ -371,14 +581,68 @@ public class VentanaReceta extends JFrame {
 		}
 		return textNuevo.getText();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void mostrarVentanaAnteriorMisRecetas()	//muestra la ventana anterior cuando es VentanaMisRecetas
 	{
 		ventanaMisRecetas.setVisible(true);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void mostrarVentanaAnteriorBuscarReceta() //muestra la ventana anterior cuando es VentanaBuscarReceta
 	{
 		ventanaBuscarReceta.setVisible(true);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void mostrarVentana(VentanaBuscarReceta ventanaAnterior,Alumno alumno)
 	{																			//muestra la ventana actual
 		ventanaAnteriorBuscarReceta=true;								
@@ -386,11 +650,46 @@ public class VentanaReceta extends JFrame {
 		ventanaBuscarReceta=ventanaAnterior;
 		setVisible(true);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void mostrarVentana(VentanaMisRecetas ventanaAnterior,Alumno alumno)
 	{															//muestra la ventana actual
 		this.alumno=alumno;							
 		ventanaMisRecetas= ventanaAnterior;			//y le da valor a la ventanaMisRecetas
 		setVisible(true);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 

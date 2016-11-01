@@ -16,10 +16,8 @@ import javax.swing.JDialog;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
-import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
 
@@ -69,6 +67,27 @@ public class VentanaPrincipal extends JFrame {
 		lblPontificiaUniversidadCatolica.setBounds(0, 24, 392, 14);
 		contentPane.add(lblPontificiaUniversidadCatolica);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------
 		
 		//PANEL INGRESAR DATOS DE INICIO SESION
@@ -108,6 +127,27 @@ public class VentanaPrincipal extends JFrame {
 		psswField.setBounds(123, 62, 214, 25);
 		panelInicioSesion.add(psswField);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-------------------------------------------------------------------------------------------------------------------------	
 		
 		//PANEL TIPO USUARIO
@@ -132,6 +172,26 @@ public class VentanaPrincipal extends JFrame {
 		comboBoxTipoUsuario.setBounds(79, 22, 105, 25);
 		panelTipoUsuario.add(comboBoxTipoUsuario);
 		comboBoxTipoUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //-------------------------------------------------------------------------------------------------------------------------
 		
@@ -187,6 +247,24 @@ public class VentanaPrincipal extends JFrame {
 			
 		contentPane.add(btnIniciarSesion);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //-----------------------------------------------------------------------------------------------------------------------
 		
 		//BOTON SALIR
@@ -201,6 +279,20 @@ public class VentanaPrincipal extends JFrame {
 		});
 		contentPane.add(btnSalir);
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------
 		
 		//BOTON RECUPERAR CONTRASEÑA
@@ -225,6 +317,7 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		contentPane.add(btnRecuperarContrasena);
+	
 	}//FIN CONTRUCTOR
 
 	
