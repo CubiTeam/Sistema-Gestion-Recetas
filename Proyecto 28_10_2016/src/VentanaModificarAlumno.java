@@ -14,7 +14,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 
-public class VentanaModificarAlumno extends JFrame {
+public class VentanaModificarAlumno extends JFrame 
+{
 
 	private JPanel contentPane;
 	
@@ -29,6 +30,34 @@ public class VentanaModificarAlumno extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		
+		JPanel panelDatos = new JPanel();
+		panelDatos.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255)), "Datos Alumno", TitledBorder.LEADING, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
+		panelDatos.setBackground(new Color(0, 153, 255));
+		panelDatos.setBounds(10, 11, 344, 178);
+		contentPane.add(panelDatos);
+		panelDatos.setLayout(null);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton cerrar sesión
 		JButton btnCerrarSesion = new JButton("Cerrar Sesi\u00F3n");
 		btnCerrarSesion.setFont(new Font("Century Gothic", Font.PLAIN, 9));
 		btnCerrarSesion.addActionListener(new ActionListener() {
@@ -41,6 +70,27 @@ public class VentanaModificarAlumno extends JFrame {
 		btnCerrarSesion.setBounds(232, 201, 110, 31);
 		contentPane.add(btnCerrarSesion);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//boton atras
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnAtras.addActionListener(new ActionListener() {
@@ -52,13 +102,23 @@ public class VentanaModificarAlumno extends JFrame {
 		btnAtras.setBounds(20, 200, 110, 31);
 		contentPane.add(btnAtras);
 		
-		JPanel panelDatos = new JPanel();
-		panelDatos.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255)), "Datos Alumno", TitledBorder.LEADING, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
-		panelDatos.setBackground(new Color(0, 153, 255));
-		panelDatos.setBounds(10, 11, 344, 178);
-		contentPane.add(panelDatos);
-		panelDatos.setLayout(null);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//----------------------------------------------------------------------------------------------------------------------------
+		
+		//JLabel
 		final JLabel lblNombre = new JLabel("Nombre : "+usuario.getNombrePersona());
 		lblNombre.setBounds(20, 22, 280, 14);
 		panelDatos.add(lblNombre);
@@ -95,46 +155,43 @@ public class VentanaModificarAlumno extends JFrame {
 		lblCorreo.setForeground(new Color(255, 255, 255));
 		lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //----------------------------------------------------------------------------------------------------------------------		
 		
-		//MODIFICAR CORREO
+		//MODIFICAR DATOS ALUMNO
 		
-		final JLabel lblmodificarCorreo = new JLabel("[Modificar]");					
-		lblmodificarCorreo.setBounds(285, 147, 49, 14);
-		panelDatos.add(lblmodificarCorreo);
-		lblmodificarCorreo.setForeground(Color.black);
-		lblmodificarCorreo.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		//----------------------------------------------------------------------------------------------------------------------		
-				
-		//MODIFICAR TELEFONO
 		
-		final JLabel lblmodificarTelefono = new JLabel("[Modificar]");
-		lblmodificarTelefono.setBounds(285, 123, 49, 14);
-		panelDatos.add(lblmodificarTelefono);
-		lblmodificarTelefono.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		lblmodificarTelefono.setForeground(Color.black);
-		//----------------------------------------------------------------------------------------------------------------------		
-						
-		//MODIFICAR EDAD
-		
-		final JLabel lblmodificarEdad = new JLabel("[Modificar]");
-		lblmodificarEdad.setBounds(285, 97, 49, 14);
-		panelDatos.add(lblmodificarEdad);
-		lblmodificarEdad.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		lblmodificarEdad.setForeground(Color.black);
-		
-		//------------------------------------------------------------------------------------------------------------------------	
-								
-		//MODIFICAR RUT
-		
-		final JLabel lblmodificarRut = new JLabel("[Modificar]");
-		lblmodificarRut.setBounds(285, 72, 49, 14);
-		panelDatos.add(lblmodificarRut);
-		lblmodificarRut.setForeground(Color.black);
-		lblmodificarRut.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		
-		//------------------------------------------------------------------------------------------------------------------------	
 										
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//MODIFICAR DIRECCION
 		
 		final JLabel lblmodificarDireccion = new JLabel("[Modificar]");
@@ -142,51 +199,8 @@ public class VentanaModificarAlumno extends JFrame {
 		panelDatos.add(lblmodificarDireccion);
 		lblmodificarDireccion.setForeground(Color.black);
 		lblmodificarDireccion.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		
-		//------------------------------------------------------------------------------------------------------------------------	
-										
-		//MODIFICAR NOMBRE
-		
-		final JLabel lblmodificarNombre = new JLabel("[Modificar]");
-		lblmodificarNombre.setBounds(285, 23, 49, 14);
-		panelDatos.add(lblmodificarNombre);
-		lblmodificarNombre.setForeground(Color.black);
-		lblmodificarNombre.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		
-		//Modifica el nombre al presionar en el label [Modificar]
 						
-		lblmodificarNombre.addMouseListener(new MouseListener() 
-		{
-			public void mouseClicked(MouseEvent arg0) 	{
-				String editarNombre = JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre : ", "Edite nombre : ", JOptionPane.QUESTION_MESSAGE);
-				if(editarNombre != null)
-				{
-					if(!editarNombre.equals(""))
-					{
-						if(universidad.getListaAlumnos().modificar(usuario, editarNombre))
-						{
-							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Se modifico sin problemas","Exito",0);
-							lblNombre.setText("Nombre : "+usuario.getNombrePersona());
-						}
-						else
-							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
-					}else{
-						JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Debe ingresar el dato","Error",0);
-					}
-				}
-			}
-			public void mouseEntered(MouseEvent arg0) 
-			{
-				lblmodificarNombre.setForeground(Color.red);
-			}
-			public void mouseExited(MouseEvent arg0) 
-			{
-				lblmodificarNombre.setForeground(Color.black);
-			}
-			public void mousePressed(MouseEvent arg0) {}
-			public void mouseReleased(MouseEvent arg0) {}
-		});
-						
+		
 		lblmodificarDireccion.addMouseListener(new MouseListener() 
 		{
 			public void mouseClicked(MouseEvent arg0) 	{
@@ -217,37 +231,37 @@ public class VentanaModificarAlumno extends JFrame {
 			public void mousePressed(MouseEvent arg0) {}
 			public void mouseReleased(MouseEvent arg0) {}
 		});
-				
-		lblmodificarRut.addMouseListener(new MouseListener() 
-		{
-			public void mouseClicked(MouseEvent arg0) 	{
-				String editarRut = JOptionPane.showInputDialog(null, "Ingrese el nuevo rut : ", "Edite rut : ", JOptionPane.QUESTION_MESSAGE);
-				
-				if(editarRut != null)
-				{
-					if(!editarRut.equals(""))
-					{		
-						if(universidad.getListaAlumnos().modificarRut(usuario, editarRut))
-						{
-							lblRut.setText("Rut : "+usuario.getRut());
-							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Se modifico sin problemas","Exito",0);
-						}else
-							JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Error","Error",0);
-					}else
-						JOptionPane.showMessageDialog(VentanaModificarAlumno.this,"Debe ingresar el dato","Error",0);
-				}
-			}
-			public void mouseEntered(MouseEvent arg0) 
-			{
-				lblmodificarRut.setForeground(Color.red);
-			}
-			public void mouseExited(MouseEvent arg0) 
-			{
-				lblmodificarRut.setForeground(Color.black);
-			}
-			public void mousePressed(MouseEvent arg0) {}
-			public void mouseReleased(MouseEvent arg0) {}
-		});		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//MODIFICAR EDAD
+		
+		final JLabel lblmodificarEdad = new JLabel("[Modificar]");
+		lblmodificarEdad.setBounds(285, 97, 49, 14);
+		panelDatos.add(lblmodificarEdad);
+		lblmodificarEdad.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblmodificarEdad.setForeground(Color.black);
 		
 		
 		lblmodificarEdad.addMouseListener(new MouseListener() 
@@ -283,7 +297,45 @@ public class VentanaModificarAlumno extends JFrame {
 			public void mouseReleased(MouseEvent arg0) {}
 		});
 
-		lblmodificarTelefono.addMouseListener(new MouseListener() {
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//MODIFICAR TELEFONO
+		
+		final JLabel lblmodificarTelefono = new JLabel("[Modificar]");
+		lblmodificarTelefono.setBounds(285, 123, 49, 14);
+		panelDatos.add(lblmodificarTelefono);
+		lblmodificarTelefono.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblmodificarTelefono.setForeground(Color.black);
+		
+		
+		lblmodificarTelefono.addMouseListener(new MouseListener() 
+		{
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				String editarTelefono = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Edite teléfono : ", JOptionPane.QUESTION_MESSAGE);
@@ -315,6 +367,36 @@ public class VentanaModificarAlumno extends JFrame {
 			public void mouseReleased(MouseEvent arg0) {}
 		});				
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//MODIFICAR CORREO	
+		
+		final JLabel lblmodificarCorreo = new JLabel("[Modificar]");					
+		lblmodificarCorreo.setBounds(285, 147, 49, 14);
+		panelDatos.add(lblmodificarCorreo);
+		lblmodificarCorreo.setForeground(Color.black);
+		lblmodificarCorreo.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		
+		
 		lblmodificarCorreo.addMouseListener(new MouseListener() 
 		{
 			public void mouseClicked(MouseEvent arg0) 
@@ -348,4 +430,5 @@ public class VentanaModificarAlumno extends JFrame {
 			public void mouseReleased(MouseEvent arg0) {}
 		});
 	}
+	
 }

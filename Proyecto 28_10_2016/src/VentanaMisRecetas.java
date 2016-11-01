@@ -12,7 +12,6 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.border.TitledBorder;
-import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
@@ -21,7 +20,7 @@ public class VentanaMisRecetas extends JFrame
 
 	private JPanel contentPane;
 	private VentanaCrearReceta recetaVentanaNueva;
-	private DefaultListModel recetas;
+	private DefaultListModel<Receta> recetas;
 	public VentanaMisRecetas(final Alumno alumno,final VentanaAlumno ventanaUsuario) 
 	{
 		setTitle("VentanaMisRecetas");
@@ -33,23 +32,59 @@ public class VentanaMisRecetas extends JFrame
 		setContentPane(contentPane);
 		setResizable(false);
 		
-		recetas=new DefaultListModel();
+		recetas=new DefaultListModel<Receta>();
 		
 		convertir(recetas,alumno.getListaRecetas().getArrayRecetas());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------		
-		JPanel panel_recetas = new JPanel();										//LISTA RECETAS
+		
+		//LISTA RECETAS
+		JPanel panel_recetas = new JPanel();										
 		panel_recetas.setBackground(new Color(0, 153, 255));
 		panel_recetas.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255)), "MIS RECETAS", TitledBorder.CENTER, TitledBorder.ABOVE_TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
 		panel_recetas.setBounds(10, 20, 260, 230);
 		contentPane.add(panel_recetas);
 		panel_recetas.setLayout(new GridLayout());
 		
-		final JList lista_recetas = new JList();
+		final JList<Receta> lista_recetas = new JList<Receta>();
 		lista_recetas.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		panel_recetas.add(lista_recetas);
 		lista_recetas.setModel(recetas);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------		
-		JButton btnMostrarReceta = new JButton("Mostrar Receta");					//BOTON MOSTRAR RECETA
+		
+		//BOTON MOSTRAR RECETA
+		JButton btnMostrarReceta = new JButton("Mostrar Receta");					
 		btnMostrarReceta.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnMostrarReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
@@ -65,8 +100,26 @@ public class VentanaMisRecetas extends JFrame
 		});
 		btnMostrarReceta.setBounds(280, 95, 133, 44);
 				contentPane.add(btnMostrarReceta);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 //------------------------------------------------------------------------------------------------------------------------		
-		JButton btnCrearReceta = new JButton("Crear Receta");						//BOTON CREAR RECETA
+		
+		//BOTON CREAR RECETA	
+		JButton btnCrearReceta = new JButton("Crear Receta");						
 		btnCrearReceta.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnCrearReceta.addActionListener(new ActionListener() 
 		{
@@ -81,8 +134,23 @@ public class VentanaMisRecetas extends JFrame
 		btnCrearReceta.setBounds(280, 40, 133, 44);
 		contentPane.add(btnCrearReceta);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------		
-		final JButton btnModificarReceta = new JButton("Modificar Receta");				//BOTON MODIFICAR RECETA
+		
+		//BOTON MODIFICAR RECETA
+		final JButton btnModificarReceta = new JButton("Modificar Receta");				
 		btnModificarReceta.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnModificarReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -99,8 +167,24 @@ public class VentanaMisRecetas extends JFrame
 		btnModificarReceta.setBounds(423, 40, 133, 44);
 		contentPane.add(btnModificarReceta);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------		
-		JButton btnEliminarReceta = new JButton("Eliminar Receta");					//BOTON ELIMINAR RECETA
+		
+		//BOTON ELIMINAR RECETA
+		JButton btnEliminarReceta = new JButton("Eliminar Receta");					
 		btnEliminarReceta.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnEliminarReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -121,8 +205,26 @@ public class VentanaMisRecetas extends JFrame
 		btnEliminarReceta.setBounds(423, 95, 133, 44);
 		contentPane.add(btnEliminarReceta);
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------
-		JButton btnAtras = new JButton("Atras");									//BOTON ATRAS
+		
+		//BOTON ATRAS
+		JButton btnAtras = new JButton("Atras");									
 		btnAtras.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -134,25 +236,57 @@ public class VentanaMisRecetas extends JFrame
 		btnAtras.setBounds(351, 205, 122, 39);
 		contentPane.add(btnAtras);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------
-																			//BOTON GUARDAR RECETAS
+		
+		//BOTON GUARDAR RECETAS																	
 		JButton btnDescargarReceta = new JButton("Guardar Recetas");
 		btnDescargarReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CrearPDF crearPDF = new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),1);
+				new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),1);
 			}
 		});
 		btnDescargarReceta.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnDescargarReceta.setBounds(280, 150, 133, 44);
 		contentPane.add(btnDescargarReceta);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //------------------------------------------------------------------------------------------------------------------------
-																			//BOTON ENVIAR A CORREO		
+		
+		//BOTON ENVIAR A CORREO																			
 		JButton btnEnviarACorreo = new JButton("Enviar a correo");
 		btnEnviarACorreo.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnEnviarACorreo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CrearPDF crearPDF = new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),2);
+				new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),2);
 			}
 		});
 		btnEnviarACorreo.setBounds(423, 150, 133, 44);
@@ -160,8 +294,27 @@ public class VentanaMisRecetas extends JFrame
 		
 	}//FIN CONTRUCTOR
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// cambia de arrayList a DefaultListModel
-	public void convertir(DefaultListModel recetasList,ArrayList<Receta> recetasArray) 
+	public void convertir(DefaultListModel<Receta> recetasList,ArrayList<Receta> recetasArray) 
 	{
 		int cont;
 		for(int i=0;i<recetasArray.size();i++)
@@ -178,8 +331,30 @@ public class VentanaMisRecetas extends JFrame
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//vuelve a cargar las recetas
 	public void actualizar(ArrayList<Receta> recetas)
 	{
 		convertir(this.recetas,recetas);
 	}
+	
 }
