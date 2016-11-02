@@ -52,7 +52,7 @@ public class EnviarMensajeACorreo{
             message.setContent(contenido);
 
             Transport.send(message);
-            JOptionPane.showMessageDialog(null, "La contraseña se ha enviado a su correo");
+            JOptionPane.showMessageDialog(null, "Se ha enviado correctamente a su correo!");
         } catch (MessagingException e) {
         	JOptionPane.showMessageDialog(null, "No se ha enviado el mensaje, revise si escribio bien el correo");
             System.out.println(e.getCause());
