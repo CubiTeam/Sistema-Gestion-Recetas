@@ -1,0 +1,10 @@
+Test
+0|60|0
+1
+EjemploI
+1
+EjemploU
+1
+EjemploC
+Instrucciones de la receta |
+0
