@@ -24,7 +24,7 @@ public class VentanaAlumno extends JFrame
 	
 	public VentanaAlumno(final Universidad universidad,final Alumno alumno, final VentanaPrincipal ventanaAnterior) 
 	{
-		setTitle("Ventana Alumno");
+		setTitle("Bienvenido "+alumno.getNombrePersona());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 330, 312);
 		contentPane = new JPanel();

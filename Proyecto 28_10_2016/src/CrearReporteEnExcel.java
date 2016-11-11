@@ -19,7 +19,8 @@ public class CrearReporteEnExcel {
         HSSFWorkbook libro = new HSSFWorkbook();
         HSSFSheet hoja = libro.createSheet();	
         libro.setSheetName(0, "Alumnos");
-
+        
+        
         String[] cabeceras = new String[]{"RUT","NOMBRE","CORREO","DIRECCION","SEXO","EDAD","TELEFONO"};
         
         CellStyle estiloCabecera = libro.createCellStyle();

@@ -34,7 +34,7 @@ public class VentanaFiltroRecetas extends JFrame
 		categorias = new DefaultListModel<String>();
 		setResizable(false);
 		
-		setTitle("Ventana Filtro Receta");
+		setTitle("Filtro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 670, 378);
 		contentPane = new JPanel();

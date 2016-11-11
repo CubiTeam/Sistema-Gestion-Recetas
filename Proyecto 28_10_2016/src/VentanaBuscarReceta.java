@@ -37,7 +37,7 @@ public class VentanaBuscarReceta extends JFrame
 	{											
 		recetas = new DefaultListModel<Receta>();
 		setResizable(false);
-		setTitle("Ventana Buscar Receta");
+		setTitle("Busqueda de Receta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 627, 395);
 		contentPane = new JPanel();

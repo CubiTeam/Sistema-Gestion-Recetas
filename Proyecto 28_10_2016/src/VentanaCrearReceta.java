@@ -50,6 +50,7 @@ public class VentanaCrearReceta extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 15, 1000, 675);
 		setResizable(false);
+		setTitle("Receta Nueva");
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 153, 255));
@@ -762,6 +763,7 @@ public class VentanaCrearReceta extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 15, 1000, 675);
 		setResizable(false);
+		setTitle("Modificando "+ receta.getNombreReceta());
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 153, 255));

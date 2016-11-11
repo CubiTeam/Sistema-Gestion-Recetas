@@ -30,7 +30,7 @@ public class VentanaReceta extends JFrame {
 
 	public VentanaReceta(final Receta receta) 
 	{
-		setTitle("VentanaReceta");
+		setTitle(receta.getNombreReceta());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(400, 50, 800, 600);
 		contentPane = new JPanel();

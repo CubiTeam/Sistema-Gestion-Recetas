@@ -19,7 +19,7 @@ public class VentanaMostrarListaAlumnos extends JFrame {
 	private JPanel contentPane;
 
 	public VentanaMostrarListaAlumnos(final ArrayList<Alumno> alumno, final VentanaDocente ventanaAnterior) {
-		setTitle("VentanaDeReporte");
+		setTitle("Ventana de reporte");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 370, 439);

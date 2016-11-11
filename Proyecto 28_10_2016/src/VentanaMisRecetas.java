@@ -23,7 +23,7 @@ public class VentanaMisRecetas extends JFrame
 	private DefaultListModel<Receta> recetas;
 	public VentanaMisRecetas(final Alumno alumno,final VentanaAlumno ventanaAlumno) 
 	{
-		setTitle("VentanaMisRecetas");
+		setTitle("Recetas Propias");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 577, 288);
 		contentPane = new JPanel();
