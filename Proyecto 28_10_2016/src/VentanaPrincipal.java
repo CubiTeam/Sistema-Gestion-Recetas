@@ -153,18 +153,18 @@ public class VentanaPrincipal extends JFrame {
 		//PANEL TIPO Alumno
 		JPanel panelTipoAlumno = new JPanel();
 		panelTipoAlumno.setBackground(new Color(0, 153, 255));
-		panelTipoAlumno.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255), 2, true), "Tipo Alumno", 
+		panelTipoAlumno.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255), 2, true), "Tipo Usuario", 
 				TitledBorder.CENTER, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
 		
 		panelTipoAlumno.setBounds(41, 335, 202, 63);
 		contentPane.add(panelTipoAlumno);
 		panelTipoAlumno.setLayout(null);
 		
-		JLabel lblTipoAlumno = new JLabel("Alumno");
-		lblTipoAlumno.setBounds(18, 27, 64, 14);
-		panelTipoAlumno.add(lblTipoAlumno);
-		lblTipoAlumno.setForeground(Color.WHITE);
-		lblTipoAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		JLabel lblTipoUsuario = new JLabel("Usuario");
+		lblTipoUsuario.setBounds(18, 27, 64, 14);
+		panelTipoAlumno.add(lblTipoUsuario);
+		lblTipoUsuario.setForeground(Color.WHITE);
+		lblTipoUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
 		String[] tipoAlumno = {"Alumno","Docente"};
 		
