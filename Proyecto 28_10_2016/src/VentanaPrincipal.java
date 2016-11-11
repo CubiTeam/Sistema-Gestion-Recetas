@@ -322,4 +322,4 @@ public class VentanaPrincipal extends JFrame {
 
 	
 
-}
+}//FIN CLASE

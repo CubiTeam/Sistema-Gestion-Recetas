@@ -19,8 +19,7 @@ public class Archivos
 	
 	
 	//Constructor
-	public Archivos()
-	{
+	public Archivos(){
 		
 	}
 	
@@ -47,12 +46,9 @@ public class Archivos
 	/**
 	 *	Metodo donde se cargan los datos de todos los alumnos desde los txt y se genera el arrayList de alumnos.
 	 *	@param arrayAlumnos			Es un arrayList de Alumnos llenado a partir de txt's.
-	 *	@return							Un ArrayList de Alumnos.
-	 *	@see 							#cargarDatosRecetas(Alumno)
+	 *	@return						Un ArrayList de Alumnos.
+	 *	@see 						#cargarDatosRecetas(Alumno)
 	 */	
-	
-	
-	//metodo que carga todos los alumnos de los txt
 	public ArrayList <Alumno> cargarArchivoTextoAlumno(ArrayList <Alumno> arrayAlumnos)
 	{
 		File raiz = new File("Universidad Catolica De Gastronomia\\Alumnos");
@@ -109,11 +105,13 @@ public class Archivos
 	
 	
 	
-	//se cargan los datos de todos los docentes de los txt
+	/**
+	 *	Metodo donde se genera el array de docentes
+	 *	@param listaDocentes		Es una lista que contiene el ArrayList de docentes
+	 *	@see 						ListaDocentes#agregar(Object);
+	 */	
 	public void cargarArchivoTextoDocente(ListaDocentes listaDocentes)
 	{										
-		//Generar Array De Docente
-
 		File raiz = new File("Universidad Catolica De Gastronomia\\Docentes");
 		if(raiz.exists() && raiz.list()!=null)
 		{
@@ -138,8 +136,8 @@ public class Archivos
 
 					    	listaDocentes.agregar(docenteNuevo);
 						};										
-				    buffer.close();
-					archivoLectura.close();
+						buffer.close();
+						archivoLectura.close();
 					}
 				}catch(IOException x){
 					System.out.println("Error E/S: "+x);

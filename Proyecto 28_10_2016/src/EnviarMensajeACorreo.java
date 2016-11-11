@@ -109,7 +109,7 @@ public class EnviarMensajeACorreo{
 	        contenido = multiParte;
 	        
 		} catch (MessagingException e) {
-        	JOptionPane.showMessageDialog(null, "No se ha enviado el mensaje, revise si escribio bien el correo");
+        	JOptionPane.showMessageDialog(null, "No se ha enviado el mensaje, revise si escribio bien el correo o si tiene conexion a internet");
             System.out.println(e.getCause());
 		}
         EnviarCorreo();	

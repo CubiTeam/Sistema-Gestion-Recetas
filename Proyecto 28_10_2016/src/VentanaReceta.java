@@ -27,6 +27,7 @@ public class VentanaReceta extends JFrame {
 	private VentanaBuscarReceta ventanaBuscarReceta;
 	private VentanaMisRecetas ventanaMisRecetas;
 	Alumno alumno;
+
 	public VentanaReceta(final Receta receta) 
 	{
 		setTitle("VentanaReceta");
@@ -38,7 +39,7 @@ public class VentanaReceta extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
-		
+
 		JLabel lblNewLabel = new JLabel(receta.getNombreReceta());
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 12));
@@ -51,8 +52,7 @@ public class VentanaReceta extends JFrame {
 		lblTiempoEstimadoDe.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblTiempoEstimadoDe.setBounds(10, 221, 354, 26);
 		contentPane.add(lblTiempoEstimadoDe);
-		
-		
+				
 		JSeparator separator = new JSeparator();
 		separator.setForeground(new Color(255, 255, 255));
 		separator.setBackground(new Color(255, 255, 255));

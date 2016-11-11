@@ -18,6 +18,15 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class CrearPDF {
 	
+	
+	/**
+	 *	Se crea el documento .pdf y se elige el lugar de guardado
+	 * 	@param	arrayRecetas		Es el arreglo que contiene las recetas del alumno.
+	 *  @param	opcion				Recibe 1 o 2, para escoger si se queria enviar a correo o guardarlo 
+	 *  							directamente en el computador.
+	 *	@see						#llenarPDF(FileOutputStream, ArrayList, int)
+	 * */
+	//Constructor
 	public CrearPDF(ArrayList<Receta> arrayRecetas, int opcion)
 	{
 	    if(opcion == 1){
@@ -204,12 +213,14 @@ public class CrearPDF {
 		}	 
     }
 	
+	//Metodo que llama al metodo de la clase EnviarMensajeCorreo para poder enviar pdf a correo
 	private void enviarPDF(String correoAlumno)
 	{
 		EnviarMensajeACorreo enviarCorreo = new EnviarMensajeACorreo();
 		enviarCorreo.crearMensajeConArchivoAdjunto(correoAlumno);
 	}
 	
+	//Metodo que elimina el PDF auxiliar
 	private void eliminarPDF() throws IOException{
         File f = new File("MisRecetas.pdf");
         if(f.exists())
