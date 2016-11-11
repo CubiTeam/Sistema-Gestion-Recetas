@@ -29,6 +29,7 @@ public class VentanaModificarAlumno extends JFrame
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
+		setTitle("modificar "+alumno.getNombrePersona());
 		
 		JPanel panelDatos = new JPanel();
 		panelDatos.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255)), "Datos Alumno", TitledBorder.LEADING, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));

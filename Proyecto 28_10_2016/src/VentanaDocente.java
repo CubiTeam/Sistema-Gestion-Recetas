@@ -22,7 +22,7 @@ public class VentanaDocente extends JFrame {
     
     
     public VentanaDocente(final Docente docente,final Universidad universidad) {
-    	setTitle("VentanaDocente");
+    	setTitle("Bienvenido "+docente.getNombrePersona());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 361, 328);
         contentPane = new JPanel();

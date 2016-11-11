@@ -31,8 +31,11 @@ public class VentanaCrearAlumno extends JFrame
 		contentPane.setToolTipText("");
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		setResizable(false);
 		
+		setTitle("Nuevo alumno");
+		setResizable(false);
+        setDefaultCloseOperation(0);
+        
 		Toolkit myNativeScreen = Toolkit.getDefaultToolkit(); //Sistema nativo de ventana
 		Dimension sizeScreen = myNativeScreen.getScreenSize(); //Obtener resolucion pantalla
 		
