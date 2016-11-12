@@ -102,12 +102,12 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.add(panelInicioSesion);
 		panelInicioSesion.setLayout(null);
 		
-		JLabel lblAlumno = new JLabel("ALUMNO");
-		lblAlumno.setForeground(Color.WHITE);
-		lblAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblAlumno.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblAlumno.setBounds(38, 37, 73, 14);
-		panelInicioSesion.add(lblAlumno);
+		JLabel lblUsuario = new JLabel("USUARIO");
+		lblUsuario.setForeground(Color.WHITE);
+		lblUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUsuario.setBounds(38, 37, 73, 14);
+		panelInicioSesion.add(lblUsuario);
 		
 		JLabel lblContrasena = new JLabel("CONTRASE\u00D1A");
 		lblContrasena.setForeground(Color.WHITE);

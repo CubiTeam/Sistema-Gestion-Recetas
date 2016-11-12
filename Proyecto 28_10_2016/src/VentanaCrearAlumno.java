@@ -42,7 +42,7 @@ public class VentanaCrearAlumno extends JFrame
 		int alturaPantalla = sizeScreen.height;
 		int anchoPantalla = sizeScreen.width;
 		
-		setSize(315, 405); //Dar tamano
+		setSize(315, 366); //Dar tamano
 		setLocation(anchoPantalla/3, alturaPantalla/4); //Centrarlo
 		
 		
@@ -60,7 +60,7 @@ public class VentanaCrearAlumno extends JFrame
 		JLabel lblIngreseLosSiguientes = new JLabel("Ingrese los siguientes datos :");
 		lblIngreseLosSiguientes.setForeground(new Color(255, 255, 255));
 		lblIngreseLosSiguientes.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblIngreseLosSiguientes.setBounds(10, 21, 255, 14);
+		lblIngreseLosSiguientes.setBounds(10, 53, 255, 14);
 		contentPane.add(lblIngreseLosSiguientes);
 		
 		JLabel lblNombre = new JLabel("Nombre :");
@@ -503,56 +503,6 @@ public class VentanaCrearAlumno extends JFrame
 		
 		
 		
-//---------------------------------------------------------------------------------------------------------------------------
-		
-		//BOTONES
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//boton generar contraseña
-		
-		final JButton btnGenerarContrasena = new JButton("Generar Contrase\u00F1a");
-		btnGenerarContrasena.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		btnGenerarContrasena.setEnabled(false);
-		btnGenerarContrasena.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int posicion = universidad.getListaAlumnos().getArrayAlumnos().size() - 1;
-				try {
-					archivo = new Archivos();
-					archivo.guardarTxtAlumnos(universidad.getListaAlumnos().getArrayAlumnos());
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,universidad.getListaAlumnos().
-											getArrayAlumnos().get(posicion).getContrasena(),"Su contraseña es",1);
-				} catch (HeadlessException | IOException e1) {
-					e1.printStackTrace();
-				}
-				
-				
-			}
-		});
-		btnGenerarContrasena.setBounds(70, 326, 173, 31);
-		contentPane.add(btnGenerarContrasena);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		//boton de registrar
 		JButton btnRegistrarse = new JButton("Registrar Alumno"); 
@@ -571,9 +521,18 @@ public class VentanaCrearAlumno extends JFrame
 				{
 					lblVerifCorreo.setText("\u2713");
 					txtCorreo.setBackground(Color.GREEN);
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Datos ingresados correctamente","Usuario creado",1);	
+						
+					int posicion = universidad.getListaAlumnos().getArrayAlumnos().size() - 1;
+					try {
+						archivo = new Archivos();
+						archivo.guardarTxtAlumnos(universidad.getListaAlumnos().getArrayAlumnos());
+						JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Su contraseña es\n"+universidad.getListaAlumnos().
+												getArrayAlumnos().get(posicion).getContrasena(),"Datos ingresados correctamente",1);
+					} catch (HeadlessException | IOException e1) {
+						e1.printStackTrace();
+					}
+
 					
-					btnGenerarContrasena.setEnabled(true);
 					
 					txtNombre.setEditable(false);
 					txtEdad.setEditable(false);

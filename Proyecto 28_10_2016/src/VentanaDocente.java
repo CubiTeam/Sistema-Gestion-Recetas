@@ -342,7 +342,7 @@ public class VentanaDocente extends JFrame {
       {
           public void mouseClicked(MouseEvent arg0) 
           {
-              String editarTelefono = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Edite teléfono : ", JOptionPane.QUESTION_MESSAGE);
+              String editarTelefono = JOptionPane.showInputDialog(null, "Ingrese su nuevo teléfono: ", "Modificar telefono ", JOptionPane.QUESTION_MESSAGE);
               if(editarTelefono != null)
               {
             	  if(universidad.getListaDocentes().modificarTelefono(docente, editarTelefono))
@@ -396,7 +396,7 @@ public class VentanaDocente extends JFrame {
       {
          public void mouseClicked(MouseEvent arg0) 
          {               
-             String editarCorreo = JOptionPane.showInputDialog(null, "Ingrese su nuevo correo: ", "Edite correo : ", JOptionPane.QUESTION_MESSAGE);
+             String editarCorreo = JOptionPane.showInputDialog(null, "Ingrese su nuevo correo: ", "Modificar correo ", JOptionPane.QUESTION_MESSAGE);
              if(editarCorreo != null)
              {
                  if(universidad.getListaDocentes().modificarCorreo(docente, editarCorreo))
@@ -446,7 +446,7 @@ public class VentanaDocente extends JFrame {
     lblmodificarDireccion.addMouseListener(new MouseListener() 
     {
           public void mouseClicked(MouseEvent arg0)   {
-	          String editarDireccion = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Edite dirección : ", JOptionPane.QUESTION_MESSAGE);
+	          String editarDireccion = JOptionPane.showInputDialog(null, "Ingrese su nueva dirección: ", "Modificar dirección ", JOptionPane.QUESTION_MESSAGE);
 	          if(editarDireccion != null)
 	          {
 	        	  if(universidad.getListaDocentes().modificarDireccion(docente, editarDireccion))
