@@ -20,7 +20,7 @@ public class VentanaAlumno extends JFrame
 {
 
 	private JPanel contentPane;
-	private VentanaMisRecetas misRecetas;
+	private VentanaRecetasAlumno misRecetas;
 	
 	public VentanaAlumno(final Universidad universidad,final Alumno alumno, final VentanaPrincipal ventanaAnterior) 
 	{
@@ -305,7 +305,7 @@ public class VentanaAlumno extends JFrame
 		btnCrearReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				misRecetas= new VentanaMisRecetas(alumno,VentanaAlumno.this);
+				misRecetas= new VentanaRecetasAlumno(alumno,VentanaAlumno.this);
 				misRecetas.setVisible(true);
 				setVisible(false);
 			}

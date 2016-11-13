@@ -24,7 +24,7 @@ public class VentanaReceta extends JFrame {
 	private JPanel contentPane;
 	private boolean ventanaAnteriorBuscarReceta;
 	private VentanaBuscarReceta ventanaBuscarReceta;
-	private VentanaMisRecetas ventanaMisRecetas;
+	private VentanaRecetasAlumno ventanaRecetasAlumno;
 	Alumno alumno;
 
 	public VentanaReceta(final Receta receta) 
@@ -256,7 +256,7 @@ public class VentanaReceta extends JFrame {
 					if(ventanaAnteriorBuscarReceta)
 							ventanaBuscarReceta.setVisible(true);
 					else
-							ventanaMisRecetas.setVisible(true);
+							ventanaRecetasAlumno.setVisible(true);
 					dispose();
 				}
 				else
@@ -603,9 +603,9 @@ public class VentanaReceta extends JFrame {
 	
 	
 	
-	public void mostrarVentanaAnteriorMisRecetas()	//muestra la ventana anterior cuando es VentanaMisRecetas
+	public void mostrarVentanaAnteriorMisRecetas()	//muestra la ventana anterior cuando es VentanaRecetasAlumno
 	{
-		ventanaMisRecetas.setVisible(true);
+		ventanaRecetasAlumno.setVisible(true);
 	}
 	
 	
@@ -666,10 +666,10 @@ public class VentanaReceta extends JFrame {
 	
 	
 	
-	public void mostrarVentana(VentanaMisRecetas ventanaAnterior,Alumno alumno)
+	public void mostrarVentana(VentanaRecetasAlumno ventanaAnterior,Alumno alumno)
 	{															//muestra la ventana actual
 		this.alumno=alumno;							
-		ventanaMisRecetas= ventanaAnterior;			//y le da valor a la ventanaMisRecetas
+		ventanaRecetasAlumno= ventanaAnterior;			//y le da valor a la ventanaRecetasAlumno
 		setVisible(true);
 	}
 	

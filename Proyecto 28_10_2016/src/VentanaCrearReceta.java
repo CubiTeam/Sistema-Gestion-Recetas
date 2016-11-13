@@ -44,7 +44,7 @@ public class VentanaCrearReceta extends JFrame
 	/**
 	 * @wbp.parser.constructor
 	 */
-	public VentanaCrearReceta(final Alumno alumno,final VentanaMisRecetas ventanaAnterior) 
+	public VentanaCrearReceta(final Alumno alumno,final VentanaRecetasAlumno ventanaAnterior) 
 	{																					
 		final Receta receta = new Receta();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -758,7 +758,7 @@ public class VentanaCrearReceta extends JFrame
   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
   												CONTRUCTOR MODIFICAR RECETA
  */
-	public VentanaCrearReceta(final Receta receta,final Alumno alumno,final VentanaMisRecetas ventanaAnterior)
+	public VentanaCrearReceta(final Receta receta,final Alumno alumno,final VentanaRecetasAlumno ventanaAnterior)
 	{																						
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 15, 1000, 675);

@@ -15,13 +15,13 @@ import javax.swing.border.TitledBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
-public class VentanaMisRecetas extends JFrame 
+public class VentanaRecetasAlumno extends JFrame 
 {
 
 	private JPanel contentPane;
 	private VentanaCrearReceta recetaVentanaNueva;
 	private DefaultListModel<Receta> recetas;
-	public VentanaMisRecetas(final Alumno alumno,final VentanaAlumno ventanaAlumno) 
+	public VentanaRecetasAlumno(final Alumno alumno,final VentanaAlumno ventanaAlumno) 
 	{
 		setTitle("Recetas Propias");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +93,7 @@ public class VentanaMisRecetas extends JFrame
 				{
 					Receta recetaMostrar= ((Receta)recetas.getElementAt(lista_recetas.getSelectedIndex()));
 					if(recetaMostrar!=null)
-						recetaMostrar.getVentanaPrincipal().mostrarVentana(VentanaMisRecetas.this,alumno);
+						recetaMostrar.getVentanaPrincipal().mostrarVentana(VentanaRecetasAlumno.this,alumno);
 					setVisible(false);
 				}
 			}
@@ -125,7 +125,7 @@ public class VentanaMisRecetas extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				recetaVentanaNueva = new VentanaCrearReceta(alumno,VentanaMisRecetas.this);
+				recetaVentanaNueva = new VentanaCrearReceta(alumno,VentanaRecetasAlumno.this);
 				recetaVentanaNueva.setVisible(true);
 				setVisible(false);
 			}
@@ -158,7 +158,7 @@ public class VentanaMisRecetas extends JFrame
 				if(lista_recetas.getSelectedIndex()!=-1)
 				{
 					setVisible(false);
-					recetaVentanaNueva = new VentanaCrearReceta(((Receta)recetas.getElementAt(lista_recetas.getSelectedIndex())),alumno,VentanaMisRecetas.this);
+					recetaVentanaNueva = new VentanaCrearReceta(((Receta)recetas.getElementAt(lista_recetas.getSelectedIndex())),alumno,VentanaRecetasAlumno.this);
 					recetaVentanaNueva.setVisible(true);
 				}
 				
