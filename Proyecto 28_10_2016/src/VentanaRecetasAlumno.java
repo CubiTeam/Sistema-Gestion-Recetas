@@ -19,7 +19,7 @@ public class VentanaRecetasAlumno extends JFrame
 {
 
 	private JPanel contentPane;
-	private VentanaCrearReceta recetaVentanaNueva;
+	private VentanaEditorReceta recetaVentanaNueva;
 	private DefaultListModel<Receta> recetas;
 	public VentanaRecetasAlumno(final Alumno alumno,final VentanaAlumno ventanaAlumno) 
 	{
@@ -125,7 +125,7 @@ public class VentanaRecetasAlumno extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				recetaVentanaNueva = new VentanaCrearReceta(alumno,VentanaRecetasAlumno.this);
+				recetaVentanaNueva = new VentanaEditorReceta(alumno,VentanaRecetasAlumno.this);
 				recetaVentanaNueva.setVisible(true);
 				setVisible(false);
 			}
@@ -158,7 +158,7 @@ public class VentanaRecetasAlumno extends JFrame
 				if(lista_recetas.getSelectedIndex()!=-1)
 				{
 					setVisible(false);
-					recetaVentanaNueva = new VentanaCrearReceta(((Receta)recetas.getElementAt(lista_recetas.getSelectedIndex())),alumno,VentanaRecetasAlumno.this);
+					recetaVentanaNueva = new VentanaEditorReceta(((Receta)recetas.getElementAt(lista_recetas.getSelectedIndex())),alumno,VentanaRecetasAlumno.this);
 					recetaVentanaNueva.setVisible(true);
 				}
 				
