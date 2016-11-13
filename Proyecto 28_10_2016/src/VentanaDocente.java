@@ -231,7 +231,7 @@ public class VentanaDocente extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(universidad.getListaAlumnos().getArrayAlumnos()!=null || !(universidad.getListaAlumnos().getArrayAlumnos().isEmpty())){
                     setVisible(false);
-                    VentanaMostrarListaAlumnos ventanaMostrarAlumnos = new VentanaMostrarListaAlumnos(universidad.getListaAlumnos().getArrayAlumnos(),VentanaDocente.this);
+                    VentanaReporteAlumnos ventanaMostrarAlumnos = new VentanaReporteAlumnos(universidad.getListaAlumnos().getArrayAlumnos(),VentanaDocente.this);
                     ventanaMostrarAlumnos.setVisible(true);
                 }else
                     JOptionPane.showMessageDialog(VentanaDocente.this,"No existen alumnos ingresados","Error al mostrar",0);
