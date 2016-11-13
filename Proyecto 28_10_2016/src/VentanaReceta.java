@@ -500,7 +500,7 @@ public class VentanaReceta extends JFrame {
 				if(code!=null && !code.equals(""))
 				{
 					Comentario comentarioModificar= receta.getListaComentarios().busqueda(code);
-					if(comentarioModificar!=null)
+					if(comentarioModificar!=null && comentarioModificar.equals(""))
 					{
 						if(comentarioModificar.getAutor()==alumno)
 						{
@@ -526,10 +526,7 @@ public class VentanaReceta extends JFrame {
 						JOptionPane.showMessageDialog(VentanaReceta.this, "El numero ingresado no es valido");
 					}
 				}
-				else
-				{
-					JOptionPane.showMessageDialog(VentanaReceta.this, "El numero ingresado no es valido");
-				}
+				
 			}
 		});
 		btnModificarComentario.setBounds(442, 342, 165, 23);
