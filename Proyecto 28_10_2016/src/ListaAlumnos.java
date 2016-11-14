@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPasswordField;
 
-public class ListaAlumnos implements Arreglo 
+public class ListaAlumnos extends ListaPersonas implements Arreglo 
 {
 	private ArrayList <Alumno> arrayAlumnos;
 	
@@ -65,11 +65,11 @@ public class ListaAlumnos implements Arreglo
 	//valida que los datos del alumno son correctos
 	public boolean validar(Alumno alumno)
 	{
-		if(!esNumerico(alumno.getRut()))
+		if(!super.esNumerico(alumno.getRut()))
 			return false;
-		if(!esNumerico(String.valueOf(alumno.getTelefono())))
+		if(!super.esNumerico(String.valueOf(alumno.getTelefono())))
 			return false;
-		if(!verificarEmail(alumno.getCorreo()))
+		if(!super.verificarEmail(alumno.getCorreo()))
 			return false;
 		return true;
 	}
@@ -179,7 +179,7 @@ public class ListaAlumnos implements Arreglo
 	{
 		if(existe(((Alumno)alumno).getRut()))
 		{
-			if(esNumerico(cambiar))
+			if(super.esNumerico(cambiar))
 			{
 				if(Integer.parseInt(cambiar)>0)
 				{
@@ -209,17 +209,6 @@ public class ListaAlumnos implements Arreglo
 	
 	
 	
-	//verifica que el string se pueda cambiara numerico
-	public boolean esNumerico(String string)
-	{
-	    boolean numerico = true;
-	    try{
-	        Integer.parseInt(string);
-	    }catch(NumberFormatException e){
-	    	numerico = false;
-	    }
-	    return numerico;
-	}
 	
 	
 	
@@ -243,7 +232,7 @@ public class ListaAlumnos implements Arreglo
 	{
 		if(existe(((Alumno)alumno).getRut()))
 		{
-			if(esNumerico(cambiar))
+			if(super.esNumerico(cambiar))
 			{
 				if(verificarTelefono(Integer.parseInt(cambiar)))
 				{
@@ -311,7 +300,7 @@ public class ListaAlumnos implements Arreglo
 	{
 		if(existe(((Alumno)alumno).getRut()))
 		{
-			if(verificarEmail(cambiar))
+			if(super.verificarEmail(cambiar))
 			{
 				((Alumno)alumno).setCorreo(cambiar);
 				return true;
@@ -333,26 +322,6 @@ public class ListaAlumnos implements Arreglo
 	
 	
 	
-	
-	
-	//verifica que el correo tenga el @ y el .
-	public boolean verificarEmail(String email){
-		int verificarArroba = 0;
-		int verificarPuntos = 0;
-		
-		for(int i = 0;i < email.length(); i++){
-			if(email.charAt(i) == '@')//ExtraerCaracter
-			verificarArroba++;
-	
-		if(email.charAt(i) == '.')
-				verificarPuntos++;
-		}
-		
-		if(verificarArroba != 1 && verificarPuntos < 1)
-			return false;
-		
-		return true;
-	}
 	
 	
 	
