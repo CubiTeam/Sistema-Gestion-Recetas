@@ -508,7 +508,7 @@ public class Archivos
 		if(!arrayDocentes.isEmpty()){
 			for(int i = 0;i<arrayDocentes.size();i++){
 				//este metodo guarda la informacion del docente en su respectivo txt
-				arrayDocentes.get(i).actualizarTxtDocente();
+				actualizarTxtDocente(arrayDocentes.get(i));
 			}	
 			return true;
 		}
