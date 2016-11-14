@@ -10,9 +10,6 @@ public class Alumno extends Persona{
 	
 	
 	
-	//ASDASDASDASDSA
-	
-	//dsdfwefwef
 	
 	public Alumno()
 	{
