@@ -166,7 +166,6 @@ public class ListaDocentes implements Arreglo
 	
 	
 	
-	
 	//modifica la direccion de un docente
 	public boolean modificarDireccion(Object docente,String cambiar)
 	{
