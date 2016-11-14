@@ -24,6 +24,13 @@ public abstract class ListaPersonas
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 
 
 	//verifica que el correo tenga el @ y el .

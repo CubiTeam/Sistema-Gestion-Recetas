@@ -407,7 +407,21 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	}
 
 
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//busca un docente por su rut y lo retorna 
 	public Object busqueda(String rutDocente)
 	{															

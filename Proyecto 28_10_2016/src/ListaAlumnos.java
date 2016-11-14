@@ -263,21 +263,6 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	
 	
 	
-	//verifica que el telefono tenga 8 digitos
-	public boolean verificarTelefono(int nuevoTelefono)	
-	{
-		int cont = 0;
-		while(nuevoTelefono>0){
-			nuevoTelefono = nuevoTelefono/10;
-			cont++;
-		}
-		if(cont>=8)
-			return true;
-		else
-			return false;
-	}
-	
-	
 	
 	
 	
@@ -300,7 +285,7 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	{
 		if(existe(((Alumno)alumno).getRut()))
 		{
-			if(super.verificarEmail(cambiar))
+			if(verificarEmail(cambiar))
 			{
 				((Alumno)alumno).setCorreo(cambiar);
 				return true;
