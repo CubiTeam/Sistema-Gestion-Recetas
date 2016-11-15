@@ -4,22 +4,22 @@ import java.util.*;
 public class Universidad 
 {
 	private String nombre;
-	private Archivos archivo;
+	private Archivos archivos;
 	private ListaAlumnos listaAlumnos;
 	private ListaDocentes listaDocentes;
 
 	public Universidad(String nombre, Archivos archivo) {
 		this.nombre = nombre;
-		this.archivo = archivo;
+		this.archivos = archivo;
 	}
 	
 	public Universidad() 
 	{
 		ArrayList<Receta> todasLasRecetas;
 		this.nombre = "";
-		archivo = new Archivos();
-		listaDocentes = new ListaDocentes(archivo);
-		listaAlumnos = new ListaAlumnos(archivo);
+		archivos = new Archivos();
+		listaDocentes = new ListaDocentes(archivos);
+		listaAlumnos = new ListaAlumnos(archivos);
 		todasLasRecetas = TodasLasRecetas();
 		cargarComentarios(todasLasRecetas);
 		cargarVentanasRecetas(todasLasRecetas);
@@ -92,11 +92,11 @@ public class Universidad
 	}
 
 	public Archivos getArchivo() {
-		return archivo;
+		return archivos;
 	}
 
 	public void setArchivo(Archivos archivo) {
-		this.archivo = archivo;
+		this.archivos = archivo;
 	}
 
 	public ListaAlumnos getListaAlumnos() {

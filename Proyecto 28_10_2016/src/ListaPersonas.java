@@ -122,15 +122,15 @@ public abstract class ListaPersonas
 	
 	
 	
-	public abstract boolean modificarRut(Object docente,String cambiar);
+	public abstract boolean modificarRut(Object persona,String cambiar);
 
-	public abstract boolean modificarEdad(Object docente,String cambiar);
+	public abstract boolean modificarEdad(Object persona,String cambiar);
 
-	public abstract boolean modificarDireccion(Object docente,String cambiar);
+	public abstract boolean modificarDireccion(Object persona,String cambiar);
 
-	public abstract boolean modificarTelefono(Object docente,String cambiar);
+	public abstract boolean modificarTelefono(Object persona,String cambiar);
 
-	public abstract boolean modificarCorreo(Object docente,String cambiar);
+	public abstract boolean modificarCorreo(Object persona,String cambiar);
 	
 
 
