@@ -21,7 +21,23 @@ public abstract class Persona {
 		this.contrasena= contrasena;
 	}
 	
-	
+	//se obtienen los ultimos digitos del rut y se convierte en la contraseña
+	public String generarContraseña(String rut) 
+	{
+		int pass,i,digito= 0, aux=0;
+		String contrasena;
+		pass = Integer.parseInt(rut);
+		
+		for(i=0;i<6;i++)				
+		{								
+			digito = pass%10;
+			pass = pass/10;
+			aux = aux*10 + digito;
+		}
+		this.contrasena = String.valueOf(aux);
+		contrasena = String.valueOf(aux);
+		return contrasena;
+	}
 	
 	public String getContrasena() {
 		return contrasena;
