@@ -21,6 +21,18 @@ public abstract class Persona {
 		this.contrasena= contrasena;
 	}
 	
+	public Persona(String nombrePersona, String rut, String direccion, String correo,
+			String sexo, int edad, int telefono) 
+	{
+		this.nombrePersona = nombrePersona;
+		this.rut = rut;
+		this.direccion = direccion;
+		this.correo = correo;
+		this.sexo = sexo;
+		this.edad = edad;
+		this.telefono = telefono;
+	}
+	
 	//se obtienen los ultimos digitos del rut y se convierte en la contraseña
 	public String generarContraseña(String rut) 
 	{
