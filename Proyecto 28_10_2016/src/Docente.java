@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.Random;
 public class Docente extends Persona
 {
 
@@ -23,21 +23,14 @@ public class Docente extends Persona
 	
 	
 	
-	//se obtienen los ultimos digitos del rut y se convierte en la contraseña
+	//se genera una contraseña al azar con la clase Random
 	public String generarContraseña(String rut) 
 	{
 		int pass,i,digito= 0, aux=0;
 		String contrasena;
-		pass = Integer.parseInt(rut);
-		
-		for(i=0;i<6;i++)				
-		{								
-			digito = pass%10;
-			pass = pass/10;
-			aux = aux*10 + digito;
-		}
-		this.contrasena = String.valueOf(aux);
-		contrasena = String.valueOf(aux);
+		Random  rnd = new Random();
+		contrasena = String.valueOf(rnd.nextInt());
+		super.setContrasena(contrasena);
 		return contrasena;
 	}
 	
