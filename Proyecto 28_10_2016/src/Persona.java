@@ -7,9 +7,10 @@ public abstract class Persona {
 	private String correo;
 	private int edad;
 	private int telefono;
-	
+	private String contrasena;
 	public Persona(String nombrePersona, String rut, String direccion, String correo,
-			String sexo, int edad, int telefono) {
+			String sexo, int edad, int telefono, String contrasena) 
+	{
 		this.nombrePersona = nombrePersona;
 		this.rut = rut;
 		this.direccion = direccion;
@@ -17,8 +18,19 @@ public abstract class Persona {
 		this.sexo = sexo;
 		this.edad = edad;
 		this.telefono = telefono;
+		this.contrasena= contrasena;
 	}
 	
+	
+	
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
 	public Persona(String nombrePersona) 
 	{
 		this.nombrePersona=nombrePersona;
