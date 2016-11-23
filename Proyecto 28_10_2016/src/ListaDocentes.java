@@ -20,30 +20,14 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
+
 	
-	
-	
-	
-	
-	
+
 
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//verifica que el docente tenga la misma contraseña que se ingresó
+	//verifica que el docente tenga la misma contraseÃ±a que se ingresÃ³
 	public boolean verificacion(Docente docente,JPasswordField contrasena)
 	{														
 		if(contrasena.getText().equals(docente.getContrasena())){
@@ -53,11 +37,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 		}
 	}
 
-	
-	
-	
-	
-	
 	
 	
 	
@@ -79,14 +58,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	public void setArrayDocentes(ArrayList<Docente> arrayDocentes) 
 	{
 		this.arrayDocentes = arrayDocentes;
@@ -96,15 +67,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 
 
 
-
-
-
-
-
-
-
-
-	
 	
 
 
@@ -125,16 +87,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 
 
 
-
-
-
-
-
-
-
-
-
-	
 	
 
 	
@@ -154,14 +106,7 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -183,16 +128,7 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -206,14 +142,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 		}
 		return false;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -247,27 +175,8 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 	
 	
 	//modifica el telefono de un docente
@@ -291,39 +200,10 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
 	
 	
 	//modifica el correo de un docente
@@ -346,26 +226,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
 
 
 
@@ -379,12 +239,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 		}
 		return false;
 	}
-
-
-
-
-
-
 
 
 
@@ -414,13 +268,7 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	//busca un docente por su rut y lo retorna 
 	public Object busqueda(String rutDocente)
