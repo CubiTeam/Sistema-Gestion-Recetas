@@ -34,7 +34,7 @@ public abstract class Persona {
 	}
 	
 	//se obtienen los ultimos digitos del rut y se convierte en la contraseña
-	public String generarContraseña(String rut) 
+	public String generarContrasena() 
 	{
 		int pass,i,digito= 0, aux=0;
 		String contrasena;

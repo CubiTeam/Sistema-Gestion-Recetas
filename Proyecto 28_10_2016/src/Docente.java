@@ -24,7 +24,7 @@ public class Docente extends Persona
 	
 	
 	//se genera una contraseña al azar con la clase Random
-	public String generarContraseña(String rut) 
+	public String generarContrasena() 
 	{
 		int pass,i,digito= 0, aux=0;
 		String contrasena;

@@ -515,7 +515,7 @@ public class VentanaCrearAlumno extends JFrame
 						txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(),
 						sexoUsuario,Integer.parseInt(txtEdad.getText()),
 						Integer.parseInt(txtTelefono.getText()));
-				usuarioNuevo.setContrasena(usuarioNuevo.generarContraseña(txtRUT.getText()));
+				usuarioNuevo.generarContrasena();
 				
 				if(universidad.getListaAlumnos().agregar(usuarioNuevo))
 				{
