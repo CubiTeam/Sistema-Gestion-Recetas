@@ -125,27 +125,27 @@ public class VentanaPrincipal extends JFrame {
 //-------------------------------------------------------------------------------------------------------------------------	
 		
 		//PANEL TIPO Alumno
-		JPanel panelTipoAlumno = new JPanel();
-		panelTipoAlumno.setBackground(new Color(0, 153, 255));
-		panelTipoAlumno.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255), 2, true), "Tipo Usuario", 
+		JPanel paneltipoUsuario = new JPanel();
+		paneltipoUsuario.setBackground(new Color(0, 153, 255));
+		paneltipoUsuario.setBorder(new TitledBorder(new LineBorder(new Color(255, 255, 255), 2, true), "Tipo Usuario", 
 				TitledBorder.CENTER, TitledBorder.TOP, new java.awt.Font("Century Gothic", Font.PLAIN, 14), new Color(255, 255, 255)));
 		
-		panelTipoAlumno.setBounds(41, 335, 202, 63);
-		contentPane.add(panelTipoAlumno);
-		panelTipoAlumno.setLayout(null);
+		paneltipoUsuario.setBounds(41, 335, 202, 63);
+		contentPane.add(paneltipoUsuario);
+		paneltipoUsuario.setLayout(null);
 		
 		JLabel lblTipoUsuario = new JLabel("Usuario");
 		lblTipoUsuario.setBounds(18, 27, 64, 14);
-		panelTipoAlumno.add(lblTipoUsuario);
+		paneltipoUsuario.add(lblTipoUsuario);
 		lblTipoUsuario.setForeground(Color.WHITE);
 		lblTipoUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		
-		String[] tipoAlumno = {"Alumno","Docente"};
+		String[] tipoUsuario = {"Alumno","Docente"};
 		
-		final JComboBox comboBoxTipoAlumno = new JComboBox(tipoAlumno);
-		comboBoxTipoAlumno.setBounds(79, 22, 105, 25);
-		panelTipoAlumno.add(comboBoxTipoAlumno);
-		comboBoxTipoAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 11));
+		final JComboBox comboBoxtipoUsuario = new JComboBox(tipoUsuario);
+		comboBoxtipoUsuario.setBounds(79, 22, 105, 25);
+		paneltipoUsuario.add(comboBoxtipoUsuario);
+		comboBoxtipoUsuario.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		
 		
 		
@@ -165,9 +165,9 @@ public class VentanaPrincipal extends JFrame {
 		btnIniciarSesion.setBounds(255, 348, 107, 39);
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tipoAlumno = (String) comboBoxTipoAlumno.getSelectedItem();
-				
-				if(tipoAlumno.equals("Alumno"))
+				String tipoUsuario = (String) comboBoxtipoUsuario.getSelectedItem();
+
+				if(tipoUsuario.equals("Alumno"))
 				{
 					Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
 					if(Alumno!=null)
@@ -186,9 +186,13 @@ public class VentanaPrincipal extends JFrame {
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró Alumno","Error",0);
 					}
 				}
-				if(tipoAlumno.equals("Docente"))
+				if(tipoUsuario.equals("Docente"))
 				{	
-					if(universidad.getListaDocentes().existe(textFieldAlumno.getText()))
+					if(universidad.EsAdmin(textFieldAlumno.getText(),psswField.getText()))
+					{
+						
+					}
+					else if(universidad.getListaDocentes().existe(textFieldAlumno.getText()))
 					{
 						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldAlumno.getText());
 						if(universidad.getListaDocentes().verificacion(docente,psswField))

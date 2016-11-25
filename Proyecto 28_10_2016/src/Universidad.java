@@ -7,7 +7,8 @@ public class Universidad
 	private Archivos archivos;
 	private ListaAlumnos listaAlumnos;
 	private ListaDocentes listaDocentes;
-
+	private Admin administrador;
+	
 	public Universidad(String nombre, Archivos archivo) {
 		this.nombre = nombre;
 		this.archivos = archivo;
@@ -44,12 +45,24 @@ public class Universidad
 		return todasRecetas;
 	}			
 	
+	
+	
+	
+	
+	
+	//valida que el admin ingresó los datos correctos
+	public boolean EsAdmin(String nombreIngresado,String contrasena)
+	{
+		if(nombreIngresado.equals("Admin"))
+		{
+			if(administrador.validacion(contrasena))
+				return true;
+		}
+		
+		return false;
+	}
 		
 
-	
-	
-	
-	
 	
 	
 	
