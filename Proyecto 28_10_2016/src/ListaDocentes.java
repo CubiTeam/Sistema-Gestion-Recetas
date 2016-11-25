@@ -44,26 +44,6 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	public ArrayList<Docente> getArrayDocentes() {
-		return arrayDocentes;
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	public void setArrayDocentes(ArrayList<Docente> arrayDocentes) 
-	{
-		this.arrayDocentes = arrayDocentes;
-	}
-
-
 
 
 

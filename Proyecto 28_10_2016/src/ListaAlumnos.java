@@ -500,8 +500,33 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 
 	
 	
+	//retorna la posicion del alumno en el array
+	public Alumno getPosAlumno(int buscado)
+	{									   	
+		if(buscado<arrayAlumnos.size())
+			return arrayAlumnos.get(buscado);
+		return null;	
+	}
 	
 	
+	
+	
+	
+	
+	//retorna todas las recetas de todos los alumnos
+	public ArrayList<Receta> TodasLasRecetas()
+	{
+		ArrayList<Receta> todasRecetas= new ArrayList<Receta>();
+		for(int i=0;i<arrayAlumnos.size();i++)
+		{
+			for(int j=0;j<arrayAlumnos.get(i).getListaRecetas().getArrayRecetas().size();j++)
+			{
+				if(!arrayAlumnos.get(i).getListaRecetas().getArrayRecetas().isEmpty())
+					todasRecetas.add(arrayAlumnos.get(i).getListaRecetas().getArrayRecetas().get(j));
+			}
+		}
+		return todasRecetas;
+	}	
 	
 	
 	
@@ -511,28 +536,5 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	
 	
 
-	public ArrayList<Alumno> getArrayAlumnos() {
-		return arrayAlumnos;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public void setArrayAlumnos(ArrayList<Alumno> arrayAlumnos) {
-		this.arrayAlumnos = arrayAlumnos;
-	}
 
 }

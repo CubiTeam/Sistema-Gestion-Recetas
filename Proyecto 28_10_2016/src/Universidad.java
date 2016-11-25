@@ -20,7 +20,7 @@ public class Universidad
 		archivos = new Archivos();
 		listaDocentes = new ListaDocentes(archivos);
 		listaAlumnos = new ListaAlumnos(archivos);
-		todasLasRecetas = TodasLasRecetas();
+		todasLasRecetas = listaAlumnos.TodasLasRecetas();
 		cargarComentarios(todasLasRecetas);
 		cargarVentanasRecetas(todasLasRecetas);
 	}
@@ -29,22 +29,7 @@ public class Universidad
 	
 	
 	
-	//retorna todas las recetas de todos los alumnos
-	public ArrayList<Receta> TodasLasRecetas()
-	{
-		ArrayList<Receta> todasRecetas= new ArrayList<Receta>();
-		for(int i=0;i<listaAlumnos.getArrayAlumnos().size();i++)
-		{
-			for(int j=0;j<listaAlumnos.getArrayAlumnos().get(i).getListaRecetas().getArrayRecetas().size();j++)
-			{
-				if(!listaAlumnos.getArrayAlumnos().get(i).getListaRecetas().getArrayRecetas().isEmpty())
-					todasRecetas.add(listaAlumnos.getArrayAlumnos().get(i).getListaRecetas().getArrayRecetas().get(j));
-			}
-		}
-		return todasRecetas;
-	}			
-	
-	
+
 	
 	
 	

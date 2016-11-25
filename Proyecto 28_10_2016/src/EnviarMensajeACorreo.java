@@ -65,9 +65,10 @@ public class EnviarMensajeACorreo{
     //Crea el mensaje y llama a la funcion que lo envia
     public void crearMensajeConLaContrasena(Universidad universidad,String correoAlumnoBuscado, int posAlumnoRecuperado) 
 	{	
-		mensaje = "Hola, "+universidad.getListaAlumnos().getArrayAlumnos().get(posAlumnoRecuperado).getNombrePersona()+":\n"
+    	Alumno alumno = universidad.getListaAlumnos().getPosAlumno(posAlumnoRecuperado);
+		mensaje = "Hola, "+alumno.getNombrePersona()+":\n"
 				+ "Su contraseña para ingresar a la Pontificia Universidad Católica de Gastronomia es "
-				+universidad.getListaAlumnos().getArrayAlumnos().get(posAlumnoRecuperado).getContrasena()
+				+alumno.getContrasena()
 				+".\n\nAtentamente,\nEl Equipo de GRDC";
 		destinatario = correoAlumnoBuscado;
 		asunto = "Ud. ha solicitado recuperar contraseña";
