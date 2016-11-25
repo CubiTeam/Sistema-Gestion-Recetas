@@ -67,21 +67,7 @@ public class VentanaPrincipal extends JFrame {
 		lblPontificiaUniversidadCatolica.setBounds(0, 24, 392, 14);
 		contentPane.add(lblPontificiaUniversidadCatolica);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 		
 		
 		
@@ -136,18 +122,6 @@ public class VentanaPrincipal extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 //-------------------------------------------------------------------------------------------------------------------------	
 		
 		//PANEL TIPO Alumno
@@ -177,17 +151,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 		
 		
 		
@@ -256,15 +220,6 @@ public class VentanaPrincipal extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 //-----------------------------------------------------------------------------------------------------------------------
 		
 		//BOTON SALIR
@@ -279,10 +234,6 @@ public class VentanaPrincipal extends JFrame {
 		});
 		contentPane.add(btnSalir);
 
-		
-		
-		
-		
 		
 		
 		
