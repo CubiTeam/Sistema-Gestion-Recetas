@@ -1,8 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Random;
 public class Docente extends Persona
 {
@@ -26,7 +21,6 @@ public class Docente extends Persona
 	//se genera una contraseña al azar con la clase Random
 	public String generarContrasena() 
 	{
-		int pass,i,digito= 0, aux=0;
 		String contrasena;
 		Random  rnd = new Random();
 		contrasena = String.valueOf(rnd.nextInt());
