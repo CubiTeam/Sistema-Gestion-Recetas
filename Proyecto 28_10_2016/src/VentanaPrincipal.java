@@ -188,11 +188,8 @@ public class VentanaPrincipal extends JFrame {
 				}
 				if(tipoUsuario.equals("Docente"))
 				{	
-					if(universidad.EsAdmin(textFieldAlumno.getText(),psswField.getText()))
-					{
-						
-					}
-					else if(universidad.getListaDocentes().existe(textFieldAlumno.getText()))
+
+					if(universidad.getListaDocentes().existe(textFieldAlumno.getText()))
 					{
 						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldAlumno.getText());
 						if(universidad.getListaDocentes().verificacion(docente,psswField))
