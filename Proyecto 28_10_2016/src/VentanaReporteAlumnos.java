@@ -18,7 +18,7 @@ public class VentanaReporteAlumnos extends JFrame {
 
 	private JPanel contentPane;
 
-	public VentanaReporteAlumnos(final ArrayList<Alumno> alumno, final VentanaDocente ventanaAnterior) {
+	public VentanaReporteAlumnos(final ListaAlumnos alumno, final VentanaDocente ventanaAnterior) {
 		setTitle("Ventana de reporte");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -126,13 +126,15 @@ public class VentanaReporteAlumnos extends JFrame {
 	
 	
 	//muestra los datos por pantalla
-	private void mostrarEnJTextArea(JTextArea datosAlumnos, ArrayList<Alumno> alumno){
+	private void mostrarEnJTextArea(JTextArea datosAlumnos, ListaAlumnos alumno)
+	{
 		int j = 1;
-		for (int i = 0; i < alumno.size(); i++){
-			datosAlumnos.append("["+j+"] Alumno \r\nNombre : "+alumno.get(i).getNombrePersona()+
-			"\r\nRUT : "+alumno.get(i).getRut()+"\r\nCorreo : "+alumno.get(i).getCorreo()+
-			"\r\nEdad : "+alumno.get(i).getEdad()+"\r\nSexo : "+alumno.get(i).getSexo()+ 
-			"\r\nDireccion : "+alumno.get(i).getDireccion()+"\r\nTelefono : "+alumno.get(i).getTelefono()+"\r\n\r\n");
+		for (int i = 0; i < alumno.size(); i++)
+		{
+			datosAlumnos.append("["+j+"] Alumno \r\nNombre : "+alumno.getPosAlumno(i).getNombrePersona()+
+			"\r\nRUT : "+alumno.getPosAlumno(i).getRut()+"\r\nCorreo : "+alumno.getPosAlumno(i).getCorreo()+
+			"\r\nEdad : "+alumno.getPosAlumno(i).getEdad()+"\r\nSexo : "+alumno.getPosAlumno(i).getSexo()+ 
+			"\r\nDireccion : "+alumno.getPosAlumno(i).getDireccion()+"\r\nTelefono : "+alumno.getPosAlumno(i).getTelefono()+"\r\n\r\n");
 			j++;
 		}
 	}

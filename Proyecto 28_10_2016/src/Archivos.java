@@ -461,66 +461,7 @@ public class Archivos
 	
 	
 	
-	
 
-	/******************************************************************************************************************
-	 * 								METODOS DE GUARDADO EN LOS ARCHIVOS TXT RESPECTIVOS
-	 * ****************************************************************************************************************/
-	
-	
-	/**
-	 *	Este metodo guarda la informacion del Alumno en su respectivo txt
-	 *	@param 	arrayAlumnos			Es un ArrayList de alumnos.
-	 *	@return							Un booleano indicando si se pudo guardar guardar el Alumno.
-	 *	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
-	 *	@see 							#actualizarTxtAlumno(Alumno)
-	 * */
-	public boolean guardarTxtAlumnos(ArrayList<Alumno> arrayAlumnos) throws IOException 
-	{									
-		if(!arrayAlumnos.isEmpty()){	
-			for(int i = 0;i<arrayAlumnos.size();i++)
-			{
-				//este metodo guarda la informacion del Alumno en su respectivo txt
-				actualizarTxtAlumno(arrayAlumnos.get(i));
-			}
-			return true;
-		}
-		return false;
-	}
-
-	
-	
-	
-	
-	
-	
-	
-
-	/**
-	 *	Este metodo guarda la informacion del docente en su respectivo txt
-	 *	@param 	arrayDocentes			Es un ArrayList de docentes
-	 *	@return							Un booleano indicando si se pudo guardar guardar el Docente.
-	 *	@throws IOException				Lanzada cuando hay operaciones erroneas de Entrada/Salida.
-	 *	@see 							#actualizarTxtDocente(Docente)
-	 * */
-	public boolean guardarTxtDocentes(ArrayList<Docente> arrayDocentes) throws IOException 
-	{		
-		if(!arrayDocentes.isEmpty()){
-			for(int i = 0;i<arrayDocentes.size();i++){
-				//este metodo guarda la informacion del docente en su respectivo txt
-				actualizarTxtDocente(arrayDocentes.get(i));
-			}	
-			return true;
-		}
-		return false;
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

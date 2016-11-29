@@ -521,19 +521,10 @@ public class VentanaCrearAlumno extends JFrame
 				{
 					lblVerifCorreo.setText("\u2713");
 					txtCorreo.setBackground(Color.GREEN);
-						
-					int posicion = universidad.getListaAlumnos().getArrayAlumnos().size() - 1;
-					try {
-						archivo = new Archivos();
-						archivo.guardarTxtAlumnos(universidad.getListaAlumnos().getArrayAlumnos());
-						JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Su contraseña es\n"+universidad.getListaAlumnos().
-												getArrayAlumnos().get(posicion).getContrasena(),"Datos ingresados correctamente",1);
-					} catch (HeadlessException | IOException e1) {
-						e1.printStackTrace();
-					}
-
-					
-					
+					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Su contraseña es\n"+
+							usuarioNuevo.getContrasena(),"Datos ingresados correctamente",1);
+				
+				
 					txtNombre.setEditable(false);
 					txtEdad.setEditable(false);
 					txtCorreo.setEditable(false);
@@ -541,12 +532,12 @@ public class VentanaCrearAlumno extends JFrame
 					txtDireccion.setEditable(false);
 					txtDigVer.setEditable(false);
 					txtRUT.setEditable(false);
-
-				}else
-				{
-					
+				}
+				else
+				{			
 					lblVerifCorreo.setText("\u2717");
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Ingresó mal o faltó llenar algun campo","Error",0);
+					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,
+							"Ingresó mal o faltó llenar algun campo","Error",0);
 				}
 			}
 		});

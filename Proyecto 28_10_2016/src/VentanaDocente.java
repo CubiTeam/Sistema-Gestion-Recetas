@@ -229,9 +229,10 @@ public class VentanaDocente extends JFrame {
         btnMostrarDatosAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 9));
         btnMostrarDatosAlumno.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(universidad.getListaAlumnos().getArrayAlumnos()!=null || !(universidad.getListaAlumnos().getArrayAlumnos().isEmpty())){
+                if(universidad.getListaAlumnos()!=null)
+                {
                     setVisible(false);
-                    VentanaReporteAlumnos ventanaMostrarAlumnos = new VentanaReporteAlumnos(universidad.getListaAlumnos().getArrayAlumnos(),VentanaDocente.this);
+                    VentanaReporteAlumnos ventanaMostrarAlumnos = new VentanaReporteAlumnos(universidad.getListaAlumnos(),VentanaDocente.this);
                     ventanaMostrarAlumnos.setVisible(true);
                 }else
                     JOptionPane.showMessageDialog(VentanaDocente.this,"No existen alumnos ingresados","Error al mostrar",0);

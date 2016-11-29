@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JPasswordField;
@@ -44,6 +45,12 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 		if(validar((Alumno)alumnoNuevo))
 		{
 			arrayAlumnos.add((Alumno)alumnoNuevo);
+			Archivos archivo= new Archivos();
+			try {
+				archivo.actualizarTxtAlumno((Alumno)alumnoNuevo);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			return true;
 		}
 		
@@ -52,9 +59,11 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	
 	
 	
-	
-	
-	
+	//retorna el largo del array de alumnos
+	public int size()
+	{
+		return arrayAlumnos.size();
+	}
 	
 	
 	
@@ -513,6 +522,8 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	
 	
 	
+
+	
 	//retorna todas las recetas de todos los alumnos
 	public ArrayList<Receta> TodasLasRecetas()
 	{
@@ -527,8 +538,6 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 		}
 		return todasRecetas;
 	}	
-	
-	
 	
 	
 	

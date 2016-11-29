@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JPasswordField;
@@ -56,6 +57,12 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 		if(docenteAgregar!=null)
 		{
 			arrayDocentes.add((Docente)docenteAgregar);
+			Archivos archivo = new Archivos();	
+			try {
+				archivo.actualizarTxtDocente((Docente)docenteAgregar);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			return true;
 		}
 		return false;

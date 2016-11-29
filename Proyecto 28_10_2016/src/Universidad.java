@@ -32,6 +32,14 @@ public class Universidad
 
 	
 	
+	//retorna todas las recetas de todos los alumnos
+	public ArrayList<Receta> TodasLasRecetas()
+	{
+		if(listaAlumnos!=null)
+			return listaAlumnos.TodasLasRecetas();
+		return null;
+	}	
+	
 	
 	
 

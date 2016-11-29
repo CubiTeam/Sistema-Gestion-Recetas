@@ -15,7 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class CrearReporteEnExcel {
 
-    public CrearReporteEnExcel(ArrayList <Alumno> arrayAlumnos) throws IOException{
+    public CrearReporteEnExcel(ListaAlumnos arrayAlumnos) throws IOException{
         HSSFWorkbook libro = new HSSFWorkbook();
         HSSFSheet hoja = libro.createSheet();	
         libro.setSheetName(0, "Alumnos");
@@ -46,13 +46,13 @@ public class CrearReporteEnExcel {
         
         for (int i = 0; i < arrayAlumnos.size(); ++i) {
             HSSFRow datosFila = hoja.createRow(i + 1);
-            String nombre = arrayAlumnos.get(i).getNombrePersona();
-            String rut = arrayAlumnos.get(i).getRut();
-            String correo = arrayAlumnos.get(i).getCorreo();
-            String sexo = arrayAlumnos.get(i).getSexo();
-            String direccion = arrayAlumnos.get(i).getDireccion();
-            int edad = arrayAlumnos.get(i).getEdad();
-            int telefono = arrayAlumnos.get(i).getTelefono();
+            String nombre = arrayAlumnos.getPosAlumno(i).getNombrePersona();
+            String rut = arrayAlumnos.getPosAlumno(i).getRut();
+            String correo = arrayAlumnos.getPosAlumno(i).getCorreo();
+            String sexo = arrayAlumnos.getPosAlumno(i).getSexo();
+            String direccion = arrayAlumnos.getPosAlumno(i).getDireccion();
+            int edad = arrayAlumnos.getPosAlumno(i).getEdad();
+            int telefono = arrayAlumnos.getPosAlumno(i).getTelefono();
             
             //Se agrega el dato especifico del alumno en cada celda
         
