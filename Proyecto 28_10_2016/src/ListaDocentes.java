@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JPasswordField;
 
@@ -21,8 +23,29 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	
+	//verifica si el correo corresponde a la universidad pucv
+	public boolean verificarEmail(String email){
+		Pattern pat;
+		Matcher mat;
+		
+		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@mail.pucv.cl");
+		mat = pat.matcher(email);
 
-	
+		if(mat.find())
+			return true;
+   
+		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@pucv.cl");
+		mat = pat.matcher(email);
+		if(mat.find())
+			return true;
+   
+		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@ucv.cl");
+		mat = pat.matcher(email);
+		if(mat.find())
+		   return true;
+	   
+		return false;
+	}
 
 
 	

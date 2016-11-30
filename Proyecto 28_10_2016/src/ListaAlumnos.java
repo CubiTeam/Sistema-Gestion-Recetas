@@ -8,11 +8,7 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	private ArrayList <Alumno> arrayAlumnos;
 	
 	
-	
-	
-	
-	
-	
+
 	
 	
 	

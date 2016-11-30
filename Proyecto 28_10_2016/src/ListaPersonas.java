@@ -1,37 +1,8 @@
 
 public abstract class ListaPersonas 
 {
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+	
 
 	//verifica que el correo tenga el @ y el .
 	public boolean verificarEmail(String email)
@@ -58,13 +29,7 @@ public abstract class ListaPersonas
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	//verifica que el telefono tenga 8 digitos
 	public boolean verificarTelefono(int nuevoTelefono)	
