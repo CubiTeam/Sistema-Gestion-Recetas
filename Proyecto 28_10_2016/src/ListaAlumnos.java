@@ -30,7 +30,14 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	
 	
 	
-	
+	//valida que la contraseña es correcta
+	public boolean verificacion(String contraseñaReal, String contraseñaIngresada)
+	{
+		if(contraseñaReal.equals(contraseñaIngresada))
+			return true;
+		
+		return false;
+	}
 	
 	
 	

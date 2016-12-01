@@ -169,9 +169,12 @@ public class VentanaPrincipal extends JFrame {
 
 				if(tipoUsuario.equals("Alumno"))
 				{
-					Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
-					if(Alumno!=null)
+					if(universidad.getListaAlumnos().existe(textFieldAlumno.getText()))
 					{
+						if(universidad.getListaAlumnos().verificacion(universidad.getListaAlumnos().
+													busqueda(textFieldAlumno.getText()).getContrasena(),psswField.getText()))
+						{
+						Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);
 						//creo la ventanaAlumnoEstandar
 						VentanaAlumno ventanaAlumno = new VentanaAlumno(universidad,Alumno,VentanaPrincipal.this);
@@ -181,10 +184,13 @@ public class VentanaPrincipal extends JFrame {
 						//Dejar en blanco los campos de rut y contraseña
 						textFieldAlumno.setText("");
 						psswField.setText("");
-						
+						}
+						else
+							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Ingresó mal la contraseña","Error",0);
 					}else{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró Alumno","Error",0);
 					}
+					
 				}
 				if(tipoUsuario.equals("Docente"))
 				{	
