@@ -21,10 +21,12 @@ public class VentanaDocente extends JFrame {
     private JPanel contentPane;
     
     
-    public VentanaDocente(final Docente docente,final Universidad universidad) {
+    public VentanaDocente(final Docente docente,final Universidad universidad) 
+    {
+    	
     	setTitle("Bienvenido "+docente.getNombrePersona());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 361, 328);
+        setBounds(100, 100, 361, 350);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(0, 153, 255));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -32,7 +34,7 @@ public class VentanaDocente extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(0);
         contentPane.setLayout(null);
- 
+        
         
         JPanel panelDatosDocente = new JPanel();
         panelDatosDocente.setBackground(new Color(51, 153, 255));
@@ -64,7 +66,7 @@ public class VentanaDocente extends JFrame {
         
         
         
-        
+       
         
         
         
@@ -203,17 +205,48 @@ public class VentanaDocente extends JFrame {
             	ventanaInicial.setVisible(true);
             }
         });
-        btnCerrarSesión.setBounds(99, 256, 151, 32);
+        btnCerrarSesión.setBounds(186, 267, 151, 36);
         contentPane.add(btnCerrarSesión);
          
         
         
         
         
+        JButton btnCrearDocente = new JButton("Crear Docente");
+        btnCrearDocente.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) 
+        	{
+        		
+        	}
+        });
+        btnCrearDocente.setBounds(32, 253, 131, 23);
+        contentPane.add(btnCrearDocente);
+        btnCrearDocente.setVisible(false);
+        btnCrearDocente.setEnabled(false);
+        
+        JButton btnEliminarDocente = new JButton("Eliminar Docente");
+        btnEliminarDocente.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) 
+        	{
+        		
+        	}
+        });
+        btnEliminarDocente.setBounds(32, 287, 131, 23);
+        contentPane.add(btnEliminarDocente);
+        btnEliminarDocente.setVisible(false);
+        btnEliminarDocente.setEnabled(false);
         
         
         
-        
+        //si el docente tiene poder de admin puede ver los botones
+        if(docente.getRut().equals("80186894"))
+        {
+        	btnCrearDocente.setVisible(true);
+            btnCrearDocente.setEnabled(true);
+            
+        	btnEliminarDocente.setVisible(true);
+            btnEliminarDocente.setEnabled(true);
+        }
         
         
         
@@ -393,6 +426,7 @@ public class VentanaDocente extends JFrame {
       lblmodificarCorreo.setForeground(Color.BLACK);
       lblmodificarCorreo.setFont(new Font("Tahoma", Font.PLAIN, 10));
       
+      
       lblmodificarCorreo.addMouseListener(new MouseListener() 
       {
          public void mouseClicked(MouseEvent arg0) 
@@ -473,5 +507,4 @@ public class VentanaDocente extends JFrame {
           public void mouseReleased(MouseEvent arg0) {}
     });
     }
- 
 }
