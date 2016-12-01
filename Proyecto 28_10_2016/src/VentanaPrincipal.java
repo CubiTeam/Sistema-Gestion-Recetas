@@ -171,8 +171,8 @@ public class VentanaPrincipal extends JFrame {
 				{
 					if(universidad.getListaAlumnos().existe(textFieldAlumno.getText()))
 					{
-						if(universidad.getListaAlumnos().verificacion(universidad.getListaAlumnos().
-													busqueda(textFieldAlumno.getText()).getContrasena(),psswField.getText()))
+						Alumno alumno=universidad.getListaAlumnos().busqueda(textFieldAlumno.getText());
+						if(universidad.getListaAlumnos().verificacion(alumno.getContrasena(),psswField.getText()))
 						{
 						Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);
@@ -198,7 +198,7 @@ public class VentanaPrincipal extends JFrame {
 					if(universidad.getListaDocentes().existe(textFieldAlumno.getText()))
 					{
 						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldAlumno.getText());
-						if(universidad.getListaDocentes().verificacion(docente,psswField))
+						if(universidad.getListaDocentes().verificacion(docente.getRut(),psswField.getText()))
 						{
 							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
 							VentanaDocente ventanadocente = new VentanaDocente(docente,universidad);
