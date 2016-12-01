@@ -166,12 +166,15 @@ public class VentanaPrincipal extends JFrame {
 		btnIniciarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String tipoUsuario = (String) comboBoxtipoUsuario.getSelectedItem();
-
+				
+				//verifica que se seleccionó alumno
 				if(tipoUsuario.equals("Alumno"))
 				{
+					//verifica que el alumno existe
 					if(universidad.getListaAlumnos().existe(textFieldAlumno.getText()))
 					{
 						Alumno alumno=universidad.getListaAlumnos().busqueda(textFieldAlumno.getText());
+						//verifica que la contraseña ingresada es valida
 						if(universidad.getListaAlumnos().verificacion(alumno.getContrasena(),psswField.getText()))
 						{
 						Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
@@ -192,12 +195,14 @@ public class VentanaPrincipal extends JFrame {
 					}
 					
 				}
+				//verifica que selecciono docente
 				if(tipoUsuario.equals("Docente"))
 				{	
-
+					//verifica que exista el docente
 					if(universidad.getListaDocentes().existe(textFieldAlumno.getText()))
 					{
 						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldAlumno.getText());
+						//verifica que la contraseña ingresada es valida
 						if(universidad.getListaDocentes().verificacion(docente.getRut(),psswField.getText()))
 						{
 							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
