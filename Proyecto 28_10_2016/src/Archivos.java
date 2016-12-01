@@ -532,7 +532,7 @@ public class Archivos
 									+docente.getRut()+"\\DatosDocente"+docente.getRut()+".txt");
 		
 		if(!archivoAlumnos.exists()){
-			crearCarpetaAlumno(docente);
+			crearCarpetaDocente(docente);
 		}
 
 		fEscrit = new FileWriter(archivoAlumnos);
@@ -662,7 +662,7 @@ public class Archivos
 	 * 	Este metodo crea una carpeta nueva con el rut del docente
 	 * 	@param	docente				Contiene a un docente en especifico.
 	 * */
-	public void crearCarpetaAlumno(Docente docente)
+	public void crearCarpetaDocente(Docente docente)
 	{							
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Docentes\\"+docente.getRut());
 		File archivo = new File(carpeta,"DatosDocente"+docente.getRut()+".txt");
