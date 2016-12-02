@@ -16,11 +16,11 @@ public class VentanaEliminarAlumno extends JFrame {
 	private JPanel contentPane;
 
 
-	public VentanaEliminarAlumno(final Universidad universidad,final Alumno alumno, final VentanaDocente ventanaAnterior) 
+	public VentanaEliminarAlumno(final Universidad universidad,final Persona persona, final VentanaDocente ventanaAnterior,final boolean esDocente)
 	{
 		
 		
-		setTitle("Ventana Eliminar Alumno");
+		setTitle("Ventana Eliminar Persona");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 383, 261);
 		contentPane = new JPanel();
@@ -30,12 +30,12 @@ public class VentanaEliminarAlumno extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		
-		JPanel panelDatosAlumno = new JPanel();
-		panelDatosAlumno.setBackground(new Color(51, 153, 255));
-		panelDatosAlumno.setBorder(new TitledBorder(new MatteBorder(1, 5, 1, 1, (Color) new Color(255, 255, 255)), "Datos alumno", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
-		panelDatosAlumno.setBounds(10, 13, 357, 168);
-		contentPane.add(panelDatosAlumno);
-		panelDatosAlumno.setLayout(null);
+		JPanel panelDatosPersona = new JPanel();
+		panelDatosPersona.setBackground(new Color(51, 153, 255));
+		panelDatosPersona.setBorder(new TitledBorder(new MatteBorder(1, 5, 1, 1, (Color) new Color(255, 255, 255)), "Datos Persona", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
+		panelDatosPersona.setBounds(10, 13, 357, 168);
+		contentPane.add(panelDatosPersona);
+		panelDatosPersona.setLayout(null);
 		
 		
 		
@@ -94,22 +94,39 @@ public class VentanaEliminarAlumno extends JFrame {
 		
 		
 		
-		//boton eliminar alumno
-		JButton btnEliminarAlumno = new JButton("Eliminar Alumno");
-		btnEliminarAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		btnEliminarAlumno.setBounds(196, 127, 151, 30);
-		panelDatosAlumno.add(btnEliminarAlumno);
-		btnEliminarAlumno.addActionListener(new ActionListener() {
+		//boton eliminar
+		JButton btnEliminarPersona = new JButton("Eliminar");
+		btnEliminarPersona.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		btnEliminarPersona.setBounds(196, 127, 151, 30);
+		panelDatosPersona.add(btnEliminarPersona);
+		btnEliminarPersona.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)  {
-				if(universidad.getListaAlumnos().eliminar(alumno))
+				if(esDocente)
 				{
-					JOptionPane.showMessageDialog(null,"Datos eliminados exitosamente","Eliminar Alumno",JOptionPane.INFORMATION_MESSAGE);
+				if(universidad.getListaDocentes().eliminar(persona))
+				{
+					JOptionPane.showMessageDialog(null,"Datos eliminados exitosamente","Eliminar Persona",JOptionPane.INFORMATION_MESSAGE);
 					ventanaAnterior.setVisible(true);
 					setVisible(false);
 					dispose();
 				}
 				else
-					JOptionPane.showMessageDialog(null,"Ha ocurrido un error al eliminar","Eliminar Alumno",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Ha ocurrido un error al eliminar","Eliminar Persona",JOptionPane.ERROR_MESSAGE);
+				
+				}
+				else
+				{
+					if(universidad.getListaAlumnos().eliminar(persona))
+					{
+						JOptionPane.showMessageDialog(null,"Datos eliminados exitosamente","Eliminar Alumno",JOptionPane.INFORMATION_MESSAGE);
+						ventanaAnterior.setVisible(true);
+						setVisible(false);
+						dispose();
+					}
+					else
+						JOptionPane.showMessageDialog(null,"Ha ocurrido un error al eliminar","Eliminar Alumno",JOptionPane.ERROR_MESSAGE);
+					
+				}
 				}
 		});
 			
@@ -161,47 +178,47 @@ public class VentanaEliminarAlumno extends JFrame {
 		
 		//JLabel
 	
-		JLabel lblInformacionAlumno = new JLabel("Nombre :");
-		lblInformacionAlumno.setForeground(new Color(255, 255, 255));
-		lblInformacionAlumno.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-		lblInformacionAlumno.setBounds(21, 21, 232, 14);
-		panelDatosAlumno.add(lblInformacionAlumno);
-		lblInformacionAlumno.setText("Nombre: "+alumno.getNombrePersona());
+		JLabel lblInformacionPersona = new JLabel("Nombre :");
+		lblInformacionPersona.setForeground(new Color(255, 255, 255));
+		lblInformacionPersona.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+		lblInformacionPersona.setBounds(21, 21, 232, 14);
+		panelDatosPersona.add(lblInformacionPersona);
+		lblInformacionPersona.setText("Nombre: "+persona.getNombrePersona());
 		
 		JLabel lblRut = new JLabel("RUT: ");
 		lblRut.setForeground(new Color(255, 255, 255));
 		lblRut.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblRut.setBounds(256, 21, 101, 14);
-		panelDatosAlumno.add(lblRut);
-		lblRut.setText("RUT: "+alumno.getRut());
+		panelDatosPersona.add(lblRut);
+		lblRut.setText("RUT: "+persona.getRut());
 		
 		JLabel lblCorreo = new JLabel("Correo: ");
 		lblCorreo.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblCorreo.setForeground(new Color(255, 255, 255));
 		lblCorreo.setBounds(21, 46, 326, 14);
-		panelDatosAlumno.add(lblCorreo);
-		lblCorreo.setText("Correo: "+alumno.getCorreo());
+		panelDatosPersona.add(lblCorreo);
+		lblCorreo.setText("Correo: "+persona.getCorreo());
 		
 		JLabel lblDireccion = new JLabel("Direcci\u00F3n: ");
 		lblDireccion.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblDireccion.setForeground(new Color(255, 255, 255));
 		lblDireccion.setBounds(21, 71, 326, 14);
-		panelDatosAlumno.add(lblDireccion);
-		lblDireccion.setText("Dirección: "+alumno.getDireccion());
+		panelDatosPersona.add(lblDireccion);
+		lblDireccion.setText("Dirección: "+persona.getDireccion());
 		
 		JLabel lblEdad = new JLabel("Edad: ");
 		lblEdad.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblEdad.setForeground(new Color(255, 255, 255));
 		lblEdad.setBounds(21, 95, 151, 14);
-		panelDatosAlumno.add(lblEdad);
-		lblEdad.setText("Edad: "+alumno.getEdad());
+		panelDatosPersona.add(lblEdad);
+		lblEdad.setText("Edad: "+persona.getEdad());
 		
 		JLabel lblTelefono = new JLabel("Tel\u00E9fono: ");
 		lblTelefono.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		lblTelefono.setForeground(new Color(255, 255, 255));
 		lblTelefono.setBounds(21, 120, 175, 14);
-		panelDatosAlumno.add(lblTelefono);
-		lblTelefono.setText("Teléfono: "+alumno.getTelefono());
+		panelDatosPersona.add(lblTelefono);
+		lblTelefono.setText("Teléfono: "+persona.getTelefono());
 		
 		
 

@@ -119,7 +119,7 @@ public class VentanaDocente extends JFrame {
                             setVisible(false);
                             VentanaEliminarAlumno ventanaEliminarAlumno = new VentanaEliminarAlumno(
                             		universidad,universidad.getListaAlumnos().busqueda(rutAlumno),
-															VentanaDocente.this);
+															VentanaDocente.this,false);
                             ventanaEliminarAlumno.setVisible(true);
                         }
                         else{
@@ -219,7 +219,7 @@ public class VentanaDocente extends JFrame {
         		
         	}
         });
-        btnCrearDocente.setBounds(32, 253, 131, 23);
+        btnCrearDocente.setBounds(22, 254, 131, 23);
         contentPane.add(btnCrearDocente);
         btnCrearDocente.setVisible(false);
         btnCrearDocente.setEnabled(false);
@@ -228,10 +228,27 @@ public class VentanaDocente extends JFrame {
         btnEliminarDocente.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) 
         	{
+        		String rutDocente = JOptionPane.showInputDialog(null,"Ingrese rut del docente","Buscar docente",JOptionPane.QUESTION_MESSAGE);
+                if(rutDocente != null){
+                	if(!rutDocente.equals("")){
+                		if(universidad.getListaDocentes().existe(rutDocente))
+                        {
+                            setVisible(false);
+                            VentanaEliminarAlumno ventanaEliminarAlumno = new VentanaEliminarAlumno(
+                            		universidad,(Persona)universidad.getListaDocentes().busqueda(rutDocente),
+															VentanaDocente.this,true);
+                            ventanaEliminarAlumno.setVisible(true);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null,"Docente no encontrado","Eliminar Docente",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                	}
+                }
+        		
         		
         	}
         });
-        btnEliminarDocente.setBounds(32, 287, 131, 23);
+        btnEliminarDocente.setBounds(12, 287, 131, 23);
         contentPane.add(btnEliminarDocente);
         btnEliminarDocente.setVisible(false);
         btnEliminarDocente.setEnabled(false);
