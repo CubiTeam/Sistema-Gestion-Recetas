@@ -194,7 +194,6 @@ public class VentanaPrincipal extends JFrame {
 							else
 								JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
 						} catch (HeadlessException | CorreoException e1) {
-							e1.printStackTrace();
 						}
 					}else{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró Alumno","Error",0);
@@ -220,8 +219,6 @@ public class VentanaPrincipal extends JFrame {
 							else
 								JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
 						} catch (HeadlessException | CorreoException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
 						}
 						
 					}else

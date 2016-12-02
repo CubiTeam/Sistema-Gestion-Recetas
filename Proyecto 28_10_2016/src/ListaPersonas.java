@@ -32,9 +32,11 @@ public abstract class ListaPersonas
 	public boolean verificacion(String contraseñaReal, String contraseñaIngresada) throws CorreoException 
 	{ 
 		try{
-		if(!(contraseñaReal.equals(contraseñaIngresada))){
-			throw new ContrasenaException();
-		}}catch(ContrasenaException e){
+			if(!(contraseñaReal.equals(contraseñaIngresada))){
+				throw new ContrasenaException("Contraseña no valida");
+			}
+		}catch(ContrasenaException e){
+			e.printStackTrace();
 			return false;
 		}
 			

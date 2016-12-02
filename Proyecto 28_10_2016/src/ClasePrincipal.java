@@ -20,6 +20,11 @@
  * 	CORREO : projectGRDC@gmail.com
  *	PASS : GRDCproject1234
  * 
+ * ********************************************************
+ *						   EXCEPCIONES
+ *	ContrasenaException(ListaPersonas,ListaDocente)
+ *	CorreoException(ListaPersonas)
+ *
  * ********************************************************/
 
 // Crear clase archivo y ver todo lo de archivos (Clase Universidad)
