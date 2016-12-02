@@ -510,35 +510,42 @@ public class VentanaCrearAlumno extends JFrame
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String sexoUsuario = (String) comboBoxSexo.getSelectedItem();
-				
-				Alumno usuarioNuevo= new Alumno(txtNombre.getText(),
-						txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(),
-						sexoUsuario,Integer.parseInt(txtEdad.getText()),
-						Integer.parseInt(txtTelefono.getText()));
-				usuarioNuevo.generarContrasena();
-				
-				if(universidad.getListaAlumnos().agregar(usuarioNuevo))
+				if(!txtNombre.getText().isEmpty() && !txtRUT.getText().isEmpty()
+						&& !txtDireccion.getText().isEmpty() && !txtEdad.getText().isEmpty()
+						&& !txtTelefono.getText().isEmpty())
 				{
-					lblVerifCorreo.setText("\u2713");
-					txtCorreo.setBackground(Color.GREEN);
-					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Su contraseña es\n"+
-							usuarioNuevo.getContrasena(),"Datos ingresados correctamente",1);
-				
-				
-					txtNombre.setEditable(false);
-					txtEdad.setEditable(false);
-					txtCorreo.setEditable(false);
-					txtTelefono.setEditable(false);
-					txtDireccion.setEditable(false);
-					txtDigVer.setEditable(false);
-					txtRUT.setEditable(false);
+					Alumno usuarioNuevo= new Alumno(txtNombre.getText(),
+							txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(),
+							sexoUsuario,Integer.parseInt(txtEdad.getText()),
+							Integer.parseInt(txtTelefono.getText()));
+					usuarioNuevo.generarContrasena();
+					
+					if(universidad.getListaAlumnos().agregar(usuarioNuevo))
+					{
+						lblVerifCorreo.setText("\u2713");
+						txtCorreo.setBackground(Color.GREEN);
+						JOptionPane.showMessageDialog(VentanaCrearAlumno.this,"Su contraseña es\n"+
+								usuarioNuevo.getContrasena(),"Datos ingresados correctamente",1);
+					
+					
+						txtNombre.setEditable(false);
+						txtEdad.setEditable(false);
+						txtCorreo.setEditable(false);
+						txtTelefono.setEditable(false);
+						txtDireccion.setEditable(false);
+						txtDigVer.setEditable(false);
+						txtRUT.setEditable(false);
+					}
+					else
+					{			
+						lblVerifCorreo.setText("\u2717");
+						JOptionPane.showMessageDialog(VentanaCrearAlumno.this,
+								"Ingresó mal algun campo","Error",0);
+					}
 				}
 				else
-				{			
-					lblVerifCorreo.setText("\u2717");
 					JOptionPane.showMessageDialog(VentanaCrearAlumno.this,
-							"Ingresó mal o faltó llenar algun campo","Error",0);
-				}
+							"faltó llenar algun campo","Error",0);
 			}
 		});
 		btnRegistrarse.setBounds(10, 277, 179, 37);
