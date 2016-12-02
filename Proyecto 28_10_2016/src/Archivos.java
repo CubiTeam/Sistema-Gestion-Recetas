@@ -738,7 +738,14 @@ public class Archivos
 	
 	
 	
-	
+	public boolean eliminarTxtDocente(Docente docente)
+	{    	
+		if(eliminarCarpetaDocente(docente))
+		{
+			return true;
+		}
+		return false;	
+	}
 	
 	
 	
@@ -769,7 +776,16 @@ public class Archivos
 	
 	
 	
-	
+	public boolean eliminarCarpetaDocente(Docente docente){
+		File carpeta = new File("Universidad Catolica De Gastronomia\\Docentes\\"+docente.getRut());
+		if(carpeta.exists()){							
+			File[] archivos = carpeta.listFiles();
+			if(eliminarArchivos(archivos))
+				if(carpeta.delete())	
+					return true;
+		}
+		return false;
+	}
 	
 	
 	

@@ -233,6 +233,8 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 		if(existe(((Docente)docenteEliminar).getRut()))
 		{
 			arrayDocentes.remove(docenteEliminar);
+			Archivos archivo = new Archivos();
+			archivo.eliminarTxtDocente((Docente)docenteEliminar);
 			return true;
 		}
 		return false;
