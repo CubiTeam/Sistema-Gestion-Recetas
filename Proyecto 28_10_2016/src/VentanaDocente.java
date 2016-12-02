@@ -76,8 +76,8 @@ public class VentanaDocente extends JFrame {
         btnCrearAlumno.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 setVisible(false);
-                VentanaCrearAlumno ventanaCrearAlumno = new VentanaCrearAlumno (universidad,VentanaDocente.this);     
-                ventanaCrearAlumno.setVisible(true);
+                VentanaCrearUsuario ventanaCrearUsuario = new VentanaCrearUsuario (universidad,VentanaDocente.this,false);     
+                ventanaCrearUsuario.setVisible(true);
             }
         });
         btnCrearAlumno.setBounds(12, 169, 151, 36);
@@ -117,10 +117,10 @@ public class VentanaDocente extends JFrame {
                 		if(universidad.getListaAlumnos().existe(rutAlumno))
                         {
                             setVisible(false);
-                            VentanaEliminarAlumno ventanaEliminarAlumno = new VentanaEliminarAlumno(
+                            VentanaEliminarUsuario ventanaEliminarUsuario = new VentanaEliminarUsuario(
                             		universidad,universidad.getListaAlumnos().busqueda(rutAlumno),
 															VentanaDocente.this,false);
-                            ventanaEliminarAlumno.setVisible(true);
+                            ventanaEliminarUsuario.setVisible(true);
                         }
                         else{
                             JOptionPane.showMessageDialog(null,"Alumno no encontrado","Eliminar Alumno",JOptionPane.INFORMATION_MESSAGE);
@@ -216,7 +216,9 @@ public class VentanaDocente extends JFrame {
         btnCrearDocente.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) 
         	{
-        		
+        		setVisible(false);
+                VentanaCrearUsuario ventanaCrearDocente = new VentanaCrearUsuario (universidad,VentanaDocente.this,true);     
+                ventanaCrearDocente.setVisible(true);
         	}
         });
         btnCrearDocente.setBounds(22, 254, 131, 23);
@@ -234,10 +236,10 @@ public class VentanaDocente extends JFrame {
                 		if(universidad.getListaDocentes().existe(rutDocente))
                         {
                             setVisible(false);
-                            VentanaEliminarAlumno ventanaEliminarAlumno = new VentanaEliminarAlumno(
+                            VentanaEliminarUsuario ventanaEliminarUsuario = new VentanaEliminarUsuario(
                             		universidad,(Persona)universidad.getListaDocentes().busqueda(rutDocente),
 															VentanaDocente.this,true);
-                            ventanaEliminarAlumno.setVisible(true);
+                            ventanaEliminarUsuario.setVisible(true);
                         }
                         else{
                             JOptionPane.showMessageDialog(null,"Docente no encontrado","Eliminar Docente",JOptionPane.INFORMATION_MESSAGE);
@@ -248,7 +250,7 @@ public class VentanaDocente extends JFrame {
         		
         	}
         });
-        btnEliminarDocente.setBounds(12, 287, 131, 23);
+        btnEliminarDocente.setBounds(22, 285, 131, 23);
         contentPane.add(btnEliminarDocente);
         btnEliminarDocente.setVisible(false);
         btnEliminarDocente.setEnabled(false);
