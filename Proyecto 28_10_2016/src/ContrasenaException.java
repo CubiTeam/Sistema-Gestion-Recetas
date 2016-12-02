@@ -1,11 +1,11 @@
 
 public class ContrasenaException extends Exception 
 {
-
-	public ContrasenaException(String mensaje)
-	{
-		super(mensaje);
+ 
+	public ContrasenaException(String mensaje){
+		super(mensaje) ;
 	}
 	
+	public ContrasenaException(){}
 	
 }

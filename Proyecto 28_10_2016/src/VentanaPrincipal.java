@@ -17,6 +17,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.HeadlessException;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import javax.swing.border.MatteBorder;
@@ -175,21 +177,25 @@ public class VentanaPrincipal extends JFrame {
 					{
 						Alumno alumno=universidad.getListaAlumnos().busqueda(textFieldAlumno.getText());
 						//verifica que la contraseña ingresada es valida
-						if(universidad.getListaAlumnos().verificacion(alumno.getContrasena(),psswField.getText()))
-						{
-						Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
-						JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);
-						//creo la ventanaAlumnoEstandar
-						VentanaAlumno ventanaAlumno = new VentanaAlumno(universidad,Alumno,VentanaPrincipal.this);
-						ventanaAlumno.setVisible(true);
-						dispose();
-						
-						//Dejar en blanco los campos de rut y contraseña
-						textFieldAlumno.setText("");
-						psswField.setText("");
+						try {
+							if(universidad.getListaAlumnos().verificacion(alumno.getContrasena(),psswField.getText()))
+							{
+							Alumno Alumno = universidad.getListaAlumnos().getAlumno(textFieldAlumno.getText(),psswField); 
+							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);
+							//creo la ventanaAlumnoEstandar
+							VentanaAlumno ventanaAlumno = new VentanaAlumno(universidad,Alumno,VentanaPrincipal.this);
+							ventanaAlumno.setVisible(true);
+							dispose();
+							
+							//Dejar en blanco los campos de rut y contraseña
+							textFieldAlumno.setText("");
+							psswField.setText("");
+							}
+							else
+								JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
+						} catch (HeadlessException | CorreoException e1) {
+							e1.printStackTrace();
 						}
-						else
-							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
 					}else{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró Alumno","Error",0);
 					}
@@ -203,15 +209,20 @@ public class VentanaPrincipal extends JFrame {
 					{
 						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldAlumno.getText());
 						//verifica que la contraseña ingresada es valida
-						if(universidad.getListaDocentes().verificacion(docente.getContrasena(),psswField.getText()))
-						{
-							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
-							VentanaDocente ventanadocente = new VentanaDocente(docente,universidad);
-							ventanadocente.setVisible(true);
-							dispose();
+						try {
+							if(universidad.getListaDocentes().verificacion(docente.getContrasena(),psswField.getText()))
+							{
+								JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
+								VentanaDocente ventanadocente = new VentanaDocente(docente,universidad);
+								ventanadocente.setVisible(true);
+								dispose();
+							}
+							else
+								JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
+						} catch (HeadlessException | CorreoException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
 						}
-						else
-							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
 						
 					}else
 					{

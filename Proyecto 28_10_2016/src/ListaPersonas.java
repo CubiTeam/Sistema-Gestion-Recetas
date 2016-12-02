@@ -7,30 +7,38 @@ public abstract class ListaPersonas
 	
 
 	//verifica que tenga la composicion correcta de un correo valido
-	public boolean verificarEmail(String email)
+	public boolean verificarEmail(String email) throws CorreoException
 	{
 		Pattern patron;
 		Matcher mat;
 		
 		patron = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]*(\\.[A-Za-z]{2,})$");
 		mat = patron.matcher(email);
-		
-		if(mat.find())
-		   return true;
-	   
-		return false;
+		try{
+		if(!(mat.find()))
+		   
+			throw new CorreoException();
+		}catch(CorreoException e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 	
 
 	
 	
 	//valida que la contraseña es correcta
-	public boolean verificacion(String contraseñaReal, String contraseñaIngresada)
-	{
-		if(contraseñaReal.equals(contraseñaIngresada))
-			return true;
-		
-		return false;
+	public boolean verificacion(String contraseñaReal, String contraseñaIngresada) throws CorreoException 
+	{ 
+		try{
+		if(!(contraseñaReal.equals(contraseñaIngresada))){
+			throw new ContrasenaException();
+		}}catch(ContrasenaException e){
+			return false;
+		}
+			
+		return true;
 	}
 			
 	

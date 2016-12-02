@@ -24,27 +24,39 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	//verifica si el correo corresponde a la universidad pucv
-	public boolean verificarEmail(String email){
+	public boolean verificarEmail(String email) throws CorreoException{
 		Pattern pat;
 		Matcher mat;
 		
 		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@mail.pucv.cl");
 		mat = pat.matcher(email);
 
-		if(mat.find())
-			return true;
+		try{
+			if(!(mat.find()))
+				throw new CorreoException();
+		}catch(CorreoException e){
+			return false;
+		}
    
 		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@pucv.cl");
 		mat = pat.matcher(email);
-		if(mat.find())
-			return true;
+		try{
+			if(!(mat.find()))
+				throw new CorreoException();
+		}catch(CorreoException e){
+			return false;
+		}
    
 		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@ucv.cl");
 		mat = pat.matcher(email);
-		if(mat.find())
-		   return true;
-	   
-		return false;
+		try{
+			if(!(mat.find()))
+				throw new CorreoException();
+		}catch(CorreoException e){
+			return false;
+		}
+		
+		return true;
 	}
 
 
@@ -208,15 +220,17 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	//modifica el correo de un docente
 	public boolean modificarCorreo(Object docente,String cambiar)
 	{
-		if(existe(((Docente)docente).getRut()))
+		if(!(existe(((Docente)docente).getRut())))
 		{
-			if(verificarEmail(cambiar))
-			{
-				((Docente)docente).setCorreo(cambiar);
-				return true;
+			try {
+				if(verificarEmail(cambiar)){
+					((Docente)docente).setCorreo(cambiar);
+				}
+			} catch(CorreoException e) {
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	

@@ -73,8 +73,11 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 			return false;
 		if(!super.esNumerico(String.valueOf(alumno.getTelefono())))
 			return false;
-		if(!super.verificarEmail(alumno.getCorreo()))
+		try{
+			verificarEmail(alumno.getCorreo());
+		}catch(CorreoException e){
 			return false;
+		}
 		return true;
 	}
 	
@@ -289,10 +292,13 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 	{
 		if(existe(((Alumno)alumno).getRut()))
 		{
-			if(verificarEmail(cambiar))
-			{
-				((Alumno)alumno).setCorreo(cambiar);
-				return true;
+			try{
+				if(!verificarEmail(cambiar))
+				{
+					((Alumno)alumno).setCorreo(cambiar);
+					return true;
+			}}catch(CorreoException e){
+				
 			}
 		}
 		return false;
