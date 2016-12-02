@@ -1,27 +1,24 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public abstract class ListaPersonas 
 {
 
 	
 
-	//verifica que el correo tenga el @ y el .
+	//verifica que tenga la composicion correcta de un correo valido
 	public boolean verificarEmail(String email)
 	{
-		int verificarArroba = 0;
-		int verificarPuntos = 0;
+		Pattern patron;
+		Matcher mat;
 		
-		for(int i = 0;i < email.length(); i++){
-			if(email.charAt(i) == '@')//ExtraerCaracter
-			verificarArroba++;
-	
-		if(email.charAt(i) == '.')
-				verificarPuntos++;
-		}
+		patron = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]*(\\.[A-Za-z]{2,})$");
+		mat = patron.matcher(email);
 		
-		if(verificarArroba != 1 && verificarPuntos < 1)
-			return false;
-		
-		return true;
+		if(mat.find())
+		   return true;
+	   
+		return false;
 	}
 	
 
