@@ -738,6 +738,14 @@ public class Archivos
 	
 	
 	
+	
+	/** 
+	 * 	Este metodo elimina el Docente recibido del ArrayList de Docentes
+	 * 	@param	docente				Contiene un docente en especifico.
+	 * 	@return						Un booleano que indica si se pudo eliminar el txt contenido
+	 * 								dentro de la carpeta del docente.
+	 * 	@see						#eliminarCarpetaDocente(Docente)
+	 * */
 	public boolean eliminarTxtDocente(Docente docente)
 	{    	
 		if(eliminarCarpetaDocente(docente))
@@ -776,6 +784,12 @@ public class Archivos
 	
 	
 	
+	/** 
+	 * 	Este metodo elimina la carpeta del docente recibido
+	 * 	@param	docente				Contiene un docente en especifico.
+	 * 	@return						Un booleano que indica si se pudo eliminar la carpeta del docente.
+	 * 	@see						#eliminarArchivos(File[])
+	 * */
 	public boolean eliminarCarpetaDocente(Docente docente){
 		File carpeta = new File("Universidad Catolica De Gastronomia\\Docentes\\"+docente.getRut());
 		if(carpeta.exists()){							

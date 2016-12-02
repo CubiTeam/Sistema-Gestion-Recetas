@@ -438,23 +438,8 @@ public class VentanaCrearUsuario extends JFrame
 		
 		
 		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		//validacion del telefono
-		
-		
-		
-		
-		
 		//Limitar a escribir 8 numeros 
 		txtTelefono.addKeyListener(new KeyListener(){
 			int tamanoTelefono = 8;
@@ -487,11 +472,6 @@ public class VentanaCrearUsuario extends JFrame
 		comboBoxSexo.setFont(new Font("Century Gothic", Font.PLAIN, 12));
 		comboBoxSexo.setBounds(89, 172, 100, 25);
 		contentPane.add(comboBoxSexo);
-		
-		
-		
-		
-		
 		
 		
 		
@@ -566,13 +546,6 @@ public class VentanaCrearUsuario extends JFrame
 		});
 		btnRegistrarse.setBounds(10, 277, 179, 37);
 		contentPane.add(btnRegistrarse);
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
