@@ -189,7 +189,7 @@ public class VentanaPrincipal extends JFrame {
 						psswField.setText("");
 						}
 						else
-							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Ingresó mal la contraseña","Error",0);
+							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Contraseña incorrecta","Error",0);
 					}else{
 						JOptionPane.showMessageDialog(VentanaPrincipal.this,"No se encontró Alumno","Error",0);
 					}
