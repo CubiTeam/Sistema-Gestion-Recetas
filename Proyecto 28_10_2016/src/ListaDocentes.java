@@ -28,35 +28,19 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 		Pattern pat;
 		Matcher mat;
 		
-		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@mail.pucv.cl");
-		mat = pat.matcher(email);
-
-		try{
-			if(!(mat.find()))
-				throw new CorreoException();
-		}catch(CorreoException e){
-			return false;
-		}
-   
 		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@pucv.cl");
 		mat = pat.matcher(email);
 		try{
 			if(!(mat.find()))
 				throw new CorreoException();
+			else
+				return true;
 		}catch(CorreoException e){
-			return false;
-		}
-   
-		pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@ucv.cl");
-		mat = pat.matcher(email);
-		try{
-			if(!(mat.find()))
-				throw new CorreoException();
-		}catch(CorreoException e){
-			return false;
+			e.printStackTrace();
+			
 		}
 		
-		return true;
+		return false;
 	}
 
 
@@ -220,17 +204,18 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	//modifica el correo de un docente
 	public boolean modificarCorreo(Object docente,String cambiar)
 	{
-		if(!(existe(((Docente)docente).getRut())))
+		if((existe(((Docente)docente).getRut())))
 		{
 			try {
 				if(verificarEmail(cambiar)){
 					((Docente)docente).setCorreo(cambiar);
+					return true;
 				}
 			} catch(CorreoException e) {
-				return false;
+
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	

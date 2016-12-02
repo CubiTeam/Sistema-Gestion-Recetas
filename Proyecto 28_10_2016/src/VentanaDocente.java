@@ -423,6 +423,7 @@ public class VentanaDocente extends JFrame {
                  if(universidad.getListaDocentes().modificarCorreo(docente, editarCorreo))
                  {
                      lblCorreo.setText("Correo: "+docente.getCorreo());
+                     System.out.print("hola "+docente.getCorreo());
                      JOptionPane.showMessageDialog(VentanaDocente.this, "Se modifico su correo con exito");
                  }
                  else
