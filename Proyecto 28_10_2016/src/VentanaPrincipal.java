@@ -203,7 +203,7 @@ public class VentanaPrincipal extends JFrame {
 					{
 						Docente docente=(Docente)universidad.getListaDocentes().busqueda(textFieldAlumno.getText());
 						//verifica que la contraseña ingresada es valida
-						if(universidad.getListaDocentes().verificacion(docente.getRut(),psswField.getText()))
+						if(universidad.getListaDocentes().verificacion(docente.getContrasena(),psswField.getText()))
 						{
 							JOptionPane.showMessageDialog(VentanaPrincipal.this,"Se inició sesión correctamente","Bienvenido",1);		
 							VentanaDocente ventanadocente = new VentanaDocente(docente,universidad);

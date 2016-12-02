@@ -346,7 +346,12 @@ public class VentanaDocente extends JFrame {
        lblmodificarTelefono.setForeground(Color.BLACK);
           
        
-       
+       //modificar correo
+       final JLabel lblmodificarCorreo = new JLabel("[Modificar]");                    
+       lblmodificarCorreo.setBounds(266, 120, 49, 14);
+       panelDatosDocente.add(lblmodificarCorreo);
+       lblmodificarCorreo.setForeground(Color.BLACK);
+       lblmodificarCorreo.setFont(new Font("Tahoma", Font.PLAIN, 10));
        
        
        
@@ -405,26 +410,7 @@ public class VentanaDocente extends JFrame {
     
       
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      //modificar correo
-      final JLabel lblmodificarCorreo = new JLabel("[Modificar]");                    
-      lblmodificarCorreo.setBounds(266, 120, 49, 14);
-      panelDatosDocente.add(lblmodificarCorreo);
-      lblmodificarCorreo.setForeground(Color.BLACK);
-      lblmodificarCorreo.setFont(new Font("Tahoma", Font.PLAIN, 10));
+
       
       
       lblmodificarCorreo.addMouseListener(new MouseListener() 
