@@ -11,9 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
 import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
  
 public class VentanaDocente extends JFrame {
