@@ -116,6 +116,7 @@ public class VentanaDocente extends JFrame {
                 	if(!rutAlumno.equals("")){
                 		if(universidad.getListaAlumnos().existe(rutAlumno))
                         {
+                			
                             setVisible(false);
                             VentanaEliminarUsuario ventanaEliminarUsuario = new VentanaEliminarUsuario(
                             		universidad,(Alumno)universidad.getListaAlumnos().busqueda(rutAlumno),
@@ -238,7 +239,7 @@ public class VentanaDocente extends JFrame {
                             setVisible(false);
                             VentanaEliminarUsuario ventanaEliminarUsuario = new 
                             		VentanaEliminarUsuario(universidad,(Docente)universidad.getListaDocentes().busqueda(rutDocente),
-															VentanaDocente.this,true);
+													VentanaDocente.this,true);
                             ventanaEliminarUsuario.setVisible(true);
                         }
                         else{
