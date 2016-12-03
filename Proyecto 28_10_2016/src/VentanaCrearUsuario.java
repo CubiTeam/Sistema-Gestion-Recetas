@@ -1,6 +1,5 @@
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -8,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import java.lang.System;
-import java.io.IOException;
 import java.awt.Font;
 
 public class VentanaCrearUsuario extends JFrame 
@@ -21,7 +19,6 @@ public class VentanaCrearUsuario extends JFrame
 	private JTextField txtDireccion;
 	private JTextField txtTelefono;
 	private JTextField txtDigVer;
-	private Archivos archivo;
 	
 	public VentanaCrearUsuario(final Universidad universidad,final VentanaDocente ventanaAnterior, final boolean esDocente) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
