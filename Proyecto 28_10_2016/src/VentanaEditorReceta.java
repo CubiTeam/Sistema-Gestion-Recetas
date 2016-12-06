@@ -759,11 +759,14 @@ public class VentanaEditorReceta extends JFrame
   												CONTRUCTOR MODIFICAR RECETA
  */
 	public VentanaEditorReceta(final Receta receta,final Alumno alumno,final VentanaRecetasAlumno ventanaAnterior)
-	{																						
+	{
+		final Receta recetaClon=receta.getClonReceta();
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 15, 1000, 675);
 		setResizable(false);
-		setTitle("Modificando "+ receta.getNombreReceta());
+		setTitle("Modificando "+ recetaClon.getNombreReceta());
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 153, 255));
@@ -823,7 +826,7 @@ public class VentanaEditorReceta extends JFrame
 		lblNombreReceta.setBounds(256, 13, 113, 14);
 		contentPane.add(lblNombreReceta);
 		
-		nombreReceta = new JTextField(receta.getNombreReceta());
+		nombreReceta = new JTextField(recetaClon.getNombreReceta());
 		nombreReceta.setBounds(356, 8, 320, 25);
 		contentPane.add(nombreReceta);
 		nombreReceta.setColumns(10);
@@ -882,7 +885,7 @@ public class VentanaEditorReceta extends JFrame
 		lblVerifTiempoEst.setBounds(177, 150, 46, 14);
 		contentPane.add(lblVerifTiempoEst);
 		
-		tiempoEstimado = new JTextField(String.valueOf(receta.getTiempoEstimadoPreparacion()));
+		tiempoEstimado = new JTextField(String.valueOf(recetaClon.getTiempoEstimadoPreparacion()));
 		tiempoEstimado.setBounds(118, 145, 56, 25);
 		contentPane.add(tiempoEstimado);
 		tiempoEstimado.setColumns(10);
@@ -930,7 +933,7 @@ public class VentanaEditorReceta extends JFrame
 		contentPane.add(panel_instrucciones);
 		panel_instrucciones.setLayout(new GridLayout());
 		
-		final JTextArea instrucciones = new JTextArea(receta.getInstrucciones());							
+		final JTextArea instrucciones = new JTextArea(recetaClon.getInstrucciones());							
 		panel_instrucciones.add(instrucciones);
 		
 		
@@ -966,7 +969,7 @@ public class VentanaEditorReceta extends JFrame
 //-------------------------------------------------------------------------------------------------------------------------------------	
 		//INGREDIENTES
 		
-		ingredientes = casteoAlReves(receta.getIngredientes());
+		ingredientes = casteoAlReves(recetaClon.getIngredientes());
 		JPanel panel_ingredientes = new JPanel();				
 		panel_ingredientes.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panel_ingredientes.setBackground(new Color(0, 153, 255));
@@ -1070,7 +1073,7 @@ public class VentanaEditorReceta extends JFrame
 //-------------------------------------------------------------------------------------------------------------------------------------		
 		//UTENSILIOS
 		
-		utensilios = casteoAlReves(receta.getUtensilios());
+		utensilios = casteoAlReves(recetaClon.getUtensilios());
 		JPanel panel_utensilios = new JPanel();		
 		panel_utensilios.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panel_utensilios.setBackground(new Color(0, 153, 255));
@@ -1200,7 +1203,7 @@ public class VentanaEditorReceta extends JFrame
 //-------------------------------------------------------------------------------------------------------------------------------------		
 		//CATEGORIAS
 		
-		categorias = casteoAlReves(receta.getCategorias());
+		categorias = casteoAlReves(recetaClon.getCategorias());
 		JPanel panel_categorias = new JPanel();			
 		panel_categorias.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panel_categorias.setBackground(new Color(0, 153, 255));
@@ -1370,21 +1373,15 @@ public class VentanaEditorReceta extends JFrame
 					JOptionPane.showMessageDialog(VentanaEditorReceta.this,"Ingresó mal o faltó llenar algun campo","Error",0);
 				else
 				{
-					receta.setNombreReceta(nombreReceta.getText());
-					receta.setIngredientes(casteo(ingredientes));
-					receta.setInstrucciones(instrucciones.getText());
-					receta.setTiempoEstimadoPreparacion(Integer.parseInt(tiempoEstimado.getText()));
-					receta.setUtensilios(casteo(utensilios));
-					receta.setCategorias(casteo(categorias));
-					receta.setAutor(alumno);
-					VentanaReceta ventanaReceta=new VentanaReceta(receta);
-					receta.setVentanaPrincipal(ventanaReceta);
+					
+
 					int reply = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmacion", JOptionPane.YES_NO_OPTION);
 				    if (reply == JOptionPane.YES_OPTION)	
 				    {
-				    	//si presiona que si, se modifican los datos en el txt
-				    	if(alumno.getListaRecetas().modificarReceta(receta))
-				    	{
+				    	
+				    	//se modifican los datos en el txt
+				    	if(alumno.getListaRecetas().modificarReceta(recetaClon))
+				    	{	
 				    		dispose();
 				    		receta.getVentanaPrincipal().mostrarVentana(ventanaAnterior,alumno);
 				    	}

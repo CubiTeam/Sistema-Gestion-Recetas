@@ -165,17 +165,26 @@ public class ListaReceta
 	
 	
 	//modifica la receta recibida
-	public boolean modificarReceta(Receta receta)
+	public boolean modificarReceta(Receta recetaClon)
 	{
 		Archivos archivo = new Archivos();
-		if(archivo.eliminarRecetaTxt(receta,receta.getAutor().getRut()))	//elimina el txt de la receta
+		
+		//se busca la receta original
+		Receta receta= (Receta)busqueda(recetaClon.getAutor().getRut());
+		
+		receta.setCategorias(recetaClon.getCategorias());
+		receta.setNombreReceta(recetaClon.getNombreReceta());
+		receta.setInstrucciones(recetaClon.getInstrucciones());
+		receta.setTiempoEstimadoPreparacion(recetaClon.getTiempoEstimadoPreparacion());
+		
+		if(archivo.eliminarRecetaTxt(receta,receta.getAutor().getRut()))	
     	{
-	    	System.out.println("elimino la receta del txt");
-	    	try {						//vuelve a crear el txt con los datos nuevos
+	    	//vuelve a crear el txt con los datos nuevos
+	    	try {						
 	    		archivo.actualizarDatosReceta(receta.getAutor(),receta); 
 	    		return true;
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
+				
 				e1.printStackTrace();
 			}
 	    	

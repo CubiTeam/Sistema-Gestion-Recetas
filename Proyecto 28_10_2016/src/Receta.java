@@ -10,7 +10,7 @@ public class Receta
 	private String instrucciones;
 	private int tiempoEstimadoPreparacion;
 	private VentanaReceta ventanaPrincipal;
-	private ListaComentarios ListaComentarios;
+	private ListaComentarios listaComentarios;
 	
 	
 	
@@ -23,7 +23,7 @@ public class Receta
 	
 	
 	public ListaComentarios getListaComentarios() {
-		return ListaComentarios;
+		return listaComentarios;
 	}
 
 
@@ -35,7 +35,7 @@ public class Receta
 
 
 	public void setListaComentarios(ListaComentarios listaComentarios) {
-		ListaComentarios = listaComentarios;
+		listaComentarios = listaComentarios;
 	}
 
 
@@ -49,8 +49,8 @@ public class Receta
 	//se cargan los comentarios de todas las recetas
 	public void  cargarComentarios(Universidad universidad)
 	{						
-		if(ListaComentarios!=null)
-			ListaComentarios.cargarArrayComentarios(universidad);
+		if(listaComentarios!=null)
+			listaComentarios.cargarArrayComentarios(universidad);
 	}
 
 	
@@ -60,7 +60,7 @@ public class Receta
 
 
 	public void setComentarios(ListaComentarios comentarios) {
-		this.ListaComentarios = comentarios;
+		this.listaComentarios = comentarios;
 	}
 
 
@@ -132,7 +132,8 @@ public class Receta
 		this.utensilios = utensilios;
 	}
 
-
+	
+	
 
 
 
@@ -141,6 +142,7 @@ public class Receta
 	{
 		Receta clon = new Receta();
 		
+		
 		clon.setNombreReceta(nombreReceta);
 		clon.setTiempoEstimadoPreparacion(tiempoEstimadoPreparacion);
 		clon.setCategorias(clonarArray(categorias));
@@ -148,6 +150,10 @@ public class Receta
 		clon.setUtensilios(clonarArray(utensilios));
 		clon.setInstrucciones(instrucciones);
 		
+		//no se clonan estos atributos porque no son necesarios para el programa
+		clon.setAutor(autor);
+		clon.setListaComentarios(listaComentarios);
+		clon.setVentanaPrincipal(ventanaPrincipal);
 		
 		return clon;
 	}
@@ -287,7 +293,7 @@ public class Receta
 		this.tiempoEstimadoPreparacion = 0;
 		this.categorias = null;
 		this.ventanaPrincipal=null;
-		this.ListaComentarios= new ListaComentarios();
+		this.listaComentarios= new ListaComentarios();
 	}
 	
 	
@@ -307,7 +313,7 @@ public class Receta
 		this.instrucciones = intrucciones;
 		this.tiempoEstimadoPreparacion = tiempoEstimadoPreparacion;
 		this.categorias = categorias;
-		this.ListaComentarios = new ListaComentarios(comentarios);
+		this.listaComentarios = new ListaComentarios(comentarios);
 		this.autor= alumno;
 	}
 	
