@@ -187,9 +187,9 @@ public class Archivos
 							String nombreReceta = buffer.readLine();
 							String cadena = buffer.readLine();
 							StringTokenizer st = new StringTokenizer(cadena,"|");
-							int calificacionReceta = Integer.parseInt(st.nextToken());
+							
 							int tiempoEstimadoPreparacion = Integer.parseInt(st.nextToken());
-				    		int caloriasTotales = Integer.parseInt(st.nextToken());
+				    		;
 				    		String[] ingredientes = leerListaTxt(buffer);
 					    	String[] utensilios = leerListaTxt(buffer);
 					    	String[] tipos = leerListaTxt(buffer);
@@ -198,7 +198,7 @@ public class Archivos
 					    	
 					    	//se agrega al ArrayList de recetas
 					    	alumno.getListaRecetas().agregarReceta(new Receta(nombreReceta,ingredientes,utensilios,
-					    		caloriasTotales,intrucciones,tiempoEstimadoPreparacion,tipos,calificacionReceta,
+					    		intrucciones,tiempoEstimadoPreparacion,tipos,
 					    				comentarios,alumno));
 					    }
 						buffer.close();
@@ -580,8 +580,8 @@ public class Archivos
 		PrintWriter pEscrit = new PrintWriter(bEscrit);
 	
 		pEscrit.println(receta.getNombreReceta());
-		pEscrit.println(receta.getCalificacionReceta()+"|"+receta.getTiempoEstimadoPreparacion()
-																+"|"+receta.getCaloriasTotales());
+		pEscrit.println(receta.getTiempoEstimadoPreparacion());
+															
 		
 		escribirListaTxt(receta.getIngredientes(), pEscrit);
 		escribirListaTxt(receta.getUtensilios(), pEscrit);

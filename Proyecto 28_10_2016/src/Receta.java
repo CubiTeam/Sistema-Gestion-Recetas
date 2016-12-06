@@ -5,13 +5,10 @@ public class Receta
 	private String nombreReceta;
 	private String[] ingredientes;
 	private String[] utensilios;
+	private String[] categorias; 
 	private Alumno autor;
-	private int caloriasTotales;
 	private String Instrucciones;
 	private int tiempoEstimadoPreparacion;
-	private String[] categorias; 
-	private int calificacionReceta;
-	private String[] denuncias;
 	private VentanaReceta ventanaPrincipal;
 	private ListaComentarios ListaComentarios;
 	
@@ -197,21 +194,6 @@ public class Receta
 
 
 
-	public int getCaloriasTotales() {
-		return caloriasTotales;
-	}
-
-
-
-
-
-
-
-
-
-	public void setCaloriasTotales(int caloriasTotales) {
-		this.caloriasTotales = caloriasTotales;
-	}
 
 
 
@@ -293,46 +275,6 @@ public class Receta
 
 
 
-	public int getCalificacionReceta() {
-		return calificacionReceta;
-	}
-
-
-
-
-
-
-
-
-
-	public void setCalificacionReceta(int calificacionReceta) {
-		this.calificacionReceta = calificacionReceta;
-	}
-
-
-
-
-
-
-
-
-
-	public String[] getDenuncias() {
-		return denuncias;
-	}
-
-
-
-
-
-
-
-
-
-	public void setDenuncias(String[] denuncias) {
-		this.denuncias = denuncias;
-	}
-
 
 
 
@@ -370,12 +312,9 @@ public class Receta
 		this.nombreReceta = null;
 		this.ingredientes = null;
 		this.utensilios = null;
-		this.caloriasTotales = 0;
 		Instrucciones = null;
 		this.tiempoEstimadoPreparacion = 0;
 		this.categorias = null;
-		this.calificacionReceta = 0;
-		this.denuncias = null;
 		this.ventanaPrincipal=null;
 		this.ListaComentarios= new ListaComentarios();
 	}
@@ -402,18 +341,16 @@ public class Receta
 	
 	
 	public Receta(String nombreReceta, String[] ingredientes,
-			String[] utensilios, int caloriasTotales, String intrucciones,
+			String[] utensilios,String intrucciones,
 			int tiempoEstimadoPreparacion, String[] categorias,
-			int calificacionReceta, ArrayList<Comentario> comentarios,Alumno alumno) 
+			 ArrayList<Comentario> comentarios,Alumno alumno) 
 	{
 		this.nombreReceta = nombreReceta;
 		this.ingredientes = ingredientes;
 		this.utensilios = utensilios;
-		this.caloriasTotales = caloriasTotales;
 		Instrucciones = intrucciones;
 		this.tiempoEstimadoPreparacion = tiempoEstimadoPreparacion;
 		this.categorias = categorias;
-		this.calificacionReceta = calificacionReceta;
 		this.ListaComentarios = new ListaComentarios(comentarios);
 		this.autor= alumno;
 	}
