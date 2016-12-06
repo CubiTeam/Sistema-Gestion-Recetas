@@ -46,12 +46,6 @@ public class Receta
 
 
 
-
-
-
-
-
-
 	//se cargan los comentarios de todas las recetas
 	public void  cargarComentarios(Universidad universidad)
 	{						
@@ -59,15 +53,7 @@ public class Receta
 			ListaComentarios.cargarArrayComentarios(universidad);
 	}
 
-
-
-
-
 	
-	
-	
-
-
 
 
 
@@ -76,22 +62,6 @@ public class Receta
 	public void setComentarios(ListaComentarios comentarios) {
 		this.ListaComentarios = comentarios;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -180,20 +150,9 @@ public class Receta
 
 
 
-
-
 	public void setAutor(Alumno autor) {
 		this.autor = autor;
 	}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -274,15 +233,6 @@ public class Receta
 
 
 
-
-
-
-
-
-
-
-
-
 	public VentanaReceta getVentanaPrincipal() {
 		return ventanaPrincipal;
 	}
@@ -294,13 +244,9 @@ public class Receta
 
 
 
-
 	public void setVentanaPrincipal(VentanaReceta ventanaPrincipal) {
 		this.ventanaPrincipal = ventanaPrincipal;
 	}
-
-
-
 
 
 
@@ -321,22 +267,7 @@ public class Receta
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 	
 	
@@ -357,40 +288,6 @@ public class Receta
 	
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
 	
 
 	
