@@ -1378,8 +1378,7 @@ public class VentanaEditorReceta extends JFrame
 					int reply = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmacion", JOptionPane.YES_NO_OPTION);
 				    if (reply == JOptionPane.YES_OPTION)	
 				    {
-				    	
-				    	//se modifican los datos en el txt
+				    	//modifica la receta original
 				    	if(alumno.getListaRecetas().modificarReceta(recetaClon))
 				    	{	
 				    		dispose();

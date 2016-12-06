@@ -158,8 +158,16 @@ public class ListaReceta
 	
 	
 	
-	
-	
+	//busca las recetas por el nombre
+	public Object busqueda(String nombreReceta)
+	{
+		for(int i=0;i<arrayRecetas.size();i++)
+		{
+			if(nombreReceta.equals(arrayRecetas.get(i).getNombreReceta()))
+				return arrayRecetas.get(i);
+		}
+		return null;
+	}
 	
 	
 	
@@ -170,13 +178,19 @@ public class ListaReceta
 		Archivos archivo = new Archivos();
 		
 		//se busca la receta original
-		Receta receta= (Receta)busqueda(recetaClon.getAutor().getRut());
+		Receta receta= (Receta)busqueda(recetaClon.getNombreReceta());
+		if(receta==null)
+			return false;
 		
+		//se modifican los valores nuevos a la receta principañ
 		receta.setCategorias(recetaClon.getCategorias());
 		receta.setNombreReceta(recetaClon.getNombreReceta());
 		receta.setInstrucciones(recetaClon.getInstrucciones());
 		receta.setTiempoEstimadoPreparacion(recetaClon.getTiempoEstimadoPreparacion());
+		receta.setUtensilios(recetaClon.getUtensilios());
+		receta.setIngredientes(recetaClon.getIngredientes());
 		
+		//elimina el txt antiguo de la receta
 		if(archivo.eliminarRecetaTxt(receta,receta.getAutor().getRut()))	
     	{
 	    	//vuelve a crear el txt con los datos nuevos
