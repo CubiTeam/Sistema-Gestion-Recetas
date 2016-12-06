@@ -24,6 +24,7 @@ public class ListaDocentes extends ListaPersonas implements Arreglo
 	
 	
 	//verifica si el correo corresponde a la universidad pucv
+	@Override
 	public boolean verificarEmail(String email) throws CorreoException{
 		Pattern pat;
 		Matcher mat;

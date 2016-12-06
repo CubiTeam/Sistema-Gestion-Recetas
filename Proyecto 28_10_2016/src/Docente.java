@@ -19,6 +19,7 @@ public class Docente extends Persona
 	
 	
 	//se genera una contraseña al azar con la clase Random
+	@Override
 	public String generarContrasena() 
 	{
 		String contrasena;
