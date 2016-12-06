@@ -7,7 +7,7 @@ public class Receta
 	private String[] utensilios;
 	private String[] categorias; 
 	private Alumno autor;
-	private String Instrucciones;
+	private String instrucciones;
 	private int tiempoEstimadoPreparacion;
 	private VentanaReceta ventanaPrincipal;
 	private ListaComentarios ListaComentarios;
@@ -136,8 +136,33 @@ public class Receta
 
 
 
+	//retorna un clon de la receta
+	public Receta getClonReceta()
+	{
+		Receta clon = new Receta();
+		
+		clon.setNombreReceta(nombreReceta);
+		clon.setTiempoEstimadoPreparacion(tiempoEstimadoPreparacion);
+		clon.setCategorias(clonarArray(categorias));
+		clon.setIngredientes(clonarArray(ingredientes));
+		clon.setUtensilios(clonarArray(utensilios));
+		clon.setInstrucciones(instrucciones);
+		
+		
+		return clon;
+	}
 
-
+	
+	//clona un arreglo
+	public String[] clonarArray(String[] lista)
+	{
+		String[] listaClon = new String[lista.length];
+		for(int i=0;i<lista.length;i++)
+		{
+			listaClon[i] = lista[i];
+		}
+		return listaClon;
+	}
 
 
 	public Alumno getAutor() {
@@ -163,7 +188,7 @@ public class Receta
 
 
 	public String getInstrucciones() {
-		return Instrucciones;
+		return instrucciones;
 	}
 
 
@@ -175,7 +200,7 @@ public class Receta
 
 
 	public void setInstrucciones(String instrucciones) {
-		Instrucciones = instrucciones;
+		this.instrucciones = instrucciones;
 	}
 
 
@@ -258,7 +283,7 @@ public class Receta
 		this.nombreReceta = null;
 		this.ingredientes = null;
 		this.utensilios = null;
-		Instrucciones = null;
+		this.instrucciones = null;
 		this.tiempoEstimadoPreparacion = 0;
 		this.categorias = null;
 		this.ventanaPrincipal=null;
@@ -279,7 +304,7 @@ public class Receta
 		this.nombreReceta = nombreReceta;
 		this.ingredientes = ingredientes;
 		this.utensilios = utensilios;
-		Instrucciones = intrucciones;
+		this.instrucciones = intrucciones;
 		this.tiempoEstimadoPreparacion = tiempoEstimadoPreparacion;
 		this.categorias = categorias;
 		this.ListaComentarios = new ListaComentarios(comentarios);

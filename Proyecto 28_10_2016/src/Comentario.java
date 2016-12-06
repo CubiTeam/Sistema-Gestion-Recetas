@@ -173,17 +173,6 @@ public class Comentario
 	
 	
 	
-	public Comentario clonarComentario()
-	{
-		Comentario clon = new Comentario();
-		
-		clon.setAutor(this.autor);
-		clon.setNumero(this.numero);
-		clon.setTexto(this.texto);
-		return clon;
-	}
-	
-	
 	
 	
 	
