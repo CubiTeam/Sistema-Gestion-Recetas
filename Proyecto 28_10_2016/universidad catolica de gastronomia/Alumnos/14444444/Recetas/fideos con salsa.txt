@@ -1,0 +1,13 @@
+fideos con salsa
+30
+2
+fideos
+salsa
+2
+olla
+cucharon
+1
+simple
+se hierve agua en una olla, al terminar se echan los fideos y sal.
+Cuando estan listos se combinan con la salsa y se sirven.|
+0
