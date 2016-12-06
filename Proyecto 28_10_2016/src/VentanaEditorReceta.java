@@ -28,7 +28,7 @@ public class VentanaEditorReceta extends JFrame
 	private JPanel contentPane;
 	private JTextField nombreReceta;
 	private JTextField tiempoEstimado;
-	private int tamMinNombre= 2;
+	private int tamMinNombre= 3;
 	private int tamMaxNombre = 100;
 	private DefaultListModel<String> ingredientes,categorias,utensilios;
 	private JTextField txtIngrediente;
