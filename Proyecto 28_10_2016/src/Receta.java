@@ -298,7 +298,10 @@ public class Receta
 	
 	
 	
-		
+	public void crearVentana()
+	{
+		ventanaPrincipal = new VentanaReceta(Receta.this);
+	}
 	
 	
 	

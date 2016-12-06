@@ -47,7 +47,8 @@ public class ListaReceta
 		{
 			for(int i=0;i<arrayRecetas.size();i++)
 			{
-				if(arrayRecetas.get(i)==receta)
+				//si el nombre de la receta es igual al nombre de otra receta
+				if(arrayRecetas.get(i).getNombreReceta().equals(receta.getNombreReceta()))
 					return true;
 			}
 			return false;
@@ -206,5 +207,24 @@ public class ListaReceta
 		
 		return false;
 	}
+
+
+
+
+
+
+
+
+
+	public boolean existe(String buscado) 
+	{
+		for(int i=0;i<arrayRecetas.size();i++)
+		{
+			if(buscado.equals(arrayRecetas.get(i).getNombreReceta()))
+				return true;
+		}
+		return false;
+	}
+
 	
 }

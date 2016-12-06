@@ -690,40 +690,51 @@ public class VentanaEditorReceta extends JFrame
 		{
 			public void actionPerformed(ActionEvent e) 	
 			{
+				//verifica que el nombre de la receta tenga el tamaño necesario y que no exista
 				if(nombreReceta.getText().length() < tamMinNombre)
-					JOptionPane.showMessageDialog(VentanaEditorReceta.this,"Ingresó mal o faltó llenar algun campo","Error",0);
+				{
+					JOptionPane.showMessageDialog(VentanaEditorReceta.this,
+							"el nombre es muy pequeño","Error",0);
+				}
 				else
 				{
-					receta.setNombreReceta(nombreReceta.getText());
-					receta.setIngredientes(casteo(ingredientes));
-					receta.setInstrucciones(instrucciones.getText());
-					receta.setTiempoEstimadoPreparacion(Integer.parseInt(tiempoEstimado.getText()));
-					receta.setUtensilios(casteo(utensilios));
-					receta.setCategorias(casteo(categorias));
-					receta.setAutor(alumno);
-					VentanaReceta ventanaReceta=new VentanaReceta(receta);
-					int reply = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-				    
-					
-					//si presiona que si se agrega la receta al ArrayList de recetas
-					if (reply == JOptionPane.YES_OPTION)	
-				    {	
-						//se muestra la ventanaPrincipal de la receta
-						Archivos archivo = new Archivos();
-				    	receta.setVentanaPrincipal(ventanaReceta);	
-				    	setVisible(false);
-				    	receta.getVentanaPrincipal().mostrarVentana(ventanaAnterior,alumno);
-				    	alumno.getListaRecetas().agregarReceta(receta);					
-				    	ventanaAnterior.actualizar(alumno.getListaRecetas().getArrayRecetas());				    	
-				    	
-				    	//se guarda la receta en el txt
-				    	try {						
-				    		archivo.actualizarDatosReceta(alumno,receta);
-						} catch (IOException e1) {
-							e1.printStackTrace();
-						}
-				    	dispose();
-				    }
+					if(alumno.getListaRecetas().existe(nombreReceta.getText()))
+						JOptionPane.showMessageDialog(VentanaEditorReceta.this,
+							"Ingresó mal el nombre de la receta o ya existe","Error",0);
+					else
+					{
+						receta.setNombreReceta(nombreReceta.getText());
+						receta.setIngredientes(casteo(ingredientes));
+						receta.setInstrucciones(instrucciones.getText());
+						receta.setTiempoEstimadoPreparacion(Integer.parseInt(tiempoEstimado.getText()));
+						receta.setUtensilios(casteo(utensilios));
+						receta.setCategorias(casteo(categorias));
+						receta.setAutor(alumno);
+						receta.crearVentana();
+						
+						int reply = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+					    
+						
+						//si presiona que si se agrega la receta al ArrayList de recetas
+						if (reply == JOptionPane.YES_OPTION)	
+					    {
+							//se muestra la ventanaPrincipal de la receta
+							Archivos archivo = new Archivos();
+					    	receta.getVentanaPrincipal().setVisible(true);	
+					    	setVisible(false);
+					    	receta.getVentanaPrincipal().mostrarVentana(ventanaAnterior,alumno);
+					    	alumno.getListaRecetas().agregarReceta(receta);					
+					    	ventanaAnterior.actualizar(alumno.getListaRecetas().getArrayRecetas());				    	
+					    	
+					    	//se guarda la receta en el txt
+					    	try {						
+					    		archivo.actualizarDatosReceta(alumno,receta);
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+					    	dispose();
+					    }
+					}
 				}	
 			}
 		});
@@ -738,15 +749,7 @@ public class VentanaEditorReceta extends JFrame
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -1369,8 +1372,10 @@ public class VentanaEditorReceta extends JFrame
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(nombreReceta.getText().length() < tamMinNombre)
-					JOptionPane.showMessageDialog(VentanaEditorReceta.this,"Ingresó mal o faltó llenar algun campo","Error",0);
+				//verifica que el nombre de la receta tenga el tamaño necesario y que no exista
+				if(nombreReceta.getText().length() < tamMinNombre 
+						&& alumno.getListaRecetas().existe(nombreReceta.getText()))
+					JOptionPane.showMessageDialog(VentanaEditorReceta.this,"Ingresó mal el nombre de la receta o ya existe","Error",0);
 				else
 				{
 					
