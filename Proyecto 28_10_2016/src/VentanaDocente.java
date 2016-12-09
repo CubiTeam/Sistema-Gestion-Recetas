@@ -128,7 +128,7 @@ public class VentanaDocente extends JFrame {
                 }
             }
         });
-        btnEliminarAlumno.setBounds(184, 169, 151, 36);
+        btnEliminarAlumno.setBounds(194, 169, 141, 23);
         contentPane.add(btnEliminarAlumno);
          
         
@@ -204,7 +204,7 @@ public class VentanaDocente extends JFrame {
             	ventanaInicial.setVisible(true);
             }
         });
-        btnCerrarSesión.setBounds(186, 267, 151, 36);
+        btnCerrarSesión.setBounds(194, 283, 143, 30);
         contentPane.add(btnCerrarSesión);
          
         
@@ -220,7 +220,7 @@ public class VentanaDocente extends JFrame {
                 ventanaCrearDocente.setVisible(true);
         	}
         });
-        btnCrearDocente.setBounds(22, 254, 131, 23);
+        btnCrearDocente.setBounds(10, 254, 153, 23);
         contentPane.add(btnCrearDocente);
         btnCrearDocente.setVisible(false);
         btnCrearDocente.setEnabled(false);
@@ -249,7 +249,7 @@ public class VentanaDocente extends JFrame {
         		
         	}
         });
-        btnEliminarDocente.setBounds(22, 285, 131, 23);
+        btnEliminarDocente.setBounds(10, 288, 153, 23);
         contentPane.add(btnEliminarDocente);
         btnEliminarDocente.setVisible(false);
         btnEliminarDocente.setEnabled(false);
@@ -289,13 +289,8 @@ public class VentanaDocente extends JFrame {
                     JOptionPane.showMessageDialog(VentanaDocente.this,"No existen alumnos ingresados","Error al mostrar",0);
             }
         });
-        btnMostrarDatosAlumno.setBounds(184, 208, 151, 36);
+        btnMostrarDatosAlumno.setBounds(196, 242, 141, 30);
         contentPane.add(btnMostrarDatosAlumno);
-        
-        
-        
-        
-        
         
         
         
@@ -370,6 +365,41 @@ public class VentanaDocente extends JFrame {
        panelDatosDocente.add(lblmodificarCorreo);
        lblmodificarCorreo.setForeground(Color.BLACK);
        lblmodificarCorreo.setFont(new Font("Tahoma", Font.PLAIN, 10));
+       
+       
+       
+       
+       
+       //boton cambiar contraseña
+       JButton btnCambiarContrasea = new JButton("Cambiar Contrase\u00F1a");
+       btnCambiarContrasea.setBounds(194, 203, 141, 30);
+       contentPane.add(btnCambiarContrasea);
+       btnCambiarContrasea.addActionListener(new ActionListener() {
+       	public void actionPerformed(ActionEvent arg0) 
+       	{
+       		String editarContrasena = JOptionPane.showInputDialog(null, "Ingrese su contraseña actual: ", "Edite contraseña : ", JOptionPane.QUESTION_MESSAGE);
+ 			
+ 			if(editarContrasena != null)
+ 			{
+ 				if(docente.getContrasena().equals(editarContrasena))
+ 				{
+ 					String contrasenaEditada = JOptionPane.showInputDialog(null, "Ingrese su nueva contraseña: ", "Edite contraseña : ", JOptionPane.QUESTION_MESSAGE);
+ 					docente.setContrasena(contrasenaEditada);
+ 					System.out.println("Su nueva contraseña es : "+docente.getContrasena());
+ 				}else{
+ 					JOptionPane.showMessageDialog(VentanaDocente.this, "Contraseña ingresada es incorrecta o faltó rellenar campo");
+ 				}
+ 			}
+       	}
+       });
+       
+       
+       
+       
+       
+       
+       
+       
        
        
        
