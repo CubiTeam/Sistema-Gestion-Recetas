@@ -544,7 +544,6 @@ public class Archivos
 									+"|"+docente.getDireccion()+"|"+docente.getTelefono()
 									+"|"+docente.getContrasena());
 	
-		System.out.println("\nDatos actualizados en el txt del docente correctamente");
 		
 		pEscrit.close();
 		bEscrit.close();

@@ -8,6 +8,9 @@ public abstract class Persona {
 	private int edad;
 	private int telefono;
 	private String contrasena;
+	private boolean tipoUsuario;
+	
+
 	public Persona(String nombrePersona, String rut, String direccion, String correo,
 			String sexo, int edad, int telefono, String contrasena) 
 	{
@@ -31,6 +34,19 @@ public abstract class Persona {
 		this.sexo = sexo;
 		this.edad = edad;
 		this.telefono = telefono;
+	}
+	
+	public Persona(String nombrePersona, String rut, String direccion, String correo,
+			String sexo, String edad, String telefono, boolean tipoUsuario) 
+	{
+		this.nombrePersona = nombrePersona;
+		this.rut = rut;
+		this.direccion = direccion;
+		this.correo = correo;
+		this.sexo = sexo;
+		this.edad = Integer.parseInt(edad);
+		this.telefono = Integer.parseInt(telefono);
+		this.tipoUsuario = tipoUsuario;
 	}
 	
 	//se obtienen los ultimos digitos del rut y se convierte en la contraseña
@@ -119,4 +135,13 @@ public abstract class Persona {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+	
+	public boolean isTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(boolean tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+	
 }

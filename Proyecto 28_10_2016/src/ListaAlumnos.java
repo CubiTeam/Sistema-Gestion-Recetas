@@ -40,7 +40,7 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 		if(validar((Alumno)alumnoNuevo))
 		{
 			arrayAlumnos.add((Alumno)alumnoNuevo);
-			Archivos archivo= new Archivos();
+			Archivos archivo = new Archivos();
 			try {
 				archivo.actualizarTxtAlumno((Alumno)alumnoNuevo);
 			} catch (IOException e) {

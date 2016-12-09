@@ -491,37 +491,14 @@ public class VentanaCrearUsuario extends JFrame
 						&& !txtDireccion.getText().isEmpty() && !txtEdad.getText().isEmpty()
 						&& !txtTelefono.getText().isEmpty())
 				{
-					if(esDocente){
-						Docente nuevoDocente = new Docente(txtNombre.getText(),
+						FacadeUsuario usuarioNuevo = new FacadeUsuario(txtNombre.getText(),
 								txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(),
-								sexoUsuario,Integer.parseInt(txtEdad.getText()),
-								Integer.parseInt(txtTelefono.getText()));
-						nuevoDocente.generarContrasena();
+								sexoUsuario,txtEdad.getText(),
+								txtTelefono.getText(),esDocente);
+						usuarioNuevo.agregarUsuario(universidad,lblVerifCorreo,txtCorreo);
 						
-						if(universidad.getListaDocentes().agregar(nuevoDocente))
-						{
-							lblVerifCorreo.setText("\u2713");
-							txtCorreo.setBackground(Color.GREEN);
-							JOptionPane.showMessageDialog(VentanaCrearUsuario.this,"Su contraseña es\n"+
-									nuevoDocente.getContrasena(),"Datos ingresados correctamente",1);
-						
-						
-						}else{
-							
-							Alumno nuevoAlumno = new Alumno(txtNombre.getText(),
-									txtRUT.getText(),txtDireccion.getText(),txtCorreo.getText(),
-									sexoUsuario,Integer.parseInt(txtEdad.getText()),
-									Integer.parseInt(txtTelefono.getText()));
-							nuevoAlumno.generarContrasena();
-						
-							if(universidad.getListaAlumnos().agregar(nuevoAlumno))
-							{
-								lblVerifCorreo.setText("\u2713");
-								txtCorreo.setBackground(Color.GREEN);
-								JOptionPane.showMessageDialog(VentanaCrearUsuario.this,"Su contraseña es\n"+
-										nuevoAlumno.getContrasena(),"Datos ingresados correctamente",1);
-							}
-					}
+						JOptionPane.showMessageDialog(VentanaCrearUsuario.this,"Su contraseña es\n"+
+								usuarioNuevo.getContrasena(),"Datos ingresados correctamente",1);
 						
 				}else{			
 					lblVerifCorreo.setText("\u2717");
@@ -535,10 +512,6 @@ public class VentanaCrearUsuario extends JFrame
 				txtDireccion.setEditable(false);
 				txtDigVer.setEditable(false);
 				txtRUT.setEditable(false);
-			}
-			else
-				JOptionPane.showMessageDialog(VentanaCrearUsuario.this,
-						"faltó llenar algun campo","Error",0);
 			}
 		});
 		btnRegistrarse.setBounds(10, 277, 179, 37);
