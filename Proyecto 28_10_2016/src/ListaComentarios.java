@@ -113,33 +113,24 @@ public class ListaComentarios implements Arreglo
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public ArrayList<Comentario> getArrayComentarios() {
-		return arrayComentarios;
+	//retorna el largo del arreglo
+	public int largo()
+	{
+		return arrayComentarios.size();
 	}
-
-
-
-
-
-
-
-
-	public void setArrayComentarios(ArrayList<Comentario> arrayComentarios) {
-		this.arrayComentarios = arrayComentarios;
+	
+	
+	
+	
+	
+	
+	//retorna el comentario de la posicion 
+	public Comentario getPosComentario(int i)
+	{
+		if(i<arrayComentarios.size())
+			return arrayComentarios.get(i);
+		return null;
 	}
-
-
 
 
 

@@ -34,7 +34,7 @@ public class VentanaRecetasAlumno extends JFrame
 		
 		recetas=new DefaultListModel<Receta>();
 		
-		convertir(recetas,alumno.getListaRecetas().getArrayRecetas());
+		convertir(recetas,alumno.getListaRecetas());
 		
 		
 		
@@ -257,7 +257,7 @@ public class VentanaRecetasAlumno extends JFrame
 		JButton btnDescargarReceta = new JButton("Guardar Recetas");
 		btnDescargarReceta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),1);
+				new CrearPDF(alumno.getListaRecetas(),1);
 			}
 		});
 		btnDescargarReceta.setFont(new Font("Century Gothic", Font.PLAIN, 11));
@@ -286,7 +286,7 @@ public class VentanaRecetasAlumno extends JFrame
 		btnEnviarACorreo.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		btnEnviarACorreo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new CrearPDF(alumno.getListaRecetas().getArrayRecetas(),2);
+				new CrearPDF(alumno.getListaRecetas(),2);
 			}
 		});
 		btnEnviarACorreo.setBounds(423, 150, 133, 44);
@@ -314,19 +314,19 @@ public class VentanaRecetasAlumno extends JFrame
 	
 	
 	// cambia de arrayList a DefaultListModel
-	public void convertir(DefaultListModel<Receta> recetasList,ArrayList<Receta> recetasArray) 
+	public void convertir(DefaultListModel<Receta> recetasList, ListaReceta recetasArray) 
 	{
 		int cont;
-		for(int i=0;i<recetasArray.size();i++)
+		for(int i=0;i<recetasArray.largo();i++)
 		{
 			cont=0;
 			for(int j=0;j<recetasList.size();j++)
 			{
-				if(recetasArray.get(i)==((Receta)recetasList.getElementAt(j)))
+				if(recetasArray.getPosReceta(i)==((Receta)recetasList.getElementAt(j)))
 					cont++;
 			}
 			if(cont==0)
-				recetasList.addElement(recetasArray.get(i));
+				recetasList.addElement(recetasArray.getPosReceta(i));
 		}
 	}
 	
@@ -335,26 +335,12 @@ public class VentanaRecetasAlumno extends JFrame
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//vuelve a cargar las recetas
-	public void actualizar(ArrayList<Receta> recetas)
+	public void actualizar(ListaReceta recetas)
 	{
 		convertir(this.recetas,recetas);
 	}
+	
+	
 	
 }

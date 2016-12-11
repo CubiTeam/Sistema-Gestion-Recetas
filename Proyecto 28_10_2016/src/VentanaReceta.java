@@ -305,7 +305,7 @@ public class VentanaReceta extends JFrame {
 		panelComentarios.add(textComentarios);
 		textComentarios.setEditable(false);
 		if(receta.getListaComentarios()!=null)
-			textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
+			textComentarios.setText(actualizarLista(receta.getListaComentarios()));
 		
 		JScrollPane scrollComentarios = new JScrollPane(textComentarios);
 		panelComentarios.add(scrollComentarios);
@@ -360,7 +360,7 @@ public class VentanaReceta extends JFrame {
 			{
 				Comentario comentarioNuevo = new Comentario(alumno,txtComentarioNuevo.getText(),receta.getListaComentarios().identificadorComentario());
 				receta.getListaComentarios().agregar(comentarioNuevo);
-				textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
+				textComentarios.setText(actualizarLista(receta.getListaComentarios()));
 				txtComentarioNuevo.setText("");
 			}
 		});
@@ -411,7 +411,7 @@ public class VentanaReceta extends JFrame {
 							if(comentarioEliminar!=null)
 							{
 								receta.getListaComentarios().eliminar(comentarioEliminar);
-								textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
+								textComentarios.setText(actualizarLista(receta.getListaComentarios()));
 								JOptionPane.showMessageDialog(VentanaReceta.this, "Se elimino con exito");
 							}
 							else
@@ -438,7 +438,7 @@ public class VentanaReceta extends JFrame {
 							{
 								if(receta.getListaComentarios().eliminar(comentarioEliminar))
 								{
-									textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
+									textComentarios.setText(actualizarLista(receta.getListaComentarios()));
 									JOptionPane.showMessageDialog(VentanaReceta.this, "Se elimino con exito");
 								}
 								else
@@ -508,7 +508,7 @@ public class VentanaReceta extends JFrame {
 							
 							if(receta.getListaComentarios().modificar(comentarioModificar,nuevoComent))
 							{
-								textComentarios.setText(actualizarLista(receta.getListaComentarios().getArrayComentarios()));
+								textComentarios.setText(actualizarLista(receta.getListaComentarios()));
 								JOptionPane.showMessageDialog(VentanaReceta.this, "Se modificó con exito");
 							}
 							else
@@ -567,12 +567,12 @@ public class VentanaReceta extends JFrame {
 	
 	
 	
-	public String actualizarLista(ArrayList<Comentario> listaComentarios)	//retorna un JtextArea con todos los comentarios en la lista
+	public String actualizarLista(ListaComentarios listaComentarios)	//retorna un JtextArea con todos los comentarios en la lista
 	{
 		JTextArea textNuevo= new JTextArea();
-		for(int i=0;i<listaComentarios.size();i++)
+		for(int i=0;i<listaComentarios.largo();i++)
 		{
-			textNuevo.append(listaComentarios.get(i).toString());
+			textNuevo.append(listaComentarios.getPosComentario(i).toString());
 			textNuevo.append(System.getProperty("line.separator"));
 		}
 		return textNuevo.getText();

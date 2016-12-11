@@ -27,7 +27,7 @@ public class CrearPDF {
 	 *	@see						#llenarPDF(FileOutputStream, ArrayList, int)
 	 * */
 	//Constructor
-	public CrearPDF(ArrayList<Receta> arrayRecetas, int opcion)
+	public CrearPDF(ListaReceta arrayRecetas, int opcion)
 	{
 	    if(opcion == 1){
 	    	try{
@@ -64,7 +64,10 @@ public class CrearPDF {
         
 	}//FIN CONSTRUCTOR
 	
-	public void llenarPDF(FileOutputStream archivo, ArrayList<Receta> arrayRecetas,int opcion){
+	
+	
+	
+	public void llenarPDF(FileOutputStream archivo, ListaReceta arrayRecetas,int opcion){
 
 	    //Tipos de letras personalizados que se usaran	    
 		Font tipoLetraTitulo = new Font(Font.FontFamily.HELVETICA , 16, Font.BOLD);
@@ -86,10 +89,10 @@ public class CrearPDF {
 	        docPDF.add(titulo);
 	            
             //Recorrido de todas las recetas del alumno
-            for(int i = 0; i < arrayRecetas.size(); i++)
+            for(int i = 0; i < arrayRecetas.largo(); i++)
             {
 	            //Titulo de la tabla de la receta
-            	Paragraph tituloReceta = new Paragraph(arrayRecetas.get(i).getNombreReceta(), tipoLetraTitulos); 
+            	Paragraph tituloReceta = new Paragraph(arrayRecetas.getPosReceta(i).getNombreReceta(), tipoLetraTitulos); 
             	
 
             	//Se crea la tabla con titulo de la receta
@@ -103,8 +106,8 @@ public class CrearPDF {
 	            //String donde se guardaran los ingredientes de cada receta
 	            String todosLosIng = "";
 	            
-	            for (int j = 0 ; j < arrayRecetas.get(i).getIngredientes().length; j++){
-		            String ingrediente = (""+arrayRecetas.get(i).getIngredientes()[j].toString()+"\n");
+	            for (int j = 0 ; j < arrayRecetas.getPosReceta(i).getIngredientes().length; j++){
+		            String ingrediente = (""+arrayRecetas.getPosReceta(i).getIngredientes()[j].toString()+"\n");
 		            todosLosIng = todosLosIng + ingrediente;
 	            }
 	            PdfPCell celdaIngredientes = new PdfPCell(new Phrase(todosLosIng));
@@ -113,8 +116,8 @@ public class CrearPDF {
 	            //String donde se guardaran los utensilios de cada receta
 	            String todosLosUten = "";
 	            
-	            for (int x = 0 ; x < arrayRecetas.get(i).getUtensilios().length; x++){
-	            	String utensilio = (""+arrayRecetas.get(i).getUtensilios()[x].toString()+"\n");
+	            for (int x = 0 ; x < arrayRecetas.getPosReceta(i).getUtensilios().length; x++){
+	            	String utensilio = (""+arrayRecetas.getPosReceta(i).getUtensilios()[x].toString()+"\n");
 	            	todosLosUten = todosLosUten + utensilio;
 	            } 
 	            PdfPCell celdaUtensilios = new PdfPCell(new Phrase(todosLosUten));
@@ -123,8 +126,8 @@ public class CrearPDF {
 	            //String donde se guardaran las categorias de cada receta
 	            String todosLasCat = "";
 	            
-	            for (int y = 0 ; y < arrayRecetas.get(i).getCategorias().length; y++){
-	            	String categoria = (""+arrayRecetas.get(i).getCategorias()[y].toString()+"\n");
+	            for (int y = 0 ; y < arrayRecetas.getPosReceta(i).getCategorias().length; y++){
+	            	String categoria = (""+arrayRecetas.getPosReceta(i).getCategorias()[y].toString()+"\n");
 	            	todosLasCat = todosLasCat + categoria;
 	            } 
 	            PdfPCell celdaCategorias = new PdfPCell(new Phrase(todosLasCat));	
@@ -164,7 +167,7 @@ public class CrearPDF {
 	            
 	            
 	            //Contiene las instrucciones de la receta
-	            Paragraph instrucciones = new Paragraph(arrayRecetas.get(i).getInstrucciones(), tipoLetraNormal); 
+	            Paragraph instrucciones = new Paragraph(arrayRecetas.getPosReceta(i).getInstrucciones(), tipoLetraNormal); 
 	            
 	            //Se crea la tabla que tendrá las instrucciones de la receta
 	            PdfPTable tablaInstrucciones = new PdfPTable(1);
@@ -175,7 +178,7 @@ public class CrearPDF {
 	            
 	            
 	            //Contiene el tiempo estimado que tiene la receta   
-	            Paragraph tiempoEstimado = new Paragraph ("Tiempo Estimado : "+arrayRecetas.get(i).getTiempoEstimadoPreparacion()+" minutos",tipoLetraNormal);
+	            Paragraph tiempoEstimado = new Paragraph ("Tiempo Estimado : "+arrayRecetas.getPosReceta(i).getTiempoEstimadoPreparacion()+" minutos",tipoLetraNormal);
 	            PdfPTable tablaTiempoEstimado = new PdfPTable(1);
 	            PdfPCell celdaTiempoEstimado = new PdfPCell(tiempoEstimado);
 	            tablaTiempoEstimado.addCell(celdaTiempoEstimado);

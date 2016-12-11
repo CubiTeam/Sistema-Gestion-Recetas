@@ -34,8 +34,9 @@ public class Receta
 
 
 
-	public void setListaComentarios(ListaComentarios listaComentarios) {
-		listaComentarios = listaComentarios;
+	public void setListaComentarios(ListaComentarios listaComentarios) 
+	{
+		this.listaComentarios = listaComentarios;
 	}
 
 

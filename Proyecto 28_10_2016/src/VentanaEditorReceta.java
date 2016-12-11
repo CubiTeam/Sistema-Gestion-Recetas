@@ -724,7 +724,7 @@ public class VentanaEditorReceta extends JFrame
 					    	setVisible(false);
 					    	receta.getVentanaPrincipal().mostrarVentana(ventanaAnterior,alumno);
 					    	alumno.getListaRecetas().agregarReceta(receta);					
-					    	ventanaAnterior.actualizar(alumno.getListaRecetas().getArrayRecetas());				    	
+					    	ventanaAnterior.actualizar(alumno.getListaRecetas());				    	
 					    	
 					    	//se guarda la receta en el txt
 					    	try {						
@@ -1413,14 +1413,6 @@ public class VentanaEditorReceta extends JFrame
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	public void soloLetras(KeyEvent letra){		//solo deja escribir letras
 		char c=letra.getKeyChar(); 
 	       
@@ -1429,21 +1421,6 @@ public class VentanaEditorReceta extends JFrame
 	        letra.consume(); 
 	    }
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -1460,6 +1437,9 @@ public class VentanaEditorReceta extends JFrame
 		}
 	}
 	
+	
+	
+	
 	public void soloNumeros(KeyEvent letra) 	//solo deja escribir numeros
 	{ 
 	    char c=letra.getKeyChar();     
@@ -1471,6 +1451,9 @@ public class VentanaEditorReceta extends JFrame
 	 
 	}
 	
+	
+	
+	
 	public String[] casteo(DefaultListModel<String> listaEntrada) //convierte de DefaultListModel a String[]
 	{
 		String[] listaFinal= new String[listaEntrada.getSize()];
@@ -1481,6 +1464,10 @@ public class VentanaEditorReceta extends JFrame
 		}
 		return listaFinal;
 	}
+	
+	
+	
+	
 	public DefaultListModel<String> casteoAlReves(String[] listaEntrada) //convierte de String[] a DefaultListModel
 	{
 		DefaultListModel<String> listaFinal= new DefaultListModel<String>();

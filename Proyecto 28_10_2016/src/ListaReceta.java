@@ -36,7 +36,43 @@ public class ListaReceta
 		
 		
 		
+		
 	
+		
+		//retorna el largo del array
+		public int largo()
+		{
+			return arrayRecetas.size();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//retorna la posicion de la receta en el array
+		public Receta getPosReceta(int i)
+		{
+			if(i<arrayRecetas.size())
+				return arrayRecetas.get(i);
+			
+			return null;
+		}
+		
+		
+		
+		
 		
 		
 		
@@ -68,14 +104,6 @@ public class ListaReceta
 		
 	
 		
-		public ArrayList<Receta> getArrayRecetas() {
-			return arrayRecetas;
-		}
-
-
-
-		
-		
 		
 		
 		
@@ -86,16 +114,6 @@ public class ListaReceta
 
 
 
-		public void setArrayRecetas(ArrayList<Receta> arrayRecetas) {
-			this.arrayRecetas = arrayRecetas;
-		}
-
-
-
-
-
-		
-		
 		
 		
 		

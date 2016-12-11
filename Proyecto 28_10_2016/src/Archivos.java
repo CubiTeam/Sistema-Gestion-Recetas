@@ -52,10 +52,12 @@ public class Archivos
 	public ArrayList <Alumno> cargarArchivoTextoAlumno(ArrayList <Alumno> arrayAlumnos)
 	{
 		File raiz = new File("Universidad Catolica De Gastronomia\\Alumnos");
-		if(raiz.exists() && raiz.list()!=null){
+		if(raiz.exists() && raiz.list()!=null)
+		{
 			String [] carpeta = raiz.list();
 		    arrayAlumnos = new ArrayList <Alumno>();
-			for(int i=0;i<carpeta.length;i++){
+			for(int i=0;i<carpeta.length;i++)
+			{
 				try(FileReader archivoLectura = new FileReader("Universidad Catolica De Gastronomia\\Alumnos\\"+carpeta[i]+"\\DatosAlumno"+carpeta[i]+".txt")){
 					BufferedReader buffer = new BufferedReader(archivoLectura);
 					if(buffer.ready()){
@@ -315,18 +317,21 @@ public class Archivos
 	 *	@param listaComentarios		Contiene los comentarios de la receta recibida.
 	 *	@param pEscrit				Se usa para escribir en el txt los comentarios de la receta. 
 	 * */	
-	public void escribirComentariosTxt(ArrayList<Comentario> listaComentarios,PrintWriter pEscrit)
+	public void escribirComentariosTxt(ListaComentarios listaComentarios,PrintWriter pEscrit)
 	{														
 		if(listaComentarios!=null)
 		{
 			//lee primero la cantidad de elementos de la lista de comentarios
-			pEscrit.println(listaComentarios.size());
-			for(int i=0;i<listaComentarios.size();i++)
+			pEscrit.println(listaComentarios.largo());
+			for(int i=0;i<listaComentarios.largo();i++)
 			{
-				if(listaComentarios.get(i)!=null)
+				if(listaComentarios.getPosComentario(i)!=null)
 				{	
 					//separa cada elemento del comentario por un |
-					pEscrit.println(listaComentarios.get(i).getAutor().getRut()+"|"+listaComentarios.get(i).getTexto()+"|"+listaComentarios.get(i).getNumero());
+					pEscrit.println(listaComentarios.getPosComentario(i).
+							getAutor().getRut()+"|"+listaComentarios.
+							getPosComentario(i).getTexto()+"|"+listaComentarios.
+							getPosComentario(i).getNumero());
 				}
 			}
 		}
@@ -586,7 +591,7 @@ public class Archivos
 		escribirListaTxt(receta.getUtensilios(), pEscrit);
 		escribirListaTxt(receta.getCategorias(), pEscrit);
 		escribirInstrucciones(receta.getInstrucciones(),pEscrit);
-		escribirComentariosTxt(receta.getListaComentarios().getArrayComentarios(),pEscrit);
+		escribirComentariosTxt(receta.getListaComentarios(),pEscrit);
 		
 		pEscrit.close();
 		bEscrit.close();

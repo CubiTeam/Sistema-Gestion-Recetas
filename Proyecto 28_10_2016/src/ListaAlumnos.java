@@ -531,10 +531,10 @@ public class ListaAlumnos extends ListaPersonas implements Arreglo
 		ArrayList<Receta> todasRecetas= new ArrayList<Receta>();
 		for(int i=0;i<arrayAlumnos.size();i++)
 		{
-			for(int j=0;j<arrayAlumnos.get(i).getListaRecetas().getArrayRecetas().size();j++)
+			Alumno alumnoActual = arrayAlumnos.get(i);
+			for(int j=0;j<alumnoActual.getListaRecetas().largo();j++)
 			{
-				if(!arrayAlumnos.get(i).getListaRecetas().getArrayRecetas().isEmpty())
-					todasRecetas.add(arrayAlumnos.get(i).getListaRecetas().getArrayRecetas().get(j));
+				todasRecetas.add(alumnoActual.getListaRecetas().getPosReceta(j));
 			}
 		}
 		return todasRecetas;
